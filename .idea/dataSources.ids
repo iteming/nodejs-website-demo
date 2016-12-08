@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - node_cms@localhost" uuid="ecd7c70d-4cd2-424d-802e-c7a2ad45041f">
+    <database-info product="MySQL" version="5.7.11" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+      <schema id="1" name="node_cms">
+        <visible>1</visible>
+      </schema>
+      <schema id="2" name="baiyigame"/>
+      <schema id="3" name="fixedassets"/>
+      <schema id="4" name="g_cms_db"/>
+      <schema id="5" name="information_schema"/>
+      <schema id="6" name="kbe"/>
+      <schema id="7" name="mysql"/>
+      <schema id="8" name="nodeweixin"/>
+      <schema id="9" name="performance_schema"/>
+      <schema id="10" name="sys"/>
+      <schema id="11" name="wordpress"/>
+      <table id="12" parent="1" name="cms_account"/>
+      <column id="13" parent="12" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="14" parent="12" name="name">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="15" parent="12" name="account">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="16" parent="12" name="password">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="17" parent="12" name="createTime">
+        <data-type>datetime|0</data-type>
+      </column>
+      <key id="18" parent="12" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>
