@@ -3,7 +3,24 @@ extends layout
 block content
     //h1= title
     //p Welcome to #{title}
-    div.class=container
+    p
+        | foo bar baz
+        | rawr rawr
+        | super cool
+        | go jade go
+
+    #user #{name} &lt;#{email}&gt;
+    p \#{something}
+
+    - var html = "<script></script>"
+    | !{html}
+    div.container
         h1 Hello, world!
+        .row
+            .col-xs-3
+                .form-group
+                    label
+                        | Username:
+                    input.form-control(name='user[name]')
 
 link(rel='javascript',href='/js/index.js')
