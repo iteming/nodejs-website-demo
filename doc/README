@@ -1,0 +1,128 @@
+
+用户信息(user)：
+    id
+    username        登录名
+    password        登录密码
+    displayname     显示姓名
+    phone           电话
+    mobile          手机
+    email           邮箱
+    QQ              QQ
+    status          状态(0.禁用,1.启用)
+    createtime      创建日期
+    lastlogintime   最后登录日期
+
+    type            用户类型(管理员,企业,个人)
+    address         地址
+    zipcode         邮编
+    avatar          用户头像
+
+公司信息(company)：
+    id
+    company_name    公司名称(石家庄千甫金属制品有限公司)
+    description     公司介绍
+    address         公司地址(河北省石家庄市晋州市邵庄村)
+    company_type    公司类型(有限责任公司(自然人独资)/生产商/经销商)
+    company_size    公司规模
+    regist_capital  注册资本(100万人民币)
+    regist_date     注册年份(2016年8月)
+    business_model  经营模式
+    business_scope  经营范围(锌锭、铝锭加工销售；氧化锌、铜锭、铅锭、锌矿粉、锌渣销售（依法须经批准的项目，经相关部门批准后方可开展经营活动）。)
+
+联系方式(contact)：
+    id
+    contact_name    联系人
+    contact_phone   电话
+    contact_email   邮箱
+    contact_mobile  手机
+    contact_fax     传真
+    contact_qq      qq
+    location_lng    位置 经度lng param_1
+    location_lat    位置 纬度lat param_2
+
+评论表(comment)：
+    id
+    type            评论类型(1.公司评论,2.产品评论,3.新闻评论)
+    level           评论等级(1-3:1好评，2中评，3差评)
+    comment         评论内容
+    email           评论人邮箱
+    name            评论人名称
+    contact         评论人联系方式
+    createtime      评论时间
+    parentid        回复评论的父级id
+    user_id         回复人id
+    status          状态
+
+公告(notice)：
+    id
+    title           公告标题
+    content         公告内容
+    createtime      公告日期
+    status          状态
+
+新闻中心(news)：
+    id
+    title           新闻标题
+    content         新闻内容
+    createtime      新闻日期
+    status          状态
+    views           浏览次数
+
+产品分类(category)：
+    id
+    name            分类名称
+
+产品信息(product)：
+    id
+    name            名称
+    category_id     分类id
+    model           型号(#0、#1、#2、#3)
+    specification   规格(齐全)
+    brand           品牌
+    price           单价
+    publish_date    发布日期
+    expiry_date     有效期(不填长期有效)
+    detail_info     详细信息
+    views           浏览次数
+
+产品图片(picture)：
+    id
+    key_id          关联id(1.产品id,2.荣誉证书id,3.公司相册id)
+    pic_type        图片类型(1.产品图片,2.荣誉资质,3.公司相册)
+    pic_name        图片名称
+    pic_url_cdn     图片路径cdn路径
+    pic_url_loc     图片路径local路径
+
+
+荣誉证书(honor)：
+    id
+    honor_name      证书名称
+    honor_main_id   证书图片
+    certification   发证机构
+    publish_date    发证日期
+    expiry_date     有效期(不填长期有效)
+    createtime      上传日期
+    views           浏览次数
+
+企业相册(photo)：
+    id
+    photo_name      相册名称
+    photo_main_id   相册主图
+    createtime      创建日期
+    views           浏览次数
+
+友情链接：
+
+人才招聘：
+
+网站信息(website)：
+    siteurl         网站URL
+    title           网站标题
+    description     网站描述
+    logo            网站logo url
+    carousel        轮播图片url
+    icp_num         备案
+    support_name    技术支持name
+    support_url     技术支持url
+    views           浏览次数
+
