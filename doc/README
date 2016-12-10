@@ -4,14 +4,14 @@
     username        登录名
     password        登录密码
     displayname     显示姓名
-    phone           电话
-    mobile          手机
-    email           邮箱
-    QQ              QQ
     status          状态(0.禁用,1.启用)
     createtime      创建日期
     lastlogintime   最后登录日期
 
+    phone           电话
+    mobile          手机
+    email           邮箱
+    QQ              QQ
     type            用户类型(管理员,企业,个人)
     address         地址
     zipcode         邮编
@@ -50,7 +50,7 @@
     contact         评论人联系方式
     createtime      评论时间
     parentid        回复评论的父级id
-    user_id         回复人id
+    userid          回复人id
     status          状态
 
 公告(notice)：
