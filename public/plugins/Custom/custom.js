@@ -26,27 +26,27 @@
                 },
                 error: function () {
                     $(_this).text("发送验证码").removeAttr("disabled");
-                    },
-                    success: function (ret) {
-                        console.log(ret);
-                        if (ret.status > 0) {
-                            var i = 60;
-                            var timer = setInterval(function () {
-                                $(_this).text(--i + "秒后可重试");
-                                if (i === 0) {
-                                    clearInterval(timer);
-                                    $(_this).text("重新获取").removeAttr("disabled");
-                                }
-                            }, 1000);
-                            //记录验证码已发送，可在页面或其他js里使用 validResult["ajaxSendCode"] 来获取该值
-                            //validResult["ajaxSendCode"] = true;
+                },
+                success: function (ret) {
+                    console.log(ret);
+                    if (ret.status > 0) {
+                        var i = 60;
+                        var timer = setInterval(function () {
+                            $(_this).text(--i + "秒后可重试");
+                            if (i === 0) {
+                                clearInterval(timer);
+                                $(_this).text("重新获取").removeAttr("disabled");
+                            }
+                        }, 1000);
+                        //记录验证码已发送，可在页面或其他js里使用 validResult["ajaxSendCode"] 来获取该值
+                        //validResult["ajaxSendCode"] = true;
                     } else {
                         $(_this).text("发送验证码").removeAttr("disabled");
                     }
                 }
             })
         }
-    }
+    };
 
     window.validate = checkObjs;
     window.validResult = validResult;

@@ -98,7 +98,7 @@ CREATE TABLE `news` (
   `content` text DEFAULT NULL,
   `createtime` datetime DEFAULT NULL,
   `status` int(1) DEFAULT 1,
-  `views` int(11) DEFAULT NULL,
+  `views` int(11) DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
@@ -129,7 +129,7 @@ CREATE TABLE `product` (
   `detail_info` text DEFAULT NULL,
   `publish_date` datetime DEFAULT NULL,
   `expiry_date` datetime DEFAULT NULL,
-  `views` int(11) DEFAULT NULL,
+  `views` int(11) DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
@@ -161,7 +161,7 @@ CREATE TABLE `honor` (
   `publish_date` datetime DEFAULT NULL,
   `expiry_date` datetime DEFAULT NULL,
   `createtime` datetime DEFAULT NULL,
-  `views` int(11) DEFAULT NULL,
+  `views` int(11) DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
@@ -175,7 +175,7 @@ CREATE TABLE `photo` (
   `photo_name` varchar(100) DEFAULT NULL,
   `photo_main_id` int(11) DEFAULT NULL,
   `createtime` datetime DEFAULT NULL,
-  `views` int(11) DEFAULT NULL,
+  `views` int(11) DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
@@ -194,6 +194,6 @@ CREATE TABLE `website` (
   `icp_num` varchar(100) DEFAULT NULL,
   `support_name` varchar(100) DEFAULT NULL,
   `support_url` varchar(100) DEFAULT NULL,
-  `views` int(11) DEFAULT NULL,
+  `views` int(11) DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
