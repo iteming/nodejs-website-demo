@@ -1,0 +1,64 @@
+//h1= title
+//p Welcome to #{title}
+p
+    | foo bar baz
+    | rawr rawr
+    | super cool
+    | go jade go
+
+#user #{user.name} &lt;#{email}&gt;
+p \#{something}
+
+- var html = "<script></script>"
+| !{html}
+div.container
+    h1 Hello, world!
+    .row
+        .col-xs-3
+            .form-group
+                label Username:
+                input.form-control(name='user[name]')
+p.
+    foo asdf
+    asdf
+     asdfasdfaf
+     asdf
+    asd.
+
+//- not console
+
+//
+    #content
+        h1 Example
+ul
+    li.first: a(href='#') foo
+    li: a(href='#') bar
+    li.last: a(href='#') baz
+
+-var friends =10
+case friends
+    when 0: p you have no friends
+    when 1: p you have a friend
+    default: p you have #{friends} friends
+
+a(href='/login', title='View login page') Login
+
+div.container
+    .row
+        .span3
+            h3.demo-panel-title Checkboxes
+            lable(something=null).checkbox
+                span.icon
+                span.icon-to-fade
+                -var someValue=true
+                input(type="checkbox", checked=someValue, value=null)
+                lable checkbox's UnChecked
+
+//- 假如我有一个 user 对象 { id: 12, name: 'tobi' }
+//- 我们希望创建一个指向 /user/12 的链接 href, 我们可以使用普通的 JavaScript 字符串连接，如下:
+a(href='/user/' + user.id)= user.name
+br
+a(href='/user/#{user.id}')= user.name
+
+-var divClasses = ['user', 'authenticated']
+div(class=divClasses)
