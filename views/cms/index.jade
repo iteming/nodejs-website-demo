@@ -1,0 +1,8 @@
+extends layouts/layout
+block loadtitle
+    -var title='CMS Index Page'
+
+block cms_content
+    mixin toastr(status, msg)
+    .container
+        h1 我是cms管理系统主页

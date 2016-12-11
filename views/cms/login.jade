@@ -1,0 +1,35 @@
+extends ../layout
+
+block loadtitle
+    -var title='CMS Login Page'
+
+append styles
+    link(rel='stylesheet', href='/styles/login.css')
+
+block content
+    mixin toastr(status, msg)
+    .container: .login: .login-screen
+        .login-icon
+            img(src='/img/login/100_100.png',alt='Welcome to ITEMING Cms')
+            h4 Welcome to
+                small ITEMING
+            h4: small Cms System
+        .login-form
+            form(method='post',action='/cms/login')
+                .form-group
+                    input.form-control.login-field#username(
+                        type='text',
+                        name='username'
+                        placeholder='Enter your username'
+                        value='#{username}')
+                    label.login-field-icon.fui-user(for='username')
+                .form-group
+                    input.form-control.login-field#login-pass(
+                        type='password',
+                        name='password'
+                        placeholder='Password')
+                    label.login-field-icon.fui-lock(for='login-pass')
+                input.btn.btn-primary.btn-lg.btn-block(
+                    type='submit',
+                    value='Log in')
+                a.login-link(href='#') Lost your password?

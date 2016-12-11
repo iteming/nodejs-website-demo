@@ -1,0 +1,22 @@
+mixin toastr(status, msg)
+    if(msg)
+        #toast-container.toast-bottom-right(aria-live='polite',role='alert', style="display:block",
+            onclick='hidden_toast()')
+            if(status == 1)
+                .toast.toast-success: .toast-message= msg
+            else if (status == 2)
+                .toast.toast-error: .toast-message= msg
+            else if (status == 3)
+                .toast.toast-warning: .toast-message= msg
+            else
+                .toast.toast-info: .toast-message= msg
+    else
+        #toast-container.toast-bottom-right(aria-live='polite',role='alert', style="display:none")
+            if(status == 1)
+                .toast.toast-success: .toast-message= msg
+            else if (status == 2)
+                .toast.toast-error: .toast-message= msg
+            else if (status == 3)
+                .toast.toast-warning: .toast-message= msg
+            else
+                .toast.toast-info: .toast-message= msg

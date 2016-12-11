@@ -1,6 +1,3 @@
-/**
- * Created by Administrator on 2016/12/8.
- */
 var express = require('express');
 var router = express.Router();
 require('../core/CommonUtil');
@@ -8,16 +5,32 @@ require('../core/HttpWrapper');
 require('../core/SqlClient');
 require('../model/model');
 
-//url token；目前只支持一个公众号；所以数据库中必须唯一
-router.get('/urltoken', function(req, res, next) {
+router.get('/', function (req, res, next) {
+    res.render('cms/index');
+});
+
+router.get('/login', function (req, res, next) {
+    res.render('cms/login',{username:''});
+});
+
+router.post('/login', function (req, res, next) {
+    console.log(req.body.username);
+    console.log(req.body.password);
+
     var sqlClient = new SqlClient();
-    var account = new Account();
-    sqlClient.query(account,function(result){//查询
-        if(result != null && result.length > 0){
-            account = result[0];//获取唯一一个公众号信息
+    var user = new User();
+
+    sqlClient.query(user, function (result) {
+        if (result != null && result.length > 0) {
+            user = result[0];
+            console.log(user);
+            if(user.password != req.body.password){
+                res.render('cms/login', {status: 2,msg: '密码错误!', username:req.body.username});
+            }
+            res.render('cms/index', {status: 1,msg: '登录成功!', user: user});
         }
-        res.render('wxcms/urltoken', { cur_nav: 'urltoken',account:account});
-    });
+        res.render('cms/login', {status: 3,msg: '帐号不存在!', username:req.body.username});
+    }," where username='"+req.body.username+"' ");
 });
 
 module.exports = router;

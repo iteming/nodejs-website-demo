@@ -11,7 +11,7 @@ SqlClient.prototype={
 	//根据id获取
 	getById : function(obj,callback){
 		pool.getConnection(function(err, connection) {
-			var sql = 'SELECT * FROM '+obj['table_name']+' WHERE ID = '+obj['id'];
+			var sql = 'SELECT * FROM '+obj['tablename']+' WHERE ID = '+obj['id'];
 			console.log('##    sql: '+sql);
 			connection.query(sql, function(err, result) {
 				if(err){
@@ -30,9 +30,12 @@ SqlClient.prototype={
 	},
 	
 	//查询列表
-	query : function(obj,callback){
+	query : function(obj, callback, where){
 		pool.getConnection(function(err, connection) {
-			var sql = 'SELECT * FROM '+obj['table_name'];
+			var sql = 'SELECT * FROM '+obj['tablename'];
+			if(where){
+				sql += where;
+			}
 			console.log('##    sql: '+sql);
 			connection.query(sql, function(err, result) {
 				if(err){
@@ -51,7 +54,7 @@ SqlClient.prototype={
 		var params = [];
 		var paramValues = [];
 		for(var name in obj){
-			if(obj.hasOwnProperty(name) && name != 'table_name'){
+			if(obj.hasOwnProperty(name) && name != 'tablename'){
 				if(name == 'id' && CommonUtil.isStrEmpty(obj[name])){//mysql id 自增处理
 				}else{
 					console.log(obj.hasOwnProperty(name));
@@ -62,7 +65,7 @@ SqlClient.prototype={
 			}
 	    }
 		pool.getConnection(function(err, connection) {
-			var sql = 'INSERT INTO '+obj['table_name']+'('+cols.join(',')+') VALUES('+params+')';
+			var sql = 'INSERT INTO '+obj['tablename']+'('+cols.join(',')+') VALUES('+params+')';
 			console.log('##    sql: '+sql);
 			console.log('## values: '+paramValues);
 			connection.query(sql,paramValues,function (err, result) {
@@ -81,13 +84,13 @@ SqlClient.prototype={
 		var cols = [];
 		var paramValues = [];
 		for(var name in obj){
-			if(obj.hasOwnProperty(name) && name != 'table_name' && name != 'id' && obj[name] != null){
+			if(obj.hasOwnProperty(name) && name != 'tablename' && name != 'id' && obj[name] != null){
 				cols.push(name+"=?");
 				paramValues.push(obj[name]);
 			}
 	    }
 		pool.getConnection(function(err, connection) {
-			var sql = 'UPDATE '+obj['table_name']+' SET '+cols.join(',') + ' WHERE ID = ' + obj['id'];
+			var sql = 'UPDATE '+obj['tablename']+' SET '+cols.join(',') + ' WHERE ID = ' + obj['id'];
 			console.log('##    sql: '+sql);
 			console.log('## values: '+paramValues);
 			connection.query(sql,paramValues,function (err, result) {
@@ -104,7 +107,7 @@ SqlClient.prototype={
 	//删除
 	deleteById : function(obj,callback){
 		pool.getConnection(function(err, connection) {
-			var sql = 'DELETE FROM '+obj['table_name']+' WHERE ID = '+obj['id'];
+			var sql = 'DELETE FROM '+obj['tablename']+' WHERE ID = '+obj['id'];
 			console.log('##    sql: '+sql);
 			connection.query(sql, function(err, result) {
 				if(err){

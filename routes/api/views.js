@@ -1,6 +1,3 @@
-/**
- * Created by Administrator on 2016/12/8.
- */
 var express = require('express');
 var router = express.Router();
 require('../core/HttpWrapper');
