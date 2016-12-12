@@ -1,1 +1,20 @@
-h1 我是头
+.header
+    .logo: img(src='../../img/cms/logo_new.png')
+    .menu_ctl.show_block: img(src='../../img/cms/menu_btn.png')
+    .usr_center.right.wt_dd.show_block
+        .photo: img(src='../../img/cms/default_usr_photo.png')
+        .usr_info.left
+            h4 #{user.displayname}
+        .drop_down(style='dispaly: none;')
+            .photo_box
+                .photo_big: img(src='../../img/cms/default_usr_photo.png')
+                h5 #{user.displayname}
+                //p 最后登录时间: #{user.lastlogintime}
+            .center_part
+                p(style='margin-bottom:0px;'): a(href='#') 用户资料
+                p(style='margin-bottom:0px;'): a(href='#') 登录记录
+            .bottom_part
+                a.btn.btn-large.btn-block.btn-inverse 设置
+                a.btn.btn-large.btn-block.btn-danger(href='/cms/logout') 注销
+    .header_opr.right
+        .opr_single.wt_dd.left.alert.show_block

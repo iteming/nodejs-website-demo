@@ -3,6 +3,16 @@ block loadtitle
     -var title='CMS Index Page'
 
 block cms_content
-    mixin toastr(status, msg)
-    .container
-        h1 我是cms管理系统主页
+    .content_main
+        mixin toastr(status, msg)
+        .container-fluid
+            h1 我是cms管理系统主页
+            .row
+                .span3
+                    h3.demo-panel-title Checkboxes
+                    lable(something=null).checkbox
+                        span.icon
+                        span.icon-to-fade
+                        -var someValue=true
+                        input(type="checkbox", checked=someValue, value=null)
+                        lable checkbox's UnChecked

@@ -4,6 +4,6 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="NodeTest2 node_modules" level="project" />
+    <orderEntry type="library" name="NodeTest node_modules" level="project" />
   </component>
 </module>

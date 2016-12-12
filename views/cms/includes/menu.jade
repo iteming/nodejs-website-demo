@@ -1,1 +1,32 @@
-h1 我是菜单
+.sider_bar: .relative_box
+    .menu_title
+        .icon.left
+        p 菜单/MENU
+    .menu_list(style='top:40px'): .list_outer.content.mcustomscrollbox._mCS_1
+        .mCustomScrollBox.mCS-light#mCSB_1(style="position:relative; height:100%; overflow:hidden; max-width:100%;")
+            .mCSB_container.mCS_no_scrollbar(style="position:relative; top:0;")
+                .menu_single: a(href='#',target='_self'): .menu_parent
+                    .menu_icon: img(src='../img/cms/com_basic.png')
+                    p 企业基本信息
+                .menu_single: a(href='#',target='_self'): .menu_parent
+                    .menu_icon: img(src='../img/cms/com_basic.png')
+                    p 通知公告
+                .menu_single
+                    .menu_parent
+                        .menu_icon: img(src='../img/cms/com_basic.png')
+                        p 企业产品
+                        .arrow_down(style="background-position: 0px 0px;")
+                    ul.sub_menu(style='display: none')
+                        li.sub: a(href='#',target='_self')
+                            .menu_icon: img(src='../img/cms/sub_menu_icon.png')
+                            p 产品列表
+                        li.sub: a(href='#',target='_self')
+                            .menu_icon: img(src='../img/cms/sub_menu_icon.png')
+                            p 产品图片
+            .mCSB_scrollTools(style="position: absolute; display: none;")
+                a.mCSB_buttonUp(oncontextmenu="return false;")
+                .mCSB_draggerContainer
+                    .mCSB_dragger(style="position: absolute; height: 540px; top: 0px;",oncontextmenu="return false;")
+                        .mCSB_dragger_bar(style="position: relative; line-height: 540px;")
+                    .mCSB_draggerRail
+                a.mCSB_buttonDown(oncontextmenu="return false;")

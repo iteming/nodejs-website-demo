@@ -1,7 +1,17 @@
 extends ../../layout
 
+append styles
+    link(rel='stylesheet', href='/styles/cms/frame.css')
+    link(rel='stylesheet', href='/styles/cms/main.css')
+    link(rel='stylesheet', href='/styles/cms/adpat.css')
+    link(rel='stylesheet', href='/styles/cms/jquery.mCustomScrollbar.css')
+
 block content
     include ../includes/header
     include ../includes/menu
     block cms_content
     include ../includes/footer
+
+append scripts
+    script(type='text/javascript',src='/js/cms/frame.js')
+    script(type='text/javascript',src='/js/cms/jquery.mCustomScrollbar.concat.min.js')
