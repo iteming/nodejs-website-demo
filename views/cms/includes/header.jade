@@ -1,5 +1,5 @@
 .header
-    .logo: img(src='#{website.siteurl + "img/cms/logo_new.png"}')
+    .logo: a(href='#{website.siteurl+"cms/index"}'): img(src='#{website.siteurl + "img/cms/logo_new.png"}')
     .menu_ctl.show_block: img(src='#{website.siteurl + "img/cms/menu_btn.png"}')
     .usr_center.right.wt_dd.show_block
         .photo: img(src='#{user.avatar ? website.siteurl + user.avatar : website.siteurl + "img/cms/default_usr_photo.png"}')

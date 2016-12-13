@@ -159,7 +159,7 @@
 
 .header .usr_center .left h4 {
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     line-height: 30px;
     display: block;
@@ -371,8 +371,8 @@
 }
 
 .menu_list .menu_parent {
+    color: #b8c7ce;
     height: 44px;
-    cursor: default;
     overflow: hidden;
 }
 
@@ -394,9 +394,8 @@
 
 .menu_list .menu_icon {
     width: 20px;
-    height: 20px;
     overflow: hidden;
-    margin: 12px;
+    margin: 5px 5px 5px 10px;
     float: left;
 }
 
@@ -405,10 +404,9 @@
 }
 
 .menu_list .menu_parent p {
-    color: #b8c7ce;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
-    line-height: 40px;
+    line-height: 43px;
     float: left;
 }
 
@@ -432,6 +430,7 @@
 
 .menu_list .sub_menu li { /*height:30px;*/
     overflow: hidden;
+    padding-left: 15px;
 }
 
 .menu_list .sub_menu li:hover {
@@ -447,17 +446,17 @@
 }
 
 .menu_list .sub_menu .menu_icon {
+    color: #8aa4af;
     width: 20px;
-    height: 20px;
     overflow: hidden;
-    margin: 5px 12px;
+    margin: 5px 5px 5px 10px;
     float: left;
 }
 
 .menu_list .sub_menu p {
-    color: #8aa4af;
-    font-size: 14px;
-    line-height: 30px;
+    color: #b8c7ce;
+    font-size: 12px;
+    line-height: 40px;
     float: left;
     width: 135px;
     margin-bottom: 0px;
@@ -535,7 +534,7 @@
     left: 200px;
     top: 50px;
     right: 0;
-    bottom: 48px;
+    bottom: 35px;
     background-color: #ecf0f5;
     overflow: hidden;
 }
@@ -545,7 +544,7 @@
     font-size: 14px;
     /*color: #666;*/
     left: 200px;
-    height: 48px;
+    height: 35px;
     right: 0;
     bottom: 0;
     padding: 0 12px;
@@ -555,6 +554,7 @@
 }
 
 .copyright p {
+    font-size: 14px;
     float: left;
     margin: auto !important;
     line-height: 2.5;

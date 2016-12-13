@@ -203,7 +203,7 @@ CREATE TABLE `website` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'iteming', '123456', '系统管理员', '1', '2016-12-12 11:13:23', null, 'img/avatar/avatar-iteming.png');
+INSERT INTO `user` VALUES ('1', 'iteming', '123456', '系统管理员', '1', '2016-12-12 11:13:23', '2016-12-12 11:13:23', 'img/avatar/avatar-iteming.png');
 
 -- ----------------------------
 -- Records of website
