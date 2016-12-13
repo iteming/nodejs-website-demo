@@ -1,128 +1,128 @@
 
-ÓÃ»§ĞÅÏ¢(user)£º
+ç”¨æˆ·ä¿¡æ¯(user)ï¼š
     id
-    username        µÇÂ¼Ãû
-    password        µÇÂ¼ÃÜÂë
-    displayname     ÏÔÊ¾ĞÕÃû
-    status          ×´Ì¬(0.½ûÓÃ,1.ÆôÓÃ)
-    createtime      ´´½¨ÈÕÆÚ
-    lastlogintime   ×îºóµÇÂ¼ÈÕÆÚ
+    username        ç™»å½•å
+    password        ç™»å½•å¯†ç 
+    displayname     æ˜¾ç¤ºå§“å
+    status          çŠ¶æ€(0.ç¦ç”¨,1.å¯ç”¨)
+    createtime      åˆ›å»ºæ—¥æœŸ
+    lastlogintime   æœ€åç™»å½•æ—¥æœŸ
 
-    phone           µç»°
-    mobile          ÊÖ»ú
-    email           ÓÊÏä
+    phone           ç”µè¯
+    mobile          æ‰‹æœº
+    email           é‚®ç®±
     QQ              QQ
-    type            ÓÃ»§ÀàĞÍ(¹ÜÀíÔ±,ÆóÒµ,¸öÈË)
-    address         µØÖ·
-    zipcode         ÓÊ±à
-    avatar          ÓÃ»§Í·Ïñ
+    type            ç”¨æˆ·ç±»å‹(ç®¡ç†å‘˜,ä¼ä¸š,ä¸ªäºº)
+    address         åœ°å€
+    zipcode         é‚®ç¼–
+    avatar          ç”¨æˆ·å¤´åƒ
 
-¹«Ë¾ĞÅÏ¢(company)£º
+å…¬å¸ä¿¡æ¯(company)ï¼š
     id
-    company_name    ¹«Ë¾Ãû³Æ(Ê¯¼Ò×¯Ç§¸¦½ğÊôÖÆÆ·ÓĞÏŞ¹«Ë¾)
-    description     ¹«Ë¾½éÉÜ
-    address         ¹«Ë¾µØÖ·(ºÓ±±Ê¡Ê¯¼Ò×¯ÊĞ½úÖİÊĞÉÛ×¯´å)
-    company_type    ¹«Ë¾ÀàĞÍ(ÓĞÏŞÔğÈÎ¹«Ë¾(×ÔÈ»ÈË¶À×Ê)/Éú²úÉÌ/¾­ÏúÉÌ)
-    company_size    ¹«Ë¾¹æÄ£
-    regist_capital  ×¢²á×Ê±¾(100ÍòÈËÃñ±Ò)
-    regist_date     ×¢²áÄê·İ(2016Äê8ÔÂ)
-    business_model  ¾­ÓªÄ£Ê½
-    business_scope  ¾­Óª·¶Î§(Ğ¿¶§¡¢ÂÁ¶§¼Ó¹¤ÏúÊÛ£»Ñõ»¯Ğ¿¡¢Í­¶§¡¢Ç¦¶§¡¢Ğ¿¿ó·Û¡¢Ğ¿ÔüÏúÊÛ£¨ÒÀ·¨Ğë¾­Åú×¼µÄÏîÄ¿£¬¾­Ïà¹Ø²¿ÃÅÅú×¼ºó·½¿É¿ªÕ¹¾­Óª»î¶¯£©¡£)
+    company_name    å…¬å¸åç§°(çŸ³å®¶åº„åƒç”«é‡‘å±åˆ¶å“æœ‰é™å…¬å¸)
+    description     å…¬å¸ä»‹ç»
+    address         å…¬å¸åœ°å€(æ²³åŒ—çœçŸ³å®¶åº„å¸‚æ™‹å·å¸‚é‚µåº„æ‘)
+    company_type    å…¬å¸ç±»å‹(æœ‰é™è´£ä»»å…¬å¸(è‡ªç„¶äººç‹¬èµ„)/ç”Ÿäº§å•†/ç»é”€å•†)
+    company_size    å…¬å¸è§„æ¨¡
+    regist_capital  æ³¨å†Œèµ„æœ¬(100ä¸‡äººæ°‘å¸)
+    regist_date     æ³¨å†Œå¹´ä»½(2016å¹´8æœˆ)
+    business_model  ç»è¥æ¨¡å¼
+    business_scope  ç»è¥èŒƒå›´(é”Œé”­ã€é“é”­åŠ å·¥é”€å”®ï¼›æ°§åŒ–é”Œã€é“œé”­ã€é“…é”­ã€é”ŒçŸ¿ç²‰ã€é”Œæ¸£é”€å”®ï¼ˆä¾æ³•é¡»ç»æ‰¹å‡†çš„é¡¹ç›®ï¼Œç»ç›¸å…³éƒ¨é—¨æ‰¹å‡†åæ–¹å¯å¼€å±•ç»è¥æ´»åŠ¨ï¼‰ã€‚)
 
-ÁªÏµ·½Ê½(contact)£º
+è”ç³»æ–¹å¼(contact)ï¼š
     id
-    contact_name    ÁªÏµÈË
-    contact_phone   µç»°
-    contact_email   ÓÊÏä
-    contact_mobile  ÊÖ»ú
-    contact_fax     ´«Õæ
+    contact_name    è”ç³»äºº
+    contact_phone   ç”µè¯
+    contact_email   é‚®ç®±
+    contact_mobile  æ‰‹æœº
+    contact_fax     ä¼ çœŸ
     contact_qq      qq
-    location_lng    Î»ÖÃ ¾­¶Èlng param_1
-    location_lat    Î»ÖÃ Î³¶Èlat param_2
+    location_lng    ä½ç½® ç»åº¦lng param_1
+    location_lat    ä½ç½® çº¬åº¦lat param_2
 
-ÆÀÂÛ±í(comment)£º
+è¯„è®ºè¡¨(comment)ï¼š
     id
-    type            ÆÀÂÛÀàĞÍ(1.¹«Ë¾ÆÀÂÛ,2.²úÆ·ÆÀÂÛ,3.ĞÂÎÅÆÀÂÛ)
-    level           ÆÀÂÛµÈ¼¶(1-3:1ºÃÆÀ£¬2ÖĞÆÀ£¬3²îÆÀ)
-    comment         ÆÀÂÛÄÚÈİ
-    email           ÆÀÂÛÈËÓÊÏä
-    name            ÆÀÂÛÈËÃû³Æ
-    contact         ÆÀÂÛÈËÁªÏµ·½Ê½
-    createtime      ÆÀÂÛÊ±¼ä
-    parentid        »Ø¸´ÆÀÂÛµÄ¸¸¼¶id
-    userid          »Ø¸´ÈËid
-    status          ×´Ì¬
+    type            è¯„è®ºç±»å‹(1.å…¬å¸è¯„è®º,2.äº§å“è¯„è®º,3.æ–°é—»è¯„è®º)
+    level           è¯„è®ºç­‰çº§(1-3:1å¥½è¯„ï¼Œ2ä¸­è¯„ï¼Œ3å·®è¯„)
+    comment         è¯„è®ºå†…å®¹
+    email           è¯„è®ºäººé‚®ç®±
+    name            è¯„è®ºäººåç§°
+    contact         è¯„è®ºäººè”ç³»æ–¹å¼
+    createtime      è¯„è®ºæ—¶é—´
+    parentid        å›å¤è¯„è®ºçš„çˆ¶çº§id
+    userid          å›å¤äººid
+    status          çŠ¶æ€
 
-¹«¸æ(notice)£º
+å…¬å‘Š(notice)ï¼š
     id
-    title           ¹«¸æ±êÌâ
-    content         ¹«¸æÄÚÈİ
-    createtime      ¹«¸æÈÕÆÚ
-    status          ×´Ì¬
+    title           å…¬å‘Šæ ‡é¢˜
+    content         å…¬å‘Šå†…å®¹
+    createtime      å…¬å‘Šæ—¥æœŸ
+    status          çŠ¶æ€
 
-ĞÂÎÅÖĞĞÄ(news)£º
+æ–°é—»ä¸­å¿ƒ(news)ï¼š
     id
-    title           ĞÂÎÅ±êÌâ
-    content         ĞÂÎÅÄÚÈİ
-    createtime      ĞÂÎÅÈÕÆÚ
-    status          ×´Ì¬
-    views           ä¯ÀÀ´ÎÊı
+    title           æ–°é—»æ ‡é¢˜
+    content         æ–°é—»å†…å®¹
+    createtime      æ–°é—»æ—¥æœŸ
+    status          çŠ¶æ€
+    views           æµè§ˆæ¬¡æ•°
 
-²úÆ··ÖÀà(category)£º
+äº§å“åˆ†ç±»(category)ï¼š
     id
-    name            ·ÖÀàÃû³Æ
+    name            åˆ†ç±»åç§°
 
-²úÆ·ĞÅÏ¢(product)£º
+äº§å“ä¿¡æ¯(product)ï¼š
     id
-    name            Ãû³Æ
-    category_id     ·ÖÀàid
-    model           ĞÍºÅ(#0¡¢#1¡¢#2¡¢#3)
-    specification   ¹æ¸ñ(ÆëÈ«)
-    brand           Æ·ÅÆ
-    price           µ¥¼Û
-    publish_date    ·¢²¼ÈÕÆÚ
-    expiry_date     ÓĞĞ§ÆÚ(²»Ìî³¤ÆÚÓĞĞ§)
-    detail_info     ÏêÏ¸ĞÅÏ¢
-    views           ä¯ÀÀ´ÎÊı
+    name            åç§°
+    category_id     åˆ†ç±»id
+    model           å‹å·(#0ã€#1ã€#2ã€#3)
+    specification   è§„æ ¼(é½å…¨)
+    brand           å“ç‰Œ
+    price           å•ä»·
+    publish_date    å‘å¸ƒæ—¥æœŸ
+    expiry_date     æœ‰æ•ˆæœŸ(ä¸å¡«é•¿æœŸæœ‰æ•ˆ)
+    detail_info     è¯¦ç»†ä¿¡æ¯
+    views           æµè§ˆæ¬¡æ•°
 
-²úÆ·Í¼Æ¬(picture)£º
+äº§å“å›¾ç‰‡(picture)ï¼š
     id
-    key_id          ¹ØÁªid(1.²úÆ·id,2.ÈÙÓşÖ¤Êéid,3.¹«Ë¾Ïà²áid)
-    pic_type        Í¼Æ¬ÀàĞÍ(1.²úÆ·Í¼Æ¬,2.ÈÙÓş×ÊÖÊ,3.¹«Ë¾Ïà²á)
-    pic_name        Í¼Æ¬Ãû³Æ
-    pic_url_cdn     Í¼Æ¬Â·¾¶cdnÂ·¾¶
-    pic_url_loc     Í¼Æ¬Â·¾¶localÂ·¾¶
+    key_id          å…³è”id(1.äº§å“id,2.è£èª‰è¯ä¹¦id,3.å…¬å¸ç›¸å†Œid)
+    pic_type        å›¾ç‰‡ç±»å‹(1.äº§å“å›¾ç‰‡,2.è£èª‰èµ„è´¨,3.å…¬å¸ç›¸å†Œ)
+    pic_name        å›¾ç‰‡åç§°
+    pic_url_cdn     å›¾ç‰‡è·¯å¾„cdnè·¯å¾„
+    pic_url_loc     å›¾ç‰‡è·¯å¾„localè·¯å¾„
 
 
-ÈÙÓşÖ¤Êé(honor)£º
+è£èª‰è¯ä¹¦(honor)ï¼š
     id
-    honor_name      Ö¤ÊéÃû³Æ
-    honor_main_id   Ö¤ÊéÍ¼Æ¬
-    certification   ·¢Ö¤»ú¹¹
-    publish_date    ·¢Ö¤ÈÕÆÚ
-    expiry_date     ÓĞĞ§ÆÚ(²»Ìî³¤ÆÚÓĞĞ§)
-    createtime      ÉÏ´«ÈÕÆÚ
-    views           ä¯ÀÀ´ÎÊı
+    honor_name      è¯ä¹¦åç§°
+    honor_main_id   è¯ä¹¦å›¾ç‰‡
+    certification   å‘è¯æœºæ„
+    publish_date    å‘è¯æ—¥æœŸ
+    expiry_date     æœ‰æ•ˆæœŸ(ä¸å¡«é•¿æœŸæœ‰æ•ˆ)
+    createtime      ä¸Šä¼ æ—¥æœŸ
+    views           æµè§ˆæ¬¡æ•°
 
-ÆóÒµÏà²á(photo)£º
+ä¼ä¸šç›¸å†Œ(photo)ï¼š
     id
-    photo_name      Ïà²áÃû³Æ
-    photo_main_id   Ïà²áÖ÷Í¼
-    createtime      ´´½¨ÈÕÆÚ
-    views           ä¯ÀÀ´ÎÊı
+    photo_name      ç›¸å†Œåç§°
+    photo_main_id   ç›¸å†Œä¸»å›¾
+    createtime      åˆ›å»ºæ—¥æœŸ
+    views           æµè§ˆæ¬¡æ•°
 
-ÓÑÇéÁ´½Ó£º
+å‹æƒ…é“¾æ¥ï¼š
 
-ÈË²ÅÕĞÆ¸£º
+äººæ‰æ‹›è˜ï¼š
 
-ÍøÕ¾ĞÅÏ¢(website)£º
-    siteurl         ÍøÕ¾URL
-    title           ÍøÕ¾±êÌâ
-    description     ÍøÕ¾ÃèÊö
-    logo            ÍøÕ¾logo url
-    carousel        ÂÖ²¥Í¼Æ¬url
-    icp_num         ±¸°¸
-    support_name    ¼¼ÊõÖ§³Öname
-    support_url     ¼¼ÊõÖ§³Öurl
-    views           ä¯ÀÀ´ÎÊı
+ç½‘ç«™ä¿¡æ¯(website)ï¼š
+    siteurl         ç½‘ç«™URL
+    title           ç½‘ç«™æ ‡é¢˜
+    description     ç½‘ç«™æè¿°
+    logo            ç½‘ç«™logo url
+    carousel        è½®æ’­å›¾ç‰‡url
+    icp_num         å¤‡æ¡ˆ
+    support_name    æŠ€æœ¯æ”¯æŒname
+    support_url     æŠ€æœ¯æ”¯æŒurl
+    views           æµè§ˆæ¬¡æ•°
 

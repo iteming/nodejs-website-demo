@@ -13,6 +13,7 @@ CREATE TABLE `user` (
   `status` int(1) DEFAULT 1,
   `createtime` datetime DEFAULT NULL,
   `lastlogintime` datetime DEFAULT NULL,
+  `avatar` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
@@ -197,3 +198,14 @@ CREATE TABLE `website` (
   `views` int(11) DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
+-- ----------------------------
+-- Records of user
+-- ----------------------------
+INSERT INTO `user` VALUES ('1', 'iteming', '123456', '系统管理员', '1', '2016-12-12 11:13:23', null, 'img/avatar/avatar-iteming.png');
+
+-- ----------------------------
+-- Records of website
+-- ----------------------------
+INSERT INTO `website` VALUES ('1', 'http://127.0.0.1:3000/', '石家庄千甫金属制品有限公司', null, null, null, null, 'iteming', 'www.iteming.wang', '0');

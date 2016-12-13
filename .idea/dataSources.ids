@@ -345,44 +345,47 @@
       <column id="113" parent="22" name="lastlogintime">
         <data-type>datetime|0</data-type>
       </column>
-      <key id="114" parent="22" name="PRIMARY">
+      <column id="114" parent="22" name="avatar">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <key id="115" parent="22" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="115" parent="23" name="id">
+      <column id="116" parent="23" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="116" parent="23" name="siteurl">
+      <column id="117" parent="23" name="siteurl">
         <data-type>varchar(100)|0</data-type>
       </column>
-      <column id="117" parent="23" name="title">
+      <column id="118" parent="23" name="title">
         <data-type>varchar(100)|0</data-type>
       </column>
-      <column id="118" parent="23" name="description">
+      <column id="119" parent="23" name="description">
         <data-type>varchar(100)|0</data-type>
       </column>
-      <column id="119" parent="23" name="logo">
+      <column id="120" parent="23" name="logo">
         <data-type>varchar(100)|0</data-type>
       </column>
-      <column id="120" parent="23" name="carousel">
+      <column id="121" parent="23" name="carousel">
         <data-type>varchar(500)|0</data-type>
       </column>
-      <column id="121" parent="23" name="icp_num">
+      <column id="122" parent="23" name="icp_num">
         <data-type>varchar(100)|0</data-type>
       </column>
-      <column id="122" parent="23" name="support_name">
+      <column id="123" parent="23" name="support_name">
         <data-type>varchar(100)|0</data-type>
       </column>
-      <column id="123" parent="23" name="support_url">
+      <column id="124" parent="23" name="support_url">
         <data-type>varchar(100)|0</data-type>
       </column>
-      <column id="124" parent="23" name="views">
+      <column id="125" parent="23" name="views">
         <data-type>int(11)|0</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <key id="125" parent="23" name="PRIMARY">
+      <key id="126" parent="23" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>

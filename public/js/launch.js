@@ -1,4 +1,7 @@
 $(function () {
+    $(':checkbox').radiocheck();
+    $(':radio').radiocheck();
+
     toastr.options = {
         "closeButton": false,
         "debug": false,
@@ -19,6 +22,15 @@ $(function () {
             $('#toast-container').css('display','none');
         },'3000')
     }
+
+    $(window).load(function(){
+        $(".content").mCustomScrollbar({
+            scrollButtons:{
+                enable:true
+            }
+        });
+    });
+
 });
 
 function hidden_toast() {

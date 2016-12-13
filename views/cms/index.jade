@@ -8,11 +8,41 @@ block cms_content
         .container-fluid
             h1 我是cms管理系统主页
             .row
-                .span3
-                    h3.demo-panel-title Checkboxes
-                    lable(something=null).checkbox
-                        span.icon
+                .col-md-3
+                    h3.demo-panel-title(style='font-size: 24px;font-weight: 700;') Checkboxes
+                    label.checkbox
+                        span.icons
                         span.icon-to-fade
-                        -var someValue=true
-                        input(type="checkbox", checked=someValue, value=null)
+                        -var someValue=false
+                        input(type='checkbox', checked=someValue)
                         lable checkbox's UnChecked
+                    label.checkbox
+                        span.icons
+                        span.icon-to-fade
+                        input(type='checkbox', checked)
+                        lable Checkbox's Checked
+                .col-md-3
+                    h3.demo-panel-title(style='font-size: 24px;font-weight: 700;') Radio Buttons
+                    label.radio
+                        span.icons
+                        span.icon-to-fade
+                        input(type='radio',name='radio1',checked)
+                        lable Radio's Checked
+                    label.radio
+                        span.icons
+                        span.icon-to-fade
+                        input(type='radio',name='radio1')
+                        lable Radio's UnChecked
+            .row
+                .col-md-3
+                    h3.demo-panel-title(style='font-size: 24px;font-weight: 700;') DropDownList
+                    .btn-group.select.select-block
+                        button.btn.btn-inverse.dropdown-toggle.clearfix(data-toggle='dropdown')
+                            span.filter-option.pull-left Large button &nbsp;
+                            span.caret
+                        ul.dropdown-menu.dropdown-menu-inverse(role='menu')
+                            li: a(href='#') Action
+                            li: a(href='#') Another action
+                            li: a(href='#') Something else here
+                            li.divider
+                            li: a(href='#') Separated link

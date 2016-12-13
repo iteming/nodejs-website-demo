@@ -84,13 +84,13 @@ $(function () {
 $(function () {
     $(".menu_ctl").click(function () {
         if ($(".sider_bar").css("left") == "0px") {
-            $(".sider_bar").css("left", "-250px")
+            $(".sider_bar").css("left", "-200px")
             $(".content_main").css("left", "0px")
             $(this).find("img").css("margin-top", "-0px")
         }
         else {
             $(".sider_bar").css("left", "0px")
-            $(".content_main").css("left", "250px");
+            $(".content_main").css("left", "200px");
             $(this).find("img").css("margin-top", "-50px")
         }
     })
