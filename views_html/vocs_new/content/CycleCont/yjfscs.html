@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>核算周期-有机废水产生情况</title>
+
+
+<!--<link href="../css/common.css" type="text/css" rel="stylesheet">-->
+<link href="../../css/list.css" type="text/css" rel="stylesheet">
+<link href="../../css/option.css" type="text/css" rel="stylesheet">
+<link href="../../css/form.css" type="text/css" rel="stylesheet">
+<!--<link href="../css/uploadify.css" type="text/css" rel="stylesheet">-->
+
+<link href="../../css/chips/business/business.css" rel="stylesheet" type="text/css">
+<link href="../../css/chips/business/business05/business0540.css" rel="stylesheet" type="text/css">
+
+<link href="../../css/chips/vocsCycle/Cycle_detail.css" type="text/css" rel="stylesheet">
+<link href="../../css/Pop-ups.css" type="text/css" rel="stylesheet">
+
+<script src="../../js/jquery-1.8.3.min.js"></script>
+<script src="../../js/SystemNoice.js"></script>
+<script src="../../js/Cycle_detail.js"></script>
+
+    
+</head>
+
+
+<body>
+
+<div id="right">
+	<div id="business_copy" class="copy_div" style="display: block;">
+        <div id="business0540_div" ref="8">
+			<div class="check_div"></div>
+
+            <div class="list_div">
+                <div class="list_title">
+                    <h1>有机废水产生情况</h1>
+                    <em class="add_em">+ 添加</em>
+                </div>
+                
+                <div class="view_div">
+                    <div class="downloadword_div">
+                        <a class="downloadword_0540a">下载表单有机废水产生情况</a>
+                    </div>
+
+					<div class="empty_list_div">没有添加任何有机废水产生情况！</div>
+                </div>
+                <!--<div class="business_form_buttons">
+                    <input class="business_form_back" type="button" value="返回">
+                </div>-->
+            </div>
+
+            <div class="add_div" style="display:none;">
+                <div class="form_div">
+                    <a class="return_a"><!--<img src="/VocsAdvance_UN/images/return_r.png"> --></a>
+                    <form method="post" id="addbusiness0540form" onsubmit="javascript:return false;" novalidate="novalidate">
+                        <div class="form_title">
+                            <h1>添加有机废水产生情况</h1>
+                        </div>
+                        <div class="form_content">
+                            <ul>
+								<li class="form_content_li">
+                					<label for="from" class="form_label"> <em class="required_em">*</em>有机废水来源：</label>
+                                    <div class="form_input_div">
+                                        <select id="from" class="form_select" required="">
+                                            <option value="" selected="selected">请选择</option>
+                                            <option value="生产车间">生产车间</option>
+                                            <option value="废气治理设施">废气治理设施</option>
+                                            <option value="卧式固定顶罐">卧式固定顶罐</option>
+                                            <option value="立式固定顶罐">立式固定顶罐</option>
+                                            <option value="内浮顶罐">内浮顶罐</option>
+                                            <option value="外浮顶罐">外浮顶罐</option>
+                                            <option value="其他">其他</option>
+                                        </select>
+                                    </div>
+                                    <div class="form_tip_div" style="display: none;">
+                                        <a class="form_icon icon_info"></a>
+                                        <div class="form_tip tip_info">
+                                            <em class="form_tip_i"></em>请选择有机废水来源。
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="form_content_li">
+                                    <label id="otherfrom_label" for="otherfrom" class="form_label disabled"> <em class="required_em">*</em>其他有机废水来源：</label>
+                                    <div class="form_input_div">
+                                        <input id="otherfrom" class="form_input disabled" from="text" data-max="50" required="" disabled="disabled">
+                                    </div>
+                                    <div class="form_tip_div" style="display: none;">
+                                        <a class="form_icon icon_info"></a>
+                                        <div class="form_tip tip_info">
+                                            <em class="form_tip_i"></em>请填写其他有机废水来源。
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="form_content_li">
+                                    <label id="number_label" for="number" class="form_label"> <em class="required_em">*</em>来源编号：</label>
+                                    <div class="form_input_div">
+                                        <select id="number" class="form_select" required="">
+                                        	<option value="" selected="selected">请选择</option>
+                                        </select>
+                                    </div>
+                                    <div class="form_tip_div" style="display: none;">
+                                        <a class="form_icon icon_info"></a>
+                                        <div class="form_tip tip_info">
+                                            <em class="form_tip_i"></em>请填写来源编号。
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="form_content_li">
+                                    <label for="data" class="form_label"> <em class="required_em">*</em>有机废水产生量：</label>
+                                    <div class="form_input_div">
+                                        <input id="data" class="form_input" type="num" min="0" step="0.000001" required="">
+                                    </div>
+                                    <div class="form_tip_div" style="display: none;">
+                                        <a class="form_icon icon_info"></a>
+                                        <div class="form_tip tip_info">
+                                            <em class="form_tip_i"></em>核算期内企业在生产过程中，有机废水的产生量，计量单位是吨，允许保留6位小数。
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="form_buttons">
+                            <input class="form_submit" type="submit" value="提交">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!------  弹窗背景  -------->
+    <div class="map_bg" style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background-color: #000;filter: alpha(opacity = 30); -moz-opacity: 0.3; opacity: 0.3; z-index: -10; display:none;"></div>
+    
+            
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

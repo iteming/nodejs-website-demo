@@ -1,0 +1,182 @@
+@CHARSET "UTF-8";
+
+#freight_copy .list_table .no_td {
+	width: 50px;
+}
+
+#freight_copy .list_table .conveyance_td {
+	width: 160px;
+}
+
+#freight_copy .list_table .operation_td {
+	width: 160px;
+}
+
+#freight_copy .list_table .mode_td {
+	width: 160px;
+}
+
+#freight_copy .list_table .pressure_td {
+	width: 160px;
+}
+
+#freight_copy .list_table .mol_td {
+	width: 160px;
+}
+
+#freight_copy .list_table .op_td {
+	width: 50px;
+}
+
+#freight_copy .form_buttons {
+	position: absolute;
+	bottom: 20px;
+}
+
+#freight_copy .form_content .form_label {
+	float: left;
+	width: 223px;
+	margin-right: 15px;
+	text-align: right;
+	line-height: 32px;
+	min-height: 22px;
+}
+
+#freight_copy .list_table .pftype_td {
+	width: 200px;
+	position: relative;
+}
+
+#freight_copy .list_table .pfmaterial_td {
+	width: 150x;
+	position: relative;
+}
+
+#freight_copy .list_table .pfprocess_td {
+	width: 250px;
+	position: relative;
+}
+
+#freight_copy .child_select {
+	width: 240px;
+	margin: 0;
+	padding: 4px;
+	height: 32px;
+	line-height: 22px;
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	background: #FFF url(../../../images/input_bg.gif) 0 0 no-repeat;
+	box-shadow: 0 1px 2px #f4f4f4 inset;
+	vertical-align: middle;
+}
+
+#freight_copy .child_select.m {
+	width: 150px;
+	margin: 0;
+	padding: 4px;
+	height: 32px;
+	line-height: 22px;
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	background: #FFF url(../../../images/input_bg.gif) 0 0 no-repeat;
+	box-shadow: 0 1px 2px #f4f4f4 inset;
+	vertical-align: middle;
+}
+
+#freight_copy .child_select.l {
+	width: 260px;
+	margin: 0;
+	padding: 4px;
+	height: 32px;
+	line-height: 22px;
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	background: #FFF url(../../../images/input_bg.gif) 0 0 no-repeat;
+	box-shadow: 0 1px 2px #f4f4f4 inset;
+	vertical-align: middle;
+}
+
+#freight_copy  .form_div {
+	padding-bottom: 80px;
+}
+
+#beltline_copy .add_div .form_div {
+	padding-bottom: 80px;
+}
+
+#freight_copy .table_tip_div.product_tip {
+	width: 225px;
+	line-height: 18px;
+	position: absolute;
+	top: 65px;
+	left: 19px;
+	display: none;
+}
+
+#freight_copy .form_tip_div {
+	float: left;
+	width: 341px;
+	line-height: 23px;
+	position: absolute;
+	right: -82px;
+	display: none;
+}
+
+#freight_copy .list_table.freight_table {
+	width: 3000px;
+}
+
+#freight_copy .freight_table .td {
+	white-space: nowrap;
+}
+
+#freight_copy .lt_div {
+	overflow-x: scroll;
+}
+#freight_copy .pagination {
+    font-size: 80%;
+    float: left;
+    left: 50%;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 10px;
+}
+
+
+.form_title.pf2{
+    /*border-bottom: 5px solid #66b1d8;
+    margin-top: 30px;
+    padding-left: 40px;*/
+    padding-bottom: 10px;
+    position: relative;
+    height: 18px;
+    overflow: hidden;
+    margin-bottom: 19px;
+	
+	padding-left: 20px;	
+    margin-top: 20px;
+    border-bottom: 3px solid #00c0ef;
+}
+
+.form_title.gs1{
+    /*border-bottom: 5px solid #66b1d8;
+    padding-left: 40px;
+    margin-top: 30px;*/
+    padding-bottom: 10px;
+    position: relative;
+    height: 18px;
+    overflow: hidden;
+    margin-bottom: 19px;
+	padding-left: 20px;	
+    margin-top: 20px;
+    border-bottom: 3px solid #00c0ef;
+}
+
+.form_content .form_content_lik {
+	margin-bottom: 20px;
+	height: 100px;
+	position: relative;
+}

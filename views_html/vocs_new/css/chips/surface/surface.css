@@ -1,0 +1,77 @@
+@CHARSET "UTF-8";
+
+#surface_copy .list_table .no_td {
+	width: 50px;
+}
+
+#surface_copy .list_table .name_td {
+	width: 100px;
+}
+
+#surface_copy .list_table .spec_td {
+	width: 100px;
+}
+
+#surface_copy .list_table .materialname_td {
+	width: 100px;
+}
+
+#surface_copy .list_table .type_td {
+	width: 100px;
+}
+
+#surface_copy .list_table .position_td {
+	width: 120px;
+}
+
+#surface_copy .list_table .closed_td {
+	width: 100px;
+}
+
+#surface_copy .list_table .suanfa_td {
+	width: 140px;
+}
+
+#surface_copy .list_table .op_td {
+	width: 50px;
+}
+
+
+.form_content .form_label.sf
+{
+		width: 300px;
+}
+
+.form_content .form_label.sf2
+{
+		width: 200px;
+}
+
+ .sf2_2
+{
+		width: 260px;
+}
+
+ .form_tip_div.ns{
+    float: left;
+    width: 341px;
+    line-height: 18px;
+    position: absolute;
+    right: -235px;
+    
+}
+
+
+.form_content .form_select#control{
+    width: 264px;
+    margin: 0;
+    padding: 4px;
+    height: 32px;
+    line-height: 22px;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+  
+    box-shadow: 0 1px 2px #f4f4f4 inset;
+    vertical-align: middle;
+}

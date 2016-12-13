@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>核算周期-火炬排放信息（基于热值的排放系数法）</title>
+
+
+<!--<link href="../css/common.css" type="text/css" rel="stylesheet">-->
+<link href="../../css/list.css" type="text/css" rel="stylesheet">
+<link href="../../css/option.css" type="text/css" rel="stylesheet">
+<link href="../../css/form.css" type="text/css" rel="stylesheet">
+<!--<link href="../css/uploadify.css" type="text/css" rel="stylesheet">-->
+
+<link href="../../css/chips/business/business.css" rel="stylesheet" type="text/css">
+<link href="../../css/chips/business/business10/business1020.css" rel="stylesheet" type="text/css">
+
+<link href="../../css/chips/vocsCycle/Cycle_detail.css" type="text/css" rel="stylesheet">
+<link href="../../css/Pop-ups.css" type="text/css" rel="stylesheet">
+
+<script src="../../js/jquery-1.8.3.min.js"></script>
+<script src="../../js/SystemNoice.js"></script>
+<script src="../../js/Cycle_detail.js"></script>
+    
+</head>
+
+
+<body>
+
+<div id="right">
+	<div id="business_copy" class="copy_div" style="display: block;">
+        <div id="business1020_div" ref="8">
+	<div class="check_div"></div>
+
+	<div class="list_div">
+		<div class="list_title">
+			<h1>火炬排放信息（基于热值的排放系数法）</h1>
+			<em class="add_em">+ 添加</em>
+		</div>
+		<div class="view_div">
+	<div class="empty_list_div">没有添加任何火炬排放信息（基于热值的排放系数法）！</div>
+
+<div class="downloadword_div">
+		<a class="downloadword_1020">下载表单</a> 
+	</div> </div>
+		<!--<div class="business_form_buttons">
+			<input class="business_form_back" type="button" value="返回">
+		</div>-->
+		<!-- <div class ="downloadword_div">
+		<a class ="downloadword_1020a">下载吸附剂处理信息</a>
+		</div> -->
+	</div>
+
+	<div class="add_div" style="display:none;">
+    	<div class="form_div">
+	<a class="return_a"><!--<img src="/VocsAdvance_UN/images/return_r.png"> --></a>
+	<form method="post" id="addbusiness1020form" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>火炬排放信息（基于热值的排放系数法）</h1>
+		</div>
+		<div class="form_content">
+			<ul>
+				<!-- <li class="form_content_li"><label id="parameter_label"
+					for="parameter" class="form_label"> <em class="required_em">*</em>
+						年测量次数或火炬每次工作时的测量次数（次/年）:
+				</label>
+					<div class="form_input_div">
+						<input id="measuresum" class="child_input" type="num" min="0"
+							required />
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写参数名称。
+						</div>
+					</div></li> -->
+
+
+
+				<!-- <li class="form_content_li"><label id="parameter_label"
+					for="parameter" class="form_label"> <em class="required_em">*</em>参数名称：
+				</label>
+					<div class="form_input_div">
+						<input id="parameter" class="form_input" type="text" data-max="50"
+							required />
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写参数名称。
+						</div>
+					</div></li> -->
+
+				<li class="form_content_li"><label id="measurenum_label" for="measurenum" class="form_label"> <em class="required_em">*</em>年测量次数或火炬每次工作时的测量次数：
+				</label>
+					<div class="form_input_div">
+						<input id="measurenum" class="form_input" type="num" data-max="50" required>
+					</div>
+					<div class="form_tip_div" style="display: none;">
+						<a class="form_icon icon_info"></a>
+						<div class="form_tip tip_info">
+							<em class="form_tip_i"></em>请填写 年测量次数或火炬每次工作时的测量次数。
+						</div>
+					</div></li>
+
+			</ul>
+		</div>
+		<div class="form_buttons">
+			<input class="form_submit" type="submit" value="提交">
+		</div>
+	</form>
+	<form method="post" id="addbusiness1021form" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>测量情况</h1>
+		</div>
+		<table class="list_table">
+			<thead>
+				<tr>
+					<td class="no_td child2">NO.</td>
+					<td class="time_td">测量次数</td>
+					<td class="qn_td">火炬气的体积流量</td>
+					<td class="tn_td">火炬的工作时间</td>
+					<td class="lhv_td">火炬气的低热值</td>
+					<td class="status_td">测量时火炬工况</td>
+					<td class="op_td child2">操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="add_tr">
+					<td class="no_td child2"></td>
+					<td class="time_td"><input id="time" class="child_input" type="num" min="0" required>
+						<div class="table_tip_div  business1021_tip" style="display: none;">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>第几次测量。
+							</div>
+						</div></td>
+					<td class="qn_td"><input id="qn" class="child_input" type="num" min="0" required>
+						<div class="table_tip_div  business1021_tip" style="display: none;">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>单位为（立方米/小时）
+							</div>
+						</div></td>
+					<td class="tn_td"><input id="tn" class="child_input" type="num" min="0" required>
+						<div class="table_tip_div  business1021_tip" style="display: none;">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>单位为（小时）
+							</div>
+						</div></td>
+					<td class="lhv_td"><input id="lhv" class="child_input" type="num" min="0" required>
+						<div class="table_tip_div  business1021_tip" style="display: none;">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>单位为（焦耳/立方米）
+							</div>
+						</div></td>
+					<td class="status_td"><input type="radio" name="radio" id="#1#" value="#1#" checked="">正常 <input type="radio" name="radio" id="#2#" value="#2#">停用或故障</td>
+					<td class="op_td child2"><input class="child_add_a" type="submit" value="添加"></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</div>
+    </div>
+    
+      
+<!------  弹窗背景  -------->
+    <div class="map_bg" style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background-color: #000;filter: alpha(opacity = 30); -moz-opacity: 0.3; opacity: 0.3; z-index: -10; display:none;"></div>
+    
+    
+</div>
+    </div>
+</div>
+
+</body>
+</html>

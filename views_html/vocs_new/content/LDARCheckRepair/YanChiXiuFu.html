@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>元件信息</title>
+		<link href="../../css/list.css" type="text/css" rel="stylesheet">
+		<link href="../../css/option.css" type="text/css" rel="stylesheet">
+		<link href="../../css/form.css" type="text/css" rel="stylesheet">
+		<link href="../../css/Pop-ups.css" type="text/css" rel="stylesheet">
+		<link href="../../css/chips/LDARCheckRepair/instrumentinfo.css" rel="stylesheet" type="text/css">
+		<script src="../../js/jquery-1.8.3.min.js"></script>
+		<script src="../../js/SystemNoice.js"></script>
+	</head>
+	<body>
+		<div id="right">
+	<div id="workplan_copy" class="copy_div" style="display: block;">
+    
+    	
+    <div class="check_div" style="display: none;">
+        <div class="form_div">
+            <a class="return_a"><!--<img src="../images/return.png"> --></a>
+        
+            <form method="post" id="modifypaintform" onsubmit="javascript:return false;" ref="6" novalidate>
+                <div class="form_title">
+                    <h1>元件信息</h1>
+                </div>
+                <div class="form_content">
+                    <ul>
+                       <li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>装置名称：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required value="装置名称">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入装置名称
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>元件编号： 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50" value="元件编号">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>元件编号
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>检测日期：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required value="2016-11-1">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>检测日期
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>净检测值：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="text" data-max="10" required value="净检测值">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>净检测值
+                                    </div>
+                                </div>
+                            </li>
+                        
+                        	<li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>检测人员： 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50" value="检测人员">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>检测人员
+                                    </div>
+                                </div></li>
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>第一次修复日期：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required value="2016-11-2">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>第一次修复日期
+                                    </div>
+                                </div>
+                            </li>
+                            	<li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>第一次修复后浓度： 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50" value="第一次修复后浓度">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>第一次修复后浓度
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>第一次修复方法：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required value="第一次修复方法">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>第一次修复方法
+                                    </div>
+                                </div>
+                            </li>
+                      
+                            	
+                            	<li class="form_content_li">
+	                            	<label for="ename" class="form_label">
+	                            	 	<em class="required_em">*</em>第一次维修人员： 
+	                           		 </label>
+	                                <div class="form_input_div">
+	                                    <input id="ename" type="text"  class="form_input" value="第一次维修人员">
+	                                </div>
+	                                <div class="form_tip_div">
+	                                    <a class="form_icon"></a>
+	                                    <div class="form_tip">
+	                                        <em class="form_tip_i"></em>第一次维修人员	
+	                                    </div>
+	                                </div>
+                            	</li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>第二次修复日期：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit"  type="text"  class="form_input" value="2016-11-3">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>第二次修复日期
+                                    </div>
+                                </div>
+                            </li>
+                    
+                            	
+                            	<li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>第二次修复后浓度： 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50" value="第二次修复后浓度">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>第二次修复后浓度
+                                    </div>
+                                </div>
+                            	</li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>第二次修复方法：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" type="text"  class="form_input" value="第二次修复方法">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>第二次修复方法
+                                    </div>
+                                </div>
+                            </li>
+           
+                            	
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>第二次维修人员： 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50" value="第二次维修人员">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>第二次维修人员
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>延期修复时长：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required value="延期修复时长">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>延期修复时长
+                                    </div>
+                                </div>
+                            </li>
+                              <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>计划最近停车时间：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required value="5">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>计划最近停车时间
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            
+                              <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>申请延期修复的理由：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required value="申请延期修复的理由">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>申请延期修复的理由
+                                    </div>
+                                </div>
+                            </li>
+                            
+                              <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>第二次修复图：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" type="file" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>第二次修复图
+                                    </div>
+                                </div>
+                            </li>
+                            
+                              <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>泄漏源修复措施 (照片)：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" type="file" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>泄漏源修复措施 (照片)
+                                    </div>
+                                </div>
+                            </li>
+                    </ul>
+                </div>
+                <div class="form_buttons">
+                    <input class="form_submit" type="submit" value="保存">
+                </div>
+            </form>
+        
+        </div>
+    </div>
+    
+        
+        <div class="list_div" style="display: block;">
+            <div class="list_title">
+                <h1>延迟修复信息</h1>
+                <em class="add_em">+ 添加</em>
+            </div>
+            <div class="view_div" >
+                <table class="list_table workplan_table" total="2" page="1">
+                <thead>
+                    <tr>
+                        <td class="no_td">NO.</td>
+                        <td class="iremark_td">装置名称</td>
+                        <td class="iremark_td">元件编号</td>
+                        <td class="iremark_td">检测日期</td>
+                        <td class="iremark_td">净检测值</td>
+                        <td class="iremark_td">检测人员</td>
+                        <td class="iremark_td">第一次修复日期</td>
+                        <td class="iremark_td">第一次修复后浓度</td>
+                        <td class="iremark_td">第一次修复方法</td>
+                        <td class="iremark_td">第一次维修人员</td>
+                        <td class="iremark_td">第二次修复日期</td>
+                        <td class="iremark_td">第二次修复后浓度</td>
+                        <td class="iremark_td">第二次修复方法</td>
+                        <td class="iremark_td">第二次维修人员</td>
+                        <td class="iremark_td">延期修复时长</td>
+                        <td class="iremark_td">计划最近停车时间</td>
+                        <td class="iremark_td">申请延期修复的理由</td>
+                        <!--<td class="iremark_td">第二次修复图</td>
+                        <td class="iremark_td">泄漏源修复措施 (照片)</td>-->
+                        <td class="op_td">操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr ref="7" class="list_tr ">
+                        	<td class="no_td">1</td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="装置名称">test</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="装置代码">XXX-10-12</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="自定义代码">2016/10/02</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="备注">300</em></td>
+                            
+                            <td class="iremark_td"><em class="ellipsis_em" title="检测人员">NO</em></td>
+                            
+                            <td class="iremark_td"><em class="ellipsis_em" title="第一次修复日期">2013/12/12</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="第一次修复后浓度">300</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="第一次修复方法">180</em></td>
+                            
+                            <td class="iremark_td"><em class="ellipsis_em" title="第一次维修人员">工艺流程图</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="第二次修复日期">厂区位置图</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="第二次修复后浓度">生产工艺</em></td>
+                            
+                            <td class="iremark_td"><em class="ellipsis_em" title="第二次修复方法">平面布局图</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="第二次维修人员">2014/12/12</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="延期修复时长">120</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="计划最近停车时间"></em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="申请延期修复的理由"></em></td>
+                            <!--<td class="iremark_td"><em class="ellipsis_em" title="第二次修复图">第二次修复图</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="泄漏源修复措施">泄漏源修复措施</em></td>-->
+                            
+                            <td class="op_td">
+                            	<a class="del_a">修改</a> 
+                            	<a class="del_a">删除</a> 
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+        
+            </div>
+            <div class="page_div"></div>
+        </div>
+
+        <div class="add_div" style="display: none; z-index:200;">
+            <div class="form_div">
+                <a class="return_a"><!--<img src="../images/return_r.png"> --></a>
+                <form method="post" id="addordinarymaterialform" onsubmit="javascript:return false;" novalidate>
+                    <div class="form_title">
+                        <h1>添加延迟修复信息</h1>
+                    </div>
+                    <div class="form_content">
+
+                        <ul>
+                            <li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>装置名称：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入装置名称
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>元件编号： 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>元件编号
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>检测日期：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>检测日期
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>净检测值：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="text" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>净检测值
+                                    </div>
+                                </div>
+                            </li>
+                        
+                        	<li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>检测人员： 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>检测人员
+                                    </div>
+                                </div></li>
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>第一次修复日期：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>第一次修复日期
+                                    </div>
+                                </div>
+                            </li>
+                            	<li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>第一次修复后浓度： 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>第一次修复后浓度
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>第一次修复方法：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>第一次修复方法
+                                    </div>
+                                </div>
+                            </li>
+                      
+                            	
+                            	<li class="form_content_li">
+	                            	<label for="ename" class="form_label">
+	                            	 	<em class="required_em">*</em>第一次维修人员	： 
+	                           		 </label>
+	                                <div class="form_input_div">
+	                                    <input id="ename" type="text"  class="form_input">
+	                                </div>
+	                                <div class="form_tip_div">
+	                                    <a class="form_icon"></a>
+	                                    <div class="form_tip">
+	                                        <em class="form_tip_i"></em>第一次维修人员	
+	                                    </div>
+	                                </div>
+                            	</li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>第二次修复日期：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit"  type="text"  class="form_input">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>第二次修复日期
+                                    </div>
+                                </div>
+                            </li>
+                    
+                            	
+                            	<li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>第二次修复后浓度： 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>第二次修复后浓度
+                                    </div>
+                                </div>
+                            	</li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>第二次修复方法：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" type="text"  class="form_input">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>第二次修复方法
+                                    </div>
+                                </div>
+                            </li>
+           
+                            	
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>第二次维修人员： 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>第二次维修人员
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>延期修复时长：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>延期修复时长
+                                    </div>
+                                </div>
+                            </li>
+                              <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>计划最近停车时间：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>计划最近停车时间
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            
+                              <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>申请延期修复的理由：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>申请延期修复的理由
+                                    </div>
+                                </div>
+                            </li>
+                            
+                              <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>第二次修复图：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" type="file" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>第二次修复图
+                                    </div>
+                                </div>
+                            </li>
+                            
+                              <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>泄漏源修复措施 (照片)：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" type="file" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>泄漏源修复措施 (照片)
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="form_buttons">
+                        <input class="form_submit" type="submit" value="提交">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!------  弹窗背景  -------->
+        <div class="map_bg" style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background-color: #000;filter: alpha(opacity = 30); -moz-opacity: 0.3; opacity: 0.3; z-index: -10; display:none;"></div>
+        
+	</div>
+</div>
+
+	</body>
+</html>

@@ -1,0 +1,410 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>工序信息-工序情况</title>
+
+
+<!--<link href="../css/common.css" type="text/css" rel="stylesheet">-->
+<link href="../css/list.css" type="text/css" rel="stylesheet">
+<link href="../css/option.css" type="text/css" rel="stylesheet">
+<link href="../css/form.css" type="text/css" rel="stylesheet">
+
+<link href="../css/chips/technology/technology.css" rel="stylesheet" type="text/css">
+<link href="../css/Pop-ups.css" type="text/css" rel="stylesheet">
+
+<script src="../js/jquery-1.8.3.min.js"></script>
+<script src="../js/SystemNoice.js"></script>
+
+</head>
+
+
+<body>
+
+<div id="right"><div id="technology_copy" class="copy_div">
+
+<div class="check_div" style="display:none;">
+	<div class="form_div">
+	<a class="return_a"><!--<img src="../images/return.png"> --></a>	
+	
+		<form method="post" id="modifytechnologyform" onsubmit="javascript:return false;" ref="2" novalidate>
+			<div class="form_title">
+				<h1>添加工序</h1>
+			</div>
+			<div class="form_content">
+				<ul>
+					<li class="form_content_li"><label for="number" class="form_label"> <em class="required_em">*</em>工序编号：
+					</label>
+						<div class="form_input_div">
+							<input id="number" class="form_input" type="text" data-max="50" required value="1001">
+							<!-- ByXWK:乐观锁 -->
+							<input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 15:16:56 CST 2016">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>指企业赋予生产线上生产工序的的编号，编号不能重复。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="name" class="form_label"> <em class="required_em">*</em>工序名称：
+					</label>
+						<div class="form_input_div">
+							<input id="name" class="form_input" type="text" data-max="100" required value="生成汽油">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>指企业赋予该工序的名称。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="closed" class="form_label"> <em class="required_em">*</em>密闭情况：
+					</label>
+						<div class="form_input_div">
+							<select id="closed" class="form_select" required>
+								<option value="" selected="selected">请选择</option>
+								<option value="开敞" selected="selected">
+									开敞</option>
+								<option value="半封闭">
+									半封闭</option>
+								<option value="密闭">
+									密闭</option>
+							</select>
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>指该工序生产过程是开敞、半封闭或者密闭的情况。 <br>
+								开敞：指工序运行时产生的废气直接排放到空气中。 <br>
+								半封闭：指工序运行时产生的废气通过集气罩等排风设备进入后续设施，不逸散到车间空气中。 <br>
+								密闭：指工序运行时产生的废气直接通过管道进入后续设施，不逸散到车间空气中。
+
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="function" class="form_label"> <em class="required_em">*</em>工序方法名称：
+					</label>
+						<div class="form_input_div">
+							<input id="function" class="form_input" type="text" data-max="100" required value="方法1">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>指该条生产线所使用的工序方法名称，如乙烯氯化法生产聚氯乙烯。
+							</div>
+						</div></li>
+					
+				</ul>
+			</div>
+			<div class="form_buttons">
+				<input class="form_submit" type="submit" value="提交">
+			</div>
+		</form>
+		<form method="post" id="modifyequipmentform" onsubmit="javascript:return false;" novalidate>
+			<div class="form_title">
+				<h1>设备</h1>
+			</div>
+			<table class="list_table">
+				<thead>
+					<tr>
+						<td class="no_td child">NO.</td>
+						<td class="equipmentname_td">设备名称</td>
+						<td class="equipmentcount_td">设备数量</td>
+						<td class="equipmentstate_td">设备状态</td>
+						<td class="equipmentmode_td">操作方式</td>
+						<td class="equipmentusetime_td">投入使用时间</td>
+						<td class="equipmentfeedin_td">进料方式</td>
+						<td class="equipmentfeedout_td">出料方式</td>
+						<td class="op_td child">操作</td>
+					</tr>
+				</thead>
+				<tbody>
+					
+						<tr class="child_list_tr " ref="2">
+							<td class="no_td child">
+								1</td>
+							<td class="equipmentname_td">设备名称1</td>
+							<td class="equipmentcount_td">5</td>
+							<td class="equipmentstate_td">敞开式</td>
+							<td class="equipmentmode_td">机械化</td>
+							<td class="equipmentusetime_td">2016-09-09</td>
+							<td class="equipmentfeedin_td">仍工</td>
+							<td class="equipmentfeedout_td">仍工你</td>
+							<td class="op_td child"><a class="child_del_a">删除</a></td>
+						</tr>
+					
+					<tr class="add_tr">
+						<td class="no_td child2"></td>
+						<td class="equipmentname_td"><input id="equipmentname" class="child_input" type="text" required>
+							<div class="table_tip_div">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>在该工序中使用到的设备的名称。
+								</div>
+							</div></td>
+						<td class="equipmentcount_td"><input id="equipmentcount" class="child_input" type="num" min="0" step="1" required>
+							<div class="table_tip_div">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>同一种设备在该工序中所使用的数量。
+								</div>
+							</div></td>
+						<td class="equipmentstate_td"><select id="equipmentstate" class="child_select" required>
+								<option value="" selected="selected">请选择</option>
+								<option value="敞开式">敞开式</option>
+								<option value="半封闭">半封闭</option>
+								<option value="全密闭">全密闭</option>
+						</select>
+							<div class="table_tip_div">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>指设备所处空间状态，包括全密闭、半封闭、敞开式。 <br>
+									敞开式：指设备运行时产生的废气直接排放到空气中。 <br>
+									半封闭：指设备运行时产生的废气通过集气罩等排风设备进入后续设施，不逸散到车间空气中。 <br>
+									全密闭：指设备运行时产生的废气直接通过管道进入后续设施，不逸散到车间空气中。
+
+								</div>
+							</div></td>
+						<td class="equipmentmode_td"><input id="equipmentmode" class="child_input" type="text" required>
+							<div class="table_tip_div">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>包括自动化、机械化、手工操作等。
+								</div>
+							</div></td>
+						<td class="equipmentusetime_td"><input id="equipmentusetime" class="child_input hasDatepicker" type="text" required readonly>
+						</td>
+						<td class="equipmentfeedin_td"><input id="equipmentfeedin" class="child_input" type="text" required>
+							<div class="table_tip_div">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>物料进入该设备的方式，包括人工进料、管道进料、传送带及其他（填写具体进料方式）。
+								</div>
+							</div></td>
+						<td class="equipmentfeedout_td"><input id="equipmentfeedout" class="child_input" type="text" required>
+							<div class="table_tip_div">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>物料离开该设备的方式，包括人工出料、管道出料、传送带及其他（填写具体出料方式）。
+								</div>
+							</div></td>
+						<td class="op_td child2"><input class="child_add_a" type="submit" value="添加"></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	
+</div>
+</div>
+
+<div class="list_div">
+	<div class="list_title">
+		<h1>工序列表</h1>
+		<em class="add_em">+ 添加</em>
+	</div>
+	<div class="view_div">
+
+
+
+
+
+
+	<table class="list_table technology_table" total="1" page="1">
+		<thead>
+			<tr>
+				<td class="no_td">NO.</td>
+				<td class="number_td">工序编号</td>
+				<td class="name_td">工序名称</td>
+				<td class="closed_td">密闭情况</td>
+				<td class="function_td">工序方法名称</td>
+				<td class="op_td">操作</td>
+			</tr>
+		</thead>
+		<tbody>
+			
+				<tr ref="2" class="list_tr ">
+					<td class="no_td">
+						1</td>
+					<td class="number_td"><em class="ellipsis_em" title="1001">1001</em></td>
+					<td class="name_td"><em class="ellipsis_em" title="生成汽油">生成汽油</em></td>
+					<td class="closed_td"><em class="ellipsis_em" title="开敞">开敞</em></td>
+					<td class="function_td"><em class="ellipsis_em" title="方法1">方法1</em></td>
+					<td class="op_td"><a class="del_a">删除</a> <!-- ByXWK:乐观锁 --> <input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 15:16:56 CST 2016"></td>
+				</tr>
+			
+		</tbody>
+	</table>
+
+</div>
+	<div class="page_div"></div>
+</div>
+
+<div class="add_div" style="display:none;">
+	<div class="form_div">
+	<a class="return_a"><!--<img src="../images/return_r.png"> --></a>
+	<form method="post" id="addtechnologyform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>添加工序</h1>
+		</div>
+		<div class="form_content">
+			<ul>
+				<li class="form_content_li"><label for="number" class="form_label"> <em class="required_em">*</em>工序编号：
+				</label>
+					<div class="form_input_div">
+						<input id="number" class="form_input" type="text" data-max="50" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指企业赋予生产线上生产工序的的编号，编号不能重复。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="name" class="form_label"> <em class="required_em">*</em>工序名称：
+				</label>
+					<div class="form_input_div">
+						<input id="name" class="form_input" type="text" data-max="100" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指企业赋予该工序的名称。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="closed" class="form_label"> <em class="required_em">*</em>密闭情况：
+				</label>
+					<div class="form_input_div">
+						<select id="closed" class="form_select" required>
+							<option value="" selected="selected">请选择</option>
+							<option value="开敞">开敞</option>
+							<option value="半封闭">半封闭</option>
+							<option value="密闭">密闭</option>
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指该工序生产过程是开敞、半封闭或者密闭的情况。 <br>
+							开敞：指工序运行时产生的废气直接排放到空气中。 <br>
+							半封闭：指工序运行时产生的废气通过集气罩等排风设备进入后续设施，不逸散到车间空气中。 <br>
+							密闭：指工序运行时产生的废气直接通过管道进入后续设施，不逸散到车间空气中。
+
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="function" class="form_label"> <em class="required_em">*</em>工序方法名称：
+				</label>
+					<div class="form_input_div">
+						<input id="function" class="form_input" type="text" data-max="100" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指该条生产线所使用的工序方法名称，如乙烯氯化法生产聚氯乙烯。
+						</div>
+					</div></li>
+				<!-- <li class="form_content_li attachment_li" ref="attachment_li">
+					<label for="file_upload_technology_add" class="form_label">
+						<em class="required_em">*</em>工序照片：
+				</label>
+					<div class="form_input_div">
+						<input type="button" id="file_upload_technology_add"
+							class="file_upload_input" queue="file_queue_technology_add"
+							value="选择图片" />
+						<div id="file_queue_technology_add"></div>
+					</div>
+					<div class="attachment_view_div">
+						<a id="attachment_a" target="_blank"></a>
+					</div>
+				</li> -->
+
+			</ul>
+		</div>
+		<div class="form_buttons">
+			<input class="form_submit" type="submit" value="提交">
+		</div>
+	</form>
+	<form method="post" id="addequipmentform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>设备</h1>
+		</div>
+		<table class="list_table">
+			<thead>
+				<tr>
+					<td class="no_td child">NO.</td>
+					<td class="equipmentname_td">设备名称</td>
+					<td class="equipmentcount_td">设备数量</td>
+					<td class="equipmentstate_td">设备状态</td>
+					<td class="equipmentmode_td">操作方式</td>
+					<td class="equipmentusetime_td">投入使用时间</td>
+					<td class="equipmentfeedin_td">进料方式</td>
+					<td class="equipmentfeedout_td">出料方式</td>
+					<td class="op_td child">操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="add_tr">
+					<td class="no_td child2"></td>
+					<td class="equipmentname_td"><input id="equipmentname" class="child_input" type="text" required>
+						<div class="table_tip_div">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>在该工序中使用到的设备的名称。
+							</div>
+						</div></td>
+					<td class="equipmentcount_td"><input id="equipmentcount" class="child_input" type="num" min="0" step="1" required>
+						<div class="table_tip_div">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>同一种设备在该工序中所使用的数量。
+							</div>
+						</div></td>
+					<td class="equipmentstate_td"><select id="equipmentstate" class="child_select" required>
+							<option value="" selected="selected">请选择</option>
+							<option value="敞开式">敞开式</option>
+							<option value="半封闭">半封闭</option>
+							<option value="全密闭">全密闭</option>
+					</select>
+						<div class="table_tip_div">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>指设备所处空间状态，包括全密闭、半封闭、敞开式。 <br>
+								敞开式：指设备运行时产生的废气直接排放到空气中。 <br>
+								半封闭：指设备运行时产生的废气通过集气罩等排风设备进入后续设施，不逸散到车间空气中。 <br>
+								全密闭：指设备运行时产生的废气直接通过管道进入后续设施，不逸散到车间空气中。
+
+							</div>
+						</div></td>
+					<td class="equipmentmode_td"><input id="equipmentmode" class="child_input" type="text" required>
+						<div class="table_tip_div">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>包括自动化、机械化、手工操作等。
+							</div>
+						</div></td>
+					<td class="equipmentusetime_td"><input id="equipmentusetime" class="child_input hasDatepicker" type="text" required readonly></td>
+					<td class="equipmentfeedin_td"><input id="equipmentfeedin" class="child_input" type="text" required>
+						<div class="table_tip_div">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>物料进入该设备的方式，包括人工进料、管道进料、传送带及其他（填写具体进料方式）。
+							</div>
+						</div></td>
+					<td class="equipmentfeedout_td"><input id="equipmentfeedout" class="child_input" type="text" required>
+						<div class="table_tip_div">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>物料离开该设备的方式，包括人工出料、管道出料、传送带及其他（填写具体出料方式）。
+							</div>
+						</div></td>
+					<td class="op_td child2"><input class="child_add_a" type="submit" value="添加"></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</div>
+</div>
+
+    <!------  弹窗背景  -------->
+    <div class="map_bg" style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background-color: #000;filter: alpha(opacity = 30); -moz-opacity: 0.3; opacity: 0.3; z-index: -10; display:none;"></div>
+    
+</div></div>
+
+</body>
+</html>

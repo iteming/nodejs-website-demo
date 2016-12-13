@@ -1,0 +1,524 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOCs综合管控平台</title>
+
+<link href="../css/frame.css" rel="stylesheet" type="text/css">
+<!--<link href="../css/adpat.css" rel="stylesheet" type="text/css">-->
+<link href="../css/main.css" rel="stylesheet" type="text/css">
+<link href="../css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
+<link href="../css/chips/vocsCycle/VOCs_Cycle.css" type="text/css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="sider_bar">
+    <div class="relative_box">
+        
+        <div class="menu_title">
+            <div class="icon left"></div>
+            <p>核算期菜单</p>
+        </div>
+        
+        <div class="menu_list" style="top:36px;">
+        	<div class="list_outer content">
+                <div class="menu_single">                    
+                    <div class="menu_parent cur">                        
+                        <div class="indi"></div>
+                        <div class="menu_icon"><img src="../images/list_icon_01.png"></div>
+                        <a href="CycleCont/ybyfcl.html" target="CycleCont"><p>一般原辅材料信息</p></a>
+                    </div>
+                                            
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                        	<img src="../images/list_icon_01.png">
+                        </div>
+                        <p>有机原辅材料信息</p>
+                        <div class="arrow_down"></div>
+                    </div>
+                    
+                    <ul class="sub_menu">
+                        <li class="sub_li_menu">
+                            <a href="CycleCont/yjyfl_tuliao.html" target="CycleCont">
+                                <div class="menu_icon">
+                                    <img src="../images/sub_menu_icon1.png">
+                                </div>
+                                <p>涂料类</p>
+                            </a>
+                        </li>
+                        <li class="sub_li_menu">
+                            <a href="CycleCont/yjyfl_jnj&ym.html" target="CycleCont">
+                                <div class="menu_icon">
+                                    <img src="../images/sub_menu_icon1.png">
+                                </div>
+                                <p>胶黏剂 & 油墨</p>
+                            </a>
+                        </li>
+                        <li class="sub_li_menu">
+                            <a href="CycleCont/yjyfl_yjrj.html" target="CycleCont">
+                                <div class="menu_icon">
+                                    <img src="../images/sub_menu_icon1.png">
+                                </div>
+                                <p>有机溶剂</p>
+                            </a>
+                        </li>
+                        <li class="sub_li_menu">
+                            <a href="CycleCont/yjyfl_other.html" target="CycleCont">
+                                <div class="menu_icon">
+                                    <img src="../images/sub_menu_icon1.png">
+                                </div>
+                                <p>其他</p>
+                            </a>
+                        </li>
+                    </ul> 
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                            <img src="../images/list_icon_01.png">
+                        </div>
+                        <a href="CycleCont/productinfo.html" target="CycleCont"><p>产品信息</p></a>
+                    </div>
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                            <img src="../images/list_icon_01.png">
+                        </div>
+                        <a href="CycleCont/shengcgy.html" target="CycleCont"><p>生产工艺</p></a>
+                    </div>
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                            <img src="../images/list_icon_01.png">
+                        </div>
+                        <a href="CycleCont/producthome.html" target="CycleCont"><p>生产车间信息</p></a>
+                    </div>
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                            <img src="../images/list_icon_01.png">
+                        </div>
+                        <p>生产线信息</p>
+                        <div class="arrow_down"></div>
+                    </div>
+                                       
+                    <ul class="sub_menu">                    	
+                        <li class="sub_li_menu">
+                            <a href="CycleCont/proline_cp&cw.html" target="CycleCont">
+                                <div class="menu_icon">
+                                    <img src="../images/sub_menu_icon1.png">
+                                </div>
+                                <p>产品& 产物</p>
+                            </a>
+                        </li> 
+                        <li class="sub_li_menu">
+                            <a href="CycleCont/proline_ybyfcl.html" target="CycleCont">
+                                <div class="menu_icon">
+                                    <img src="../images/sub_menu_icon1.png">
+                                </div>
+                                <p>一般原辅材料</p>
+                            </a>
+                        </li>  
+                        <li class="sub_li_menu">
+                            <a href="CycleCont/proline_yjyfcl.html" target="CycleCont">
+                                <div class="menu_icon">
+                                    <img src="../images/sub_menu_icon1.png">
+                                </div>
+                                <p>有机原辅材料</p>
+                            </a>
+                        </li>  
+                        <li class="sub_li_menu">
+                            <a href="CycleCont/proline_gx.html" target="CycleCont">
+                                <div class="menu_icon">
+                                    <img src="../images/sub_menu_icon1.png">
+                                </div>
+                                <p>工序</p>
+                            </a>
+                        </li>   
+                        <li class="sub_li_menu">
+                            <a href="CycleCont/proline_gtlist.html" target="CycleCont">
+                                <div class="menu_icon">
+                                    <img src="../images/sub_menu_icon1.png">
+                                </div>
+                                <p>固体废物产生量</p>
+                            </a>
+                        </li>   
+                        <li class="sub_li_menu">
+                            <a href="CycleCont/proline_hslist.html" target="CycleCont">
+                                <div class="menu_icon">
+                                    <img src="../images/sub_menu_icon1.png">
+                                </div>
+                                <p>回收物料量</p>
+                            </a>
+                        </li>     
+                    </ul>
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                            <img src="../images/list_icon_01.png">
+                        </div>
+                        <p>储罐</p>
+                        <div class="arrow_down"></div>
+                    </div>
+                                       
+                    <ul class="sub_menu">                    	
+                        <li class="sub_li_menu">
+                            <a href="CycleCont/wsgdg.html" target="CycleCont">
+                                <div class="menu_icon">
+                                    <img src="../images/sub_menu_icon1.png">
+                                </div>
+                                <p>卧式固定顶罐信息</p>
+                            </a>
+                        </li> 
+                        <li class="sub_li_menu">
+                            <a href="CycleCont/lsgdg.html" target="CycleCont">
+                                <div class="menu_icon">
+                                    <img src="../images/sub_menu_icon1.png">
+                                </div>
+                                <p>立式固定顶罐信息</p>
+                            </a>
+                        </li>   
+                        <li class="sub_li_menu">
+                            <a href="CycleCont/nfdg.html" target="CycleCont">
+                                <div class="menu_icon">
+                                    <img src="../images/sub_menu_icon1.png">
+                                </div>
+                                <p>内浮顶罐信息</p>
+                            </a>
+                        </li>  
+                        <li class="sub_li_menu">
+                            <a href="CycleCont/wfdg.html" target="CycleCont">
+                                <div class="menu_icon">
+                                    <img src="../images/sub_menu_icon1.png">
+                                </div>
+                                <p>外浮顶罐信息</p>
+                            </a>
+                        </li>    
+                    </ul>
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                            <img src="../images/list_icon_01.png">
+                        </div>
+                        <a href="CycleCont/cccd.html" target="CycleCont"><p>贮存场地信息</p></a>
+                    </div>
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                            <img src="../images/list_icon_01.png">
+                        </div>
+                        <a href="CycleCont/zzcz.html" target="CycleCont"><p>装载操作</p></a>
+                    </div>
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                            <img src="../images/list_icon_01.png">
+                        </div>
+                        <a href="CycleCont/lqtsystem.html" target="CycleCont"><p>冷却塔、循环水冷却系统信息</p></a>
+                    </div>
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                            <img src="../images/list_icon_01.png">
+                        </div>
+                        <a href="CycleCont/yjfscs.html" target="CycleCont"><p>有机废水产生情况</p></a>
+                    </div>
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                            <img src="../images/list_icon_01.png">
+                        </div>
+                        <p>有机废水处理信息</p>
+                        <div class="arrow_down"></div>
+                    </div>
+                                       
+                    <ul class="sub_menu">                    	
+                        <li class="sub_li_menu">
+                            <a href="CycleCont/yjfscl_weituo.html" target="CycleCont">
+                                <div class="menu_icon">
+                                    <img src="../images/sub_menu_icon1.png">
+                                </div>
+                                <p>委托外单位处理</p>
+                            </a>
+                        </li> 
+                        <li class="sub_li_menu">
+                            <a href="CycleCont/yjfscl_zixing.html" target="CycleCont">
+                                <div class="menu_icon">
+                                    <img src="../images/sub_menu_icon1.png">
+                                </div>
+                                <p>自行处理</p>
+                            </a>
+                        </li>  
+                    </ul>
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                            <img src="../images/list_icon_01.png">
+                        </div>
+                        <a href="CycleCont/yjfscs$pf_zixing.html" target="CycleCont"><p>有机废水产生、排放（自行处理）</p></a>
+                    </div>
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                            <img src="../images/list_icon_01.png">
+                        </div>
+                         <a href="CycleCont/fqzlss.html" target="CycleCont"><p>废气治理设施信息</p></a>
+                    </div>
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                            <img src="../images/list_icon_01.png">
+                        </div>
+                        <a href="CycleCont/fqpfk.html" target="CycleCont"><p>废气排放口信息</p></a>
+                    </div>
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                            <img src="../images/list_icon_01.png">
+                        </div>
+                        <a href="CycleCont/fqpfk_ssf.html" target="CycleCont"><p>废气排放口实际监测情况（实测法）</p></a>
+                    </div>
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                            <img src="../images/list_icon_01.png">
+                        </div>
+                        <a href="CycleCont/sgpf.html" target="CycleCont"><p>事故排放</p></a>
+                    </div>
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                            <img src="../images/list_icon_01.png">
+                        </div>
+                        <a href="CycleCont/fzcgk.html" target="CycleCont"><p>非正常工况（含开停工及维修）</p></a>
+                    </div>
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                            <img src="../images/list_icon_01.png">
+                        </div>
+                        <p>燃烧烟气排放</p>
+                        <div class="arrow_down"></div>
+                    </div>
+                                       
+                    <ul class="sub_menu">                    	
+                        <li class="sub_li_menu">
+                            <a href="CycleCont/rsyqpf_ssf.html" target="CycleCont">
+                                <div class="menu_icon">
+                                    <img src="../images/sub_menu_icon1.png">
+                                </div>
+                                <p>实测法</p>
+                            </a>
+                        </li> 
+                        <li class="sub_li_menu">
+                            <a href="CycleCont/rsyqpf_pff.html" target="CycleCont">
+                                <div class="menu_icon">
+                                    <img src="../images/sub_menu_icon1.png">
+                                </div>
+                                <p>排放系数法</p>
+                            </a>
+                        </li>  
+                    </ul>
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                            <img src="../images/list_icon_01.png">
+                        </div>
+                        <p>火炬排放信息</p>
+                        <div class="arrow_down"></div>
+                    </div>
+                                       
+                    <ul class="sub_menu">                    	
+                        <li class="sub_li_menu">
+                            <a href="CycleCont/hjpf_hjwlhs.html" target="CycleCont">
+                                <div class="menu_icon">
+                                    <img src="../images/sub_menu_icon1.png">
+                                </div>
+                                <p>基于火炬的物料衡算</p>
+                            </a>
+                        </li> 
+                        <li class="sub_li_menu">
+                            <a href="CycleCont/hjpf_rzpff.html" target="CycleCont">
+                                <div class="menu_icon">
+                                    <img src="../images/sub_menu_icon1.png">
+                                </div>
+                                <p>基于热值的排放系数法</p>
+                            </a>
+                        </li>  
+                        <li class="sub_li_menu">
+                            <a href="CycleCont/hjpf_zzwlhs.html" target="CycleCont">
+                                <div class="menu_icon">
+                                    <img src="../images/sub_menu_icon1.png">
+                                </div>
+                                <p>基于装置的物料衡算</p>
+                            </a>
+                        </li>  
+                    </ul>
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                            <img src="../images/list_icon_01.png">
+                        </div>
+                        <a href="CycleCont/pfgywork.html" target="CycleCont"><p>排放工艺环节工作规律</p></a>
+                    </div>
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                            <img src="../images/list_icon_01.png">
+                        </div>
+                        <a href="CycleCont/xfjcl.html" target="CycleCont"><p>吸附剂处理情况</p></a>
+                    </div>
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                            <img src="../images/list_icon_01.png">
+                        </div>
+                        <a href="CycleCont/gtfw.html" target="CycleCont"><p>固体废物信息</p></a>
+                    </div>
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                            <img src="../images/list_icon_01.png">
+                        </div>
+                        <a href="CycleCont/yjrjhuishou.html" target="CycleCont"><p>有机溶剂回收情况</p></a>
+                    </div>
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                            <img src="../images/list_icon_01.png">
+                        </div>
+                        <a href="CycleCont/gylc&wlph-pic.html" target="CycleCont"><p>工艺流程图& 物料平衡图</p></a>
+                    </div>
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                           <img src="../images/list_icon_01.png">
+                        </div>
+                        <a href="CycleCont/total-hs.html" target="CycleCont"><p>总量核算情况</p></a>
+                    </div>
+                </div>
+                
+                <div class="menu_single">
+                    <div class="menu_parent">
+                        <div class="indi"></div>
+                        <div class="menu_icon">
+                            <img src="../images/list_icon_01.png">
+                        </div>
+                        <a href="CycleCont/yj&jy.html" target="CycleCont"><p>意见和建议</p></a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>    
+</div><!--sider_bar_end-->
+
+ 
+<div class="content_main">
+	<iframe name="CycleCont" width=100% height=100% src="CycleCont/ybyfcl.html" frameborder=no></iframe>
+</div><!--content_end-->
+
+
+</body>
+
+<script src="../js/jquery-1.8.3.min.js"></script>
+<script src="../js/jquery.color.js"></script>
+<script src="../js/frame.js"></script>
+<script src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+<script>
+	(function($){
+		$(window).load(function(){
+			$(".content").mCustomScrollbar({
+				scrollButtons:{
+					enable:true
+				},
+				advanced:{
+					updateOnContentResize:true
+				}
+			});
+		});
+		
+<!--		$('.public').html(main_frame);-->
+	})(jQuery);
+</script>
+</html>

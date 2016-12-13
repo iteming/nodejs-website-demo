@@ -1,0 +1,182 @@
+@CHARSET "UTF-8";
+
+#technology_copy .list_table .no_td {
+	width: 50px;
+}
+
+#technology_copy .list_table .no_td.child {
+	width: 100px;
+	position: relative;
+}
+
+#technology_copy .list_table .number_td {
+	width: 200px;
+}
+
+#technology_copy .list_table .name_td {
+	width: 200px;
+}
+
+#technology_copy .list_table .closed_td {
+	width: 200px;
+}
+
+#technology_copy .list_table .function_td {
+	width: 200px;
+}
+
+#technology_copy .list_table .equipmentname_td {
+	width: 100px;
+	position: relative;
+}
+
+#technology_copy .list_table .equipmentcount_td {
+	width: 100px;
+	position: relative;
+}
+
+#technology_copy .list_table .equipmentstate_td {
+	width: 100px;
+	position: relative;
+}
+
+#technology_copy .list_table .equipmentmode_td {
+	width: 100px;
+	position: relative;
+}
+
+#technology_copy .list_table .equipmentusetime_td {
+	width: 100px;
+	position: relative;
+}
+
+#technology_copy .list_table .equipmentfeedin_td {
+	width: 100px;
+	position: relative;
+}
+
+#technology_copy .list_table .equipmentfeedout_td {
+	width: 100px;
+	position: relative;
+}
+
+#technology_copy .list_table .op_td {
+	width: 50px;
+}
+
+#technology_copy .list_table .op_td.child {
+	width: 100px;
+}
+
+#technology_copy .child_input {
+	width: 80px;
+	margin: 0;
+	padding: 4px;
+	height: 22px;
+	line-height: 22px;
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	background: #FFF url(../../../images/input_bg.gif) 0 0 no-repeat;
+	box-shadow: 0 1px 2px #f4f4f4 inset;
+	vertical-align: middle;
+}
+
+#technology_copy .child_select {
+	width: 80px;
+	margin: 0;
+	padding: 4px;
+	height: 32px;
+	line-height: 22px;
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	background: #FFF url(../../../images/input_bg.gif) 0 0 no-repeat;
+	box-shadow: 0 1px 2px #f4f4f4 inset;
+	vertical-align: middle;
+}
+
+#addtechnologyform .form_buttons {
+	position: absolute;
+	bottom: 20px;
+}
+
+#technology_copy .add_div .form_div {
+	padding-bottom: 80px;
+}
+
+#modifytechnologyform .form_buttons {
+	position: absolute;
+	bottom: 20px;
+}
+
+#technology_copy .check_div .form_div {
+	padding-bottom: 80px;
+}
+
+#technology_copy .table_tip_div {
+	width: 225px;
+	line-height: 18px;
+	position: absolute;
+	top: 65px;
+	left: -1px;
+	display: none;
+}
+
+#technology_copy .table_tip {
+	position: relative;
+	width: 225px;
+	z-index: 5;
+	margin-left: 6px;
+	border: solid 1px #0066cc;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	background: #f5faff;
+	color: #0066cc;
+	padding: 7px 12px 5px 12px;
+	font-size: 12px;
+	text-align: left;
+}
+
+#technology_copy .table_tip_i {
+	position: absolute;
+	top: -4px;
+	left: 12px;
+	background: url("../../../images/up_arrow_ico.png") no-repeat;
+	width: 8px;
+	height: 4px;
+	font-size: 4px;
+	display: block;
+}
+
+#technology_copy .form_content .form_content_li.attachment_li {
+	margin-bottom: 20px;
+	position: relative;
+	overflow: hidden;
+	height: auto;
+}
+
+#technology_copy #file_upload_technology_add {
+	margin-top: 7px;
+}
+
+#technology_copy .attachment_view_div {
+	float: left;
+	margin-left: 155px;
+	margin-top: 12px;
+	width: 650px;
+}
+
+#technology_copy .technology_attachment {
+	height: 30px;
+	line-height: 30px;
+}
+
+#technology_copy .attachment_del_a {
+	margin-left: 20px;
+	color: #999;
+}
+
+#technology_copy .attachment_del_a:hover {
+	color: #dd1778;
+}

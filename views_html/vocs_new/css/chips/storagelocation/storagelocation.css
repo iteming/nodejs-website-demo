@@ -1,0 +1,134 @@
+@CHARSET "UTF-8";
+
+#storagelocation_copy .list_table .no_td {
+	width: 50px;
+}
+
+#storagelocation_copy .list_table .number_td {
+	width: 200px;
+}
+
+#storagelocation_copy .list_table .locationname_td {
+	width: 200px;
+}
+
+#storagelocation_copy .list_table .areacover_td {
+	width: 200px;
+}
+
+#storagelocation_copy .list_table .closed_td {
+	width: 200px;
+}
+
+#storagelocation_copy .list_table .op_td {
+	width: 50px;
+}
+
+#storagelocation_copy .list_table .no_td.child {
+	width: 100px;
+}
+
+#storagelocation_copy .list_table .devicename_td {
+	width: 100px;
+	position: relative;
+}
+
+#storagelocation_copy .list_table .packing_td {
+	width: 100px;
+	position: relative;
+}
+
+#storagelocation_copy .list_table	.volume_td {
+	width: 100px;
+	position: relative;
+}
+
+#storagelocation_copy .list_table .count_td {
+	width: 100px;
+	position: relative;
+}
+
+#storagelocation_copy .list_table	.maximum_td {
+	width: 100px;
+	position: relative;
+}
+
+#storagelocation_copy .list_table .materialname_td {
+	width: 100px;
+	position: relative;
+}
+
+#storagelocation_copy .list_table .op_td.child {
+	width: 100px;
+}
+
+#storagelocation_copy .child_input {
+	width: 80px;
+	margin: 0;
+	padding: 4px;
+	height: 22px;
+	line-height: 22px;
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	background: #FFF url(../../../images/input_bg.gif) 0 0 no-repeat;
+	box-shadow: 0 1px 2px #f4f4f4 inset;
+	vertical-align: middle;
+}
+
+#addstoragelocationform .form_buttons {
+	position: absolute;
+	bottom: 20px;
+}
+
+#storagelocation_copy .add_div .form_div {
+	padding-bottom: 80px;
+}
+
+#modifystoragelocationform .form_buttons {
+	position: absolute;
+	bottom: 20px;
+}
+
+#storagelocation_copy .check_div .form_div {
+	padding-bottom: 80px;
+}
+
+#storagelocation_copy .table_tip_div {
+	width: 200px;
+	line-height: 18px;
+	position: absolute;
+	top: 65px;
+	left: 0px;
+	display: none;
+}
+
+#storagelocation_copy .table_tip {
+	position: relative;
+	width: 200px;
+	z-index: 5;
+	margin-left: 6px;
+	border: solid 1px #0066cc;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	background: #f5faff;
+	color: #0066cc;
+	padding: 7px 12px 5px 12px;
+	font-size: 12px;
+	text-align: left;
+}
+
+
+#storagelocation_copy  .devicenumber_td {
+    position: relative;
+}
+#storagelocation_copy .table_tip_i {
+	position: absolute;
+	top: -4px;
+	left: 12px;
+	background: url("../../../images/up_arrow_ico.png") no-repeat;
+	width: 8px;
+	height: 4px;
+	font-size: 4px;
+	display: block;
+}

@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>核算周期-排放工艺环节工作规律</title>
+
+
+<!--<link href="../css/common.css" type="text/css" rel="stylesheet">-->
+<link href="../../css/list.css" type="text/css" rel="stylesheet">
+<link href="../../css/option.css" type="text/css" rel="stylesheet">
+<link href="../../css/form.css" type="text/css" rel="stylesheet">
+<!--<link href="../css/uploadify.css" type="text/css" rel="stylesheet">-->
+
+<link href="../../css/chips/business/business.css" rel="stylesheet" type="text/css">
+<link href="../../css/chips/business/business06/business0630.css" rel="stylesheet" type="text/css">
+
+<link href="../../css/chips/vocsCycle/Cycle_detail.css" type="text/css" rel="stylesheet">
+<!--<link href="../../css/Pop-ups.css" type="text/css" rel="stylesheet">-->
+
+<script src="../../js/jquery-1.8.3.min.js"></script>
+<script src="../../js/SystemNoice.js"></script>
+<!--<script src="../../js/Cycle_detail.js"></script>-->
+    
+</head>
+
+
+<body>
+
+<div id="right">
+	<div id="business_copy" class="copy_div" style="display: block;">
+        <div class="business_div list_div" ref="8">
+	<div class="list_title">
+		<h1>排放工艺环节工作规律</h1>
+	</div>
+	<form method="post" id="business0630form" onsubmit="javascript:return false;" novalidate="novalidate">
+		<div class="form_content">
+			<ul>
+				<li class="form_content_li"><label for="type" class="form_label"> <em class="required_em">*</em>常规工作规律：
+				</label>
+					<div class="form_input_div">
+						<select id="type" class="form_select" required="">
+							<option value="">请选择</option>
+							<option value="稳定连续">
+								稳定连续</option>
+							<option value="周期性连续">
+								周期性连续</option>
+							<option value="不规律连续">
+								不规律连续</option>
+							<option value="有规律间断">
+								有规律间断</option>
+							<option value="不规律间断">
+								不规律间断</option>
+						</select>
+					</div>
+					<div class="form_tip_div" style="display: none;">
+						<a class="form_icon icon_info"></a>
+						<div class="form_tip tip_info">
+							<em class="form_tip_i"></em>请选择企业在核算期内平均的工作连续情况。
+						</div>
+					</div></li>
+				<li class="form_content_li no_tip"><label for="month" class="form_label"> <em class="required_em">*</em>工作月份：
+				</label>
+					<div class="form_input_div">
+						<textarea id="month" class="form_textarea" readonly="readonly" required=""></textarea>
+
+						<table class="checkboxtable monthtable">
+							<tbody>
+								<tr>
+									<td><input id="month1" class="table_check month_check" type="checkbox" value="#1月">
+										<label for="month1" class="table_check_em"> 1月 </label></td>
+									<td><input id="month2" class="table_check month_check" type="checkbox" value="#2月">
+										<label for="month2" class="table_check_em"> 2月 </label></td>
+									<td><input id="month3" class="table_check month_check" type="checkbox" value="#3月">
+										<label for="month3" class="table_check_em"> 3月 </label></td>
+									<td><input id="month4" class="table_check month_check" type="checkbox" value="#4月">
+										<label for="month4" class="table_check_em"> 4月 </label></td>
+									<td><input id="month5" class="table_check month_check" type="checkbox" value="#5月">
+										<label for="month5" class="table_check_em"> 5月 </label></td>
+									<td><input id="month6" class="table_check month_check" type="checkbox" value="#6月">
+										<label for="month6" class="table_check_em"> 6月 </label></td>
+								</tr>
+								<tr>
+									<td><input id="month7" class="table_check month_check" type="checkbox" value="#7月">
+										<label for="month7" class="table_check_em"> 7月 </label></td>
+									<td><input id="month8" class="table_check month_check" type="checkbox" value="#8月">
+										<label for="month8" class="table_check_em"> 8月 </label></td>
+									<td><input id="month9" class="table_check month_check" type="checkbox" value="#9月">
+										<label for="month9" class="table_check_em"> 9月 </label></td>
+									<td><input id="month10" class="table_check month_check" type="checkbox" value="#10月">
+										<label for="month10" class="table_check_em"> 10月 </label></td>
+									<td><input id="month11" class="table_check month_check" type="checkbox" value="#11月">
+										<label for="month11" class="table_check_em"> 11月 </label></td>
+									<td><input id="month12" class="table_check month_check" type="checkbox" value="#12月">
+										<label for="month12" class="table_check_em"> 12月 </label></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选择调查企业核算期内工作的月份。
+						</div>
+					</div></li>
+				<li class="form_content_li no_tip"><label for="day" class="form_label"> <em class="required_em">*</em>工作日：
+				</label>
+					<div class="form_input_div">
+						<textarea id="day" class="form_textarea" readonly="readonly" required=""></textarea>
+
+						<table class="checkboxtable daytable">
+							<tbody>
+								<tr>
+									<td><input id="day1" class="table_check day_check" type="checkbox" value="#周一">
+										<label for="day1" class="table_check_em"> 周一 </label></td>
+									<td><input id="day2" class="table_check day_check" type="checkbox" value="#周二">
+										<label for="day2" class="table_check_em"> 周二 </label></td>
+									<td><input id="day3" class="table_check day_check" type="checkbox" value="#周三">
+										<label for="day3" class="table_check_em"> 周三 </label></td>
+									<td><input id="day4" class="table_check day_check" type="checkbox" value="#周四">
+										<label for="day4" class="table_check_em"> 周四 </label></td>
+									<td><input id="day5" class="table_check day_check" type="checkbox" value="#周五">
+										<label for="day5" class="table_check_em"> 周五 </label></td>
+									<td><input id="day6" class="table_check day_check" type="checkbox" value="#周六">
+										<label for="day6" class="table_check_em"> 周六 </label></td>
+									<td><input id="day7" class="table_check day_check" type="checkbox" value="#周日">
+										<label for="day7" class="table_check_em"> 周日 </label></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选择调查企业核算期内一星期的工作时间。
+						</div>
+					</div></li>
+				<li class="form_content_li no_tip"><label for="time" class="form_label"> <em class="required_em">*</em>工作时段：
+				</label>
+					<div class="form_input_div">
+						<textarea id="time" class="form_textarea" readonly="readonly" required=""></textarea>
+
+						<table class="checkboxtable timetable">
+							<tbody>
+								<tr>
+									<td><input id="time1" class="table_check time_check" type="checkbox" value="#0时">
+										<label for="time1" class="table_check_em"> 0时 </label></td>
+									<td><input id="time2" class="table_check time_check" type="checkbox" value="#1时">
+										<label for="time2" class="table_check_em"> 1时 </label></td>
+									<td><input id="time3" class="table_check time_check" type="checkbox" value="#2时">
+										<label for="time3" class="table_check_em"> 2时 </label></td>
+									<td><input id="time4" class="table_check time_check" type="checkbox" value="#3时">
+										<label for="time4" class="table_check_em"> 3时 </label></td>
+									<td><input id="time5" class="table_check time_check" type="checkbox" value="#4时">
+										<label for="time5" class="table_check_em"> 4时 </label></td>
+									<td><input id="time6" class="table_check time_check" type="checkbox" value="#5时">
+										<label for="time6" class="table_check_em"> 5时 </label></td>
+								</tr>
+								<tr>
+									<td><input id="time7" class="table_check time_check" type="checkbox" value="#6时">
+										<label for="time7" class="table_check_em"> 6时 </label></td>
+									<td><input id="time8" class="table_check time_check" type="checkbox" value="#7时">
+										<label for="time8" class="table_check_em"> 7时 </label></td>
+									<td><input id="time9" class="table_check time_check" type="checkbox" value="#8时">
+										<label for="time9" class="table_check_em"> 8时 </label></td>
+									<td><input id="time10" class="table_check time_check" type="checkbox" value="#9时">
+										<label for="time10" class="table_check_em"> 9时 </label></td>
+									<td><input id="time11" class="table_check time_check" type="checkbox" value="#10时">
+										<label for="time11" class="table_check_em"> 10时 </label></td>
+									<td><input id="time12" class="table_check time_check" type="checkbox" value="#11时">
+										<label for="time12" class="table_check_em"> 11时 </label></td>
+								</tr>
+								<tr>
+									<td><input id="time13" class="table_check time_check" type="checkbox" value="#12时">
+										<label for="time13" class="table_check_em"> 12时 </label></td>
+									<td><input id="time14" class="table_check time_check" type="checkbox" value="#13时">
+										<label for="time14" class="table_check_em"> 13时 </label></td>
+									<td><input id="time15" class="table_check time_check" type="checkbox" value="#14时">
+										<label for="time15" class="table_check_em"> 14时 </label></td>
+									<td><input id="time16" class="table_check time_check" type="checkbox" value="#15时">
+										<label for="time16" class="table_check_em"> 15时 </label></td>
+									<td><input id="time17" class="table_check time_check" type="checkbox" value="#16时">
+										<label for="time17" class="table_check_em"> 16时 </label></td>
+									<td><input id="time18" class="table_check time_check" type="checkbox" value="#17时">
+										<label for="time18" class="table_check_em"> 17时 </label></td>
+								</tr>
+								<tr>
+									<td><input id="time19" class="table_check time_check" type="checkbox" value="#18时">
+										<label for="time19" class="table_check_em"> 18时 </label></td>
+									<td><input id="time20" class="table_check time_check" type="checkbox" value="#19时">
+										<label for="time20" class="table_check_em"> 19时 </label></td>
+									<td><input id="time21" class="table_check time_check" type="checkbox" value="#20时">
+										<label for="time21" class="table_check_em"> 20时 </label></td>
+									<td><input id="time22" class="table_check time_check" type="checkbox" value="#21时">
+										<label for="time22" class="table_check_em"> 21时 </label></td>
+									<td><input id="time23" class="table_check time_check" type="checkbox" value="#22时">
+										<label for="time23" class="table_check_em"> 22时 </label></td>
+									<td><input id="time24" class="table_check time_check" type="checkbox" value="#23时">
+										<label for="time24" class="table_check_em"> 23时 </label></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="form_tip_div" style="display: none;">
+						<a class="form_icon icon_info"></a>
+						<div class="form_tip tip_info">
+							<em class="form_tip_i"></em>请选择调查企业核算期内一天的工作小时。
+						</div>
+					</div></li>
+			</ul>
+		</div>
+		<div class="business_form_buttons">
+			<input class="business_form_submit" type="submit" value="保存">
+			<!--<input class="business_form_back" type="button" value="返回">-->
+		</div>
+		<div class="downloadword_div">
+			<a class="downloadword_0630a">下载排放工艺环节工作规律 </a>
+		</div>
+	</form>
+</div>
+    </div>
+</div>
+
+</body>
+</html>

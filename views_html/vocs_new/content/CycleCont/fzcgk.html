@@ -1,0 +1,257 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>核算周期-非正常工况（含开停工及维修）</title>
+
+
+<!--<link href="../css/common.css" type="text/css" rel="stylesheet">-->
+<link href="../../css/list.css" type="text/css" rel="stylesheet">
+<link href="../../css/option.css" type="text/css" rel="stylesheet">
+<link href="../../css/form.css" type="text/css" rel="stylesheet">
+<!--<link href="../css/uploadify.css" type="text/css" rel="stylesheet">-->
+
+<link href="../../css/chips/business/business.css" rel="stylesheet" type="text/css">
+<link href="../../css/chips/business/business11/business1110.css" rel="stylesheet" type="text/css">
+
+<link href="../../css/chips/vocsCycle/Cycle_detail.css" type="text/css" rel="stylesheet">
+<link href="../../css/Pop-ups.css" type="text/css" rel="stylesheet">
+
+<script src="../../js/jquery-1.8.3.min.js"></script>
+<script src="../../js/SystemNoice.js"></script>
+<script src="../../js/Cycle_detail.js"></script>
+
+    
+</head>
+
+
+<body>
+
+<div id="right">
+	<div id="business_copy" class="copy_div" style="display: block;">
+       <div id="business1110_div" ref="8">
+	<div class="check_div"></div>
+
+	<div class="list_div">
+		<div class="list_title">
+			<h1>非正常工况（含开停工及维修）</h1>
+			<em class="add_em">+ 添加</em>
+		</div>
+		<div class="view_div">
+	<div class="empty_list_div">没有任何非正常工况信息！</div>
+
+
+</div>
+		<!--<div class="business_form_buttons">
+			<input class="business_form_back" type="button" value="返回">
+			
+		</div>-->
+		<div class="downloadword_div">
+				<a class="downloadword_1110">下载表单</a>
+			</div>
+	
+	</div>
+
+	<div class="add_div" style="display: none;">
+<div class="form_div">
+	<a class="return_a"><!--<img src="/VocsAdvance_UN/images/return_r.png">--> </a>
+	<form method="post" id="addbusiness1110form" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>非正常工况（含开停工及维修）</h1>
+		</div>
+		<div class="form_content">
+			<ul>
+			
+			<li class="form_content_li"><label id="measurecount_label" for="measurecount" class="form_label"> <em class="required_em">*</em>非正常工况名称：
+				</label>
+					<div class="form_input_div">
+						<input id="name" class="form_input ">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写非正常工况名称。
+						</div>
+					</div></li>
+				<li class="form_content_li">
+                	<label id="measurecount_label" for="measurecount" class="form_label"> <em class="required_em">*</em>公式法选择：</label>
+					<div class="form_input_div">
+						<select id="suanfa" class="form_select" required>
+							<option value="" selected="selected">请选择</option>
+							<option value="公式法（气体加工容器）">公式法（气体加工容器）</option>
+							<option value="公式法（液体加工容器）">公式法（液体加工容器）</option>
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选择公式法（选其一）。
+						</div>
+					</div>
+                </li>
+				<div class="form_title l1" style="display: none;">
+					<h2>公式法（气体加工容器）的内容：</h2>
+				</div>
+				<li class="form_content_li l1" style="display: none;"><label id="measurecount_label" for="measurecount" class="form_label"> <em class="required_em">*</em>泄压气体排入大气时容器的表压：
+				</label>
+					<div class="form_input_div">
+						<input id="data1" class="form_input s1" type="num" min="0">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写泄压气体排入大气时容器的表压（千帕）。
+						</div>
+					</div></li>
+				<li class="form_content_li l1" style="display: none;"><label id="qnqn_label" for="qnqn" class="form_label"> <em class="required_em">*</em>泄压气体排入大气时容器的温度：
+				</label>
+					<div class="form_input_div">
+						<input id="data2" class="form_input s1" type="num" min="0">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写泄压气体排入大气时容器的温度（摄氏度）。
+						</div>
+					</div></li>
+				<li class="form_content_li l1" style="display: none;"><label id="tn_label" for="tn" class="form_label"> <em class="required_em">*</em>容器的体积：
+				</label>
+					<div class="form_input_div">
+						<input id="data3" class="form_input s1" type="num" min="0">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写容器的体积（立方米）。
+						</div>
+					</div></li>
+				<li class="form_content_li l1" style="display: none;"><label id="cn_label" for="cn" class="form_label"> <em class="required_em">*</em>容器的体积空置分数：
+				</label>
+					<div class="form_input_div">
+						<input id="data4" class="form_input s1" type="num" min="0" max="100">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写容器的体积空置分数（除去填料、催化剂或塔盘等所占体积后剩余体积的百分数）。
+						</div>
+					</div></li>
+				<li class="form_content_li l1" style="display: none;"><label id="mn_label" for="mn" class="form_label"> <em class="required_em">*</em>泄压气体中VOCs的浓度：
+				</label>
+					<div class="form_input_div">
+						<input id="data5" class="form_input s1" type="num" min="0">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写泄压气体中VOCs的浓度（毫克/立方米）。
+						</div>
+					</div></li>
+				<!-- 6 -->
+				<div class="form_title l2" style="display: none;">
+				<h2>公式法（液体加工容器）的内容：</h2>
+				</div>
+				<li class="form_content_li l2" style="display: none;"><label id="mn_label" for="mn" class="form_label"> <em class="required_em">*</em>容器的体积，立方米：
+				</label>
+					<div class="form_input_div">
+						<input id="data6" class="form_input s2" type="num" min="0">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写容器的体积，立方米。
+						</div>
+					</div></li>
+
+				<li class="form_content_li l2" style="display: none;"><label id="mn_label" for="mn" class="form_label"> <em class="required_em">*</em>容器内填料、催化剂或塔盘等所占体积分数：
+				</label>
+					<div class="form_input_div">
+						<input id="data7" class="form_input s2" type="num" min="0">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写容器内填料、催化剂或塔盘等所占体积分数。
+						</div>
+					</div></li>
+
+				<li class="form_content_li l2" style="display: none;"><label id="mn_label" for="mn" class="form_label"> <em class="required_em">*</em>容器吹扫前液体薄层或残留液体的体积分数：
+				</label>
+					<div class="form_input_div">
+						<input id="data8" class="form_input s2" type="num" min="0">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写容器吹扫前液体薄层或残留液体的体积分数。
+						</div>
+					</div></li>
+
+				<li class="form_content_li l2" style="display: none;"><label id="mn_label" for="mn" class="form_label"> <em class="required_em">*</em>液体的密度：
+				</label>
+					<div class="form_input_div">
+						<input id="data9" class="form_input s2" type="num" min="0">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写液体的密度(千克/立方米)。
+						</div>
+					</div></li>
+
+				<li class="form_content_li l2" style="display: none;"><label id="mn_label" for="mn" class="form_label"> <em class="required_em">*</em>容器内VOCs的质量分数：
+				</label>
+					<div class="form_input_div">
+						<input id="data10" class="form_input s2" type="num" min="0">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写容器内VOCs的质量分数。
+						</div>
+					</div></li>
+				<!-- 11 -->
+
+				<li class="form_content_li l2" style="display: none;"><label id="mn_label" for="mn" class="form_label"> <em class="required_em">*</em>液体薄层或残留液体被吹扫至火炬或其它处理设施的质量分数：
+				</label>
+					<div class="form_input_div">
+						<input id="data11" class="form_input s2" type="num" min="0">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写液体薄层或残留液体被吹扫至火炬或其它处理设施的质量分数。
+						</div>
+					</div></li>
+				<li class="form_content_li l2" style="display: none;"><label id="mn_label" for="mn" class="form_label"> <em class="required_em">*</em>火炬或处理设施的效率%：
+				</label>
+					<div class="form_input_div">
+						<input id="data12" class="form_input s2" type="num" min="0" max="100">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写火炬或处理设施的效率%。
+						</div>
+					</div></li>
+			</ul>
+
+
+		</div>
+		<div class="form_buttons">
+			<input class="form_submit" type="submit" value="提交">
+		</div>
+	</form>
+
+</div></div>
+
+<!------  弹窗背景  -------->
+    <div class="map_bg" style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background-color: #000;filter: alpha(opacity = 30); -moz-opacity: 0.3; opacity: 0.3; z-index: -10; display:none;"></div>
+    
+
+</div>
+    </div>
+</div>
+
+</body>
+</html>

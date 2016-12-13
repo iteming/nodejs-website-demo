@@ -1,0 +1,580 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>核算周期-燃烧烟气排放（排放系数法）</title>
+
+
+<!--<link href="../css/common.css" type="text/css" rel="stylesheet">-->
+<link href="../../css/list.css" type="text/css" rel="stylesheet">
+<link href="../../css/option.css" type="text/css" rel="stylesheet">
+<!--<link href="../css/form.css" type="text/css" rel="stylesheet">
+<link href="../css/uploadify.css" type="text/css" rel="stylesheet">-->
+
+<link href="../../css/chips/business/business.css" rel="stylesheet" type="text/css">
+<link href="../../css/chips/business/business09/business0930.css" rel="stylesheet" type="text/css">
+
+<link href="../../css/chips/vocsCycle/Cycle_detail.css" type="text/css" rel="stylesheet">
+<script src="../../js/jquery-1.8.3.min.js"></script>
+<script src="../../js/SystemNoice.js"></script>
+<script src="../../js/Cycle_detail.js"></script>
+
+    
+</head>
+
+
+<body>
+
+<div id="right">
+	<div id="business_copy" class="copy_div" style="display: block;">
+        <div class="business_div list_div" ref="8">
+	<div class="list_title">
+		<h1>燃烧烟气排放（排放系数法）</h1>
+	</div>
+	<form method="post" id="business0930form" onsubmit="javascript:return false;" novalidate>
+		<table class="business0930_table businesstable" total="" page="">
+			<thead>
+				<tr>
+					<td class="burntype_td">燃料类型</td>
+					<td class="boilertype_td">锅炉形式</td>
+					<td class="select_td">选择</td>
+					<td class="yearrunhour_td">年运行小时（小时）</td>
+					<td class="burnconsume_td">燃料消耗量</td>
+					<td class="unit_td">单位</td>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- 1 -->
+				<tr class="list_tr">
+					<td class="burntype_td">烟煤和亚烟煤</td>
+					<td class="boilertype_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td>煤粉炉，固态排渣</td>
+							</tr>
+							<tr>
+								<td>煤粉炉，液态排渣</td>
+							</tr>
+							<tr>
+								<td>旋风炉</td>
+							</tr>
+							<tr>
+								<td>抛煤机链条炉排炉</td>
+							</tr>
+							<tr>
+								<td>上方给料炉排炉</td>
+							</tr>
+							<tr>
+								<td>下方给料炉排炉</td>
+							</tr>
+							<tr>
+								<td>手烧炉</td>
+							</tr>
+							<tr>
+								<td>流化床锅炉</td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="select_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td><input type="checkbox" id="chb1_1">
+								</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="chb1_2"></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="chb1_3"></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="chb1_4"></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="chb1_5"></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="chb1_6"></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="chb1_7"></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="chb1_8"></td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="yearrunhour_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td><input id="yearrunhour1_1" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="yearrunhour1_2" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="yearrunhour1_3" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="yearrunhour1_4" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="yearrunhour1_5" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="yearrunhour1_6" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="yearrunhour1_7" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="yearrunhour1_8" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="burnconsume_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td><input id="burnconsume1_1" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="burnconsume1_2" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="burnconsume1_3" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="burnconsume1_4" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="burnconsume1_5" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="burnconsume1_6" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="burnconsume1_7" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="burnconsume1_8" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="unit_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td>吨/小时</td>
+							</tr>
+							<tr>
+								<td>吨/小时</td>
+							</tr>
+							<tr>
+								<td>吨/小时</td>
+							</tr>
+							<tr>
+								<td>吨/小时</td>
+							</tr>
+							<tr>
+								<td>吨/小时</td>
+							</tr>
+							<tr>
+								<td>吨/小时</td>
+							</tr>
+							<tr>
+								<td>吨/小时</td>
+							</tr>
+							<tr>
+								<td>吨/小时</td>
+							</tr>
+						</tbody></table>
+					</td>
+				</tr>
+
+				<!-- 2 -->
+				<tr class="list_tr">
+					<td class="burntype_td">褐煤</td>
+					<td class="boilertype_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td>煤粉炉，固态排渣，切圆燃烧</td>
+							</tr>
+							<tr>
+								<td>旋风炉</td>
+							</tr>
+							<tr>
+								<td>抛煤机链条炉排炉</td>
+							</tr>
+							<tr>
+								<td>上部给料链条炉排炉</td>
+							</tr>
+							<tr>
+								<td>常压流化床锅炉</td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="select_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td><input type="checkbox" id="chb2_1"></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="chb2_2"></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="chb2_3"></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="chb2_4"></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="chb2_5"></td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="yearrunhour_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td><input id="yearrunhour2_1" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="yearrunhour2_2" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="yearrunhour2_3" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="yearrunhour2_4" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="yearrunhour2_5" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="burnconsume_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td><input id="burnconsume2_1" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="burnconsume2_2" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="burnconsume2_3" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="burnconsume2_4" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="burnconsume2_5" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="unit_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td>吨/小时</td>
+							</tr>
+							<tr>
+								<td>吨/小时</td>
+							</tr>
+							<tr>
+								<td>吨/小时</td>
+							</tr>
+							<tr>
+								<td>吨/小时</td>
+							</tr>
+							<tr>
+								<td>吨/小时</td>
+							</tr>
+						</tbody></table>
+					</td>
+				</tr>
+
+				<!-- 3 -->
+				<tr class="list_tr">
+					<td class="burntype_td">无烟煤</td>
+					<td class="boilertype_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td>炉排炉</td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="select_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td><input type="checkbox" id="chb3_1"></td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="yearrunhour_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td><input id="yearrunhour3_1" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="burnconsume_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td><input id="burnconsume3_1" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="unit_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td>吨/小时</td>
+							</tr>
+						</tbody></table>
+					</td>
+				</tr>
+
+				<!-- 4 -->
+				<tr class="list_tr">
+					<td class="burntype_td">燃油</td>
+					<td class="boilertype_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td>电站锅炉</td>
+							</tr>
+							<tr>
+								<td>工业燃油锅炉</td>
+							</tr>
+							<tr>
+								<td>工业燃馏分油锅炉</td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="select_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td><input type="checkbox" id="chb4_1"></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="chb4_2"></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" id="chb4_3"></td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="yearrunhour_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td><input id="yearrunhour4_1" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="yearrunhour4_2" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="yearrunhour4_3" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="burnconsume_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td><input id="burnconsume4_1" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="burnconsume4_2" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+							<tr>
+								<td><input id="burnconsume4_3" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="unit_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td>立方米/小时</td>
+							</tr>
+							<tr>
+								<td>立方米/小时</td>
+							</tr>
+							<tr>
+								<td>立方米/小时</td>
+							</tr>
+						</tbody></table>
+					</td>
+				</tr>
+
+				<!-- 5 -->
+				<tr class="list_tr">
+					<td class="burntype_td">天然气</td>
+					<td class="boilertype_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td>——</td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="select_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td><input type="checkbox" id="chb5_1"></td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="yearrunhour_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td><input id="yearrunhour5_1" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="burnconsume_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td><input id="burnconsume5_1" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="unit_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td>立方米/小时</td>
+							</tr>
+						</tbody></table>
+					</td>
+				</tr>
+
+				<!-- 6 -->
+				<tr class="list_tr">
+					<td class="burntype_td">丁烷</td>
+					<td class="boilertype_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td>——</td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="select_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td><input type="checkbox" id="chb6_1"></td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="yearrunhour_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td><input id="yearrunhour6_1" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="burnconsume_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td><input id="burnconsume6_1" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="unit_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td>立方米/小时</td>
+							</tr>
+						</tbody></table>
+					</td>
+				</tr>
+
+				<!-- 7 -->
+				<tr class="list_tr">
+					<td class="burntype_td">丙烷</td>
+					<td class="boilertype_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td>——</td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="select_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td><input type="checkbox" id="chb7_1"></td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="yearrunhour_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td><input id="yearrunhour7_1" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="burnconsume_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td><input id="burnconsume7_1" class="form_input disabled" type="num" min="0" step="0.000001" required value="" disabled="disabled" style="background: #f0f0f0;">
+								</td>
+							</tr>
+						</tbody></table>
+					</td>
+					<td class="unit_td">
+						<table class="child_table">
+							<tbody><tr>
+								<td>立方米/小时</td>
+							</tr>
+						</tbody></table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="business_form_buttons">
+			
+				<input class="business_form_submit" type="submit" value="保存">
+			
+			<!--<input class="business_form_back" type="button" value="返回">-->
+		</div>
+	</form>
+
+	<div class="downloadword_div">
+		<a class="downloadword_930">下载表单</a>
+	</div>
+</div>
+    </div>
+</div>
+
+</body>
+</html>

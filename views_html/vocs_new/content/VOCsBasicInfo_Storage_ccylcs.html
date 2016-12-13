@@ -1,0 +1,371 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>存储设施-贮存场所</title>
+
+
+<!--<link href="../css/common.css" type="text/css" rel="stylesheet">-->
+<link href="../css/list.css" type="text/css" rel="stylesheet">
+<link href="../css/option.css" type="text/css" rel="stylesheet">
+<link href="../css/form.css" type="text/css" rel="stylesheet">
+
+<link href="../css/chips/storagelocation/storagelocation.css" rel="stylesheet" type="text/css">
+<link href="../css/Pop-ups.css" type="text/css" rel="stylesheet">
+
+<script src="../js/jquery-1.8.3.min.js"></script>
+<script src="../js/SystemNoice.js"></script>
+
+</head>
+
+
+<body>
+
+<div id="right"><div id="storagelocation_copy" class="copy_div">
+<div class="check_div" style="display:none;">
+	<div class="form_div">
+	<a class="return_a"><!--<img src="../images/return.png"> --></a>
+	
+	
+		<form method="post" id="modifystoragelocationform" onsubmit="javascript:return false;" ref="2" novalidate>
+			<div class="form_title">
+				<h1>贮存场所信息</h1>
+			</div>
+			<div class="form_content">
+				<ul>
+					<li class="form_content_li"><label for="number" class="form_label"> <em class="required_em">*</em>场地编号：
+					</label>
+						<div class="form_input_div">
+							<input id="number" class="form_input" type="text" data-max="30" required value="1001">
+							<!-- ByXWK:乐观锁 -->
+							<input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 15:44:50 CST 2016">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>指企业赋予装置的存放场地的唯一编号，编号不能重复。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="locationname" class="form_label"> <em class="required_em">*</em>场地名称：
+					</label>
+						<div class="form_input_div">
+							<input id="locationname" class="form_input" type="text" data-max="50" required value="中心地区">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>指企业厂区内装置的存放场地的名称。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="areacover" class="form_label"> <em class="required_em">*</em>占地面积（平方米）：
+					</label>
+						<div class="form_input_div">
+							<input id="areacover" class="form_input" type="num" step="0.01" min="0" required value="1000">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>指存放装置的场地所占用的面积，单位为平方米（小数点后最多两位）。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="closed" class="form_label"> <em class="required_em">*</em>场地密闭情况：
+					</label>
+						<div class="form_input_div">
+							<select id="closed" class="form_select" required>
+								<option value="">请选择</option>
+								<option value="开敞" selected="selected">
+									开敞</option>
+								<option value="密闭">
+									密闭</option>
+							</select>
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>选择该场地是开敞还是密闭情况。
+							</div>
+						</div></li>
+				</ul>
+			</div>
+			<div class="form_buttons">
+				<input class="form_submit" type="submit" value="保存">
+			</div>
+		</form>
+		<form method="post" id="modifydeviceform" onsubmit="javascript:return false;" novalidate>
+			<div class="form_title">
+				<h1>装置</h1>
+			</div>
+			<table class="list_table">
+				<thead>
+					<tr>
+						<td class="no_td child">NO.</td>
+						<td class="devicenumber_td">装置编号</td>
+						<td class="devicename_td">装置名称</td>
+						<td class="packing_td">包装方式</td>
+						<td class="volume_td">容积（立方米）</td>
+						<td class="count_td">数量</td>
+						<td class="maximum_td">单次最大存储量</td>
+						<td class="materialname_td">内部物料名称</td>
+						<td class="op_td child">操作</td>
+					</tr>
+				</thead>
+				<tbody>
+					
+						<tr class="child_list_tr " ref="2">
+							<td class="no_td child">
+								1</td>
+							<td class="devicenumber_td">0012</td>
+							<td class="devicename_td">炼化</td>
+							<td class="packing_td">55</td>
+							<td class="volume_td">1000</td>
+							<td class="count_td">111</td>
+							<td class="maximum_td">111</td>
+							<td class="materialname_td">111</td>
+							<td class="op_td child"><a class="child_del_a">删除</a></td>
+						</tr>
+					
+					<tr class="add_tr">
+						<td class="no_td child"></td>
+						<td class="devicenumber_td"><input id="devicenumber" class="child_input" type="text" data-max="50" required>
+							<div class="table_tip_div">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>请填写装置编号。
+								</div>
+							</div></td>
+						<td class="devicename_td"><input id="devicename" class="child_input" type="text" data-max="50" required>
+							<div class="table_tip_div">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>请填写装置名称。
+								</div>
+							</div></td>
+						<td class="packing_td"><input id="packing" class="child_input" type="text" data-max="50" required>
+							<div class="table_tip_div">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>指装置的材质和密封方式。
+								</div>
+							</div></td>
+						<td class="volume_td"><input id="volume" class="child_input" type="num" step="0.000001" min="0" required>
+							<div class="table_tip_div">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>指装置容量的大小（小数点后最多六位）。
+								</div>
+							</div></td>
+						<td class="count_td"><input id="count" class="child_input" type="num" step="1" min="0" required>
+							<div class="table_tip_div">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>指同类型装置的个数。
+								</div>
+							</div></td>
+						<td class="maximum_td"><input id="maximum" class="child_input" type="num" step="1" min="0" required>
+							<div class="table_tip_div">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>指该贮存场地内单次容纳该装置的最大数量。
+								</div>
+							</div></td>
+						<td class="materialname_td"><input id="materialname" class="child_input" type="text" data-max="50" required>
+							<div class="table_tip_div">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>指装置内储存物料的名称。
+								</div>
+							</div></td>
+						<td class="op_td child"><input class="child_add_a" type="submit" value="添加"></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	
+</div>
+</div>
+
+<div class="list_div">
+	<div class="list_title">
+		<h1>贮存场所列表</h1>
+		<em class="add_em">+ 添加</em>
+	</div>
+	<div class="view_div">
+	<table class="list_table storagelocation_table" total="1" page="1">
+		<thead>
+			<tr>
+				<td class="no_td">NO.</td>
+				<td class="number_td">场地编号</td>
+				<td class="locationname_td">场地名称</td>
+				<td class="areacover_td">占地面积</td>
+				<td class="closed_td">场地密闭情况</td>
+				<td class="op_td">操作</td>
+			</tr>
+		</thead>
+		<tbody>
+			
+				<tr ref="2" class="list_tr ">
+					<td class="no_td">
+						1</td>
+					<td class="number_td"><em class="ellipsis_em" title="1001">1001</em></td>
+					<td class="locationname_td"><em class="ellipsis_em" title="中心地区">中心地区</em>
+					</td>
+					<td class="areacover_td"><em class="ellipsis_em" title="1000">1000</em>
+					</td>
+					<td class="closed_td"><em class="ellipsis_em" title="开敞">开敞</em></td>
+					<td class="op_td"><a class="del_a">删除</a> <!-- ByXWK:乐观锁 --> <input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 15:44:50 CST 2016"></td>
+				</tr>
+			
+		</tbody>
+	</table>
+
+</div>
+	<div class="page_div"></div>
+</div>
+
+<div class="add_div" style="display:none;">
+	<div class="form_div">
+	<a class="return_a"><!--<img src="../images/return_r.png"> --></a>
+	<form method="post" id="addstoragelocationform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>添加贮存场所</h1>
+		</div>
+		<div class="form_content">
+			<ul>
+				<li class="form_content_li"><label for="number" class="form_label"> <em class="required_em">*</em>场地编号：
+				</label>
+					<div class="form_input_div">
+						<input id="number" class="form_input" type="text" data-max="30" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指企业赋予装置的存放场地的唯一编号，编号不能重复。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="locationname" class="form_label"> <em class="required_em">*</em>场地名称：
+				</label>
+					<div class="form_input_div">
+						<input id="locationname" class="form_input" type="text" data-max="50" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指企业厂区内装置的存放场地的名称。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="areacover" class="form_label"> <em class="required_em">*</em>占地面积（平方米）：
+				</label>
+					<div class="form_input_div">
+						<input id="areacover" class="form_input" type="num" step="0.01" min="0" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指存放装置的场地所占用的面积，单位为平方米（小数点后最多两位）。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="closed" class="form_label"> <em class="required_em">*</em>场地密闭情况：
+				</label>
+					<div class="form_input_div">
+						<select id="closed" class="form_select" required>
+							<option value="">请选择</option>
+							<option value="开敞">开敞</option>
+							<option value="密闭">密闭</option>
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>选择该场地是开敞还是密闭情况。
+						</div>
+					</div></li>
+			</ul>
+		</div>
+		<div class="form_buttons">
+			<input class="form_submit" type="submit" value="提交">
+		</div>
+	</form>
+	<form method="post" id="adddeviceform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>装置</h1>
+		</div>
+		<table class="list_table">
+			<thead>
+				<tr>
+					<td class="no_td child">NO.</td>
+					<td class="devicenumber_td">装置编号</td>
+					<td class="devicename_td">装置名称</td>
+					<td class="packing_td">包装方式</td>
+					<td class="volume_td">容积（立方米）</td>
+					<td class="count_td">数量</td>
+					<td class="maximum_td">单次最大存储量</td>
+					<td class="materialname_td">内部物料名称</td>
+					<td class="op_td child">操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="add_tr">
+					<td class="no_td child"></td>
+					<td class="devicenumber_td"><input id="devicenumber" class="child_input" type="text" data-max="50" required>
+						<div class="table_tip_div">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>请填写装置编号。
+							</div>
+						</div></td>
+					<td class="devicename_td"><input id="devicename" class="child_input" type="text" data-max="50" required>
+						<div class="table_tip_div">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>请填写装置名称。
+							</div>
+						</div></td>
+					<td class="packing_td"><input id="packing" class="child_input" type="text" data-max="50" required>
+						<div class="table_tip_div">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>指装置的材质和密封方式。
+							</div>
+						</div></td>
+					<td class="volume_td"><input id="volume" class="child_input" type="num" step="0.000001" min="0" required>
+						<div class="table_tip_div">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>指装置容量的大小（小数点后最多六位）。
+							</div>
+						</div></td>
+					<td class="count_td"><input id="count" class="child_input" type="num" step="1" min="0" required>
+						<div class="table_tip_div">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>指同类型装置的个数。
+							</div>
+						</div></td>
+					<td class="maximum_td"><input id="maximum" class="child_input" type="num" step="1" min="0" required>
+						<div class="table_tip_div">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>指该贮存场地内单次容纳该装置的最大数量。
+							</div>
+						</div></td>
+					<td class="materialname_td"><input id="materialname" class="child_input" type="text" data-max="50" required>
+						<div class="table_tip_div">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>指装置内储存物料的名称。
+							</div>
+						</div></td>
+					<td class="op_td child"><input class="child_add_a" type="submit" value="添加"></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</div>
+</div>
+<!------  弹窗背景  -------->
+    <div class="map_bg" style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background-color: #000;filter: alpha(opacity = 30); -moz-opacity: 0.3; opacity: 0.3; z-index: -10; display:none;"></div>
+    
+</div></div>
+
+</body>
+</html>

@@ -1,0 +1,600 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无组织排放-事故排放</title>
+
+
+<!--<link href="../css/common.css" type="text/css" rel="stylesheet">-->
+<link href="../css/list.css" type="text/css" rel="stylesheet">
+<link href="../css/option.css" type="text/css" rel="stylesheet">
+<link href="../css/form.css" type="text/css" rel="stylesheet">
+
+<link href="../css/chips/accident/accident.css" rel="stylesheet" type="text/css">
+<link href="../css/Pop-ups.css" type="text/css" rel="stylesheet">
+
+<script src="../js/jquery-1.8.3.min.js"></script>
+<script src="../js/SystemNoice.js"></script>
+
+</head>
+
+
+<body>
+
+<div id="right"><div id="accident_copy" class="copy_div">
+
+<div class="check_div" style="display:none;">
+	<div class="form_div">
+	<a class="return_a"><!--<img src="../images/return.png">--> </a>
+	<form method="post" id="modifyaccidentform" onsubmit="javascript:return false;" ref="2" novalidate>
+		<div class="form_title">
+			<h1>事故排放</h1>
+		</div>
+		<div class="form_content">
+			<ul>
+				<h4>工艺装置事故</h4>
+
+				<li class="form_content_li"><label for="closed" class="form_label"> <em class="required_em">*</em>事故排放编号：
+				</label>
+					<div class="form_input_div">
+						<input id="number" class="form_input" type="text" data-max="100" value="爆炸" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写事故排放编号。
+						</div>
+					</div></li>
+
+				<li class="form_content_lik  "><label for="cartype" class="form_label"> <em class="required_em">*</em>污染物种类,
+						工艺装置效率/%：
+				</label>
+					<div id="orange" class="form_input_div" orange="污染种类1污染种类2污染种类3污染种类4">
+						<label><input class="orange1" name="Fruit" type="checkbox" value="污染种类1" checked="checked">催化裂化或焦化/静电除尘 ,PM、金属HAP,92<br> </label> <label><input class="orange2" name="Fruit" type="checkbox" value="污染种类2" checked="checked">催化裂化或焦化/静电除尘,VOCs、有机HAP,0<br>
+						</label> <label><input class="orange3" name="Fruit" type="checkbox" value="污染种类3" checked="checked">催化裂化或焦化/锅1炉,VOCs、多数有机HAP,98%<br> </label> <label><input class="orange4" name="Fruit" type="checkbox" value="污染种类4" checked="checked">催化裂化或焦化/锅炉,PAH、甲醛,~100%<br>
+						</label>
+						<!-- <input type="button" id="btn" value="122"> -->
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选择污染物种类,工艺装置效率/%。
+						</div>
+					</div></li>
+		</ul></div>
+		
+
+		<div class="form_buttons">
+			<input class="form_submit" type="submit" value="提交">
+		</div>
+	</form>
+
+	<form method="post" id="modifyflashform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>闪蒸量</h1>
+		</div>
+		<table class="list_table">
+			<thead>
+				<tr>
+					<td class="no_td child">NO.</td>
+					<td class="flasha_td">液体的定压比热</td>
+					<td class="flashb_td">泄漏前液体的温度</td>
+					<td class="flashc_td">液体在常压下的沸点</td>
+					<td class="flashd_td">液体的气化热</td>
+					<td class="op_td child">操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				
+					<tr class="child_list_tr " ref="2">
+						<td class="no_td child">
+							1</td>
+						<td class="flasha_td">10</td>
+						<td class="flashb_td">10</td>
+						<td class="flashc_td">10</td>
+						<td class="flashd_td">10</td>
+						<td class="op_td child"><a class="child_del_a">删除</a></td>
+					</tr>
+				
+				<tr class="add_tr">
+					<td class="no_td child"></td>
+					<td class="flasha_td"><input id="flasha" class="child_input" type="num" required>
+						<div class="table_tip_div flash_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>请填写液体的定压比热，焦耳/（千克·摄氏度）。
+							</div>
+						</div></td>
+					<td class="flashb_td"><input id="flashb" class="child_input" type="num" required>
+						<div class="table_tip_div component_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>请填写泄漏前液体的温度，摄氏度。
+							</div>
+						</div></td>
+					<td class="flashc_td"><input id="flashc" class="child_input" type="num" required>
+						<div class="table_tip_div flash_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>请填写液体在常压下的沸点，摄氏度。
+							</div>
+						</div></td>
+					<td class="flashd_td"><input id="flashd" class="child_input" type="num" required>
+						<div class="table_tip_div flash_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>请填写液体的气化热，焦耳/千克。
+							</div>
+						</div></td>
+					<td class="op_td child"><input class="child_add_a" type="submit" value="添加"></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+
+	<form method="post" id="modifyheatform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>热量蒸发量</h1>
+		</div>
+		<table class="list_table">
+			<thead>
+				<tr>
+					<td class="no_td child">NO.</td>
+					<td class="heata_td">环境温度</td>
+					<td class="heatb_td">沸点温度</td>
+					<td class="heatc_td">液池面积</td>
+					<td class="heatd_td">液体气化热</td>
+					<td class="heate_td">地面情况</td>
+					<td class="op_td child">操作</td>
+				</tr>
+			</thead>
+			
+				<tbody><tr class="child_list_tr " ref="2">
+					<td class="no_td child">
+						1</td>
+					<td class="heata_td">10</td>
+					<td class="heatb_td">10</td>
+					<td class="heatc_td">10</td>
+					<td class="heatd_td">10</td>
+					<td class="heate_td">水泥</td>
+					<td class="op_td child"><a class="child_del_a">删除</a></td>
+				</tr>
+			
+			<tr class="add_tr">
+				<td class="no_td child"></td>
+				<td class="heata_td"><input id="heata" class="child_input l" type="num" required>
+					<div class="table_tip_div heat_tip">
+						<a class="table_icon"></a>
+						<div class="table_tip">
+							<em class="table_tip_i"></em>请填写环境温度，摄氏度。
+						</div>
+					</div></td>
+				<td class="heatb_td"><input id="heatb" class="child_input l" type="num" required>
+					<div class="table_tip_div component_tip">
+						<a class="table_icon"></a>
+						<div class="table_tip">
+							<em class="table_tip_i"></em>请填写沸点温度，摄氏度。
+						</div>
+					</div></td>
+				<td class="heatc_td"><input id="heatc" class="child_input l" type="num" required>
+					<div class="table_tip_div component_tip">
+						<a class="table_icon"></a>
+						<div class="table_tip">
+							<em class="table_tip_i"></em>请填写液池面积，平方米。
+						</div>
+					</div></td>
+				<td class="heatd_td"><input id="heatd" class="child_input l" type="num" required>
+					<div class="table_tip_div component_tip">
+						<a class="table_icon"></a>
+						<div class="table_tip">
+							<em class="table_tip_i"></em>请填写液体气化热，焦耳/千克。
+						</div>
+					</div></td>
+				<td class="heate_td"><select id="heate" class="child_select" required>
+						<option value="">请选择</option>
+						<option value="水泥">水泥</option>
+						<option value="土地(含水8%)">土地（含水8%）</option>
+						<option value="干阔土地">干阔土地</option>
+						<option value="湿地">湿地</option>
+						<option value="砂砾地">砂砾地</option>
+				</select>
+					<div class="table_tip_div component_tip">
+						<a class="table_icon"></a>
+						<div class="table_tip">
+							<em class="table_tip_i"></em>请填写液体气化热，焦耳/千克。
+						</div>
+					</div></td>
+				<td class="op_td child"><input class="child_add_a" type="submit" value="添加"></td>
+			</tr>
+			</tbody><tbody></tbody>
+		</table>
+	</form>
+
+	<form method="post" id="modifyqualityform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>质量蒸发</h1>
+		</div>
+		<table class="list_table">
+			<thead>
+				<tr>
+					<td class="no_td child">NO.</td>
+					<td class="qualitya_td">液体表面蒸汽压</td>
+					<td class="qualityb_td">分子量</td>
+					<td class="qualityc_td">环境温度</td>
+					<td class="qualityd_td">风速</td>
+					<td class="qualitye_td">液池半径</td>
+					<td class="qualityf_td">从液体泄漏到液体全部处理完毕的时间</td>
+					<td class="qualityg_td">稳定度条件</td>
+					<td class="op_td child">操作</td>
+				</tr>
+			</thead>
+			
+				<tbody><tr class="child_list_tr " ref="2">
+					<td class="no_td child">
+						1</td>
+					<td class="qualitya_td">10</td>
+					<td class="qualityb_td">10</td>
+					<td class="qualityc_td">10</td>
+					<td class="qualityd_td">10</td>
+					<td class="qualitye_td">10</td>
+					<td class="qualityf_td">10</td>
+					<td class="qualityg_td">不稳定(A,B)</td>
+					<td class="op_td child"><a class="child_del_a">删除</a></td>
+				</tr>
+			
+			<tr class="add_tr">
+				<td class="no_td child"></td>
+				<td class="qualitya_td"><input id="qualitya" class="child_input m" type="num" required>
+					<div class="table_tip_div quality_tip">
+						<a class="table_icon"></a>
+						<div class="table_tip">
+							<em class="table_tip_i"></em>请填写环境温度，摄氏度。
+						</div>
+					</div></td>
+				<td class="qualityb_td"><input id="qualityb" class="child_input m" type="num" required>
+					<div class="table_tip_div component_tip">
+						<a class="table_icon"></a>
+						<div class="table_tip">
+							<em class="table_tip_i"></em>请填写沸点温度，摄氏度。
+						</div>
+					</div></td>
+				<td class="qualityc_td"><input id="qualityc" class="child_input m" type="num" required>
+					<div class="table_tip_div component_tip">
+						<a class="table_icon"></a>
+						<div class="table_tip">
+							<em class="table_tip_i"></em>请填写液池面积，平方米。
+						</div>
+					</div></td>
+				<td class="qualityd_td"><input id="qualityd" class="child_input m" type="num" required>
+					<div class="table_tip_div component_tip">
+						<a class="table_icon"></a>
+						<div class="table_tip">
+							<em class="table_tip_i"></em>请填写液体气化热，焦耳/千克。
+						</div>
+					</div></td>
+				<td class="qualitye_td"><input id="qualitye" class="child_input m" type="num" required>
+					<div class="table_tip_div component_tip">
+						<a class="table_icon"></a>
+						<div class="table_tip">
+							<em class="table_tip_i"></em>请填写液体气化热，焦耳/千克。
+						</div>
+					</div></td>
+				<td class="qualityf_td"><input id="qualityf" class="child_input m" type="num" required>
+					<div class="table_tip_div component_tip">
+						<a class="table_icon"></a>
+						<div class="table_tip">
+							<em class="table_tip_i"></em>请填写液体气化热，焦耳/千克。
+						</div>
+					</div></td>
+				<td class="qualityg_td"><select id="qualityg" class="child_select l" required>
+						<option value="">请选择</option>
+						<option value="不稳定(A,B)">不稳定(A,B)</option>
+						<option value="中性(D)">中性(D)</option>
+						<option value="稳定(E,F)">稳定(E,F)</option>
+				</select>
+					<div class="table_tip_div component_tip">
+						<a class="table_icon"></a>
+						<div class="table_tip">
+							<em class="table_tip_i"></em>请填写液体气化热，焦耳/千克。
+						</div>
+					</div></td>
+				<td class="op_td child"><input class="child_add_a" type="submit" value="添加"></td>
+			</tr>
+			</tbody><tbody></tbody>
+		</table>
+	</form>
+
+</div>
+</div>
+
+<div class="list_div">
+	<div class="list_title">
+		<h1>事故排放列表</h1>
+		<em class="add_em">+ 添加</em>
+	</div>
+	<div class="view_div">
+	<table class="list_table accident_table" total="1" page="1">
+		<thead>
+			<tr>
+				<td class="no_td">NO.</td>
+				<td class="number_td">污染排放编号</td>
+				<td class="type_td">污染排放种类</td>
+
+				<td class="op_td">操作</td>
+			</tr>
+		</thead>
+		<tbody>
+			
+				
+				<tr ref="2" class="list_tr ">
+					<td class="no_td">
+						1</td>
+					<td class="number_td"><em class="ellipsis_em" title="爆炸">爆炸</em></td>
+					<td class="type_td"><em class="ellipsis_em" title="污染种类1污染种类2污染种类3污染种类4">污染种类1污染种类2污染种类3污染种类4</em></td>
+					<td class="op_td"><a class="del_a">删除</a> <!-- ByXWK:乐观锁 --> <input type="hidden" class="versionsHidden" name="versions" value=""></td>
+				</tr>
+			
+		</tbody>
+	</table>
+
+</div>
+	<div class="page_div"></div>
+</div>
+
+<div class="add_div" style="display:none;">
+	<div class="form_div">
+	<a class="return_a"><!--<img src="../images/return_r.png"> --></a>
+	<form method="post" id="addaccidentform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>添加事故排放</h1>
+		</div>
+		<div class="form_content">
+			<ul>
+				<h4>工艺装置事故</h4>
+
+				<li class="form_content_li"><label for="closed" class="form_label"> <em class="required_em">*</em>事故排放编号：
+				</label>
+					<div class="form_input_div">
+						<input id="number" class="form_input" type="text" data-max="100" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写事故排放编号。
+						</div>
+					</div></li>
+
+				<li class="form_content_lik  "><label for="cartype" class="form_label"> <em class="required_em">*</em>污染物种类,
+						工艺装置效率/%：
+				</label>
+					<div class="form_input_div">
+						<label><input name="Fruit" type="checkbox" value="污染种类1">催化裂化或焦化/静电除尘
+							,PM、金属HAP,92<br> </label> <label><input name="Fruit" type="checkbox" value="污染种类2">催化裂化或焦化/静电除尘,VOCs、有机HAP,0<br> </label> <label><input name="Fruit" type="checkbox" value="污染种类3">催化裂化或焦化/锅1炉,VOCs、多数有机HAP,98%<br>
+						</label> <label><input name="Fruit" type="checkbox" value="污染种类4">催化裂化或焦化/锅炉,PAH、甲醛,~100%<br>
+						</label>
+						<!-- <input type="button" id="btn" value="122"> -->
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选择污染物种类,工艺装置效率/%。
+						</div>
+					</div></li>
+		</ul></div>
+		
+
+		<div class="form_buttons">
+			<input class="form_submit" type="submit" value="提交">
+		</div>
+	</form>
+
+	<form method="post" id="addflashform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>闪蒸量</h1>
+		</div>
+		<table class="list_table">
+			<thead>
+				<tr>
+					<td class="no_td child">NO.</td>
+					<td class="flasha_td">液体的定压比热</td>
+					<td class="flashb_td">泄漏前液体的温度</td>
+					<td class="flashc_td">液体在常压下的沸点</td>
+					<td class="flashd_td">液体的气化热</td>
+					<td class="op_td child">操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="add_tr">
+					<td class="no_td child"></td>
+					<td class="flasha_td"><input id="flasha" class="child_input" type="num" required>
+						<div class="table_tip_div flash_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>请填写液体的定压比热，焦耳/（千克·摄氏度）。
+							</div>
+						</div></td>
+					<td class="flashb_td"><input id="flashb" class="child_input" type="num" required>
+						<div class="table_tip_div component_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>请填写泄漏前液体的温度，摄氏度。
+							</div>
+						</div></td>
+					<td class="flashc_td"><input id="flashc" class="child_input" type="num" required>
+						<div class="table_tip_div flash_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>请填写液体在常压下的沸点，摄氏度。
+							</div>
+						</div></td>
+					<td class="flashd_td"><input id="flashd" class="child_input" type="num" required>
+						<div class="table_tip_div flash_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>请填写液体的气化热，焦耳/千克。
+							</div>
+						</div></td>
+					<td class="op_td child"><input class="child_add_a" type="submit" value="添加"></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+
+
+
+	<form method="post" id="addheatform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>热量蒸发量</h1>
+		</div>
+		<table class="list_table">
+			<thead>
+				<tr>
+					<td class="no_td child">NO.</td>
+					<td class="heata_td">环境温度</td>
+					<td class="heatb_td">沸点温度</td>
+					<td class="heatc_td">液池面积</td>
+					<td class="heatd_td">液体气化热</td>
+					<td class="heate_td">地面情况</td>
+					<td class="op_td child">操作</td>
+				</tr>
+			</thead>
+			<tbody><tr class="add_tr">
+				<td class="no_td child"></td>
+				<td class="heata_td"><input id="heata" class="child_input l" type="num" required>
+					<div class="table_tip_div heat_tip">
+						<a class="table_icon"></a>
+						<div class="table_tip">
+							<em class="table_tip_i"></em>请填写环境温度，摄氏度。
+						</div>
+					</div></td>
+				<td class="heatb_td"><input id="heatb" class="child_input l" type="num" required>
+					<div class="table_tip_div component_tip">
+						<a class="table_icon"></a>
+						<div class="table_tip">
+							<em class="table_tip_i"></em>请填写沸点温度，摄氏度。
+						</div>
+					</div></td>
+				<td class="heatc_td"><input id="heatc" class="child_input l" type="num" required>
+					<div class="table_tip_div component_tip">
+						<a class="table_icon"></a>
+						<div class="table_tip">
+							<em class="table_tip_i"></em>请填写液池面积，平方米。
+						</div>
+					</div></td>
+				<td class="heatd_td"><input id="heatd" class="child_input l" type="num" required>
+					<div class="table_tip_div component_tip">
+						<a class="table_icon"></a>
+						<div class="table_tip">
+							<em class="table_tip_i"></em>请填写液体气化热，焦耳/千克。
+						</div>
+					</div></td>
+				<td class="heate_td"><select id="heate" class="child_select" required>
+						<option value="">请选择</option>
+						<option value="水泥">水泥</option>
+						<option value="土地(含水8%)">土地（含水8%）</option>
+						<option value="干阔土地">干阔土地</option>
+						<option value="湿地">湿地</option>
+						<option value="砂砾地">砂砾地</option>
+				</select>
+					<div class="table_tip_div component_tip">
+						<a class="table_icon"></a>
+						<div class="table_tip">
+							<em class="table_tip_i"></em>请填写液体气化热，焦耳/千克。
+						</div>
+					</div></td>
+				<td class="op_td child"><input class="child_add_a" type="submit" value="添加"></td>
+			</tr>
+			</tbody><tbody></tbody>
+		</table>
+	</form>
+
+	<form method="post" id="addqualityform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>质量蒸发</h1>
+		</div>
+		<table class="list_table">
+			<thead>
+				<tr>
+					<td class="no_td child">NO.</td>
+					<td class="qualitya_td">液体表面蒸汽压</td>
+					<td class="qualityb_td">分子量</td>
+					<td class="qualityc_td">环境温度</td>
+					<td class="qualityd_td">风速</td>
+					<td class="qualitye_td">液池半径</td>
+					<td class="qualityf_td">从液体泄漏到液体全部处理完毕的时间</td>
+					<td class="qualityg_td">稳定度条件</td>
+					<td class="op_td child">操作</td>
+				</tr>
+			</thead>
+			<tbody><tr class="add_tr">
+				<td class="no_td child"></td>
+				<td class="qualitya_td"><input id="qualitya" class="child_input m" type="num" required>
+					<div class="table_tip_div quality_tip">
+						<a class="table_icon"></a>
+						<div class="table_tip">
+							<em class="table_tip_i"></em>请填写环境温度，摄氏度。
+						</div>
+					</div></td>
+				<td class="qualityb_td"><input id="qualityb" class="child_input m" type="num" required>
+					<div class="table_tip_div component_tip">
+						<a class="table_icon"></a>
+						<div class="table_tip">
+							<em class="table_tip_i"></em>请填写沸点温度，摄氏度。
+						</div>
+					</div></td>
+				<td class="qualityc_td"><input id="qualityc" class="child_input m" type="num" required>
+					<div class="table_tip_div component_tip">
+						<a class="table_icon"></a>
+						<div class="table_tip">
+							<em class="table_tip_i"></em>请填写液池面积，平方米。
+						</div>
+					</div></td>
+				<td class="qualityd_td"><input id="qualityd" class="child_input m" type="num" required>
+					<div class="table_tip_div component_tip">
+						<a class="table_icon"></a>
+						<div class="table_tip">
+							<em class="table_tip_i"></em>请填写液体气化热，焦耳/千克。
+						</div>
+					</div></td>
+				<td class="qualitye_td"><input id="qualitye" class="child_input m" type="num" required>
+					<div class="table_tip_div component_tip">
+						<a class="table_icon"></a>
+						<div class="table_tip">
+							<em class="table_tip_i"></em>请填写液体气化热，焦耳/千克。
+						</div>
+					</div></td>
+				<td class="qualityf_td"><input id="qualityf" class="child_input m" type="num" required>
+					<div class="table_tip_div component_tip">
+						<a class="table_icon"></a>
+						<div class="table_tip">
+							<em class="table_tip_i"></em>请填写液体气化热，焦耳/千克。
+						</div>
+					</div></td>
+				<td class="qualityg_td"><select id="qualityg" class="child_select l" required>
+						<option value="">请选择</option>
+						<option value="不稳定(A,B)">不稳定(A,B)</option>
+						<option value="中性(D)">中性(D)</option>
+						<option value="稳定(E,F)">稳定(E,F)</option>
+				</select>
+					<div class="table_tip_div component_tip">
+						<a class="table_icon"></a>
+						<div class="table_tip">
+							<em class="table_tip_i"></em>请填写液体气化热，焦耳/千克。
+						</div>
+					</div></td>
+				<td class="op_td child"><input class="child_add_a" type="submit" value="添加"></td>
+			</tr>
+			</tbody><tbody></tbody>
+		</table>
+	</form>
+
+</div>
+</div>
+
+<!------  弹窗背景  -------->
+    <div class="map_bg" style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background-color: #000;filter: alpha(opacity = 30); -moz-opacity: 0.3; opacity: 0.3; z-index: -10; display:none;"></div>
+    
+</div></div>
+
+</body>
+</html>

@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>地区管理</title>
+		<link href="../../css/list.css" type="text/css" rel="stylesheet">
+		<link href="../../css/option.css" type="text/css" rel="stylesheet">
+		<link href="../../css/form.css" type="text/css" rel="stylesheet">
+		<link href="../../css/backtable.css" type="text/css" rel="stylesheet">
+<!--		
+		<link href="../../css/background/sysmanage/RoleManage.css" rel="stylesheet" type="text/css">-->
+		<link href="../../css/Pop-ups.css" type="text/css" rel="stylesheet">
+		
+		<script src="../../js/jquery-1.8.3.min.js"></script>
+		<script src="../../js/sysmanage/RoleManage.js"></script>
+        
+		<style>
+        .list_div,.list_table,.form_div{width:830px;}
+		.add_div .form_div{margin-bottom:20px;}
+        </style>
+        
+	</head>
+	<body>
+		
+<div id="right">
+	<div id="rolemanage" class="copy_div" style="display: block;">
+		<div class="list_div" style="left: 0px; display: block;">
+		<div class="list_title">
+			<h1>地区管理</h1>
+			<em class="add_em">+ 添加</em>
+		</div>
+			<div class="search_div">
+				<input id="keywords" type="text" class="form_input"> <input id="search" type="button" value="查询">
+			</div>
+		
+			<div class="view_div">
+			  <table class="list_table company_table" total="7" page="1">
+	            <thead>
+	            	<tr>
+	                <td class="no_td">NO.</td>
+	                    <td class="dname_td">行政地区名称</td>
+	                    <td class="dcode_td">行政区划代码</td>
+	                    <td class="dperson_td">显示顺序描述</td>
+	                    <td class="dlevel_td">描述</td>
+	                    <td class="ddeparttype_td">电话区号</td>
+	                    <td class="dtel_td">邮政编码</td>
+						<td class="dtex_td">是否有效</td>
+	                    <td class="dolecontrol_td">操作</td>
+	                    </tr>
+	            </thead>
+	            <tbody>			
+					<tr ref="8" class="list_tr ">
+						<td class="no_td">
+							1</td>
+						<td class="dname_td"><em class="ellipsis_em" title="部门名称">北京</em></td>
+	                    <td class="dcode_td"><em class="ellipsis_em" title="编号">010</em></td>
+	                    <td class="dperson_td"><em class="ellipsis_em" title="负责人">01</em></td>
+	                    <td class="dlevel_td"><em class="ellipsis_em" title="层级">北京直辖市</em></td>
+	                    <td class="ddeparttype_td"><em class="ellipsis_em" title="部门类型">010</em></td>
+	                    <td class="dtel_td"><em class="ellipsis_em" title="电话">0000000</em></td>
+	                    <td class="dtex_td"><em class="ellipsis_em" title="传真">有效</em></td>
+	                    <td class="dolecontrol_td"><a class="del_a">删除</a> <a class="del_a">更新</a></td>
+					</tr>			
+	            </tbody>
+	        </table>
+			</div>
+      	</div>
+	</body>
+
+<div class="add_div" style="display:none;">
+	<div class="form_div">
+	<a class="return_a"><!--<img src="../images/return_r.png"> --></a>
+	<form method="post" id="addaccountform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>添加角色</h1>
+		</div>
+		<div class="form_content">
+			
+		
+			
+			
+			
+			<ul>
+				<li class="form_content_li"><label for="title" class="form_label"> <em class="required_em">*</em>角色名称：
+                    </label>
+                        <div class="form_input_div">
+                            <input id="title" class="form_input" type="text" data-max="100" required>
+                        </div>
+                        <div class="form_tip_div">
+                            <a class="form_icon"></a>
+                            <div class="form_tip">
+                                <em class="form_tip_i"></em>请输入行政地区名称：
+                            </div>
+                        </div>
+				</li>
+				
+				<li class="form_content_li">
+					<label for="title" class="form_label"> 
+						<em class="required_em">*</em>请选择父地区：
+                    </label>
+                        <div class="form_input_div">
+                           <select class="form_select">
+                           	<option>请选择</option>
+                           	<option>北京</option>
+                           	<option>河北省</option>
+                           </select>
+                        </div>
+                        <div class="form_tip_div">
+                            <a class="form_icon"></a>
+                            <div class="form_tip">
+                                <em class="form_tip_i"></em>请选择父地区
+                            </div>
+                        </div>
+				</li>
+
+					
+				
+				<li class="form_content_li"><label for="title" class="form_label"> <em class="required_em">*</em>行政区划代码：
+                    </label>
+                        <div class="form_input_div">
+                            <input id="title" class="form_input" type="text" data-max="100" required>
+                        </div>
+                        <div class="form_tip_div">
+                            <a class="form_icon"></a>
+                            <div class="form_tip">
+                                <em class="form_tip_i"></em>请输入行政区划代码
+                            </div>
+                        </div>
+				</li>
+				
+				
+	                    
+	                    <li class="form_content_li"><label for="title" class="form_label"> <em class="required_em">*</em>请输入电话区号：
+                    </label>
+                        <div class="form_input_div">
+                            <input id="title" class="form_input" type="text" data-max="100" required>
+                        </div>
+                        <div class="form_tip_div">
+                            <a class="form_icon"></a>
+                            <div class="form_tip">
+                                <em class="form_tip_i"></em>请输入电话区号
+                            </div>
+                        </div>
+				</li>
+				
+				<li class="form_content_li"><label for="title" class="form_label"> <em class="required_em">*</em>请输入邮政编码
+                    </label>
+                        <div class="form_input_div">
+                            <input id="title" class="form_input" type="text" data-max="100" required>
+                        </div>
+                        <div class="form_tip_div">
+                            <a class="form_icon"></a>
+                            <div class="form_tip">
+                                <em class="form_tip_i"></em>请输入邮政编码
+                            </div>
+                        </div>
+				</li>
+				
+				<li class="form_content_li"><label for="title" class="form_label"> <em class="required_em">*</em>行政区划代码：
+                    </label>
+                        <div class="form_input_div">
+                            <input id="title" class="form_input" type="text" data-max="100" required>
+                        </div>
+                        <div class="form_tip_div">
+                            <a class="form_icon"></a>
+                            <div class="form_tip">
+                                <em class="form_tip_i"></em>请输入行政区划代码
+                            </div>
+                        </div>
+				</li>
+				
+				<li class="form_content_li"><label for="title" class="form_label"> <em class="required_em">*</em>是否有效:
+                    </label>
+                        <div class="form_input_div">
+                        	<!--<input id="part12" class="otable_check part12_check" type="checkbox" value="#核算期数据">-->
+                            <input id="title"   type="checkbox" data-max="100" required>
+                        </div>
+                  
+				</li>
+			</ul>
+		</div>
+		<div class="form_buttons">
+			<input class="form_submit" type="submit" value="提交">
+		</div>
+	</form>
+</div>
+</div>
+
+</html>

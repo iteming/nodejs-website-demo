@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>核算周期-废气排放口信息</title>
+
+
+<!--<link href="../css/common.css" type="text/css" rel="stylesheet">-->
+<link href="../../css/list.css" type="text/css" rel="stylesheet">
+<link href="../../css/option.css" type="text/css" rel="stylesheet">
+<!--<link href="../../css/form.css" type="text/css" rel="stylesheet">
+<link href="../css/uploadify.css" type="text/css" rel="stylesheet">-->
+
+<link href="../../css/chips/business/business.css" rel="stylesheet" type="text/css">
+<link href="../../css/chips/business/business06/business0620.css" rel="stylesheet" type="text/css">
+<link href="../../css/chips/business/business06/business0610.css" rel="stylesheet" type="text/css">
+
+<link href="../../css/chips/vocsCycle/Cycle_detail.css" type="text/css" rel="stylesheet">
+<!--<script src="../js/jquery-1.8.3.min.js"></script>
+<script src="../js/SystemNoice.js"></script>
+<script src="../js/AccountingPeriod_Cycle.js"></script>-->
+
+    
+</head>
+
+
+<body>
+
+<div id="right">
+	<div id="business_copy" class="copy_div" style="display: block;">
+       <div class="business_div list_div" ref="8">
+	<div class="list_title">
+		<h1>废气排放口信息</h1>
+	</div>
+	
+
+		<form method="post" id="business0620form" onsubmit="javascript:return false;" novalidate>
+			<div class="lt_div">
+            <table class="business0620_table businesstable" total="" page="">
+				<thead>
+					<tr>
+						<td class="no_td">NO.</td>
+						<td class="name_td">排放口名称</td>
+						<td class="hours_td">排放时间（小时/天）</td>
+						<td class="days_td">排放天数（天/年）</td>
+						<td class="datafrom_td">废气排放数据来源</td>
+						<td class="exhaustventpollutant_td">污染物名称</td>
+						<td class="intensity_td">排放浓度（毫克/立方米）</td>
+						<td class="rate_td">排放速率（千克/小时）</td>
+						<td class="emission_td">核算期排放量（千克）</td>
+					</tr>
+				</thead>
+				<tbody>
+					
+						<tr class="list_tr">
+							<td class="no_td">
+								1</td>
+							<td class="name_td" ref="2">
+								装置</td>
+							<td class="hours_td"><input id="hoursdata1" class="form_input" type="num" min="0" step="0.01" required value="" ref="2"></td>
+							<td class="days_td"><input id="daysdata1" class="form_input" type="num" min="0" step="1" required value="" ref="2"></td>
+							<td class="datafrom_td"><select id="datafromdata1" class="form_select" required ref="2">
+									<option value="">请选择</option>
+									<option value="自动监测仪器">
+										自动监测仪器</option>
+									<option value="监督性监测">
+										监督性监测</option>
+									<option value="自测">
+										自测</option>
+							</select></td>
+							<td class="exhaustventpollutant_td">
+								<table class="child_table">
+									
+										<tbody><tr>
+											<td>1000</td>
+										</tr>
+									
+								</tbody></table>
+							</td>
+							<td class="intensity_td">
+								<table class="child_table">
+									
+										<tbody><tr>
+											<td><input id="intensitydata1" class="form_input" type="num" min="0" step="0.000001" required value="" ref="2"></td>
+										</tr>
+									
+								</tbody></table>
+							</td>
+							<td class="rate_td">
+								<table class="child_table">
+									
+										<tbody><tr>
+											<td><input id="ratedata1" class="form_input" type="num" min="0" step="0.000001" required value="" ref="2"></td>
+										</tr>
+									
+								</tbody></table>
+							</td>
+							<td class="emission_td">
+								<table class="child_table">
+									
+										<tbody><tr>
+											<td><input id="emissiondata1" class="form_input" type="num" min="0" step="0.000001" required value="" ref="2"></td>
+										</tr>
+									
+								</tbody></table>
+							</td>
+						</tr>
+					
+				</tbody>
+			</table>
+            </div>
+            
+			<div class="business_form_buttons">
+				<input class="business_form_submit" type="submit" value="保存">
+				<!--<input class="business_form_back" type="button" value="返回">-->
+			</div>
+		</form>
+
+	
+	
+	<div class="downloadword_div">
+		<a class="downloadword_0620a">下载废气排放口信息-特征污染物</a> <a class="downloadword_0620b">下载废气排放口信息-废气来源</a>
+	</div>
+</div>
+    </div>
+</div>
+
+</body>
+</html>

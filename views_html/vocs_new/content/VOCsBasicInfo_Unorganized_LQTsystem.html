@@ -1,0 +1,457 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无组织排放-冷却塔系统</title>
+
+
+<!--<link href="../css/common.css" type="text/css" rel="stylesheet">-->
+<link href="../css/list.css" type="text/css" rel="stylesheet">
+<link href="../css/option.css" type="text/css" rel="stylesheet">
+<link href="../css/form.css" type="text/css" rel="stylesheet">
+
+<link href="../css/chips/surface/surface.css" rel="stylesheet" type="text/css">
+<link href="../css/Pop-ups.css" type="text/css" rel="stylesheet">
+
+<script src="../js/jquery-1.8.3.min.js"></script>
+<script src="../js/SystemNoice.js"></script>
+<script src="../js/UnorganizedEmissions.js"></script>
+
+</head>
+
+
+<body>
+
+<div id="right"><div id="surface_copy" class="copy_div">
+
+<div class="check_div" style="display:none;">
+	<div class="form_div">
+	<a class="return_a"><!--<img src="../images/return.png"> --></a>
+	
+	<form method="post" id="modifysurfaceform" onsubmit="javascript:return false;" ref="4" novalidate>
+		<div class="form_title">
+			<h1>
+				冷却塔、循环水冷却系统信息
+			</h1>
+		</div>
+		<div class="form_content">
+			<ul>
+				<li class="form_content_li">
+					<label for="name" class="form_label">
+						<em class="required_em">*</em>工序名称：
+					</label>
+					<div class="form_input_div">
+						<input id="name" class="form_input" type="text" data-max="100" required value="666">
+						<!-- ByXWK:乐观锁 -->
+						<input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 17:33:46 CST 2016">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>填写自由液面所位于的生产、处理、存储工序名称。
+						</div>
+					</div>
+				</li>
+				<li class="form_content_li">
+					<label for="spec" class="form_label">
+						<em class="required_em">*</em>规格：
+					</label>
+					<div class="form_input_div">
+						<input id="spec" class="form_input" type="text" data-max="100" required value="66">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指企业特定冷却塔或储存有机废水容器（含废水治理设施）的自由液面表面积尺寸，计量单位为平方米。
+						</div>
+					</div>
+				</li>
+				<li class="form_content_li">
+					<label for="materialname" class="form_label">
+						<em class="required_em">*</em>内部物料名称：
+					</label>
+					<div class="form_input_div">
+						<input id="materialname" class="form_input" type="text" data-max="100" required value="66">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指企业特定冷却塔或储存有机废水容器（含废水治理设施）内所含主要物料的名称。
+						</div>
+					</div>
+				</li>
+				<li class="form_content_li">
+					<label for="type" class="form_label">
+						<em class="required_em">*</em>场地：
+					</label>
+					<div class="form_input_div">
+						<select id="type" class="form_select" required>
+							<option value="室内" selected="selected">室内</option>
+							<option value="室外">室外</option>
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指冷却塔或储存有机废水容器位于室内或室外。
+						</div>
+					</div>
+				</li>
+				<li class="form_content_li">
+					<label for="position" class="form_label">
+						<em class="required_em">*</em>位置：
+					</label>
+					<div class="form_input_div">
+						<input id="position" class="form_input" type="text" data-max="100" required value="66">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指冷却塔或储存有机废水容器具体位置。
+						</div>
+					</div>
+				</li>
+				<li class="form_content_li">
+					<label for="closed" class="form_label">
+						<em class="required_em">*</em>加盖收集：
+					</label>
+					<div class="form_input_div">
+						<select id="closed" class="form_select" required>
+							<option value="是">是</option>
+							<option value="否">否</option>
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选择是否加盖手机。
+						</div>
+					</div>
+				</li>
+				<li class="form_content_li"><label for="closed" class="form_label"> <em class="required_em">*</em>冷却塔算法：
+					</label><div class="form_input_div">
+						 <select id="suanfa" class="form_select" required>
+							<option value="">请选择</option>
+							<option value="物料衡算法">物料衡算法</option>
+							<option value="排放系数法">排放系数法</option>
+							<option value="2种方法" selected="selected">2种方法</option>
+						</select> 
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选择算法。
+						</div>
+					</div></li>
+				<div class="form_title yc title" style="display: block;">
+					<h2 class="yc wh" style="display: block;">物料衡算法</h2>
+					<h2 class="yc pf" style="display: block;">排放系数法</h2>
+				</div>
+
+
+
+				<div class="form_content">
+					<li class="form_content_li yc wh" style="display: list-item;"><label for="closed" class="form_label sf"> <em class="required_em">*</em>入口冷却水暴露空气前EVOCs的浓度，毫克/升：
+					</label>
+<!-- 					LCONCENTRATION -->
+						<div class="form_input_div">
+							<input id="lconcentration" class="form_input wl" type="text" data-max="100" value="6">
+						</div>
+						<div class="form_tip_div ns">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请填写入口冷却水暴露空气前EVOCs的浓度，毫克/升。
+							</div>
+						</div></li>
+
+					<li class="form_content_li yc wh" style="display: list-item;"><label for="closed" class="form_label sf"> <em class="required_em">*</em>出口冷却水暴露空气后EVOCs的浓度，毫克/升：
+					</label>
+						<div class="form_input_div">
+							<input id="rconcentration" class="form_input wl" type="text" data-max="100" value="6">
+						</div>
+						<div class="form_tip_div ns">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请填写出口冷却水暴露空气后EVOCs的浓度，毫克/升。
+							</div>
+						</div>
+						</li>
+						
+					<div class="form_content">
+						<li class="form_content_li yc pf" style="display: list-item;"><label for="closed" class="form_label sf2"> <em class="required_em">*</em>冷却塔的循环水量，立方米/小时：
+						</label>
+							<div class="form_input_div">
+								<input id="cwater" class="form_input wr" type="text" data-max="100" value="6">
+							</div>
+							<div class="form_tip_div ns">
+								<a class="form_icon"></a>
+								<div class="form_tip">
+									<em class="form_tip_i"></em>请填写冷却塔的循环水量，立方米/小时。
+								</div>
+							</div></li>
+
+						<li class="form_content_li yc pf" style="display: list-item;"><label for="closed" class="form_label sf"> <em class="required_em">*</em>是否对循环水中总烃（或石油类）进行监测并采取泄漏设备控制及循环水中总烃浓度控制：
+						</label>
+							<div class="form_input_div">
+								<select id="control" class="form_select sf2_2 wr">
+									<option value="">请选择</option>
+									<option value="是" selected="selected">是</option>
+									<option value="否">否</option>
+								</select>
+							</div>
+							 	<div class="form_tip_div ns">
+								<a class="form_icon"></a>
+								<div class="form_tip">
+									<em class="form_tip_i"></em>请填写是否对循环水中总烃（或石油类）进行监测并采取泄漏设备控制及循环水中总烃浓度控制的（是，否）。
+								</div> </div></li>
+			</div></div></ul>
+		</div>
+		<div class="form_buttons">
+			<input class="form_submit" type="submit" value="保存">
+		</div>
+	</form>
+	
+</div>
+</div>
+
+<div class="list_div">
+	<div class="list_title">
+		<h1>冷却塔、循环水冷却系统</h1>
+		<em class="add_em">+ 添加</em>
+	</div>
+	<div class="view_div">
+
+	<table class="list_table surface_table" total="3" page="1">
+		<thead>
+			<tr>
+				<td class="no_td">NO.</td>
+				<td class="name_td">工序名称</td>
+				<td class="spec_td">规格</td>
+				<td class="materialname_td">内部物料名称</td>
+				<td class="type_td">场地</td>
+				<td class="position_td">位置</td>
+				<td class="closed_td">加盖收集</td>
+				<td class="suanfa_td">算法</td>
+				<td class="op_td">操作</td>
+			</tr>
+		</thead>
+		<tbody>
+			
+				<tr ref="4" class="list_tr ">
+					<td class="no_td">
+						1</td>
+					<td class="name_td"><em class="ellipsis_em" title="666">666</em></td>
+					<td class="spec_td"><em class="ellipsis_em" title="66">66</em></td>
+					<td class="materialname_td"><em class="ellipsis_em" title="66">66</em></td>
+					<td class="type_td"><em class="ellipsis_em" title="室内">室内</em></td>
+					<td class="position_td"><em class="ellipsis_em" title="66">66</em></td>
+					<td class="closed_td"><em class="ellipsis_em" title="是">是</em></td>
+					<td class="suanfa_td"><em class="ellipsis_em" title="2种方法">2种方法</em></td>
+					<td class="op_td"><a class="del_a">删除</a> <!-- ByXWK:乐观锁 --> <input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 17:33:46 CST 2016"></td>
+				</tr>
+			
+				<tr ref="3" class="list_tr ne">
+					<td class="no_td">
+						2</td>
+					<td class="name_td"><em class="ellipsis_em" title="开始">开始</em></td>
+					<td class="spec_td"><em class="ellipsis_em" title="10">10</em></td>
+					<td class="materialname_td"><em class="ellipsis_em" title="111">111</em></td>
+					<td class="type_td"><em class="ellipsis_em" title="室内">室内</em></td>
+					<td class="position_td"><em class="ellipsis_em" title="10">10</em></td>
+					<td class="closed_td"><em class="ellipsis_em" title="否">否</em></td>
+					<td class="suanfa_td"><em class="ellipsis_em" title="排放系数法">排放系数法</em></td>
+					<td class="op_td"><a class="del_a">删除</a> <!-- ByXWK:乐观锁 --> <input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 17:33:08 CST 2016"></td>
+				</tr>
+			
+				<tr ref="2" class="list_tr ">
+					<td class="no_td">
+						3</td>
+					<td class="name_td"><em class="ellipsis_em" title="冷却塔、循环水冷却系统">冷却塔、循环水冷却系统</em></td>
+					<td class="spec_td"><em class="ellipsis_em" title="10">10</em></td>
+					<td class="materialname_td"><em class="ellipsis_em" title="111">111</em></td>
+					<td class="type_td"><em class="ellipsis_em" title="室内">室内</em></td>
+					<td class="position_td"><em class="ellipsis_em" title="10">10</em></td>
+					<td class="closed_td"><em class="ellipsis_em" title="是">是</em></td>
+					<td class="suanfa_td"><em class="ellipsis_em" title="物料衡算法">物料衡算法</em></td>
+					<td class="op_td"><a class="del_a">删除</a> <!-- ByXWK:乐观锁 --> <input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 17:32:32 CST 2016"></td>
+				</tr>
+			
+		</tbody>
+	</table>
+
+</div>
+	<div class="page_div"></div>
+</div>
+
+<div class="add_div" style="display:none;">
+	<div class="form_div">
+	<a class="return_a"><!--<img src="../images/return_r.png"> --></a>
+	<form method="post" id="addsurfaceform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>添加冷却塔、循环水冷却系统</h1>
+		</div>
+		<div class="form_content">
+			<ul>
+				<li class="form_content_li"><label for="name" class="form_label"> <em class="required_em">*</em>工序名称：
+				</label>
+					<div class="form_input_div">
+						<input id="name" class="form_input" type="text" data-max="100" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>填写自由液面所位于的生产、处理、存储工序名称。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="spec" class="form_label"> <em class="required_em">*</em>规格：
+				</label>
+					<div class="form_input_div">
+						<input id="spec" class="form_input" type="text" data-max="100" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指企业特定冷却塔或储存有机废水容器（含废水治理设施）的自由液面表面积尺寸，计量单位为平方米。
+						</div>
+
+					</div></li>
+				<li class="form_content_li"><label for="materialname" class="form_label"> <em class="required_em">*</em>内部物料名称：
+				</label>
+					<div class="form_input_div">
+						<input id="materialname" class="form_input" type="text" data-max="100" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指企业特定冷却塔或储存有机废水容器（含废水治理设施）内所含主要物料的名称。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="type" class="form_label"> <em class="required_em">*</em>场地：
+				</label>
+					<div class="form_input_div">
+						<select id="type" class="form_select" required>
+							<option value="室内">室内</option>
+							<option value="室外">室外</option>
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指冷却塔或储存有机废水容器位于室内或室外。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="position" class="form_label"> <em class="required_em">*</em>位置：
+				</label>
+					<div class="form_input_div">
+						<input id="position" class="form_input" type="text" data-max="100" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指冷却塔或储存有机废水容器具体位置。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="closed" class="form_label"> <em class="required_em">*</em>加盖收集：
+				</label>
+					<div class="form_input_div">
+						<select id="closed" class="form_select" required>
+							<option value="是">是</option>
+							<option value="否">否</option>
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选择是否加盖手机。
+						</div>
+					</div></li>
+
+				<li class="form_content_li"><label for="closed" class="form_label"> <em class="required_em">*</em>冷却塔算法：
+				</label>
+					<div class="form_input_div">
+						<select id="suanfa1" class="form_select" required>
+							<option value="">请选择</option>
+							<option value="物料衡算法">物料衡算法</option>
+							<option value="排放系数法">排放系数法</option>
+							<option value="2种方法">2种方法</option>
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选择算法。
+						</div>
+					</div></li>
+				<div class="form_title yc title" style="display: none;">
+					<h2 class="yc wh" style="display: none;">物料衡算法</h2>
+					<h2 class="yc pf" style="display: none;">排放系数法</h2>
+				</div>
+
+				<div class="form_content">
+					<li class="form_content_li yc wh" style="display: none;"><label for="closed" class="form_label sf"> <em class="required_em">*</em>入口冷却水暴露空气前EVOCs的浓度，毫克/升：
+					</label> <!-- 					LCONCENTRATION -->
+						<div class="form_input_div">
+							<input id="lconcentration" class="form_input wl" type="text" data-max="100" value="">
+						</div>
+						<div class="form_tip_div ns">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请填写入口冷却水暴露空气前EVOCs的浓度，毫克/升。
+							</div>
+						</div></li>
+
+					<li class="form_content_li yc wh" style="display: none;"><label for="closed" class="form_label sf"> <em class="required_em">*</em>出口冷却水暴露空气后EVOCs的浓度，毫克/升：
+					</label>
+						<div class="form_input_div">
+							<input id="rconcentration" class="form_input wl" type="text" data-max="100" value="">
+						</div>
+						<div class="form_tip_div ns">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请填写出口冷却水暴露空气后EVOCs的浓度，毫克/升。
+							</div>
+						</div></li>
+
+					<div class="form_content">
+						<li class="form_content_li yc pf" style="display: none;"><label for="closed" class="form_label sf2"> <em class="required_em">*</em>冷却塔的循环水量，立方米/小时：
+						</label>
+							<div class="form_input_div">
+								<input id="cwater" class="form_input wr" type="text" data-max="100" value="">
+							</div>
+							<div class="form_tip_div ns">
+								<a class="form_icon"></a>
+								<div class="form_tip">
+									<em class="form_tip_i"></em>请填写冷却塔的循环水量，立方米/小时。
+								</div>
+							</div></li>
+
+						<li class="form_content_li yc pf" style="display: none;"><label for="closed" class="form_label sf"> <em class="required_em">*</em>是否对循环水中总烃（或石油类）进行监测并采取泄漏设备控制及循环水中总烃浓度控制：
+						</label>
+							<div class="form_input_div">
+								<select id="control" class="form_select sf2_2 wr">
+									<option value="">请选择</option>
+									<option value="是">是</option>
+									<option value="否">否</option>
+								</select>
+							</div>
+							<div class="form_tip_div ns">
+								<a class="form_icon"></a>
+								<div class="form_tip">
+									<em class="form_tip_i"></em>请填写是否对循环水中总烃（或石油类）进行监测并采取泄漏设备控制及循环水中总烃浓度控制的（是，否）。
+								</div></div></li>
+			</div></div></ul>
+		</div>
+		<div class="form_buttons">
+			<input class="form_submit" type="submit" value="提交">
+		</div>
+	</form>
+</div>
+</div>
+
+<!------  弹窗背景  -------->
+    <div class="map_bg" style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background-color: #000;filter: alpha(opacity = 30); -moz-opacity: 0.3; opacity: 0.3; z-index: -10; display:none;"></div>
+    
+</div></div>
+
+</body>
+</html>

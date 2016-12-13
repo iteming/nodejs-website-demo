@@ -1,0 +1,393 @@
+@CHARSET "UTF-8";
+
+#business_copy .list_table .no_td {
+	width: 150px;
+}
+
+#business_copy .list_table .no_td.child {
+	width: 50px;
+}
+
+#business_copy .list_table .no_td.child2 {
+	width: 50px;
+}
+
+#business_copy .list_table .no_td.child3 {
+	width: 75px;
+}
+
+#business_copy .list_table .no_td.child4 {
+	width: 150px;
+}
+
+#business_copy .list_table .no_td.child5 {
+	width: 150px;
+}
+
+#business_copy .list_table .name_td {
+	width: 300px;
+}
+
+#business_copy .list_table .number_td {
+	width: 300px;
+}
+
+#business_copy .list_table .producttype_td {
+	width: 200px;
+	position: relative;
+}
+
+#business_copy .list_table .productname_td {
+	width: 200px;
+	position: relative;
+}
+
+#business_copy .list_table .productunit_td {
+	width: 200px;
+	position: relative;
+}
+
+#business_copy .list_table	.productcapacity_td {
+	width: 200px;
+	position: relative;
+}
+
+#business_copy .list_table .materialname_td {
+	width: 200px;
+	position: relative;
+}
+
+#business_copy .list_table .materialunit_td {
+	width: 200px;
+	position: relative;
+}
+
+#business_copy .list_table .materialyearusage_td {
+	width: 200px;
+	position: relative;
+}
+
+#business_copy .list_table .materialconsume_td {
+	width: 200px;
+	position: relative;
+}
+
+#business_copy .list_table .excipienttype_td {
+	width: 150px;
+	position: relative;
+}
+
+#business_copy .list_table .excipientname_td {
+	width: 150px;
+	position: relative;
+}
+
+#business_copy .list_table .excipientunit_td {
+	width: 150px;
+	position: relative;
+}
+
+#business_copy .list_table .excipientyearusage_td {
+	width: 150px;
+	position: relative;
+}
+
+#business_copy .list_table .excipientconsume_td {
+	width: 150px;
+	position: relative;
+}
+
+#business_copy .list_table .excipientusecode_td {
+	width: 150px;
+	position: relative;
+}
+
+#business_copy .list_table .technologynumber_td {
+	width: 600px;
+	position: relative;
+}
+
+#business_copy .list_table .pollutantname_td {
+	width: 600px;
+	position: relative;
+}
+
+#business_copy .list_table .op_td {
+	width: 150px;
+}
+
+#business_copy .list_table .op_td.child {
+	width: 50px;
+}
+
+#business_copy .list_table .op_td.child2 {
+	width: 50px;
+}
+
+#business_copy .list_table .op_td.child3 {
+	width: 75px;
+}
+
+#business_copy .list_table .op_td.child4 {
+	width: 150px;
+}
+
+#business_copy .list_table .op_td.child5 {
+	width: 150px;
+}
+
+#business_copy .form_content .form_content_li.attachment_li {
+	margin-bottom: 20px;
+	position: relative;
+	overflow: hidden;
+	height: auto;
+}
+
+#business_copy #file_upload_beltline_add {
+	margin-top: 7px;
+}
+
+#business_copy .attachment_view_div {
+	float: left;
+	margin-left: 155px;
+	margin-top: 12px;
+	width: 650px;
+}
+
+#business_copy .beltline_attachment {
+	height: 30px;
+	line-height: 30px;
+}
+
+#business_copy .attachment_del_a {
+	margin-left: 20px;
+	color: #999;
+}
+
+#business_copy .attachment_del_a:hover {
+	color: #dd1778;
+}
+
+#business_copy .child_input {
+	width: 240px;
+	margin: 0;
+	padding: 4px;
+	height: 22px;
+	line-height: 22px;
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	background: #FFF url(../../../../images/input_bg.gif) 0 0 no-repeat;
+	box-shadow: 0 1px 2px #f4f4f4 inset;
+	vertical-align: middle;
+}
+
+#business_copy .child_select {
+	width: 240px;
+	margin: 0;
+	padding: 4px;
+	height: 32px;
+	line-height: 22px;
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	background: #FFF url(../../../../images/input_bg.gif) 0 0 no-repeat;
+	box-shadow: 0 1px 2px #f4f4f4 inset;
+	vertical-align: middle;
+}
+
+#business_copy #addproductform .child_input {
+	width: 140px;
+}
+
+#business_copy #addproductform .child_select {
+	width: 140px;
+}
+
+#business_copy #addmaterialform .child_input {
+	width: 140px;
+}
+
+#business_copy #addmaterialform .child_select {
+	width: 140px;
+}
+
+#business_copy #addexcipientform .child_input {
+	width: 100px;
+}
+
+#business_copy #addexcipientform .child_select {
+	width: 100px;
+}
+
+#business_copy #modifyproductform .child_input {
+	width: 140px;
+}
+
+#business_copy #modifyproductform .child_select {
+	width: 140px;
+}
+
+#business_copy #modifymaterialform .child_input {
+	width: 140px;
+}
+
+#business_copy #modifymaterialform .child_select {
+	width: 140px;
+}
+
+#business_copy #modifyexcipientform .child_input {
+	width: 100px;
+}
+
+#business_copy #modifyexcipientform .child_select {
+	width: 100px;
+}
+
+#business_copy #addbeltlineform .form_buttons {
+	position: absolute;
+	bottom: 20px;
+}
+
+#business_copy .add_div .form_div {
+	padding-bottom: 80px;
+}
+
+#business_copy #modifybeltlineform .form_buttons {
+	position: absolute;
+	bottom: 20px;
+}
+
+#business_copy .check_div .form_div {
+	padding-bottom: 80px;
+}
+
+#business_copy .table_tip_div.product_tip {
+	width: 225px;
+	line-height: 18px;
+	position: absolute;
+	top: 65px;
+	left: 19px;
+	display: none;
+}
+
+#business_copy .table_tip_div.material_tip {
+	width: 225px;
+	line-height: 18px;
+	position: absolute;
+	top: 65px;
+	left: 17px;
+	display: none;
+}
+
+#business_copy .table_tip_div.excipient_tip {
+	width: 225px;
+	line-height: 18px;
+	position: absolute;
+	top: 65px;
+	left: 5px;
+	display: none;
+}
+
+#business_copy .table_tip_div.technology_tip {
+	width: 225px;
+	line-height: 18px;
+	position: absolute;
+	top: 65px;
+	left: 12px;
+	display: none;
+}
+
+#business_copy .table_tip_div.pollutant_tip {
+	width: 225px;
+	line-height: 18px;
+	position: absolute;
+	top: 65px;
+	left: 169px;
+	display: none;
+}
+
+#business_copy .table_tip {
+	position: relative;
+	width: 225px;
+	z-index: 5;
+	margin-left: 6px;
+	border: solid 1px #0066cc;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	background: #f5faff;
+	color: #0066cc;
+	padding: 7px 12px 5px 12px;
+	font-size: 12px;
+	text-align: left;
+}
+
+#business_copy .table_tip_i {
+	position: absolute;
+	top: -4px;
+	left: 12px;
+	background:url(../../../../images/up_arrow_ico.png) no-repeat;
+	width: 8px;
+	height: 4px;
+	font-size: 4px;
+	display: block;
+}
+
+#business_copy .excipient_downloadword_div {
+	background:url(../../../../images/excel_ico.jpg) left top no-repeat;
+	height: 20px;
+	line-height: 26px;
+	padding-left: 26px;
+	margin-left: 23px;
+}
+
+
+<!-- 新增-->
+
+#business_copy .check_div .form_div {
+	padding-bottom: 80px;
+}
+
+#business_copy .table_tip_div.component_tip {
+	width: 225px;
+	line-height: 18px;
+	position: absolute;
+	top: 65px;
+	left: 18px;
+	display: none;
+}
+
+#business_copy .table_tip_div.manufacturer_tip {
+	width: 225px;
+	line-height: 18px;
+	position: absolute;
+	top: 65px;
+	left: 119px;
+	display: none;
+}
+
+#business_copy .table_tip {
+	position: relative;
+	width: 225px;
+	z-index: 5;
+	margin-left: 6px;
+	border: solid 1px #0066cc;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	background: #f5faff;
+	color: #0066cc;
+	padding: 7px 12px 5px 12px;
+	font-size: 12px;
+	text-align: left;
+}
+
+#business_copy .table_tip_i {
+	position: absolute;
+	top: -4px;
+	left: 12px;
+	background:url(../../../../images/up_arrow_ico.png) no-repeat;
+	width: 8px;
+	height: 4px;
+	font-size: 4px;
+	display: block;
+}

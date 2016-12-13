@@ -1,0 +1,140 @@
+@CHARSET "UTF-8";
+
+#waterconsignation_copy .list_table .no_td.child {
+	width: 200px;
+}
+
+#waterconsignation_copy .list_table .no_td.child2 {
+	width: 150px;
+}
+
+#waterconsignation_copy .list_table	.component_td {
+	width: 500px;
+	position: relative;
+}
+
+#waterconsignation_copy .list_table .fromtype_td {
+	width: 300px;
+	position: relative;
+}
+
+#waterconsignation_copy .list_table .fromnumber_td {
+	width: 300px;
+	position: relative;
+}
+
+#waterconsignation_copy .list_table .op_td.child {
+	width: 200px;
+}
+
+#waterconsignation_copy .list_table .op_td.child2 {
+	width: 150px;
+}
+
+#waterconsignation_copy .child_input {
+	width: 240px;
+	margin: 0;
+	padding: 4px;
+	height: 22px;
+	line-height: 22px;
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	background: #FFF url(../../../images/input_bg.gif) 0 0 no-repeat;
+	box-shadow: 0 1px 2px #f4f4f4 inset;
+	vertical-align: middle;
+}
+
+#waterconsignation_copy .child_select {
+	width: 240px;
+	margin: 0;
+	padding: 4px;
+	height: 32px;
+	line-height: 22px;
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	background: #FFF url(../../../images/input_bg.gif) 0 0 no-repeat;
+	box-shadow: 0 1px 2px #f4f4f4 inset;
+	vertical-align: middle;
+}
+
+#modifywaterconsignationform .form_buttons {
+	position: absolute;
+	bottom: 20px;
+	/*margin:0 40px;*/
+}
+
+#waterconsignation_copy .table_tip_div.component_tip {
+	width: 225px;
+	line-height: 18px;
+	position: absolute;
+	top: 65px;
+	left: 134px;
+	display: none;
+}
+
+#waterconsignation_copy .table_tip_div.from_tip {
+	width: 225px;
+	line-height: 18px;
+	position: absolute;
+	top: 65px;
+	left: 20px;
+	display: none;
+}
+
+#waterconsignation_copy .table_tip {
+	position: relative;
+	width: 225px;
+	z-index: 5;
+	margin-left: 6px;
+	border: solid 1px #0066cc;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	background: #f5faff;
+	color: #0066cc;
+	padding: 7px 12px 5px 12px;
+	font-size: 12px;
+	text-align: left;
+}
+
+#waterconsignation_copy .table_tip_i {
+	position: absolute;
+	top: -4px;
+	left: 12px;
+	background: url("../../../images/up_arrow_ico.png") no-repeat;
+	width: 8px;
+	height: 4px;
+	font-size: 4px;
+	display: block;
+}
+
+
+#waterconsignation_copy .attachment_view_div {
+	float: left;
+	margin-left: 155px;
+	margin-top: 12px;
+	width: 650px;
+}
+
+#waterconsignation_copy .waterconsignation_attachment {
+	height: 30px;
+	line-height: 30px;
+}
+
+#waterconsignation_copy .attachment_del_a {
+	margin-left: 20px;
+	color: #999;
+}
+
+#waterconsignation_copy .attachment_del_a:hover {
+	color: #dd1778;
+}
+
+#waterconsignation_copy .form_content .form_content_li.attachment_li {
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    height: auto;
+}
+

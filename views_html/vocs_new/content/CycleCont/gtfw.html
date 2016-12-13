@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>核算周期-固体废物信息</title>
+
+
+<!--<link href="../css/common.css" type="text/css" rel="stylesheet">-->
+<link href="../../css/list.css" type="text/css" rel="stylesheet">
+<link href="../../css/option.css" type="text/css" rel="stylesheet">
+<link href="../../css/form.css" type="text/css" rel="stylesheet">
+<!--<link href="../css/uploadify.css" type="text/css" rel="stylesheet">-->
+
+<link href="../../css/chips/business/business.css" rel="stylesheet" type="text/css">
+<link href="../../css/chips/business/business07/business0720.css" rel="stylesheet" type="text/css">
+
+<link href="../../css/chips/vocsCycle/Cycle_detail.css" type="text/css" rel="stylesheet">
+<link href="../../css/Pop-ups.css" type="text/css" rel="stylesheet">
+
+<script src="../../js/jquery-1.8.3.min.js"></script>
+<script src="../../js/SystemNoice.js"></script>
+<!--<script src="../../js/Cycle_detail.js"></script>-->
+    
+</head>
+
+
+<body>
+
+<div id="right">
+	<div id="business_copy" class="copy_div" style="display: block;">
+        <div id="business0720_div" ref="8">
+	<div class="check_div"></div>
+
+	<div class="list_div">
+		<div class="list_title">
+			<h1>固体废物信息</h1>
+			<em class="add_em">+ 添加</em>
+		</div>
+		<div class="view_div">
+	<div class="empty_list_div">没有添加任何固体废物信息！</div>
+</div>
+		<!--<div class="business_form_buttons">
+			<input class="business_form_back" type="button" value="返回">
+		</div>-->
+		<div class="downloadword_div">
+			<a class="downloadword_0720a">下载固体废物基础信息</a>
+			<a class="downloadword_0720b">下载固体废物核算期信息</a>
+		</div>
+	</div>
+
+	<div class="add_div" style="display:none;">
+    	<div class="form_div">
+	<a class="return_a"><!--<img src="/VocsAdvance_UN/images/return_r.png">--> </a>
+	<form method="post" id="addbusiness0720form" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>固体废物信息</h1>
+		</div>
+		<div class="form_content">
+			<ul>
+				<li class="form_content_li"><label for="produce" class="form_label"> <em class="required_em">*</em>固体废物产生量：
+				</label>
+					<div class="form_input_div">
+						<input id="produce" class="form_input" type="num" min="0" step="0.000001" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>核算期内企业喷涂环节产生的未附着在产品上的漆量，计量单位为吨，允许保留6位小数。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="cov" class="form_label">
+						<em class="required_em">*</em>挥发性有机物含量：
+				</label>
+					<div class="form_input_div">
+						<input id="cov" class="form_input" type="num" min="0" max="100" step="0.000001" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指该固体废物中挥发性有机物含量的质量百分比，单位是%。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="uf" class="form_label">
+						自行利用方式： </label>
+					<div class="form_input_div">
+						<input id="uf" class="form_input" type="text">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指企业在核算期内回收固体废物的用途。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="ud" class="form_label">
+						利用量： </label>
+					<div class="form_input_div">
+						<input id="ud" class="form_input" type="num" min="0" step="0.000001">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写利用量。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="hf" class="form_label">
+						自行处置方式： </label>
+					<div class="form_input_div">
+						<input id="hf" class="form_input" type="text">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指对于企业在核算其内对产生的固体废物如何处理，如焚烧、填埋等。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="hd" class="form_label">
+						处置量： </label>
+					<div class="form_input_div">
+						<input id="hd" class="form_input" type="num" min="0" step="0.000001">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写处置量，计量单位为吨，允许保留6位小数。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="sd" class="form_label">
+						贮存量： </label>
+					<div class="form_input_div">
+						<input id="sd" class="form_input" type="num" min="0" step="0.000001">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>贮存量指核算期内企业将固体废物以一定包装方式暂时存放在专设的贮存设施内的量，计量单位为吨，允许保留6位小数。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="td" class="form_label">
+						转移量： </label>
+					<div class="form_input_div">
+						<input id="td" class="form_input" type="num" min="0" step="0.000001">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>转移量指在核算期内企业委托外单位处理每种固体废物的数量，计量单位为吨，允许保留6位小数。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="com" class="form_label">
+						接收单位： </label>
+					<div class="form_input_div">
+						<input id="com" class="form_input" type="text">
+					</div>
+					<div class="form_tip_div" style="display: none;">
+						<a class="form_icon icon_info"></a>
+						<div class="form_tip tip_info">
+							<em class="form_tip_i"></em>接收单位名称指企业委托其处理固体废物的单位名称。
+						</div>
+					</div></li>
+			</ul>
+		</div>
+		<div class="form_buttons">
+			<input class="form_submit" type="submit" value="提交">
+		</div>
+	</form>
+</div>
+    </div>
+             
+<!------  弹窗背景  -------->
+    <div class="map_bg" style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background-color: #000;filter: alpha(opacity = 30); -moz-opacity: 0.3; opacity: 0.3; z-index: -10; display:none;"></div>
+    
+    
+</div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>用户管理</title>
+		<link href="../../css/list.css" type="text/css" rel="stylesheet">
+		<link href="../../css/option.css" type="text/css" rel="stylesheet">
+		<link href="../../css/form.css" type="text/css" rel="stylesheet">
+		<link href="../../css/backtable.css" type="text/css" rel="stylesheet">
+		<link href="../../css/background/sysmanage/UserManage.css" rel="stylesheet" type="text/css">
+		<link href="../../css/Pop-ups.css" type="text/css" rel="stylesheet">
+		<script src="../../js/jquery-1.8.3.min.js"></script>
+		<script src="../../js/sysmanage/UserManage.js"></script>
+	</head>
+	<body>
+		
+<div id="right">
+	<div id="usermanage" class="copy_div" style="display: block;">
+		<div class="list_div" style="left: 0px; display: block;">
+		<div class="list_title">
+			<h1>用户管理</h1>
+			<em class="add_em">+ 添加</em>
+		</div>
+			<div class="search_div">
+				<input id="keywords" type="text" class="form_input"> <input id="search" type="button" value="查询">
+			</div>
+		
+			<div class="view_div">
+			  <table class="list_table user_table" total="7" page="1">
+	            <thead>
+	                <tr>
+	                    <td class="no_td">NO.</td>
+	                    <td class="user_td">登录名称</td>
+	                    <td class="username_td">用户名</td>
+	                    <td class="userdep_td">部门</td>
+	                    <td class="usertel_td">座机号码</td>
+	                    <td class="userdegree_td">职位</td>
+	                    <td class="usersafelevel_td">安全级别</td>
+	                    <td class="userisuse_td">是否有效</td>
+	                    <td class="userdosize_td">是否冻结</td>
+	                    <td class="usercontrol_td">操作</td>
+	                </tr>
+	            </thead>
+	            <tbody>			
+					<tr ref="8" class="list_tr ">
+						<td class="no_td">
+							1</td>
+						<td class="user_td"><em class="ellipsis_em" title="登录名">王sir</em></td>
+	                    <td class="username_td"><em class="ellipsis_em" title="用户名">wangsir</em></td>
+	                    <td class="userdep_td"><em class="ellipsis_em" title="部门">1823460</em></td>
+	                    <td class="usertel_td"><em class="ellipsis_em" title="座机号码">010-2134571</em></td>
+	                    <td class="userdegree_td"><em class="ellipsis_em" title="职位"></em>管理员</td>
+	                    <td class="usersafelevel_td"><em class="ellipsis_em" title="安全级别">高</em></td>
+	                    <td class="userisuse_td"><em class="ellipsis_em" title="是否有效">是</em></td>
+	                    <td class="userdosize_td"><em class="ellipsis_em" title="是否有效">是</em></td>
+						<td class="usercontrol_td"><a class="del_a">删除</a><a class="del_a">更新</a></td>
+					</tr>			
+					<tr ref="7" class="list_tr ">
+							<td class="no_td">
+							2</td>
+						<td class="user_td"><em class="ellipsis_em" title="登录名">王sir</em></td>
+	                    <td class="username_td"><em class="ellipsis_em" title="用户名">wangsir</em></td>
+	                    <td class="userdep_td"><em class="ellipsis_em" title="部门">环保</em></td>
+	                    <td class="usertel_td"><em class="ellipsis_em" title="座机号码">010-2134571</em></td>
+	                    <td class="userdegree_td"><em class="ellipsis_em" title="职位"></em>管理员</td>
+	                    <td class="usersafelevel_td"><em class="ellipsis_em" title="安全级别">高</em></td>
+	                    <td class="userisuse_td"><em class="ellipsis_em" title="是否有效">是</em></td>
+	                    <td class="userdosize_td"><em class="ellipsis_em" title="是否有效">是</em></td>
+						<td class="usercontrol_td"><a class="del_a">删除</a><a class="del_a">更新</a></td>
+					</tr>
+					
+					<tr ref="6" class="list_tr ">
+							<td class="no_td">
+							3</td>
+					<td class="user_td"><em class="ellipsis_em" title="登录名">王sir</em></td>
+	                    <td class="username_td"><em class="ellipsis_em" title="用户名">wangsir</em></td>
+	                    <td class="userdep_td"><em class="ellipsis_em" title="部门">环保</em></td>
+	                    <td class="usertel_td"><em class="ellipsis_em" title="座机号码">010-2134571</em></td>
+	                    <td class="userdegree_td"><em class="ellipsis_em" title="职位"></em>管理员</td>
+	                    <td class="usersafelevel_td"><em class="ellipsis_em" title="安全级别">高</em></td>
+	                    <td class="userisuse_td"><em class="ellipsis_em" title="是否有效">是</em></td>
+	                    <td class="userdosize_td"><em class="ellipsis_em" title="是否有效">是</em></td>
+						<td class="usercontrol_td"><a class="del_a">删除</a><a class="del_a">更新</a></td>
+					</tr>
+	
+					<tr ref="5" class="list_tr ">
+							<td class="no_td">
+							4</td>
+					<td class="user_td"><em class="ellipsis_em" title="登录名">王sir</em></td>
+	                    <td class="username_td"><em class="ellipsis_em" title="用户名">wangsir</em></td>
+	                    <td class="userdep_td"><em class="ellipsis_em" title="部门">环保</em></td>
+	                    <td class="usertel_td"><em class="ellipsis_em" title="座机号码">010-2134571</em></td>
+	                    <td class="userdegree_td"><em class="ellipsis_em" title="职位"></em>管理员</td>
+	                    <td class="usersafelevel_td"><em class="ellipsis_em" title="安全级别">高</em></td>
+	                    <td class="userisuse_td"><em class="ellipsis_em" title="是否有效">是</em></td>
+	                    <td class="userdosize_td"><em class="ellipsis_em" title="是否有效">是</em></td>
+						<td class="usercontrol_td"><a class="del_a">删除</a><a class="del_a">更新</a></td>
+					</tr>
+					
+					<tr ref="4" class="list_tr ">
+							<td class="no_td">
+							5</td>
+					<td class="user_td"><em class="ellipsis_em" title="登录名">王sir</em></td>
+	                    <td class="username_td"><em class="ellipsis_em" title="用户名">wangsir</em></td>
+	                    <td class="userdep_td"><em class="ellipsis_em" title="部门">环保</em></td>
+	                    <td class="usertel_td"><em class="ellipsis_em" title="座机号码">010-2134571</em></td>
+	                    <td class="userdegree_td"><em class="ellipsis_em" title="职位"></em>管理员</td>
+	                    <td class="usersafelevel_td"><em class="ellipsis_em" title="安全级别">高</em></td>
+	                    <td class="userisuse_td"><em class="ellipsis_em" title="是否有效">是</em></td>
+	                    <td class="userdosize_td"><em class="ellipsis_em" title="是否有效">是</em></td>
+						<td class="usercontrol_td"><a class="del_a">删除</a><a class="del_a">更新</a></td>
+					</tr>
+					
+					<tr ref="3" class="list_tr ">
+							<td class="no_td">
+							6</td>
+					<td class="user_td"><em class="ellipsis_em" title="登录名">王sir</em></td>
+	                    <td class="username_td"><em class="ellipsis_em" title="用户名">wangsir</em></td>
+	                    <td class="userdep_td"><em class="ellipsis_em" title="部门">环保</em></td>
+	                    <td class="usertel_td"><em class="ellipsis_em" title="座机号码">010-2134571</em></td>
+	                    <td class="userdegree_td"><em class="ellipsis_em" title="职位"></em>管理员</td>
+	                    <td class="usersafelevel_td"><em class="ellipsis_em" title="安全级别">高</em></td>
+	                    <td class="userisuse_td"><em class="ellipsis_em" title="是否有效">是</em></td>
+	                    <td class="userdosize_td"><em class="ellipsis_em" title="是否有效">是</em></td>
+						<td class="usercontrol_td"><a class="del_a">删除</a><a class="del_a">更新</a></td>
+					</tr>
+					
+					<tr ref="2" class="list_tr ">
+							<td class="no_td">
+							7</td>
+					<td class="user_td"><em class="ellipsis_em" title="登录名">王sir</em></td>
+	                    <td class="username_td"><em class="ellipsis_em" title="用户名">wangsir</em></td>
+	                    <td class="userdep_td"><em class="ellipsis_em" title="部门">环保</em></td>
+	                    <td class="usertel_td"><em class="ellipsis_em" title="座机号码">010-2134571</em></td>
+	                    <td class="userdegree_td"><em class="ellipsis_em" title="职位"></em>管理员</td>
+	                    <td class="usersafelevel_td"><em class="ellipsis_em" title="安全级别">高</em></td>
+	                    <td class="userisuse_td"><em class="ellipsis_em" title="是否有效">是</em></td>
+	                    <td class="userdosize_td"><em class="ellipsis_em" title="是否有效">是</em></td>
+						<td class="usercontrol_td"><a class="del_a">删除</a><a class="del_a">更新</a></td>
+					</tr>
+					
+					<tr ref="1" class="list_tr ">
+							<td class="no_td">
+							8</td>
+						<td class="user_td"><em class="ellipsis_em" title="登录名">王sir</em></td>
+	                    <td class="username_td"><em class="ellipsis_em" title="用户名">wangsir</em></td>
+	                    <td class="userdep_td"><em class="ellipsis_em" title="部门">环保</em></td>
+	                    <td class="usertel_td"><em class="ellipsis_em" title="座机号码">010-2134571</em></td>
+	                    <td class="userdegree_td"><em class="ellipsis_em" title="职位"></em>管理员</td>
+	                    <td class="usersafelevel_td"><em class="ellipsis_em" title="安全级别">高</em></td>
+	                    <td class="userisuse_td"><em class="ellipsis_em" title="是否有效">是</em></td>
+	                    <td class="userdosize_td"><em class="ellipsis_em" title="是否有效">是</em></td>
+						<td class="usercontrol_td"><a class="del_a">删除</a><a class="del_a">更新</a></td>
+					</tr>
+	            </tbody>
+	        </table>
+			</div>
+      	</div>
+	</body>
+
+<div class="add_div" style="display:none;">
+	<div class="form_div">
+	<a class="return_a"><!--<img src="../images/return_r.png"> --></a>
+	<form method="post" id="addaccountform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>添加用户</h1>
+		</div>
+		<div class="form_content">
+			<ul>
+				<li class="form_content_li"><label for="title" class="form_label"> <em class="required_em">*</em>用户名称：
+                    </label>
+                        <div class="form_input_div">
+                            <input id="title" class="form_input" type="text" data-max="100" required>
+                        </div>
+                        <div class="form_tip_div">
+                            <a class="form_icon"></a>
+                            <div class="form_tip">
+                                <em class="form_tip_i"></em>请输入用户名；
+                            </div>
+                        </div>
+				</li>
+				
+				<li class="form_content_li">
+					<label for="title" class="form_label"> 
+						<em class="required_em">*</em>所在部门
+                    </label>
+                        <div class="form_input_div">
+                            <input id="title" class="form_input" type="text" data-max="100" required>
+                        </div>
+                        <div class="form_tip_div">
+                            <a class="form_icon"></a>
+                            <div class="form_tip">
+                                <em class="form_tip_i"></em>请输入部门
+                            </div>
+                        </div>
+				</li>
+
+					
+				
+				<li class="form_content_li"><label for="title" class="form_label"> <em class="required_em">*</em>公司电话：
+                    </label>
+                        <div class="form_input_div">
+                            <input id="title" class="form_input" type="text" data-max="100" required>
+                        </div>
+                        <div class="form_tip_div">
+                            <a class="form_icon"></a>
+                            <div class="form_tip">
+                                <em class="form_tip_i"></em>请输入电话
+                            </div>
+                        </div>
+				</li>
+				
+				<li class="form_content_li"><label for="title" class="form_label"> <em class="required_em">*</em>职位：
+                    </label>
+                        <div class="form_input_div">
+                            <input id="title" class="form_input" type="text" data-max="100" required>
+                        </div>
+                        <div class="form_tip_div">
+                            <a class="form_icon"></a>
+                            <div class="form_tip">
+                                <em class="form_tip_i"></em>请输入职位
+                            </div>
+                        </div>
+				</li>
+			</ul>
+		</div>
+		<div class="form_buttons">
+			<input class="form_submit" type="submit" value="提交">
+		</div>
+	</form>
+</div>
+</div>
+
+
+    <div class="map_bg" style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; opacity: 0.3; z-index: -10; background-color: rgb(0, 0, 0); display:none;"></div>
+
+</html>

@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>核算周期-装载操作</title>
+
+
+<!--<link href="../css/common.css" type="text/css" rel="stylesheet">-->
+<link href="../../css/list.css" type="text/css" rel="stylesheet">
+<link href="../../css/option.css" type="text/css" rel="stylesheet">
+<link href="../css/form.css" type="text/css" rel="stylesheet">
+<!--<link href="../css/uploadify.css" type="text/css" rel="stylesheet">-->
+
+<link href="../../css/chips/business/business.css" rel="stylesheet" type="text/css">
+<link href="../../css/chips/business/business07/business0730.css" rel="stylesheet" type="text/css">
+
+<link href="../../css/chips/vocsCycle/Cycle_detail.css" type="text/css" rel="stylesheet">
+<!--<script src="../js/jquery-1.8.3.min.js"></script>
+<script src="../js/SystemNoice.js"></script>
+<script src="../js/AccountingPeriod_Cycle.js"></script>-->
+
+    
+</head>
+
+
+<body>
+
+<div id="right">
+	<div id="business_copy" class="copy_div" style="display: block;">
+        <div class="business_div list_div" ref="8">
+	<div class="list_title">
+		<h1>装载操作信息</h1>
+	</div>
+	
+		<form method="post" id="business0730form" onsubmit="javascript:return false;" novalidate="novalidate">
+			<table class="business0730_table businesstable" total="" page="">
+				<thead>
+					<tr>
+						<td class="no_td">NO.</td>
+						<td class="conveyance_td">运输工具</td>
+						<td class="operation_td">操作方式</td>
+						<td class="mode_td">模式</td>
+						<td class="pressure_td">真实蒸汽压（帕）</td>
+						<td class="mol_td">物料分子量</td>
+						<td class="freightdata_td">年装载油量（立方米）</td>
+						<td class="materialdata_td">物料年周转量：立方米/年</td>
+						
+					</tr>
+				</thead>
+				<tbody>
+					
+						<tr class="list_tr" ref="2">
+							<td class="no_td">
+								1</td>
+							<td class="conveyance_td">油罐卡车</td>
+							<td class="operation_td">
+									
+									
+                                浸没式装载
+                               
+								</td>
+							<td class="mode_td">
+									
+									
+                                清洁油罐
+                               
+								</td>
+							<td class="pressure_td">10</td>
+							<td class="mol_td">10</td>
+							<td class="freightdata_td"><input id="freightdata1" class="form_input" type="num" min="0" step="0.000001" required="" value="" ref="2"></td>
+
+							<td class="materialdata_td"><input id="materialdata1" class="form_input" type="num" min="0" step="0.000001" required="" value="" ref=""></td>
+						</tr>
+					
+						<tr class="list_tr" ref="3">
+							<td class="no_td">
+								2</td>
+							<td class="conveyance_td">油罐列车</td>
+							<td class="operation_td">
+									
+									
+                                倾倒装载
+                               
+								</td>
+							<td class="mode_td">
+									
+									
+                                一般模式
+                               
+								</td>
+							<td class="pressure_td">10</td>
+							<td class="mol_td">10</td>
+							<td class="freightdata_td"><input id="freightdata2" class="form_input" type="num" min="0" step="0.000001" required="" value="" ref="3"></td>
+
+							<td class="materialdata_td"><input id="materialdata2" class="form_input" type="num" min="0" step="0.000001" required="" value="" ref=""></td>
+						</tr>
+					
+						<tr class="list_tr" ref="4">
+							<td class="no_td">
+								3</td>
+							<td class="conveyance_td">油轮</td>
+							<td class="operation_td">
+									
+									
+                                浸没式装载
+                               
+								</td>
+							<td class="mode_td">
+									
+									
+                                蒸汽平衡
+                               
+								</td>
+							<td class="pressure_td">10</td>
+							<td class="mol_td">10</td>
+							<td class="freightdata_td"><input id="freightdata3" class="form_input" type="num" min="0" step="0.000001" required="" value="" ref="4"></td>
+
+							<td class="materialdata_td"><input id="materialdata3" class="form_input" type="num" min="0" step="0.000001" required="" value="" ref=""></td>
+						</tr>
+					
+				</tbody>
+			</table>
+			<div class="business_form_buttons">
+				<input class="business_form_submit" type="submit" value="保存">
+				<!--<input class="business_form_back" type="button" value="返回">-->
+			</div>
+		</form>
+	
+	
+	<div class="downloadword_div">
+		<a class="downloadword_0730a">下载装载操作信息</a>
+	</div>
+</div>
+    </div>
+</div>
+
+</body>
+</html>

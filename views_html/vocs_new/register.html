@@ -1,0 +1,725 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vocs综合管控平台注册</title>
+
+<link href="css/frame.css" type="text/css" rel="stylesheet">
+<link href="css/form.css" type="text/css" rel="stylesheet">
+<link href="css/option.css" type="text/css" rel="stylesheet">
+<link href="css/register.css" type="text/css" rel="stylesheet">
+
+
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/jquery.color.js"></script>
+<script src="js/register.js"></script>
+
+<link rel="stylesheet" type="text/css" href="http://api.map.baidu.com/res/12/bmap.css">
+<script type="text/javascript" src="http://api.map.baidu.com/api?ak=FF86a45c8fe3eeaa38a693156b62202b&amp;v=1.2"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=1.2&amp;ak=FF86a45c8fe3eeaa38a693156b62202b&amp;services=&amp;t=20130716024057"></script>
+
+<style>
+*{margin:0px; padding:0px; font-family:"arial","微软雅黑"}
+a{ text-decoration:none;}
+img{ display:block;}
+.back_index{float:left;line-height:50px;margin-left:20px; letter-spacing:1px;}
+.back_index a{color:white;}
+</style>
+
+</head>
+
+<body style="background-color: #ecf0f5;">
+
+<!--<div class="adapt_box">
+	<div class="login_box">
+    	<div class="relative">
+        	<div class="usr_photo">
+            	<img src="images/default_usr_photo.png">
+            </div>
+        </div>
+    	<div class="box_top">
+        	<div class="title_part"></div>
+            <div class="center_part">
+            	<div class="input_outer">
+                	<div class="input_single">
+                    	<div class="icon organization"></div>
+                        <input value="输入组织机构代码" onfocus="if(this.value=='输入组织机构代码') this.value='';this.style.color='#444'; return true;" onblur="if(this.value=='') this.value='输入组织机构代码'; this.style.color='#a5a8ab'; return true;">
+                    </div>
+                </div>
+                
+                <div class="input_outer">
+                	<div class="input_single" style="border-bottom:1px solid #c1cee0;">
+                    	<div class="icon usr_name"></div>
+                        <input value="输入用户账号" onfocus="if(this.value=='输入用户账号') this.value='';this.style.color='#444'; return true;" onblur="if(this.value=='') this.value='输入用户账号'; this.style.color='#a5a8ab'; return true;">
+                    </div>
+                    <div class="input_single">
+                    	<div class="icon usr_pw"></div>
+                        <input value="输入用户密码" 
+                        type="text" value="请输入密码!" onfocus="if(this.value==defaultValue) {this.value='';this.type='password';};this.style.color='#444'" onblur="if(!value) {value=defaultValue; this.type='text';};this.style.color='#a5a8ab';">
+                    </div>
+                </div>
+                
+            </div>--><!--center_part_end-->
+            
+            <!--<div class="login_btn">
+            <a href="index.html">
+            	<p>登录/LOGIN</p>
+                <div class="arrow_right"></div>
+            </a>
+            </div>
+        </div>box_top_end-->
+        
+        <!--<div class="copyright">
+        	<p>适用浏览器: IE10以上、FireFox、Chrome<br>
+
+				山东天利和软件股份有限公司</p>
+        </div>
+    </div>
+</div>-->
+
+<div class="header">
+	<div class="logo">
+    	<img src="images/logo.png">
+    </div>
+    
+    <div class="back_index">
+    	<a href="login.html">返回登录</a>
+    </div>
+</div>
+
+<div id="middle">
+	<div class="register_div" style="display: block; left: 0px;">
+        <div class="form_div">
+            <form method="post" id="regform" onsubmit="javascript:return false;" novalidate>
+                <div class="form_title">
+                	<h1>账号信息</h1>
+                </div>
+                <div class="form_content">
+                    <ul>
+						<li class="form_content_li">
+                        	<label for="ecode" class="form_label"> <em class="required_em">*</em>组织机构代码：</label>
+                            <div class="form_input_div">
+                                <input id="ecode" class="form_input" type="text" maxlength="30" required>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>请填写企业组织机构代码。
+                                </div>
+                            </div>
+                    	</li>
+                        <li class="form_content_li">
+                        	<label for="email" class="form_label"> <em class="required_em">*</em>注册邮箱：</label>
+                            <div class="form_input_div" style="position: relative;">
+                                <input id="email" class="form_input" type="email" required>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>请填写电子邮箱，如：abc@123.com。请确保该邮箱为真实邮箱否则将不能使用密码找回、信息修改。</div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label for="password" class="form_label"> <em class="required_em">*</em>密码：</label>
+                            <div class="form_input_div">
+                                <input id="password" class="form_input" type="password" maxlength="20" data-min="8" required>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>请输入密码
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label for="repeatpassword" class="form_label"> <em class="required_em">*</em>重复密码：</label>
+                            <div class="form_input_div">
+                                <input id="repeatpassword" class="form_input" type="password" maxlength="20" data-min="8" required>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>请重复输入密码
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="form_title">
+                    <h1>企业信息</h1>
+                </div>
+                <div class="form_content">
+                    <ul>
+                        <li class="form_content_li">
+                        	<label for="ename" class="form_label"> <em class="required_em">*</em>企业名称：</label>
+                            <div class="form_input_div">
+                                <input id="ename" class="form_input" type="text" data-max="50" required>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>按经工商行政管理部门核准，进行法人登记的名称填写，在填写时应使用规范化汉字全称，即与企业（单位）公章所使用的名称一致。凡经登记主管机关核准或批准具有两个或两个以上名称的单位，要求填写法人名称，同时用括号注明其余的名称。
+                                </div>
+                            </div>
+                        </li>
+						<li class="form_content_li">
+                        	<label for="legalperson" class="form_label"> <em class="required_em">*</em>法人代表：</label>
+                            <div class="form_input_div">
+                                <input id="legalperson" class="form_input" type="text" data-max="50" required>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>指企业法定代表人，是根据章程或有关文件代表本单位行使职权的签字人，企业法定代表人按《企业法人营业执照》填写。
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label for="membership" class="form_label"> <em class="required_em">*</em>是否有母公司：</label>
+                            <div class="form_input_div">
+                                <select id="membership" class="form_select" required>
+                                    <option value="无">无</option>
+                                    <option value="有">有</option>
+                                </select>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>对于企业有上级母公司的，请选择“有”，并填写母公司全称、组织机构代码及与母公司的隶属关系(全资、控股)，否则，请选择“无”。
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label id="parentename_label" for="parentename" class="form_label disabled"> <em class="required_em">*</em>母公司名称：</label>
+                            <div class="form_input_div">
+                                <input id="parentename" class="form_input disabled" type="text" data-max="50" disabled="disabled" required>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>请填写企业所属母公司全称。
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label id="relationship_label" for="relationship" class="form_label disabled"> <em class="required_em">*</em>隶属关系：</label>
+                            <div class="form_input_div">
+                                <select id="relationship" class="form_select disabled" disabled="disabled" required>
+                                    <option value="">请选择</option>
+                                    <option value="全资">全资</option>
+                                    <option value="控股">控股</option>
+                                </select>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>请选择与母公司的隶属关系。
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label id="parentecode_label" for="parentecode" class="form_label disabled"> <em class="required_em">*</em>母公司组织机构代码：</label>
+                            <div class="form_input_div">
+                                <input id="parentecode" class="form_input disabled" type="text" data-max="30" disabled="disabled" required>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>请填写企业所属母公司组织机构代码。
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label for="regarea" class="form_label"> <em class="required_em">*</em>企业注册地所在区县：</label>
+                            <div class="form_input_div">
+                                <input id="regarea" class="form_input  " type="text" data-max="30" required>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>请选择企业注册地所在区县
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                        	<label for="regstreet" class="form_label"> <em class="required_em">*</em>企业注册地所在街道：</label>
+                            <div class="form_input_div">
+                                <input id="regstreet" class="form_input  " type="text" data-max="30" required>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>请选择企业注册地所在街道
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label for="regdoorplate" class="form_label"> <em class="required_em">*</em>企业注册地门牌号：</label>
+                            <div class="form_input_div">
+                                <input id="regdoorplate" class="form_input" type="text" data-max="50" required>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>请填写企业注册地门牌号。
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label for="regzipcode" class="form_label"> <em class="required_em">*</em>企业注册地邮编：</label>
+                            <div class="form_input_div">
+                                <input id="regzipcode" class="form_input" type="zipcode" maxlength="6" required>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>请填写企业注册地邮编，6为有效数字
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li jwd">
+                            <label for="reglon" class="form_label"> <em class="required_em">*</em>经度（注册）：</label>
+                            <input id="reglon" class="form_input" type="text" readonly data-max="12" required>
+                            <label for="reglat" class="form_label lat_label"> 纬度（注册）： </label>
+                            <input id="reglat" class="form_input" type="text" readonly data-max="12" required>
+                        </li>
+                        <li class="form_content_li">
+                            <label for="proarea" class="form_label"> <em class="required_em">*</em>企业生产地所在区县：</label>
+                            <div class="form_input_div">
+                                <input id="proarea" class="form_input " type="text" data-max="30" required>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>请选择企业生产地所在区县
+                                </div>
+                            </div>
+                    	</li>
+                        <li class="form_content_li">
+                            <label for="prostreet" class="form_label"> <em class="required_em">*</em>企业生产地所在街道：</label>
+                            <div class="form_input_div">
+                                <input id="prostreet" class="form_input " type="text" data-max="30" required>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>请选择企业生产地所在街道
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label for="prodoorplate" class="form_label"> <em class="required_em">*</em>企业生产地门牌号：</label>
+                            <div class="form_input_div">
+                                <input id="prodoorplate" class="form_input" type="text" data-max="50" required>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>请填写企业生产地门牌号。
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label for="prozipcode" class="form_label"> <em class="required_em">*</em>企业生产地邮编：</label>
+                            <div class="form_input_div">
+                                <input id="prozipcode" class="form_input" type="zipcode" maxlength="6" required>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>请填写企业生产地邮编，6为有效数字
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li jwd">
+                            <label for="prolon" class="form_label"> <em class="required_em">*</em>经度（生产）：</label>
+                            <input id="prolon" class="form_input" type="text" readonly data-max="12" required>
+                            <label for="prolat" class="form_label lat_label"> 纬度（生产）： </label>
+                            <input id="prolat" class="form_input" type="text" readonly data-max="12" required>
+                        </li>
+                        <li class="form_content_li">
+                            <label for="contact" class="form_label"> <em class="required_em">*</em>联系人：</label>
+                            <div class="form_input_div">
+                                <input id="contact" class="form_input" type="text" data-max="10" required>
+                            </div>
+                            <div class="form_tip_div" style="display: none;">
+                                <a class="form_icon icon_info"></a>
+                                <div class="form_tip tip_info">
+                                    <em class="form_tip_i"></em>请填写联系人姓名
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                        	<label for="telephone" class="form_label"> <em class="required_em">*</em>电话：</label>
+                            <div class="form_input_div">
+                                <input id="telephone" class="form_input" required>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>请填写电话号码
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label for="mobile" class="form_label"> <em class="required_em">*</em>手机：</label>
+                            <div class="form_input_div">
+                                <input id="mobile" class="form_input" maxlength="11" type="tel" required>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>请填写手机号码，11位有效数字
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label for="fax" class="form_label"><em class="required_em">*</em>传真：</label>
+                            <div class="form_input_div">
+                                <input id="fax" class="form_input" type="text" required>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>请填写传真号码
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label for="itype" class="form_label"> <em class="required_em">*</em>行业类别：</label>
+                            <div class="form_input_div">
+                                <select id="itype" class="form_select" required>
+                                    <option value="">请选择</option>							
+                                    <option value="13">农副食品加工业（C13）</option>							
+                                    <option value="14">食品制造业（C14）</option>							
+                                    <option value="15">酒、饮料和精制茶制造业（C15）</option>							
+                                    <option value="16">烟草制品业（C16）</option>							
+                                    <option value="17">纺织业（C17）</option>							
+                                    <option value="18">纺织服装、服饰业（C18）</option>							
+                                    <option value="19">皮革、毛皮、羽毛及其制品和制鞋业（C19）</option>							
+                                    <option value="20">木材加工和木、竹、藤、棕、草制品业（C20）</option>							
+                                    <option value="21">家具制造业 （C21）</option>							
+                                    <option value="22">造纸和纸制品业（C22）</option>							
+                                    <option value="23">印刷和记录媒介复制业（C23）</option>							
+                                    <option value="24">文教、工美、体育和娱乐用品制造业（C24）</option>							
+                                    <option value="25">石油加工、炼焦和核燃料加工业（C25）</option>							
+                                    <option value="26">化学原料和化学制品制造业（C26）</option>							
+                                    <option value="27">医药制造业（C27）</option>							
+                                    <option value="28">化学纤维制造业（C28）</option>							
+                                    <option value="29">橡胶和塑料制品业（C29）</option>							
+                                    <option value="30">非金属矿物制品业（C30）</option>							
+                                    <option value="31">黑色金属冶炼和压延加工业 （C31）</option>							
+                                    <option value="32">有色金属冶炼和压延加工业 （C32）</option>							
+                                    <option value="33">金属制品业（C33）</option>							
+                                    <option value="34">通用设备制造业（C34）</option>							
+                                    <option value="35">专用设备制造业（C35）</option>							
+                                    <option value="36">汽车制造业（C36）</option>							
+                                    <option value="37">铁路、船舶、航空航天和其他运输设备制造业（C37）</option>							
+                                    <option value="38">电气机械和器材制造业（C38）</option>							
+                                    <option value="39">计算机、通信和其他电子设备制造业（C39）</option>							
+                                    <option value="40">仪器仪表制造业（C40）</option>							
+                                    <option value="41">其他制造业（C41）</option>							
+                                    <option value="42">废弃资源综合利用业（C42）</option>							
+                                    <option value="43">金属制品、机械和设备修理业（C13）</option>							
+                                    <option value="44">电力、热力生产和供应业（D44）</option>							
+                                    <option value="45">燃气生产和供应业（D45）</option>							
+                                    <option value="46">水的生产和供应业（D46）</option>							
+                                    <option value="59">仓储业（C59）</option>							
+                                </select>
+                            </div>
+                            <div class="form_tip_div" style="display: none;">
+                                <a class="form_icon icon_info"></a>
+                                <div class="form_tip tip_info">
+                                    <em class="form_tip_i"></em>请选择行业类别
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                        	<label for="industry" class="form_label"> <em class="required_em">*</em>所属行业：</label>
+                            <div class="form_input_div industry_div">
+                                <select id="industry" class="form_select" required>
+                                    <option value="">请选择</option>
+                                </select>
+                            </div>
+                            <div class="form_tip_div" style="display: none;">
+                                <a class="form_icon icon_info"></a>
+                                <div class="form_tip tip_info">
+                                    <em class="form_tip_i"></em>请选择所属行业
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label for="etype" class="form_label"> <em class="required_em">*</em>登记注册类型：</label>
+                            <div class="form_input_div">
+                                <select id="etype" class="form_select" required>
+                                    <option value="">请选择</option>							
+                                    <option value="110">国有企业</option>							
+                                    <option value="120">集体企业</option>							
+                                    <option value="130">股份合作企业</option>							
+                                    <option value="140">联营企业</option>							
+                                    <option value="141">国有联营企业</option>							
+                                    <option value="142">集体联营企业</option>							
+                                    <option value="143">国有与集体联营企业</option>							
+                                    <option value="149">其他联营企业</option>							
+                                    <option value="150">有限责任公司</option>							
+                                    <option value="151">国有独资公司</option>							
+                                    <option value="159">其他有限责任公司</option>							
+                                    <option value="160">股份有限公司</option>							
+                                    <option value="170">私营企业</option>							
+                                    <option value="171">私营独资企业</option>							
+                                    <option value="172">私营合伙企业</option>							
+                                    <option value="173">私营有限责任公司</option>							
+                                    <option value="174">私营股份有限公司</option>							
+                                    <option value="190">其他内资企业</option>							
+                                    <option value="210">合资经营企业(港或澳、台资)</option>							
+                                    <option value="220">合作经营企业(港或澳、台资)</option>							
+                                    <option value="230">港、澳、台商独资经营企业</option>							
+                                    <option value="240">港、澳、台商投资股份有限公司</option>							
+                                    <option value="310">中外合资经营企业</option>							
+                                    <option value="320">中外合作经营企业</option>							
+                                    <option value="330">外资企业</option>							
+                                    <option value="340">外商投资股份有限公司</option>							
+                                </select>
+                            </div>
+                            <div class="form_tip_div" style="display: none;">
+                                <a class="form_icon icon_info"></a>
+                                <div class="form_tip tip_info">
+                                    <em class="form_tip_i"></em>请选择企业登记注册类型
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label for="scale" class="form_label"> <em class="required_em">*</em>企业规模：</label>
+                            <div class="form_input_div">
+                                <select id="scale" class="form_select" required>
+                                    <option value="">请选择</option>
+                                    <option value="大型">大型</option>
+                                    <option value="中型">中型</option>
+                                    <option value="小型">小型</option>
+                                    <option value="微型">微型</option>
+                                </select>
+                            </div>
+                            <div class="form_tip_div" style="display: none;">
+                                <a class="form_icon icon_info"></a>
+                                <div class="form_tip tip_info">
+                                    <em class="form_tip_i"></em>大型：从业人数大于1000人，营业收入大于40000万 <br>
+                                    中型：从业人数大于300人小于1000人，营业收入大于2000万小于40000万 <br> 小型：从业人数大于
+                                    20人小于300人，营业收入大于300万小于2000万 <br> 微型：从业人数小于20人，营业收入小于300万。
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label for="opendate" class="form_label"> <em class="required_em">*</em>开业（投产）时间：</label>
+                            <div class="form_input_div">
+                                <input id="opendate" class="form_input hasDatepicker" type="text" readonly required>
+                            </div>
+                            <div class="form_tip_div" style="display: none;">
+                                <a class="form_icon icon_info"></a>
+                                <div class="form_tip tip_info">
+                                    <em class="form_tip_i"></em>开业（投产）时间指企业向工商行政管理部门进行登记、领取法人营业执照的时间。1949年以前成立的企业填写最早开工年月；合并或兼并企业，按合并前主要企业领取营业执照的时间（或最早开业时间）填写；分立企业按分立后各自领取法人营业执照的时间填写。
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label for="extenddate" class="form_label"> 最新改扩建时间： </label>
+                            <div class="form_input_div">
+                                <input id="extenddate" class="form_input hasDatepicker" type="text" readonly>
+                            </div>
+                            <div class="form_tip_div" style="display: none;">
+                                <a class="form_icon icon_info"></a>
+                                <div class="form_tip tip_info">
+                                    <em class="form_tip_i"></em>请选择企业最后一次改扩建时间。
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label for="regcapital" class="form_label"> <em class="required_em">*</em>注册资金（万元）：</label>
+                            <div class="form_input_div">
+                                <input id="regcapital" class="form_input" type="num" min="0" required>
+                            </div>
+                            <div class="form_tip_div" style="display: none;">
+                                <a class="form_icon icon_info"></a>
+                                <div class="form_tip tip_info">
+                                    <em class="form_tip_i"></em>按照企业法人营业执照上的内容填写，单位为万元，保留整数位。
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label for="space" class="form_label"> <em class="required_em">*</em>占地面积（平方米）：</label>
+                            <div class="form_input_div">
+                                <input id="space" class="form_input" type="num" required min="0" step="0.1">
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>指企业实际生产厂区占地面积，单位为平方米。厂区平面布置图与调查表一并提交。
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label for="output" class="form_label"> <em class="required_em">*</em>工业总产值（万元）：</label>
+                            <div class="form_input_div">
+                                <input id="output" class="form_input" type="num" required min="0" step="0.1">
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>工业总产值是以货币形式表现的报告期内企业生产的工业产品或提供工业性劳务活动的总量。计算时，采用报告期内的产品销售时的实际出厂价格。工业总产值包括三部分内容：本期生产成品价值、对外加工费收入、自制半成品在制品期末与期初差额价值。工业总产值按照现行价格（当年价）计算，即按报告期内销售产品的实际出厂价格计算。计量单位为万元，允许保留一位小数。注意该指标应是填报企业独立拥有的工业总产值，如填报企业为二级法人单位，工业总产值则应仅为该二级企业的产值。
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label for="epa" class="form_label"><em class="required_em">*</em>环保行政主管部门：</label>
+                            <div class="form_input_div">
+                                <select id="epa" class="form_select" required>
+                                    <option value="">请选择</option>							
+                                    <option value="1">测试部门1</option>							
+                                </select>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>指企业直接隶属的区县环境保护行政管理部门。
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label for="industrialpark" class="form_label"> <em class="required_em">*</em>是否进入工业园区：</label>
+                            <div class="form_input_div">
+                                <select id="industrialpark" class="form_select" required>
+                                    <option value="否">否</option>
+                                    <option value="是">是</option>
+                                </select>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>请选择是否进入工业园。
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label id="industrialparklevel_label" for="industrialparklevel" class="form_label disabled"> <em class="required_em">*</em>工业园区级别：</label>
+                            <div class="form_input_div">
+                                <select id="industrialparklevel" class="form_select disabled" disabled="disabled" required>
+                                    <option value="">请选择</option>
+                                    <option value="国家级">国家级</option>
+                                    <option value="省市级">省市级</option>
+                                    <option value="区县级">区县级</option>
+                                    <option value="乡镇级">乡镇级</option>
+                                    <option value="村级">村级</option>
+                                </select>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>请选择工业园区级别。
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label id="industrialparkname_label" for="industrialparkname" class="form_label disabled"> <em class="required_em">*</em>所在工业园区名称：</label>
+                            <div class="form_input_div">
+                                <input id="industrialparkname" class="form_input disabled" type="text" data-max="50" disabled="disabled" required>
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>指所在工业园区的名称，位于国家级、省市级工业园区的，园区名称按《国家级、省级工业园区名单》中的全称规范填写。
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form_content_li">
+                            <label id="industrialparkcode_label" for="industrialparkcode" class="form_label disabled"> 工业园区代码： </label>
+                            <div class="form_input_div">
+                                <input id="industrialparkcode" class="form_input disabled" type="text" data-max="30" disabled="disabled">
+                            </div>
+                            <div class="form_tip_div">
+                                <a class="form_icon"></a>
+                                <div class="form_tip">
+                                    <em class="form_tip_i"></em>指所在工业园区的代码，位于国家级、省级工业园区（包括经济技术开发区、高新技术产业开发区、保税区等）内的企业填报此栏，并按《国家级、省级工业园区名单》中的代码填写。其他等级的，则不用填写本项。
+                                </div>
+                            </div>
+                        </li>				
+                        <li class="form_textarea_li">
+                            <label for="remark" class="form_label"> 备注说明： </label>
+                            <div class="form_input_div">
+                                <textarea id="remark" class="form_textarea"></textarea>
+                            </div>
+                            <div class="form_tip_div" style="display: none;">
+                                <a class="form_icon icon_info"></a>
+                                <div class="form_tip tip_info">
+                                    <em class="form_tip_i"></em>请填写备注说明
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+	
+                <div class="form_buttons">
+                    <input class="form_submit" type="submit" value="提交">
+                </div>
+            </form>
+        </div>
+	</div>
+</div>
+
+<div class="copyright" style="position:fixed;left:0;">
+	<p>Copyright © 2014-2016 <span style="color:#3d8fbd; font-weight:bold;">Tanlent Software.</span> All rights reserved.</p>
+    <h5>版本号:v1.1</h5>
+</div>
+
+
+<!----------  经纬度地图  ------------>
+<div class="map_bg" style="display:none;"></div>
+<div class="map_content" style="position: fixed; top: 50%; left: 50%; z-index: 2009; margin-top: -250px; margin-left: -250px;display:none;">
+	<div id="map" style="overflow: hidden; position: relative; z-index: 0; color: rgb(0, 0, 0); text-align: left; background-color: rgb(243, 241, 236);">
+    	<div style="overflow: visible; position: absolute; z-index: 0; left: 0px; top: 0px; cursor: url(&quot;http://api.map.baidu.com/images/openhand.cur&quot;) 8 8, default;">
+        	<div class="BMap_mask" style="position: absolute; left: 0px; top: 0px; z-index: 9; overflow: hidden; -webkit-user-select: none; width: 500px; height: 500px;"></div>
+            <div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 200;">
+            	<div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 800;"></div>
+                <div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 700;"></div>
+                <div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 600;"></div>
+                <div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 500;"></div>
+                <div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 400;"></div>
+                <div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 300;"></div>
+                <div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 200;"></div>
+            </div>
+            <div style="position: absolute; top: 0px; left: 0px; z-index: 1;">
+            	<div style="position: absolute; z-index: -100; left: 250px; top: 250px;">
+                	<img src="http://online4.map.bdimg.com/tile/?qt=tile&amp;x=790&amp;y=294&amp;z=12&amp;styles=pl&amp;udt=20150518" style="position: absolute; border: none; width: 256px; height: 256px; left: -248px; top: -124px; opacity: 1;">
+                    <img src="http://online3.map.bdimg.com/tile/?qt=tile&amp;x=789&amp;y=294&amp;z=12&amp;styles=pl&amp;udt=20150518" style="position: absolute; border: none; width: 256px; height: 256px; left: -504px; top: -124px; opacity: 1;">
+                    <img src="http://online0.map.bdimg.com/tile/?qt=tile&amp;x=791&amp;y=294&amp;z=12&amp;styles=pl&amp;udt=20150518" style="position: absolute; border: none; width: 256px; height: 256px; left: 8px; top: -124px; opacity: 1;">
+                    <img src="http://online3.map.bdimg.com/tile/?qt=tile&amp;x=790&amp;y=293&amp;z=12&amp;styles=pl&amp;udt=20150518" style="position: absolute; border: none; width: 256px; height: 256px; left: -248px; top: 132px; opacity: 1;">
+                    <img src="http://online0.map.bdimg.com/tile/?qt=tile&amp;x=790&amp;y=295&amp;z=12&amp;styles=pl&amp;udt=20150518" style="position: absolute; border: none; width: 256px; height: 256px; left: -248px; top: -380px; opacity: 1;">
+                    <img src="http://online2.map.bdimg.com/tile/?qt=tile&amp;x=789&amp;y=293&amp;z=12&amp;styles=pl&amp;udt=20150518" style="position: absolute; border: none; width: 256px; height: 256px; left: -504px; top: 132px; opacity: 1;">
+                    <img src="http://online4.map.bdimg.com/tile/?qt=tile&amp;x=789&amp;y=295&amp;z=12&amp;styles=pl&amp;udt=20150518" style="position: absolute; border: none; width: 256px; height: 256px; left: -504px; top: -380px; opacity: 1;">
+                    <img src="http://online4.map.bdimg.com/tile/?qt=tile&amp;x=791&amp;y=293&amp;z=12&amp;styles=pl&amp;udt=20150518" style="position: absolute; border: none; width: 256px; height: 256px; left: 8px; top: 132px; opacity: 1;">
+                    <img src="http://online1.map.bdimg.com/tile/?qt=tile&amp;x=791&amp;y=295&amp;z=12&amp;styles=pl&amp;udt=20150518" style="position: absolute; border: none; width: 256px; height: 256px; left: 8px; top: -380px; opacity: 1;">
+                </div>
+            </div>
+            <div style="position: absolute; top: 0px; left: 0px; z-index: 2;"></div>
+      	</div>
+        <div id="zoomer" style="position:absolute;z-index:0;top:0px;left:0px;overflow:hidden;visibility:hidden;cursor:url(http://api.map.baidu.com/images/openhand.cur) 8 8,default">
+        	<div class="BMap_zoomer" style="top:0;left:0;"></div>
+            <div class="BMap_zoomer" style="top:0;right:0;"></div>
+            <div class="BMap_zoomer" style="bottom:0;left:0;"></div>
+            <div class="BMap_zoomer" style="bottom:0;right:0;"></div>
+        </div>
+        <div class=" anchorBL" style="height: 32px; position: absolute; z-index: 10; bottom: 0px; right: auto; top: auto; left: 1px;">
+        	<a title="到百度地图查看此区域" target="_blank" href="http://map.baidu.com/?sr=1" style="outline: none;">
+            	<img style="border:none;width:77px;height:32px" src="http://api.map.baidu.com/images/copyright_logo.png">
+            </a>
+        </div>
+        <div unselectable="on" class=" BMap_cpyCtrl anchorBL" style="cursor: default; white-space: nowrap; color: black; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 11px; line-height: 15px; font-family: arial, sans-serif; bottom: 2px; right: auto; top: auto; left: 81px; position: absolute; z-index: 10; background: none;">
+        	<span _cid="1">
+            	<span style="font-size:11px">© 2015 Baidu</span>
+            </span>
+        </div>
+    </div>
+    <a class="map_close"><img src="images/ico_close.png"></a>
+</div>
+
+			
+</body>
+</html>

@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+#workplan_copy .view_div{
+	overflow-x:scroll;
+}                     
+#workplan_copy .workplan_table td {
+	white-space: nowrap;
+}
+#workplan_copy .list_table .no_td {
+	width: 50px;
+}
+
+#workplan_copy .list_table .icode_td {
+	width: 100px;
+}
+
+#workplan_copy .list_table .ijztime_td {
+	width: 100px;
+}
+
+#workplan_copy .list_table .itheory_td {
+	width: 100px;
+}
+
+#workplan_copy .list_table .ireal_td {
+	width: 100px;
+}
+#workplan_copy .list_table .iremark_td {
+	width: 100px;
+}
+
+#workplan_copy .list_table .op_td {
+	width: 100px;
+}

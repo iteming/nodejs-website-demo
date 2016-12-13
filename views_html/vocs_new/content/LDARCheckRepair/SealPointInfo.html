@@ -1,0 +1,667 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>密封点建档信息</title>
+
+
+<!--<link href="../css/common.css" type="text/css" rel="stylesheet">-->
+<link href="../../css/list.css" type="text/css" rel="stylesheet">
+<link href="../../css/option.css" type="text/css" rel="stylesheet">
+<link href="../../css/form.css" type="text/css" rel="stylesheet">
+<link href="../../css/chips/LDARCheckRepair/sealpointinfo.css" type="text/css" rel="stylesheet">
+<link href="../../css/Pop-ups.css" type="text/css" rel="stylesheet">
+<link href="../../css/chips/tank01/tank01.css" rel="stylesheet" type="text/css">
+<link href="../../css/Pop-ups.css" type="text/css" rel="stylesheet">
+<script src="../../js/jquery-1.8.3.min.js"></script>
+<script src="../../js/SystemNoice.js"></script>
+<script src="../../js/StorageFacilties.js"></script>
+</head>
+<body>
+
+<div id="right">
+	<div id="workplan_copy" class="copy_div" style="display: block;">
+    	
+        <div class="check_div" style="display: none;">
+        <div class="form_div">
+            <a class="return_a"><!--<img src="../images/return.png"> --></a>
+        
+            <form method="post" id="modifypaintform" onsubmit="javascript:return false;" ref="6" novalidate>
+                <div class="form_title">
+                    <h1>密封点建档信息</h1>
+                </div>
+                <div class="form_content">
+                    <ul><li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>编码:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required value="编码">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入密封点编码！
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>密封点类型: 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50" value="密封点类型">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输选择密封点类型
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>所属装置：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required value="所属装置">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请选择所属装置
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>区域：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="text" data-max="10" required value="区域">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请选择区域
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>工艺名称：
+                            	</label>
+	                                <div class="form_input_div">
+	                                	<input id="unit" class="form_input" type="text" data-max="10" required value="工艺名称">
+	                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                        <em class="form_tip_i"></em>请选择工艺名称
+                                    </div>
+                                
+                               </li>
+
+                  			<li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>群组描述：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="text" data-max="10" required value="群组描述">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入群组描述
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>介质状态：
+                            	</label>
+                                <div class="form_input_div">
+                                    <select id="type" class="form_select" required>
+                                    	<option value="">请选择</option>
+                                        <option value="执行中">执行中</option>
+                                    	<option value="未完成" selected="selected">未完成</option>
+                                	</select>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请选择介质状态
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>介质:
+                            	</label>
+                                <div class="form_input_div">
+                                	<input id="unit" class="form_input" type="text" data-max="10" required value="介质">
+                                    <!--<select id="type" class="form_select" required>
+                                    	<option value="">请选择</option>
+                                        <option value="执行中">****机构</option>
+                                    	<option value="未完成" selected="selected">*****机构</option>
+                                	</select>-->
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入介质
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>检测周期：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="textarea" data-max="10" required value="检测周期">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入检测周期
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>泄露量：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="textarea" data-max="10" required value="泄露量">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入泄漏量
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>下次检测日期：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="textarea" data-max="10" required value="下次检测日期">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入下次检测日期
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>公称直径：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="textarea" data-max="10" required  value="公称直径">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入公称直径
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>压力：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="textarea" data-max="10" required value="压力">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入压力
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>状态：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="textarea" data-max="10" required value="状态">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入状态
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>保温或保冷：
+                            	</label>
+                                <div class="form_input_div">
+                                    <select id="type" class="form_select" required>
+                                    	<option value="" selected="selected">请选择</option>
+                                        <option value="保温" selected>保温</option>
+                                    	<option value="保冷">保冷</option>
+                                	</select>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请选择保温或保冷
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>不可达原因：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="textarea" data-max="10" value="不可达原因" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入不可达原因
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>备注：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="textarea" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入备注
+                                    </div>
+                                </div>
+                            </li>
+                    </ul>
+                </div>
+                <div class="form_buttons">
+                    <input class="form_submit" type="submit" value="保存">
+                </div>
+            </form>
+        
+        </div>
+    </div>
+    
+    
+     
+        <div class="list_div" style="display: block;">
+            <div class="list_title">
+                <h1>密封点建档信息</h1>
+                <em class="add_em">+ 添加</em>
+            </div>
+            <div class="view_div" >
+                <table class="list_table workplan_table" total="2" page="1">
+                <thead>
+                    <tr>
+                        <td class="no_td">NO.</td>
+                        <td class="icode_td">密封点名称</td>
+                        <td class="ijztime_td">装置代码</td>
+                        <td class="itheory_td">装置类型</td>
+                        <td class="iremark_td">区域</td>
+                        
+                        <td class="iremark_td">群组编号</td>
+                        <td class="iremark_td">扩展号</td>
+                        <td class="iremark_td">产品产量</td>
+                        
+                        <td class="iremark_td">组件描述</td>
+
+                        <td class="iremark_td">介质</td>
+                        <td class="iremark_td">介质状态</td>
+                       
+                        <td class="op_td">操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr ref="7" class="list_tr ">
+                        	
+                        	<td class="no_td">1</td>
+                            <td class="icode_td"><em class="ellipsis_em" title="装置名称">前法兰</em></td>
+                            <td class="ijztime_td"><em class="ellipsis_em" title="装置代码">XCHLJ0-01-01-000101F</em></td>
+                            <td class="itheory_td"><em class="ellipsis_em" title="自定义代码">法兰</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="备注">反应区</em></td>
+                            
+                            <td class="iremark_td"><em class="ellipsis_em" title="群组编号">XCHLJ0-01-01-0001</em></td>
+                            
+                            <td class="iremark_td"><em class="ellipsis_em" title="扩展号">01F</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="组件描述">进料阀</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="装置运行周期">180</em></td>
+                            
+                            <!--<td class="iremark_td"><em class="ellipsis_em" title="工艺流程图">工艺流程图</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="厂区位置图">厂区位置图</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="平面布局图">平面布局图</em></td>-->
+                            <td class="iremark_td"><em class="ellipsis_em" title="备注">生产工艺</em></td>
+                            
+                            <td class="iremark_td"><em class="ellipsis_em" title="泄露标准">500</em></td>
+           
+                            <td class="op_td">
+                            	<a class="del_a">修改</a> 
+                            	<a class="del_a">删除</a> 
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+        
+            </div>
+            <div class="page_div"></div>
+        </div>
+
+        <div class="add_div" style="display: none; z-index:200;">
+            <div class="form_div">
+                <a class="return_a"><!--<img src="../images/return_r.png"> --></a>
+                <form method="post" id="addordinarymaterialform" onsubmit="javascript:return false;" novalidate>
+                    <div class="form_title">
+                        <h1>添加密封点信息</h1>
+                    </div>
+                    <div class="form_content">
+
+                        <ul>
+                            <li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>编码:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入密封点编码！
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>密封点类型: 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输选择密封点类型
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>所属装置：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请选择所属装置
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>区域：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="text" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请选择区域
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>工艺名称：
+                            	</label>
+	                                <div class="form_input_div">
+	                                	<input id="unit" class="form_input" type="text" data-max="10" required>
+	                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                        <em class="form_tip_i"></em>请选择工艺名称
+                                    </div>
+                                
+                               </li>
+
+                  			<li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>群组描述：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="text" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入群组描述
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>介质状态：
+                            	</label>
+                                <div class="form_input_div">
+                                    <select id="type" class="form_select" required>
+                                    	<option value="">请选择</option>
+                                        <option value="执行中">执行中</option>
+                                    	<option value="未完成" selected="selected">未完成</option>
+                                	</select>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请选择介质状态
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>介质:
+                            	</label>
+                                <div class="form_input_div">
+                                	<input id="unit" class="form_input" type="text" data-max="10" required>
+                                    <!--<select id="type" class="form_select" required>
+                                    	<option value="">请选择</option>
+                                        <option value="执行中">****机构</option>
+                                    	<option value="未完成" selected="selected">*****机构</option>
+                                	</select>-->
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入介质
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>检测周期:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="textarea" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入检测周期
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>泄露量:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="textarea" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入泄漏量
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>下次检测日期:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="textarea" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入下次检测日期
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>公称直径:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="textarea" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入公称直径
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>压力:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="textarea" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入压力
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>状态:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="textarea" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入状态
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>保温或保冷:
+                            	</label>
+                                <div class="form_input_div">
+                                    <select id="type" class="form_select" required>
+                                    	<option value="" selected="selected">请选择</option>
+                                        <option value="保温">保温</option>
+                                    	<option value="保冷" >保冷</option>
+                                	</select>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请选择保温或保冷
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>不可达原因:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="textarea" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入不可达原因
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>备注:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="textarea" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入备注
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <div class="form_buttons">
+                        <input class="form_submit" type="submit" value="提交">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!------  弹窗背景  -------->
+        <div class="map_bg" style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background-color: #000;filter: alpha(opacity = 30); -moz-opacity: 0.3; opacity: 0.3; z-index: -10; display:none;"></div>
+        
+	</div>
+</div>
+
+</body>
+</html>

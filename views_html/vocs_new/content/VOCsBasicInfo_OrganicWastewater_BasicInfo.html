@@ -1,0 +1,1103 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>有机废水自行处理信息-处理设施基本情况</title>
+
+
+<!--<link href="../css/common.css" type="text/css" rel="stylesheet">-->
+<link href="../css/list.css" type="text/css" rel="stylesheet">
+<link href="../css/option.css" type="text/css" rel="stylesheet">
+<link href="../css/form.css" type="text/css" rel="stylesheet">
+
+<link href="../css/chips/waterfacilities/waterfacilities.css" rel="stylesheet" type="text/css">
+<link href="../css/Pop-ups.css" type="text/css" rel="stylesheet">
+
+<script src="../js/jquery-1.8.3.min.js"></script>
+<script src="../js/SystemNoice.js"></script>
+<script src="../js/OrganicWastewater.js"></script>
+
+</head>
+
+
+<body>
+
+<div id="right"><div id="waterfacilities_copy" class="copy_div">
+<div class="check_div" style="display:none;">
+	<div class="form_div">
+	<a class="return_a"><!--<img src="../images/return.png">--></a>
+	
+	
+		<form method="post" id="modifywaterfacilitiesform" onsubmit="javascript:return false;" ref="3" novalidate>
+			<div class="form_title">
+				<h1>废水处理设施信息</h1>
+			</div>
+			<div class="form_content">
+				<ul>
+					<li class="form_content_li"><label for="number" class="form_label"> <em class="required_em">*</em>编号：
+					</label>
+						<div class="form_input_div">
+							<input id="number" class="form_input" type="text" data-max="50" required value="10001">
+							<!-- ByXWK:乐观锁 -->
+							<input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 17:39:46 CST 2016">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>指企业赋予该处理设施的唯一编号，编号不能重复。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="name" class="form_label"> <em class="required_em">*</em>名称：
+					</label>
+						<div class="form_input_div">
+							<input id="name" class="form_input" type="text" data-max="50" required value="柴油">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>指企业对于处理厂区生产废水的实有设施（包括构筑物）的命名或名称。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="overall" class="form_label"> <em class="required_em">*</em>总投资额：
+					</label>
+						<div class="form_input_div">
+							<input id="overall" class="form_input" type="num" step="0.1" min="0" required value="1000">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>指建成废水处理设施并正式投运所需的全部资金，不包括运行费用。计量单位为万元，允许保留一位小数。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="capacity" class="form_label"> <em class="required_em">*</em>设计处理能力：
+					</label>
+						<div class="form_input_div">
+							<input id="capacity" class="form_input" type="num" step="1" min="0" required value="1000">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>指废水处理设施设计建设的、在设施正常运行时，单位时间内可能处理的废水量。计量单位为吨/日，保留整数。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="temperature" class="form_label"> <em class="required_em">*</em>废水平均温度（℃）：
+					</label>
+						<div class="form_input_div">
+							<input id="temperature" class="form_input" type="num" step="0.1" min="0" required value="100">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>指企业正常运行时委托处理的废水的日平均温度。
+							</div>
+						</div></li>
+
+
+					<li class="form_content_li"><label for="closed" class="form_label"> <em class="required_em">*</em>算法：
+					</label>
+						<div class="form_input_div">
+							<select id="suanfa" class="form_select" required>
+								<option value="">请选择</option>
+								<option value="实测法">实测法</option>
+								<option value="排放系数法" selected="selected">排放系数法</option>
+							</select>
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请选择算法。
+							</div>
+						</div></li>
+
+					<li class="form_content_li yc sc" style="display: none;"><label for="closed" class="form_label sf"> <em class="required_em">*</em>废水处理设施进水中VOCs浓度（毫克/升）：
+					</label>
+
+						<div class="form_input_div">
+							<input id="lconcentration" class="form_input scinput" type="text" data-max="100" value="">
+						</div>
+						<div class="form_tip_div ns">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请填写废水处理设施进水中VOCs浓度（毫克/升）。
+							</div>
+						</div></li>
+
+					<li class="form_content_li yc sc" style="display: none;"><label for="closed" class="form_label sf"> <em class="required_em">*</em>废水处理设施出水中VOCs浓度（毫克/升）：
+					</label>
+						<div class="form_input_div">
+							<input id="rconcentration" class="form_input scinput" type="text" data-max="100" value="">
+						</div>
+						<div class="form_tip_div ns">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请填写废水处理设施出水中VOCs浓度（毫克/升）。
+							</div>
+						</div></li>
+
+					<li class="form_content_li pf yc"><label for="closed" class="form_label"> <em class="required_em">*</em>排放系数法：
+					</label>
+						<div class="form_input_div">
+							<select id="pfxs" class="form_select pfinput required" required>
+								<option value="">请选择</option>
+								<option value="废水收集系统及油水分离(废水中石油类在浓度大于3500mg/L)" selected="selected">废水收集系统及油水分离(废水中石油类在浓度大于3500mg/L)</option>
+								<option value="废水收集系统及油水分离(废水中石油类在浓度880-3500mg/L)">废水收集系统及油水分离(废水中石油类在浓度880-3500mg/L)</option>
+								<option value="废水收集系统及油水分离(废水中石油类在浓度小于880mg/L)">废水收集系统及油水分离(废水中石油类在浓度小于880mg/L)</option>
+								<option value="废水处理设施">废水处理设施</option>
+							</select>
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请选择排放系数法。
+							</div>
+						</div></li>
+
+					
+				</ul>
+			</div>
+			<div class="form_buttons">
+				<input class="form_submit" type="submit" value="提交">
+			</div>
+		</form>
+		<form method="post" id="modifytreatform" onsubmit="javascript:return false;" novalidate>
+			<div class="form_title">
+				<h1>处理废水类型</h1>
+			</div>
+			<table class="list_table">
+				<thead>
+					<tr>
+						<td class="no_td child">NO.</td>
+						<td class="treattype_td">处理的废水类型</td>
+						<td class="treatmethod_td">处理方法类型</td>
+						<td class="treatmethoddetail_td">处理方法</td>
+						<td class="op_td child">操作</td>
+					</tr>
+				</thead>
+				<tbody>
+						<tr class="child_list_tr " ref="3">
+							<td class="no_td child">
+								1</td>
+							<td class="treattype_td">锑矿采选废水</td>
+							<td class="treatmethod_td">			
+								物理化学处理法</td>
+							<td class="treatmethoddetail_td">电渗析</td>
+							<td class="op_td child"><a class="child_del_a">删除</a></td>
+						</tr>
+						<tr class="child_list_tr ne" ref="4">
+							<td class="no_td child">
+								2</td>
+							<td class="treattype_td">锡矿采选废水</td>
+							<td class="treatmethod_td">			
+								物理化学处理法</td>
+							<td class="treatmethoddetail_td">超过滤	
+								</td>
+							<td class="op_td child"><a class="child_del_a">删除</a></td>
+						</tr>
+					<tr class="add_tr">
+						<td class="no_td child"></td>
+						<td class="treattype_td"><select id="treattype" class="child_select" required>
+								<option value="">请选择</option>
+								
+									<option value="0610">煤炭开采废水</option>
+								
+									<option value="0620">煤炭洗选废水</option>
+								
+									<option value="0710">原油开采含油废水</option>
+								
+									<option value="0720">天然气开采废水</option>
+								
+									<option value="0730">油页岩开采废水</option>
+								
+									<option value="0810">铁矿采选废水</option>
+								
+									<option value="0820">锰矿采选废水</option>
+								
+									<option value="0830">铬矿采选废水</option>
+								
+									<option value="0911">铜矿采选废水</option>
+								
+									<option value="0912">铅锌矿采选废水</option>
+								
+									<option value="0914">镍钴矿采选废水</option>
+								
+									<option value="0915">锡矿采选废水</option>
+								
+									<option value="0916">锑矿采选废水</option>
+								
+									<option value="0917">汞矿采选废水</option>
+								
+									<option value="0919">其他重有色金属矿采选废水</option>
+								
+									<option value="0931">铝矿采选废水</option>
+								
+									<option value="0932">镁矿采选废水</option>
+								
+									<option value="0939">其他轻有色金属矿采选废水</option>
+								
+									<option value="0950">贵金属矿采选废水</option>
+								
+									<option value="0961">钨钼矿采选废水</option>
+								
+									<option value="0962">放射性金属矿采选废水</option>
+								
+									<option value="0969">其他稀有金属矿采选废水</option>
+								
+									<option value="1010">建筑材料采选废水</option>
+								
+									<option value="1021">硫矿采选废水</option>
+								
+									<option value="1022">磷矿采选废水</option>
+								
+									<option value="1023">钾盐采选废水</option>
+								
+									<option value="1024">硼矿采选废水</option>
+								
+									<option value="1029">其他化学矿采选废水</option>
+								
+									<option value="1030">采盐废水</option>
+								
+									<option value="1091">石棉采选废水</option>
+								
+									<option value="1092">云母采选废水</option>
+								
+									<option value="1094">石墨采选废水</option>
+								
+									<option value="1094">石膏采选废水</option>
+								
+									<option value="1095">宝石、玉石采选废水</option>
+								
+									<option value="1096">水晶采选废水</option>
+								
+									<option value="1099">其他非金属矿采选废水</option>
+								
+									<option value="1100">其他矿采选废水</option>
+								
+									<option value="1310">植物油加工废水</option>
+								
+									<option value="1320">制糖废水</option>
+								
+									<option value="1330">屠宰及肉类加工废水</option>
+								
+									<option value="1399">其他农副食品加工废水</option>
+								
+									<option value="1410">发酵制品业废水</option>
+								
+									<option value="1420">罐头食品制造业废水</option>
+								
+									<option value="1499">其它食品制造业废水</option>
+								
+									<option value="1510">酒精制造废水</option>
+								
+									<option value="1520">白酒制造废水</option>
+								
+									<option value="1530">啤酒制造废水</option>
+								
+									<option value="1540">葡萄酒和果露酒制造废水</option>
+								
+									<option value="1599">其他饮料制造废水</option>
+								
+									<option value="1600">烟草加工废水</option>
+								
+									<option value="1710">棉纺及棉制品加工废水</option>
+								
+									<option value="1720">毛纺织加工废水</option>
+								
+									<option value="1730">化纤纺织废水</option>
+								
+									<option value="1740">麻纺废水</option>
+								
+									<option value="1750">丝绢纺织废水</option>
+								
+									<option value="1760">印染、漂染废水</option>
+								
+									<option value="1799">其它纺织废水</option>
+								
+									<option value="1910">制革业废水</option>
+								
+									<option value="1920">毛皮鞣制废水</option>
+								
+									<option value="1999">其他皮革、毛皮、羽绒及其制品废水</option>
+								
+									<option value="2000">木材加工及木、竹、藤、棕、草制品废水</option>
+								
+									<option value="2210">造纸制浆黑液（红液）废水</option>
+								
+									<option value="2220">造纸制浆中段废水</option>
+								
+									<option value="2230">造纸纸机白水</option>
+								
+									<option value="2299">其他造纸及纸制造废水</option>
+								
+									<option value="2510">石油加工废水</option>
+								
+									<option value="2520">炼焦含酚废水</option>
+								
+									<option value="2530">煤气生产含酚废水</option>
+								
+									<option value="2540">煤制品生产废水</option>
+								
+									<option value="2599">其他石油加工及炼焦废水</option>
+								
+									<option value="2611">无机酸制造废水</option>
+								
+									<option value="2612">电石渣废水</option>
+								
+									<option value="2613">制碱含汞废水</option>
+								
+									<option value="2614">制碱其他废水</option>
+								
+									<option value="2615">无机盐制造废水</option>
+								
+									<option value="2619">其他基础化学原料制造废水</option>
+								
+									<option value="2621">氮肥制造废水</option>
+								
+									<option value="2622">磷肥制造废水</option>
+								
+									<option value="2623">钾肥制造废水</option>
+								
+									<option value="2629">其它化肥制造废水</option>
+								
+									<option value="2631">有机磷农药制造废水</option>
+								
+									<option value="2632">氨基甲酸酯农药制造废水</option>
+								
+									<option value="2633">除虫菊酯农药制造废水</option>
+								
+									<option value="2634">有机氯农药制造废水</option>
+								
+									<option value="2639">其他农药制造废水</option>
+								
+									<option value="2641">涂料制造废水</option>
+								
+									<option value="2642">颜料制造废水</option>
+								
+									<option value="2643">染料制造废水</option>
+								
+									<option value="2649">其他有机化学产品制造废水</option>
+								
+									<option value="2651">塑料造废水</option>
+								
+									<option value="2652">有机硅氟材料制造废水</option>
+								
+									<option value="2653">合成橡胶制造废水</option>
+								
+									<option value="2654">合成纤维单体制造废水</option>
+								
+									<option value="2659">其它合成材料制造废水</option>
+								
+									<option value="2661">化学试剂、助剂制造废水</option>
+								
+									<option value="2662">林产化学产品制造废水</option>
+								
+									<option value="2663">炸药及火工制造废水</option>
+								
+									<option value="2664">放射性化学产品制造废水</option>
+								
+									<option value="2669">其它专用化学产品制造废水</option>
+								
+									<option value="2671">肥皂及合成洗涤剂制造废水</option>
+								
+									<option value="2672">合成脂肪酸制造废水</option>
+								
+									<option value="2679">其它日用化学产品制造废水</option>
+								
+									<option value="2710">医药无机废水</option>
+								
+									<option value="2720">医药有机废水</option>
+								
+									<option value="2730">中药生产废水</option>
+								
+									<option value="2740">生物药品生产废水</option>
+								
+									<option value="2750">畜用药品生产废水</option>
+								
+									<option value="2799">其他医药制造废水</option>
+								
+									<option value="2810">化纤浆粕废水</option>
+								
+									<option value="2820">粘胶纤维制造废水</option>
+								
+									<option value="2830">合成纤维制造废水</option>
+								
+									<option value="2899">其它纤维制造废水</option>
+								
+									<option value="2900">橡胶制品制造废水</option>
+								
+									<option value="3010">人造革制造废水</option>
+								
+									<option value="3020">泡沫塑料制造废水</option>
+								
+									<option value="3099">其他塑料制品制造废水</option>
+								
+									<option value="3110">水泥制造废水</option>
+								
+									<option value="3120">石棉废水</option>
+								
+									<option value="3131">建筑材料制品制造废水</option>
+								
+									<option value="3132">防水建筑材料制品制造废水</option>
+								
+									<option value="3140">玻璃制品制造废水</option>
+								
+									<option value="3150">陶瓷制品制造废水</option>
+								
+									<option value="3160">耐火材料制品制造废水</option>
+								
+									<option value="3199">其他非金属矿物制品制造废水</option>
+								
+									<option value="3210">黑色冶炼冲渣水</option>
+								
+									<option value="3220">黑色冶炼冷却水</option>
+								
+									<option value="3230">黑色冶炼酸洗水</option>
+								
+									<option value="3240">黑色金属压延加工废水</option>
+								
+									<option value="3311">重有色金属冶炼废水</option>
+								
+									<option value="3312">重有色金属压延加工废水</option>
+								
+									<option value="3321">轻有色金属冶炼废水</option>
+								
+									<option value="3322">轻有色金属压延加工废水</option>
+								
+									<option value="3330">贵金属冶炼废水</option>
+								
+									<option value="3340">稀有金属冶炼废水</option>
+								
+									<option value="3810">机械加工废水</option>
+								
+									<option value="3820">电镀废水</option>
+								
+									<option value="3830">其他制造废水</option>
+								
+									<option value="9900">其他工业废水</option>
+								
+						</select>
+							<div class="table_tip_div treat_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>每种类型只可添加一次。
+								</div>
+							</div></td>
+						<td class="treatmethod_td"><select id="treatmethod" class="child_select" required>
+								<option value="">请选择</option>
+								
+									<option value="1000">
+										物理处理法</option>
+								
+									<option value="2000">
+										化学处理法</option>
+								
+									<option value="3000">
+										物理化学处理法</option>
+								
+									<option value="4000">
+										生物处理法</option>
+								
+									<option value="5000">
+										组合工艺处理法</option>
+								
+						</select>
+							<div class="table_tip_div treat_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>请选择处理方法类型。
+								</div>
+							</div></td>
+						<td class="treatmethoddetail_td"><select id="treatmethoddetail" class="child_select" required>
+								<option value="">请选择</option>
+						</select>
+							<div class="table_tip_div treat_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>请选择处理方法。
+								</div>
+							</div></td>
+						<td class="op_td child"><input class="child_add_a" type="submit" value="添加"></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	
+</div>
+</div>
+
+<div class="list_div">
+	<div class="list_title">
+		<h1>废水处理设施列表</h1>
+		<em class="add_em">+ 添加</em>
+	</div>
+	<div class="view_div">
+	<div class="lt_div">
+		<table class="list_table waterfacilities_table" total="2" page="1">
+			<thead>
+				<tr>
+					<td class="no_td">NO.</td>
+					<td class="number_td">编号</td>
+					<td class="name_td">名称</td>
+					<td class="overall_td">总投资额</td>
+					<td class="capacity_td">设计处理能力</td>
+					<td class="temperature_td">废水温度</td>
+					<td class="suanfa_td">算法类型</td>
+					<td class="lconcentration_td">废水处理设施进水中VOCs浓度</td>
+					<td class="rconcentration_td">废水处理设施出水中VOCs浓度</td>
+					<td class="pfxs_td">排放系数法</td>
+					<td class="op_td">操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				
+					<tr ref="3" class="list_tr ">
+						<td class="no_td">
+							1</td>
+						<td class="number_td"><em class="ellipsis_em" title="10001">10001</em>
+						</td>
+						<td class="name_td"><em class="ellipsis_em" title="柴油">柴油</em></td>
+						<td class="overall_td"><em class="ellipsis_em" title="1000">1000</em>
+						</td>
+						<td class="capacity_td"><em class="ellipsis_em" title="1000">1000</em>
+						</td>
+						<td class="temperature_td"><em class="ellipsis_em" title="100">100</em>
+						</td>
+						<td class="temperature_td"><em class="ellipsis_em" title="排放系数法">排放系数法</em>
+						</td>
+						<td class="lconcentration_td"><em class="ellipsis_em" title=""></em>
+						</td>
+						<td class="rconcentration_td"><em class="ellipsis_em" title=""></em>
+						</td>
+						<td class="pfxs_td"><em class="ellipsis_em" title="废水收集系统及油水分离(废水中石油类在浓度大于3500mg/L)">废水收集系统及油水分离(废水中石油类在浓度大于3500mg/L)</em></td>
+						<td class="op_td"><a class="del_a">删除</a> <!-- ByXWK:乐观锁 -->
+							<input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 17:39:46 CST 2016"></td>
+					</tr>
+				
+					<tr ref="2" class="list_tr ne">
+						<td class="no_td">
+							2</td>
+						<td class="number_td"><em class="ellipsis_em" title="1001">1001</em>
+						</td>
+						<td class="name_td"><em class="ellipsis_em" title="汽油">汽油</em></td>
+						<td class="overall_td"><em class="ellipsis_em" title="1000">1000</em>
+						</td>
+						<td class="capacity_td"><em class="ellipsis_em" title="1000">1000</em>
+						</td>
+						<td class="temperature_td"><em class="ellipsis_em" title="10">10</em>
+						</td>
+						<td class="temperature_td"><em class="ellipsis_em" title="实测法">实测法</em>
+						</td>
+						<td class="lconcentration_td"><em class="ellipsis_em" title="45">45</em>
+						</td>
+						<td class="rconcentration_td"><em class="ellipsis_em" title="45">45</em>
+						</td>
+						<td class="pfxs_td"><em class="ellipsis_em" title=""></em></td>
+						<td class="op_td"><a class="del_a">删除</a> <!-- ByXWK:乐观锁 -->
+							<input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 17:39:16 CST 2016"></td>
+					</tr>
+				
+			</tbody>
+		</table>
+	</div>
+
+</div>
+	<div class="page_div"></div>
+</div>
+
+<div class="add_div" style="display:none;">
+	<div class="form_div">
+	<a class="return_a"><!--<img src="../images/return_r.png">--> </a>
+	<form method="post" id="addwaterfacilitiesform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>添加废水处理设施</h1>
+		</div>
+		<div class="form_content">
+			<ul>
+				<li class="form_content_li"><label for="number" class="form_label"> <em class="required_em">*</em>编号：
+				</label>
+					<div class="form_input_div">
+						<input id="number" class="form_input" type="text" data-max="50" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指企业赋予该处理设施的唯一编号，编号不能重复。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="name" class="form_label"> <em class="required_em">*</em>名称：
+				</label>
+					<div class="form_input_div">
+						<input id="name" class="form_input" type="text" data-max="50" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指企业对于处理厂区生产废水的实有设施（包括构筑物）的命名或名称。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="overall" class="form_label"> <em class="required_em">*</em>总投资额：
+				</label>
+					<div class="form_input_div">
+						<input id="overall" class="form_input" type="num" step="0.1" min="0" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指建成废水处理设施并正式投运所需的全部资金，不包括运行费用。计量单位为万元，允许保留一位小数。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="capacity" class="form_label"> <em class="required_em">*</em>设计处理能力：
+				</label>
+					<div class="form_input_div">
+						<input id="capacity" class="form_input" type="num" step="1" min="0" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指废水处理设施设计建设的、在设施正常运行时，单位时间内可能处理的废水量。计量单位为吨/日，保留整数。
+						</div>
+					</div></li>
+
+				<li class="form_content_li"><label for="temperature" class="form_label"> <em class="required_em">*</em>废水平均温度（℃）：
+				</label>
+					<div class="form_input_div">
+						<input id="temperature" class="form_input" type="num" step="0.1" min="0" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指企业正常运行时委托处理的废水的日平均温度。
+						</div>
+					</div></li>
+
+				<li class="form_content_li"><label for="closed" class="form_label"> <em class="required_em">*</em>算法：
+				</label>
+					<div class="form_input_div">
+						<select id="suanfa1" class="form_select" required>
+							<option value="">请选择</option>
+							<option value="实测法">实测法</option>
+							<option value="排放系数法">排放系数法</option>
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选择算法。
+						</div>
+					</div></li>
+
+				<li class="form_content_li yc sc" style="display: none;"><label for="closed" class="form_label sf"> <em class="required_em">*</em>废水处理设施进水中VOCs浓度（毫克/升）：
+				</label>
+
+					<div class="form_input_div">
+						<input id="lconcentration" class="form_input scinput" type="text" data-max="100">
+					</div>
+					<div class="form_tip_div ns">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写废水处理设施进水中VOCs浓度（毫克/升）。
+						</div>
+					</div></li>
+
+				<li class="form_content_li yc sc" style="display: none;"><label for="closed" class="form_label sf"> <em class="required_em">*</em>废水处理设施出水中VOCs浓度（毫克/升）：
+				</label>
+					<div class="form_input_div">
+						<input id="rconcentration" class="form_input scinput" type="text" data-max="100">
+					</div>
+					<div class="form_tip_div ns">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写废水处理设施出水中VOCs浓度（毫克/升）。
+						</div>
+					</div></li>
+
+				<li class="form_content_li pf yc" style="display: none;"><label for="closed" class="form_label"> <em class="required_em">*</em>排放系数法：
+				</label>
+					<div class="form_input_div">
+						<select id="pfxs" class="form_select pfinput">
+							<option value="">请选择</option>
+							<option value="废水收集系统及油水分离(废水中石油类在浓度大于3500mg/L)">废水收集系统及油水分离(废水中石油类在浓度大于3500mg/L)</option>
+							<option value="废水收集系统及油水分离(废水中石油类在浓度880-3500mg/L)">废水收集系统及油水分离(废水中石油类在浓度880-3500mg/L)</option>
+							<option value="废水收集系统及油水分离(废水中石油类在浓度小于880mg/L)">废水收集系统及油水分离(废水中石油类在浓度小于880mg/L)</option>
+							<option value="废水处理设施">废水处理设施</option>
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选择排放系数法。
+						</div>
+					</div></li>
+				<!--添加-->
+				<!-- <li class="form_content_li attachment_li" ref="attachment_li">
+					<label for="file_upload_waterfacilities_add" class="form_label">
+						<em class="required_em">*</em>废水处理设施照片：
+				</label>
+					<div class="form_input_div">
+						<input type="button" id="file_upload_waterfacilities_add"
+							class="file_upload_input" queue="file_queue_waterfacilities_add"
+							value="选择图片" />
+						<div id="file_queue_waterfacilities_add"></div>
+					</div>
+					<div class="attachment_view_div">
+						<a id="attachment_a" target="_blank"></a>
+					</div>
+				</li> -->
+
+			</ul>
+		</div>
+		<div class="form_buttons">
+			<input class="form_submit" type="submit" value="提交">
+		</div>
+	</form>
+	<form method="post" id="addtreatform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>处理废水类型</h1>
+		</div>
+		<table class="list_table">
+			<thead>
+				<tr>
+					<td class="no_td child">NO.</td>
+					<td class="treattype_td">处理的废水类型</td>
+					<td class="treatmethod_td">处理方法类型</td>
+					<td class="treatmethoddetail_td">处理方法</td>
+					<td class="op_td child">操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="add_tr">
+					<td class="no_td child"></td>
+					<td class="treattype_td"><select id="treattype" class="child_select" required>
+							<option value="">请选择</option>
+							
+								<option value="0610">煤炭开采废水</option>
+							
+								<option value="0620">煤炭洗选废水</option>
+							
+								<option value="0710">原油开采含油废水</option>
+							
+								<option value="0720">天然气开采废水</option>
+							
+								<option value="0730">油页岩开采废水</option>
+							
+								<option value="0810">铁矿采选废水</option>
+							
+								<option value="0820">锰矿采选废水</option>
+							
+								<option value="0830">铬矿采选废水</option>
+							
+								<option value="0911">铜矿采选废水</option>
+							
+								<option value="0912">铅锌矿采选废水</option>
+							
+								<option value="0914">镍钴矿采选废水</option>
+							
+								<option value="0915">锡矿采选废水</option>
+							
+								<option value="0916">锑矿采选废水</option>
+							
+								<option value="0917">汞矿采选废水</option>
+							
+								<option value="0919">其他重有色金属矿采选废水</option>
+							
+								<option value="0931">铝矿采选废水</option>
+							
+								<option value="0932">镁矿采选废水</option>
+							
+								<option value="0939">其他轻有色金属矿采选废水</option>
+							
+								<option value="0950">贵金属矿采选废水</option>
+							
+								<option value="0961">钨钼矿采选废水</option>
+							
+								<option value="0962">放射性金属矿采选废水</option>
+							
+								<option value="0969">其他稀有金属矿采选废水</option>
+							
+								<option value="1010">建筑材料采选废水</option>
+							
+								<option value="1021">硫矿采选废水</option>
+							
+								<option value="1022">磷矿采选废水</option>
+							
+								<option value="1023">钾盐采选废水</option>
+							
+								<option value="1024">硼矿采选废水</option>
+							
+								<option value="1029">其他化学矿采选废水</option>
+							
+								<option value="1030">采盐废水</option>
+							
+								<option value="1091">石棉采选废水</option>
+							
+								<option value="1092">云母采选废水</option>
+							
+								<option value="1094">石墨采选废水</option>
+							
+								<option value="1094">石膏采选废水</option>
+							
+								<option value="1095">宝石、玉石采选废水</option>
+							
+								<option value="1096">水晶采选废水</option>
+							
+								<option value="1099">其他非金属矿采选废水</option>
+							
+								<option value="1100">其他矿采选废水</option>
+							
+								<option value="1310">植物油加工废水</option>
+							
+								<option value="1320">制糖废水</option>
+							
+								<option value="1330">屠宰及肉类加工废水</option>
+							
+								<option value="1399">其他农副食品加工废水</option>
+							
+								<option value="1410">发酵制品业废水</option>
+							
+								<option value="1420">罐头食品制造业废水</option>
+							
+								<option value="1499">其它食品制造业废水</option>
+							
+								<option value="1510">酒精制造废水</option>
+							
+								<option value="1520">白酒制造废水</option>
+							
+								<option value="1530">啤酒制造废水</option>
+							
+								<option value="1540">葡萄酒和果露酒制造废水</option>
+							
+								<option value="1599">其他饮料制造废水</option>
+							
+								<option value="1600">烟草加工废水</option>
+							
+								<option value="1710">棉纺及棉制品加工废水</option>
+							
+								<option value="1720">毛纺织加工废水</option>
+							
+								<option value="1730">化纤纺织废水</option>
+							
+								<option value="1740">麻纺废水</option>
+							
+								<option value="1750">丝绢纺织废水</option>
+							
+								<option value="1760">印染、漂染废水</option>
+							
+								<option value="1799">其它纺织废水</option>
+							
+								<option value="1910">制革业废水</option>
+							
+								<option value="1920">毛皮鞣制废水</option>
+							
+								<option value="1999">其他皮革、毛皮、羽绒及其制品废水</option>
+							
+								<option value="2000">木材加工及木、竹、藤、棕、草制品废水</option>
+							
+								<option value="2210">造纸制浆黑液（红液）废水</option>
+							
+								<option value="2220">造纸制浆中段废水</option>
+							
+								<option value="2230">造纸纸机白水</option>
+							
+								<option value="2299">其他造纸及纸制造废水</option>
+							
+								<option value="2510">石油加工废水</option>
+							
+								<option value="2520">炼焦含酚废水</option>
+							
+								<option value="2530">煤气生产含酚废水</option>
+							
+								<option value="2540">煤制品生产废水</option>
+							
+								<option value="2599">其他石油加工及炼焦废水</option>
+							
+								<option value="2611">无机酸制造废水</option>
+							
+								<option value="2612">电石渣废水</option>
+							
+								<option value="2613">制碱含汞废水</option>
+							
+								<option value="2614">制碱其他废水</option>
+							
+								<option value="2615">无机盐制造废水</option>
+							
+								<option value="2619">其他基础化学原料制造废水</option>
+							
+								<option value="2621">氮肥制造废水</option>
+							
+								<option value="2622">磷肥制造废水</option>
+							
+								<option value="2623">钾肥制造废水</option>
+							
+								<option value="2629">其它化肥制造废水</option>
+							
+								<option value="2631">有机磷农药制造废水</option>
+							
+								<option value="2632">氨基甲酸酯农药制造废水</option>
+							
+								<option value="2633">除虫菊酯农药制造废水</option>
+							
+								<option value="2634">有机氯农药制造废水</option>
+							
+								<option value="2639">其他农药制造废水</option>
+							
+								<option value="2641">涂料制造废水</option>
+							
+								<option value="2642">颜料制造废水</option>
+							
+								<option value="2643">染料制造废水</option>
+							
+								<option value="2649">其他有机化学产品制造废水</option>
+							
+								<option value="2651">塑料造废水</option>
+							
+								<option value="2652">有机硅氟材料制造废水</option>
+							
+								<option value="2653">合成橡胶制造废水</option>
+							
+								<option value="2654">合成纤维单体制造废水</option>
+							
+								<option value="2659">其它合成材料制造废水</option>
+							
+								<option value="2661">化学试剂、助剂制造废水</option>
+							
+								<option value="2662">林产化学产品制造废水</option>
+							
+								<option value="2663">炸药及火工制造废水</option>
+							
+								<option value="2664">放射性化学产品制造废水</option>
+							
+								<option value="2669">其它专用化学产品制造废水</option>
+							
+								<option value="2671">肥皂及合成洗涤剂制造废水</option>
+							
+								<option value="2672">合成脂肪酸制造废水</option>
+							
+								<option value="2679">其它日用化学产品制造废水</option>
+							
+								<option value="2710">医药无机废水</option>
+							
+								<option value="2720">医药有机废水</option>
+							
+								<option value="2730">中药生产废水</option>
+							
+								<option value="2740">生物药品生产废水</option>
+							
+								<option value="2750">畜用药品生产废水</option>
+							
+								<option value="2799">其他医药制造废水</option>
+							
+								<option value="2810">化纤浆粕废水</option>
+							
+								<option value="2820">粘胶纤维制造废水</option>
+							
+								<option value="2830">合成纤维制造废水</option>
+							
+								<option value="2899">其它纤维制造废水</option>
+							
+								<option value="2900">橡胶制品制造废水</option>
+							
+								<option value="3010">人造革制造废水</option>
+							
+								<option value="3020">泡沫塑料制造废水</option>
+							
+								<option value="3099">其他塑料制品制造废水</option>
+							
+								<option value="3110">水泥制造废水</option>
+							
+								<option value="3120">石棉废水</option>
+							
+								<option value="3131">建筑材料制品制造废水</option>
+							
+								<option value="3132">防水建筑材料制品制造废水</option>
+							
+								<option value="3140">玻璃制品制造废水</option>
+							
+								<option value="3150">陶瓷制品制造废水</option>
+							
+								<option value="3160">耐火材料制品制造废水</option>
+							
+								<option value="3199">其他非金属矿物制品制造废水</option>
+							
+								<option value="3210">黑色冶炼冲渣水</option>
+							
+								<option value="3220">黑色冶炼冷却水</option>
+							
+								<option value="3230">黑色冶炼酸洗水</option>
+							
+								<option value="3240">黑色金属压延加工废水</option>
+							
+								<option value="3311">重有色金属冶炼废水</option>
+							
+								<option value="3312">重有色金属压延加工废水</option>
+							
+								<option value="3321">轻有色金属冶炼废水</option>
+							
+								<option value="3322">轻有色金属压延加工废水</option>
+							
+								<option value="3330">贵金属冶炼废水</option>
+							
+								<option value="3340">稀有金属冶炼废水</option>
+							
+								<option value="3810">机械加工废水</option>
+							
+								<option value="3820">电镀废水</option>
+							
+								<option value="3830">其他制造废水</option>
+							
+								<option value="9900">其他工业废水</option>
+							
+					</select>
+						<div class="table_tip_div treat_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>每种类型只可添加一次。
+							</div>
+						</div></td>
+					<td class="treatmethod_td"><select id="treatmethod" class="child_select" required>
+							<option value="">请选择</option>
+							
+								<option value="1000">
+									物理处理法</option>
+							
+								<option value="2000">
+									化学处理法</option>
+							
+								<option value="3000">
+									物理化学处理法</option>
+							
+								<option value="4000">
+									生物处理法</option>
+							
+								<option value="5000">
+									组合工艺处理法</option>
+							
+					</select>
+						<div class="table_tip_div treat_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>请选择处理方法类型。
+							</div>
+						</div></td>
+					<td class="treatmethoddetail_td"><select id="treatmethoddetail" class="child_select" required>
+							<option value="">请选择</option>
+					</select>
+						<div class="table_tip_div treat_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>请选择处理方法。
+							</div>
+						</div></td>
+					<td class="op_td child"><input class="child_add_a" type="submit" value="添加"></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</div>
+</div>
+
+<!------  弹窗背景  -------->
+    <div class="map_bg" style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background-color: #000;filter: alpha(opacity = 30); -moz-opacity: 0.3; opacity: 0.3; z-index: -10; display:none;"></div>
+    
+</div></div>
+
+</body>
+</html>

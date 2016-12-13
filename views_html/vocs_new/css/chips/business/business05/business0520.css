@@ -1,0 +1,53 @@
+@CHARSET "UTF-8";
+
+ #business_copy  .list_table.business0520_table {
+	width: 1800px;
+} 
+
+#business_copy  .tank01_table td {
+	white-space: nowrap;
+}
+
+#business_copy .lt_div {
+	overflow-x: scroll;
+}
+
+#business_copy .list_table .no_td {
+	width: 50px;
+}
+
+#business_copy .list_table .name_td {
+	width: 100px;
+}
+
+#business_copy .list_table .cost_td {
+	width: 120px;
+}
+
+#business_copy .list_table .hours_td {
+	width: 120px;
+}
+
+#business_copy .list_table .power_td {
+	width: 120px;
+}
+
+#business_copy .list_table .flow_td {
+	width: 150px;
+}
+
+#business_copy .list_table .collectN_td {
+	width: 150px;
+}
+
+#business_copy .list_table .collect_td {
+	width: 150px;
+}
+
+#business_copy .list_table .self_td {
+	width: 120px;
+}
+
+#business_copy .list_table .other_td {
+	width: 120px;
+}

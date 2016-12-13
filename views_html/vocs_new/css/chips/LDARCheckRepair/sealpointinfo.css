@@ -1,0 +1,85 @@
+@CHARSET "UTF-8";
+#workplan_copy .list_table.workplan_table {
+	width: 900px;
+}
+
+#workplan_copy .workplan_table td {
+	white-space: nowrap;
+}
+
+#workplan_copy .lt_div {
+	overflow-x: scroll;
+}
+
+#workplan_copy .workplan_table .no_td {
+	width: 50px;
+}
+#workplan_copy .workplan_table .simage_td {
+	width: 100px;
+}
+#workplan_copy .workplan_table .scode_td {
+	width: 100px;
+}
+#workplan_copy .workplan_table .sname_td {
+	width: 100px;
+}
+
+#workplan_copy .workplan_table .skind_td {
+	width: 100px;
+}
+#workplan_copy .workplan_table .sconfig_td {
+	width: 100px;
+}
+
+#workplan_copy .workplan_table .sdistinct_td {
+	width: 100px;
+}
+#workplan_copy .workplan_table .sartname_td {
+	width: 100px;
+}
+#workplan_copy .workplan_table .sgradedesc_td {
+	width: 100px;
+}
+#workplan_copy .workplan_table .sdielectricstatus_td {
+	width: 100px;
+}
+#workplan_copy .workplan_table .sdielectric_td {
+	width: 100px;
+}
+#workplan_copy .workplan_table .scheckcricle_td {
+	width: 100px;
+}
+#workplan_copy .workplan_table .sxllevel_td {
+	width: 100px;
+}
+
+#workplan_copy .workplan_table .sxlnum_td {
+	width: 100px;
+}
+#workplan_copy .workplan_table .snextcheckday_td {
+	width: 100px;
+}
+#workplan_copy .workplan_table .sgczhijing_td {
+	width: 100px;
+}
+#workplan_copy .workplan_table .spression_td {
+	width: 100px;
+}
+#workplan_copy .workplan_table .sstatus_td {
+	width: 100px;
+}
+#workplan_copy .workplan_table .sbaowen_td {
+	width: 100px;
+}
+#workplan_copy .workplan_table .sresion_td {
+	width: 100px;
+} 
+#workplan_copy .workplan_table .srmark_td {
+	width: 100px;
+}    
+#workplan_copy .workplan_table .srmark_td {
+	width: 100px;
+}    
+#workplan_copy .workplan_table .op_td {
+	width: 100px;
+}                    		

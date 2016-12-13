@@ -1,0 +1,59 @@
+@CHARSET "UTF-8";
+
+.table_div {
+	/*border: solid 1px #ccc;
+	padding: 12px 26px;
+	margin: 0px auto;*/
+	width: 939px;
+	position: relative;
+	background-color: #fff;
+	/*top: 20px;*/
+	margin: 15px auto;
+	padding: 10px 25px;
+	border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    box-shadow: 0px 2px 5px rgba(34,40,50,0.15);
+    -moz-box-shadow: 0px 2px 5px rgba(34,40,50,0.15);
+    -webkit-box-shadow: 0px 2px 5px rgba(34,40,50,0.15);
+}
+
+.table_title {
+	border-bottom: 5px solid #66b1d8;
+	margin-top: 30px;
+	padding-bottom: 10px;
+	padding-left: 40px;
+	position: relative;
+	height: 18px;
+	overflow: hidden;
+}
+
+.table_title h1 {
+	font-size: 16px;
+}
+
+.table_div table {
+	/*width: 800px;*/
+	width:820px;
+	margin: 40px auto;
+}
+
+.table_div table td {
+	height: 40px;
+	/*padding: 5px 10px;
+	line-height: 40px;*/
+	padding:2px 10px;
+	text-align: left;
+	border: 1px #000 solid;
+	border-color: #ccc;
+    font-size: 13px;
+}
+
+.table_div .downloadword_div {
+	background: url("../images/word_ico.jpg") left top no-repeat;
+	height: 20px;
+	line-height: 26px;
+	padding-left: 26px;
+	margin-left: 40px;
+	margin-bottom: 20px;
+}

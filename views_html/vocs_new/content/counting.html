@@ -1,0 +1,718 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>统计信息</title>
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/echarts.common.min.js"></script>
+<script src="../js/blue_gray.js"></script>
+<script src="../js/chart_1.js"></script>
+
+<style>
+*{margin:0px; padding:0px; font-family:"arial","微软雅黑"}
+body{ background-color:#ecf0f5;}
+img{ display:block; border:none;}
+.left{ float:left;}
+.right{ float:right;}
+ul,li{ list-style:none;}
+a{ text-decoration:none;}
+.column_4{ width:40%; padding:16px 0; overflow:hidden; float:left;}
+.column_3{ width:30%; overflow:hidden; background-color:white;}
+.block_3{
+-webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  color: rgb(51, 51, 51);
+  display: block;
+  float: left;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  min-height: 1px;
+  padding:16px;
+  position: relative;
+  width:30%;}
+.block_4{
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  color: rgb(51, 51, 51);
+  display: block;
+  float: left;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  min-height: 1px;
+  padding:16px;
+  position: relative;
+  width:40%;}
+.block_5{	
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  color: rgb(51, 51, 51);
+  display: block;
+  float: left;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  min-height: 1px;
+  padding:16px;
+  position: relative;
+  width:50%;
+}
+.block_6{	
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  color: rgb(51, 51, 51);
+  display: block;
+  float: left;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  min-height: 1px;
+  padding:16px;
+  position: relative;
+  width:60%;
+}
+.block_7{	
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  color: rgb(51, 51, 51);
+  display: block;
+  float: left;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  min-height: 1px;
+  padding:16px;
+  position: relative;
+  width:70%;
+}
+
+.block_10{	
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  color: rgb(51, 51, 51);
+  display: block;
+  float: left;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  min-height: 1px;
+  padding:16px;
+  position: relative;
+  width:100%;
+}
+
+.chart{
+	-moz-border-radius:4px;  
+	-webkit-border-radius:4px; 
+	border-radius:4px;
+	overflow:hidden;
+	}
+	
+.chart1{ background-color:white; height:300px; position:relative; padding:10px; padding-top:56px; padding-bottom:16px;}
+.chart2{ background:url(../images/blue_grad.png) repeat-x; background-size:1px 100%; height:300px; position:relative; padding:10px; padding-top:56px; padding-bottom:16px;}
+
+.chart3{ background:url(../images/dark_blue_grad.png) repeat-x; background-size:1px 100%; height:300px; position:relative; padding:10px; padding-top:56px; padding-bottom:16px;}
+
+.show{ display:block;}
+.hide{ display:none;}
+input::-ms-clear{ display:none;}
+.relative_box{ position:relative; width:100%; height:100%;}
+
+.column .title{ height:44px; position:absolute; left:0; right:0; top:0; background-color:#f9f9f9; border-bottom:1px solid #dbdbdb; padding:0 12px; color:#444; overflow:hidden;}
+
+.column .chart2 .title{ height:44px; position:absolute; left:0; right:0; top:0; background-color:#01a5dc; border-bottom:1px solid #0194c7; padding:0 12px; color:white;}
+
+.column .chart3 .title{ height:44px; position:absolute; left:0; right:0; top:0; background-color:#2b6897; border-bottom:1px solid #24567e; padding:0 12px; color:white;}
+
+.column .title .icon{ float:left; width:20px; height:20px; overflow:hidden; margin:11px 0;}
+.column .title p{ float:left; line-height:44px; font-size:16px; font-weight:bold; margin-left:12px;}
+
+.column .single{ width:50%; float:left; height:33%; overflow:hidden;}
+.column .single h1{ font-size:34px; color:white; text-align:center; line-height:40px; margin-top:12px;}
+.column .single p{ font-size:16px; color:white; color:rgba(255,255,255,0.6); text-align:center; margin-top:6px;
+}
+
+.content_header_block{ overflow:hidden; margin-bottom:24px; height:36px;}
+.content_header{ overflow:hidden; position:fixed; left:0; right:0; top:0; background-color:#ecf0f5; z-index:9999999; background-color:rgba(246,250,255,0.9); padding:10px 16px; border-bottom:1px solid #c9cdd1;
+-moz-box-shadow:0px 2px 4px rgba(34,40,50,0.1); 
+-webkit-box-shadow:0px 2px 4px rgba(34,40,50,0.1);
+box-shadow:0px 2px 4px rgba(34,40,50,0.1); 
+}
+.content_header .left_part{ height:36px; float:left; overflow:hidden;}
+.content_header .deco_line{ float:left; height:24px; width:4px; margin:6px 0;}
+.content_header h3{ font-size:24px; font-weight:normal; color:#222d32; float:left; line-height:36px; margin:0 6px;}
+.content_header p{ font-size:14px; font-weight:bold; color:#6c7880; line-height:36px; float:left;} 
+
+.content_header .right_part{ float:right; overflow:hidden;}
+.content_header .button_color{ height:14px; overflow:hidden; padding:11px; float:left; margin:2px 0 2px 16px; cursor:pointer;
+-moz-border-radius:3px;  
+-webkit-border-radius:3px; 
+border-radius:3px;
+}
+
+
+.content_header .button_color:hover{ background-image:url(../images/trans_black.png);}
+
+.content_header .button_color .icon{ width:14px; height:14px; float:left;}
+.content_header .button_color p{ color:white; font-size:12px; float:left; margin-left:8px; font-weight:normal; line-height:14px;}
+
+.bg_blue{ background-color:#00c0ef}
+.bg_green{ background-color:#00a65a;}
+.bg_dark_blue{ background-color:#3c8dbc;}
+.bg_orange{ background-color:#f39c12;}
+
+.column table{ width:100%; text-align:center;
+	width: 100%;
+    border: 1px solid #d4d4d4;
+    overflow: scroll;
+}
+table tr{
+    color: #666666;
+    line-height: 36px;
+	border-bottom:1px solid #d4d4d4;	
+	}
+table th{ background-color:#f5f5f5; border-bottom:1px solid #d4d4d4; border-right:1px solid #d4d4d4; color:#444;}
+
+table td{ 
+    border-bottom: 1px solid #d4d4d4;
+    border-right: 1px solid #d4d4d4;
+}
+
+.button{ height:12px; overflow:hidden; padding:11px 6px; min-width:70px; float:left; margin:2px 0 2px 16px; cursor:default;
+-moz-border-radius:3px;  
+-webkit-border-radius:3px; 
+border-radius:3px;
+border:1px solid #cccccc;
+background:url(../images/arrow_dwn.png) right center no-repeat;
+background-color:white;
+padding-right:32px;
+}
+
+.button:hover{ border-color:#999494;}
+
+.button p{ color:#777; font-size:12px !important; float:left; margin-left:8px; font-weight:normal !important; line-height:12px !important;}
+</style>
+</head>
+
+<body>
+
+<div class="content_header_block"></div>
+<div class="content_header">
+	<div class="left_part">
+    	<div class="deco_line bg_dark_blue"></div>
+        <h3>首页</h3>
+        <p>信息统计</p>
+    </div>
+    <div class="right_part">
+    	
+        <div class="button">
+            <p>2015年</p>
+        </div>
+        
+        <div class="button">
+            <p>半年度</p>
+        </div>
+        
+        <div class="button">
+            <p>城市搜索</p>
+        </div>
+        
+        <div class="button">
+            <p>行业搜索</p>
+        </div>
+        
+        <div class="button_color bg_green">
+        	<div class="icon">
+            	<img src="../images/up_report.png">
+            </div>
+            <p>导出图片</p>
+        </div>
+        <div class="button_color bg_orange">
+        	<div class="icon">
+            	<img src="../images/guide.png">
+            </div>
+            <p>管理模块</p>
+        </div>
+    </div>
+</div>
+
+<div class="column block_3">
+	<div class="chart chart2">
+    
+    	<div class="title">
+        	<div class="icon">
+            	<img src="../images/ldar_all.png">
+            </div>
+            <p>LDAR数据总览</p>
+        </div>
+        <div style="width:100%; height:100%;">
+        	<div class="single">
+            	<h1>340</h1>
+                <p>密封点数</p>
+            </div>
+            <div class="single">
+            	<h1>12</h1>
+                <p>排放量</p>
+            </div>
+            <div class="single">
+            	<h1>2</h1>
+                <p>当前泄漏点数</p>
+            </div>
+            <div class="single">
+            	<h1>4</h1>
+                <p>减排量</p>
+            </div>
+            <div class="single">
+            	<h1>2.4%</h1>
+                <p>泄漏率</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="column block_7">
+	<div class="chart chart1">
+        <div class="title">
+        	<div class="icon">
+            	<img src="../images/gas_analy.png">
+            </div>
+            <p>排放量和减排量趋势图</p>
+        </div>
+        <div id="chart2" style="width:100%; height:100%;">
+        
+        </div>
+    </div>
+</div>
+
+<div class="column block_3">
+	<div class="chart chart1">
+        <div class="title">
+        	<div class="icon">
+            	<img src="../images/circle_count.png">
+            </div>
+            <p>LDAR项目实施进展</p>
+        </div>
+        <div id="chart3" style="width:100%; height:100%;">
+        
+        </div>
+    </div>
+</div>
+
+<div class="column block_7">
+	<div class="chart chart1">
+        <div class="title">
+        	<div class="icon">
+            	<img src="../images/city_count.png">
+            </div>
+            <p>LDAR项目实施进展（按城市）</p>
+        </div>
+        <div id="chart4" style="width:100%; height:100%;">
+        
+        </div>
+    </div>
+</div>
+
+
+<div class="column block_3">
+	<div class="chart chart3">
+    
+    	<div class="title">
+        	<div class="icon">
+            	<img src="../images/exam_all.png";>
+            </div>
+            <p>审核情况总览</p>
+        </div>
+        <div style="width:100%; height:100%;">
+        	<div class="single">
+            	<h1>3</h1>
+                <p>已开展企业数</p>
+            </div>
+            <div class="single">
+            	<h1>60%</h1>
+                <p>已开展企业百分比</p>
+            </div>
+            <div class="single">
+            	<h1>1</h1>
+                <p>已审核企业数</p>
+            </div>
+            <div class="single">
+            	<h1>33.3%</h1>
+                <p>已审核企业百分比</p>
+            </div>
+            <div class="single">
+            	<h1>0</h1>
+                <p>不合格企业数</p>
+            </div>
+            <div class="single">
+            	<h1>0%</h1>
+                <p>不合格企业数百分比</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="column block_7">
+	<div class="chart chart1">
+        <div class="title">
+        	<div class="icon">
+            	<img src="../images/comp_list.png">
+            </div>
+            <p>2015年审核企业名单</p>
+            <div class="right" style="padding-top:2px;">
+                <div class="button">
+                    <p>城市搜索</p>
+                </div>
+                
+                <div class="button">
+                    <p>行业搜索</p>
+                </div>
+                
+                <div class="button">
+                    <p>审核状态</p>
+                </div>
+            </div>
+            
+        </div>
+        <div style="width:100%; height:100%; position:relative;">
+        	<table width="100%" height="300" cellpadding="0" cellspacing="0">
+            	<tr>
+                	<th>行号</th>
+                    <th>城市</th>
+                    <th>企业名称</th>
+                    <th>审核开始时间</th>
+                    <th>审核状态</th>
+                </tr>
+                
+                <tr style="">
+                	<td>1</td>
+                    <td>济南</td>
+                    <td>济南坤丰化工</td>
+                    <td>2015-06-09</td>
+                    <td>任务已完成</td>
+                </tr>
+                <tr style="background-color:#f9f9f9">
+                	<td>2</td>
+                    <td>济南</td>
+                    <td>山东鑫源化工</td>
+                    <td>2015-06-09</td>
+                    <td>已分配任务</td>
+                </tr>
+                <tr>
+                	<td>3</td>
+                    <td>淄博</td>
+                    <td>淄博浩远环保股份</td>
+                    <td>2015-06-12</td>
+                    <td>已分配任务</td>
+                </tr>
+                <tr style="background-color:#f9f9f9">
+                	<td>4</td>
+                    <td>青岛</td>
+                    <td>青岛蓝世环保</td>
+                    <td>2015-06-14</td>
+                    <td>已分配任务</td>
+                </tr>
+                <tr>
+                	<td>5</td>
+                    <td>青岛</td>
+                    <td>山东青洁能环保</td>
+                    <td>2015-06-14</td>
+                    <td>已建立</td>
+                </tr>
+                <tr style="background-color:#f9f9f9">
+                	<td>6</td>
+                    <td>烟台</td>
+                    <td>烟台锦辉精细化工</td>
+                    <td>2015-07-01</td>
+                    <td>已建立</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="column block_10">
+	<div class="chart chart1">
+        <div class="title">
+        	<div class="icon">
+            	<img src="../images/city_count.png">
+            </div>
+            <p>LDAR项目审核进展（按城市）</p>
+        </div>
+        <div id="chart5" style="width:100%; height:100%;">
+        
+        </div>
+    </div>
+</div>
+
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chart2'), 'chart_1');
+
+        // 指定图表的配置项和数据
+        var option = {
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    legend: {
+        data:['排放量','减排量']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'category',
+            data : ['2011','2012','2013','2014','2015']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        
+        {
+            name:'排放量',
+            type:'bar',
+            stack: '广告',
+            data:[0, 0, 10, 5, 2]
+        },
+        {
+            name:'减排量',
+            type:'bar',
+            data:[0, 0, 2, 3, 5],
+            markLine : {
+                lineStyle: {
+                    normal: {
+                        type: 'dashed'
+                    }
+                },
+                data : [
+                    [{type : 'min'}, {type : 'max'}]
+                ]
+            }
+        },
+        
+    ]
+};
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>  
+
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chart3'), 'chart_1');
+
+        // 指定图表的配置项和数据
+        var option = {
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        left: 'left',
+        data: ['未开展企业','已开展企业']
+    },
+    series : [
+        {
+            name: '访问来源',
+            type: 'pie',
+            radius : '55%',
+            center: ['50%', '60%'],
+            data:[
+
+                {value:1, name:'未开展企业'},
+                {value:8, name:'已开展企业'}
+            ],
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+    
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chart5'),'chart_1');
+
+        // 指定图表的配置项和数据
+        var option = {
+
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['蒸发量','降水量']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            data : ['济南','青岛','淄博','枣庄','东营','烟台','潍坊','济宁','泰安','威海','日照','滨州','德州','聊城','其他']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+	
+		{
+            name:'已审核企业数',
+            type:'bar',
+            data:[4, 1, 0, 0, 1, 2, 0, 0, 2, 1, 1, 0, 0, 1, 2],
+            markPoint : {
+                data : [
+                    {name : '年最高', value : 182.2, xAxis: 7, yAxis: 183},
+                    {name : '年最低', value : 2.3, xAxis: 11, yAxis: 3}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name : '平均值'}
+                ]
+            }
+        },
+		
+        {
+            name:'已开展企业数',
+            type:'bar',
+            data:[8, 4, 0, 0, 3, 2, 0, 0, 3, 1 ,0, 3, 2, 0, 0],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        }
+        
+    ]
+};
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+    
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chart4'),'chart_1');
+
+        // 指定图表的配置项和数据
+        var option = {
+
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['蒸发量','降水量']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            data : ['济南','青岛','淄博','枣庄','东营','烟台','潍坊','济宁','泰安','其他']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+	
+		{
+            name:'已审核企业数',
+            type:'bar',
+            data:[4, 1, 0, 0, 1, 2, 0, 0, 2, 1],
+            markPoint : {
+                data : [
+                    {name : '年最高', value : 182.2, xAxis: 7, yAxis: 183},
+                    {name : '年最低', value : 2.3, xAxis: 11, yAxis: 3}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name : '平均值'}
+                ]
+            }
+        },
+		
+        {
+            name:'已开展企业数',
+            type:'bar',
+            data:[8, 4, 0, 0, 3, 2, 0, 0, 3, 1],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        }
+        
+    ]
+};
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+
+</body>
+</html>

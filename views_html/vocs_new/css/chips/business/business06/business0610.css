@@ -1,0 +1,82 @@
+@CHARSET "UTF-8";
+
+#business_copy .business0610_table.businesstable {
+	width: 2000px;
+}
+
+#business_copy .businesstable td {
+	white-space: nowrap;
+}
+
+#business_copy .lt_div {
+	overflow-x: scroll;
+}
+
+#business_copy .businesstable.business0610_table .form_input {
+	width: 80px;
+}
+
+#business_copy .businesstable.business0610_table  .no_td {
+	width: 50px;
+}
+
+#business_copy .businesstable.business0610_table  .name_td {
+	width: 100px;
+}
+
+#business_copy .businesstable.business0610_table  .capacity_td {
+	width: 100px;
+}
+
+#business_copy .businesstable.business0610_table  .electric_td {
+	width: 100px;
+}
+
+#business_copy .businesstable.business0610_table  .gas_td {
+	width: 100px;
+}
+
+#business_copy .businesstable.business0610_table  .water_td {
+	width: 100px;
+}
+
+#business_copy .businesstable.business0610_table  .diesel_td {
+	width: 100px;
+}
+
+#business_copy .businesstable.business0610_table  .gasoline_td {
+	width: 100px;
+}
+
+#business_copy .businesstable.business0610_table  .other_td {
+	width: 100px;
+}
+
+#business_copy .businesstable.business0610_table  .hours_td {
+	width: 100px;
+}
+
+#business_copy .businesstable.business0610_table  .recover_td {
+	width: 100px;
+}
+
+#business_copy .businesstable.business0610_table  .cost_td {
+	width: 100px;
+}
+
+#business_copy .businesstable.business0610_table  .intensity_td {
+	width: 100px;
+}
+
+#business_copy .businesstable.business0610_table  .gaspollutant_td {
+	width: 100px;
+}
+
+#business_copy .businesstable.business0610_table  .gaspollutantdata_td {
+	width: 100px;
+}
+
+#business_copy .business_form_buttons {
+	position: relative;
+	top: 30px;
+}

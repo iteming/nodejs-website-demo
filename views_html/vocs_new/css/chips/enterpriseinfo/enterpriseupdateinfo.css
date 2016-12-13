@@ -1,0 +1,125 @@
+@CHARSET "UTF-8";
+
+#enterpriseinfo_copy #area {
+	float: left;
+	width: auto;
+	margin-right: 20px;
+}
+
+#enterpriseinfo_copy #street {
+	float: right;
+	width: 248px;
+}
+
+#reglon,#reglat,#prolon,#prolat {
+	width: 115px;
+	float: left;
+}
+
+#enterpriseinfo_copy .form_content .lat_label {
+	width: 98px;
+}
+
+#enterpriseinfo_copy .form_content .form_textarea_li {
+	height: 130px;
+}
+
+#enterpriseinfo_copy .map_bg {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background-color: #000;
+	filter: alpha(opacity =     30);
+	-moz-opacity: 0.3;
+	opacity: 0.3;
+	z-index: 1000;
+}
+
+#enterpriseinfo_copy .map_content {
+	width: 500px;
+	height: 500px;
+	z-index: 1001;
+}
+
+#enterpriseinfo_copy #map {
+	width: 500px;
+	height: 500px;
+}
+
+#enterpriseinfo_copy .map_close {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+#enterpriseinfo_copy .form_content .form_label {
+	cursor: pointer;
+}
+
+#enterpriseinfo_copy .return_a {
+	/*position: absolute;
+	right: 26px;
+	top: 20px;
+	display: block;
+	width: 30px;
+	height: 30px;*/
+	width:16px;
+	height:16px;
+	right: 32px;
+    top: 38px;
+	background:url(../../../images/default.png) 0 0;
+}
+#enterpriseinfo_copy .return_a:hover{
+	background-position:-48px 0;
+}
+
+#enterpriseinfo_copy .return_a img {
+	width: 30px;
+}
+
+#enterpriseinfo_copy #epa.ex {
+	width: 170px;
+	float: left;
+	margin-right: 23px;
+}
+
+#enterpriseinfo_copy #epa_ex {
+	width: 170px;
+	float: left;
+	word-wrap: normal;
+}
+
+#enterpriseinfo_copy .form_content .form_content_li.attachment_li {
+	margin-bottom: 20px;
+	position: relative;
+	overflow: hidden;
+	height: auto;
+}
+
+#enterpriseinfo_copy .form_content .form_content_li.attachment_li .form_input_div
+	{
+	margin-top: 6px;
+}
+
+#enterpriseinfo_copy .attachment_view_div {
+	float: left;
+	margin-left: 155px;
+	margin-top: 12px;
+	width: 650px;
+}
+
+#enterpriseinfo_copy .beltline_attachment {
+	height: 30px;
+	line-height: 30px;
+}
+
+#enterpriseinfo_copy .attachment_del_a {
+	margin-left: 20px;
+	color: #999;
+}
+
+#enterpriseinfo_copy .attachment_del_a:hover {
+	color: #dd1778;
+}

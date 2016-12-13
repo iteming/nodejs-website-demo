@@ -1,0 +1,736 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>生产线</title>
+
+
+<!--<link href="../css/common.css" type="text/css" rel="stylesheet">-->
+<link href="../css/list.css" type="text/css" rel="stylesheet">
+<link href="../css/option.css" type="text/css" rel="stylesheet">
+<link href="../css/form.css" type="text/css" rel="stylesheet">
+
+<link href="../css/chips/beltline/beltline.css" rel="stylesheet" type="text/css">
+<link href="../css/Pop-ups.css" type="text/css" rel="stylesheet">
+
+<script src="../js/jquery-1.8.3.min.js"></script>
+<script src="../js/SystemNoice.js"></script>
+
+</head>
+
+
+<body>
+
+<div id="right"><div id="beltline_copy" class="copy_div">
+<div class="check_div" style="display:none;">
+	<div class="form_div">
+	<a class="return_a"><!--<img src="../images/return.png"> --></a>
+	
+		<form method="post" id="modifybeltlineform" onsubmit="javascript:return false;" ref="3" novalidate>
+			<div class="form_title">
+				<h1>生产线信息</h1>
+			</div>
+			<div class="form_content">
+				<ul>
+					<li class="form_content_li"><label for="number" class="form_label"> <em class="required_em">*</em>生产线编号：
+					</label>
+						<div class="form_input_div">
+							<input id="number" class="form_input" type="text" data-max="50" required value="10001">
+							<!-- ByXWK:乐观锁 -->
+							<input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 15:27:24 CST 2016">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>指企业赋予该条生产线的唯一编号，编号不能重复。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="name" class="form_label"> <em class="required_em">*</em>生产线名称：
+					</label>
+						<div class="form_input_div">
+							<input id="name" class="form_input" type="text" data-max="50" required value="柴油">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>指企业赋予该条生产线的名称。
+							</div>
+						</div></li>
+				</ul>
+			</div>
+			<div class="form_buttons">
+				<input class="form_submit" type="submit" value="提交">
+			</div>
+		</form>
+		<form method="post" id="modifyproductform" onsubmit="javascript:return false;" novalidate>
+			<div class="form_title">
+				<h1>产品、产物信息</h1>
+			</div>
+			<table class="list_table">
+				<thead>
+					<tr>
+						<td class="no_td child">NO.</td>
+						<td class="producttype_td">种类</td>
+						<td class="productname_td">产品、产物名称</td>
+						<td class="productunit_td">计量单位</td>
+						<td class="productcapacity_td">设计年生产能力</td>
+						<td class="op_td child">操作</td>
+					</tr>
+				</thead>
+				<tbody>
+					
+						<tr class="child_list_tr " ref="4">
+							<td class="no_td child">
+								1</td>
+							<td class="producttype_td">产品</td>
+							<td class="productname_td">柴油
+								
+							</td>
+							<td class="productunit_td">吨</td>
+							<td class="productcapacity_td">1000</td>
+							<td class="op_td child"><a class="child_del_a">删除</a></td>
+						</tr>
+					
+					<tr class="add_tr">
+						<td class="no_td child"></td>
+						<td class="producttype_td"><select id="producttype" class="child_select" required>
+								<option value="" selected="selected">请选择</option>
+								<option value="产品">产品</option>
+								<option value="中间产物">中间产物</option>
+						</select>
+							<div class="table_tip_div product_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>请选择种类。
+								</div>
+							</div></td>
+						<td class="productname_td"><select id="productname" class="child_select" required>
+								<option value="" selected="selected">请选择</option>
+						</select>
+							<div class="table_tip_div product_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>指选择该条生产线生产的产品、产物名称。
+								</div>
+							</div></td>
+						<td class="productunit_td"><input id="productunit" class="child_input" type="text" required>
+							<div class="table_tip_div  product_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>请填写该产品、产物的计量单位。
+								</div>
+							</div></td>
+						<td class="productcapacity_td"><input id="productcapacity" class="child_input" type="num" step="0.001" min="0" required>
+							<div class="table_tip_div  product_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>指该生产线上每种产品的年生产能力，允许保留三位小数。
+								</div>
+							</div></td>
+						<td class="op_td child"><input class="child_add_a" type="submit" value="添加"></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+		<form method="post" id="modifymaterialform" onsubmit="javascript:return false;" novalidate>
+			<div class="form_title">
+				<h1>一般原辅材料</h1>
+			</div>
+			<table class="list_table">
+				<thead>
+					<tr>
+						<td class="no_td child2">NO.</td>
+						<td class="materialname_td">原料名称</td>
+						<td class="materialunit_td">计量单位</td>
+						<td class="materialyearusage_td">设计年使用量</td>
+						<td class="materialconsume_td">消耗定额</td>
+						<td class="op_td child2">操作</td>
+					</tr>
+				</thead>
+				<tbody>
+					
+						<tr class="child_list_tr " ref="3">
+							<td class="no_td child2">
+								1</td>
+							<td class="materialname_td">
+								柴油</td>
+							<td class="materialunit_td">10</td>
+							<td class="materialyearusage_td">
+								100</td>
+							<td class="materialconsume_td">100</td>
+							<td class="op_td child2"><a class="child_del_a">删除</a></td>
+						</tr>
+					
+					<tr class="add_tr">
+						<td class="no_td child2"></td>
+						<td class="materialname_td">
+                        	<select id="materialname" class="child_select" required>
+                                <option value="" selected="selected">请选择</option>
+                                
+                                <option value="6">
+                                    汽油</option>
+                            
+                                <option value="7">
+                                    柴油</option>
+                            </select>
+							<div class="table_tip_div  material_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>请选择原材料。
+								</div>
+							</div></td>
+						<td class="materialunit_td"><input id="materialunit" class="child_input" type="text" required>
+							<div class="table_tip_div  material_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>请填写该原材料的计量单位。
+								</div>
+							</div></td>
+						<td class="materialyearusage_td"><input id="materialyearusage" class="child_input" type="num" step="0.001" min="0" required>
+							<div class="table_tip_div  material_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>指该生产线在设计时所确定原材料消耗量，允许保留三位小数。
+								</div>
+							</div></td>
+						<td class="materialconsume_td"><input id="materialconsume" class="child_input" type="num" step="0.001" min="0" required>
+							<div class="table_tip_div  material_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>指生产一单位产品所消耗的原材料的样本平均值，允许保留三位小数。
+								</div>
+							</div></td>
+						<td class="op_td child2"><input class="child_add_a" type="submit" value="添加"></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+		<form method="post" id="modifyexcipientform" onsubmit="javascript:return false;" novalidate>
+			<div class="form_title">
+				<h1>有机原辅材料</h1>
+			</div>
+			<table class="list_table">
+				<thead>
+					<tr>
+						<td class="no_td child3">NO.</td>
+						<td class="excipienttype_td">原料类型</td>
+						<td class="excipientname_td">原料名称</td>
+						<td class="excipientunit_td">计量单位</td>
+						<td class="excipientyearusage_td">设计年使用量</td>
+						<td class="excipientconsume_td">消耗定额</td>
+						<td class="excipientusecode_td">用途代码</td>
+						<td class="op_td child3">操作</td>
+					</tr>
+				</thead>
+				<tbody>
+					
+						<tr class="child_list_tr " ref="4">
+							<td class="no_td child3">
+								1</td>
+							<td class="excipienttype_td">涂料</td>
+							<td class="excipientname_td">油漆</td>
+							<td class="excipientunit_td">10</td>
+							<td class="excipientyearusage_td">
+								100</td>
+							<td class="excipientconsume_td">
+								100</td>
+							<td class="excipientusecode_td">
+								100</td>
+							<td class="op_td child3"><a class="child_del_a">删除</a></td>
+						</tr>
+					
+					<tr class="add_tr">
+						<td class="no_td child3"></td>
+						<td class="excipienttype_td"><select id="excipienttype" class="child_select" required>
+								<option value="" selected="selected">请选择</option>
+								<option value="涂料">涂料</option>
+								<option value="胶黏剂">胶黏剂</option>
+								<option value="有机溶剂">有机溶剂</option>
+								<option value="其他原辅料">其他原辅料</option>
+						</select>
+							<div class="table_tip_div excipient_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>请选择种类。
+								</div>
+							</div></td>
+						<td class="excipientname_td"><select id="excipientname" class="child_select" required>
+								<option value="" selected="selected">请选择</option>
+						</select>
+							<div class="table_tip_div  excipient_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>请选择原料。
+								</div>
+							</div></td>
+						<td class="excipientunit_td"><input id="excipientunit" class="child_input" type="text" required>
+							<div class="table_tip_div  excipient_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>请填写该原材料的计量单位。
+								</div>
+							</div></td>
+						<td class="excipientyearusage_td"><input id="excipientyearusage" class="child_input" type="num" step="0.001" min="0" required>
+							<div class="table_tip_div  excipient_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>指该生产线在设计时所确定原材料消耗量，允许保留三位小数。
+								</div>
+							</div></td>
+						<td class="excipientconsume_td"><input id="excipientconsume" class="child_input" type="num" step="0.001" min="0" required>
+							<div class="table_tip_div  excipient_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>指生产一单位产品所消耗的含VOCs的辅料的标准数量，允许保留三位小数。
+								</div>
+							</div></td>
+						<td class="excipientusecode_td"><input id="excipientusecode" class="child_input" type="text" required>
+							<div class="table_tip_div  excipient_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>请参考《化学品用途代码表》填写用途代码。
+								</div>
+							</div></td>
+						<td class="op_td child3"><input class="child_add_a" type="submit" value="添加"></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+		<div class="excipient_downloadword_div">
+			<a href="/VocsAdvance_UN/document/化学品用途代码表.xls" target="_blank">化学品用途代码表.xls</a>
+		</div>
+		<form method="post" id="modifytechnologyform" onsubmit="javascript:return false;" novalidate>
+			<div class="form_title">
+				<h1>工序信息</h1>
+			</div>
+			<table class="list_table">
+				<thead>
+					<tr>
+						<td class="no_td child4">NO.</td>
+						<td class="technologynumber_td">工序编号</td>
+						<td class="op_td child4">操作</td>
+					</tr>
+				</thead>
+				<tbody>
+					
+						<tr class="child_list_tr " ref="3">
+							<td class="no_td child4">
+								1</td>
+							<td class="technologynumber_td">
+								1001</td>
+							<td class="op_td child4"><a class="child_del_a">删除</a></td>
+						</tr>
+					
+					<tr class="add_tr">
+						<td class="no_td child4"></td>
+						<td class="technologynumber_td"><select id="technologynumber" class="child_select" required>
+<option value="" selected="selected">请选择</option>
+
+	<option value="2">1001</option>
+</select>
+							<div class="table_tip_div  technology_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>请选择工序。
+								</div>
+							</div></td>
+						<td class="op_td child4"><input class="child_add_a" type="submit" value="添加"></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+		<form method="post" id="modifypollutantform" onsubmit="javascript:return false;" novalidate>
+			<div class="form_title">
+				<h1>特征污染物信息</h1>
+			</div>
+			<table class="list_table">
+				<thead>
+					<tr>
+						<td class="no_td child5">NO.</td>
+						<td class="pollutantname_td">特征污染物名称</td>
+						<td class="op_td child5">操作</td>
+					</tr>
+				</thead>
+				<tbody>
+					
+						<tr class="child_list_tr " ref="3">
+							<td class="no_td child5">
+								1</td>
+
+							<td class="pollutantname_td">1000
+							</td>
+							<td class="op_td child5"><a class="child_del_a">删除</a></td>
+						</tr>
+					
+					<tr class="add_tr">
+						<td class="no_td child5"></td>
+						<td class="pollutantname_td"><input id="pollutantname" class="child_input" type="text" required>
+							<div class="table_tip_div  pollutant_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>指该条生产线生产过程中排放的VOCs类物质，优先填写危害较大、排放量较多的特征污染物的名称。
+								</div>
+							</div></td>
+						<td class="op_td child5"><input class="child_add_a" type="submit" value="添加"></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	
+</div>
+</div>
+
+<div class="list_div">
+	<div class="list_title">
+		<h1>生产线列表</h1>
+		<em class="add_em">+ 添加</em>
+	</div>
+	<div class="view_div">
+	<table class="list_table beltline_table" total="2" page="1">
+		<thead>
+			<tr>
+				<td class="no_td">NO.</td>
+				<td class="number_td">生产线编号</td>
+				<td class="name_td">生产线名称</td>
+				<td class="op_td">操作</td>
+			</tr>
+		</thead>
+		<tbody>
+			
+				<tr ref="3" class="list_tr ">
+					<td class="no_td">
+						1</td>
+					<td class="number_td"><em class="ellipsis_em" title="10001">10001</em></td>
+					<td class="name_td"><em class="ellipsis_em" title="柴油">柴油</em></td>
+					<td class="op_td"><a class="del_a">删除</a> <!-- ByXWK:乐观锁 --> <input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 15:27:24 CST 2016"></td>
+				</tr>
+			
+				<tr ref="2" class="list_tr ne">
+					<td class="no_td">
+						2</td>
+					<td class="number_td"><em class="ellipsis_em" title="10011">10011</em></td>
+					<td class="name_td"><em class="ellipsis_em" title="生产线汽油">生产线汽油</em></td>
+					<td class="op_td"><a class="del_a">删除</a> <!-- ByXWK:乐观锁 --> <input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 15:26:05 CST 2016"></td>
+				</tr>
+			
+		</tbody>
+	</table>
+
+</div>
+	<div class="page_div"></div>
+</div>
+
+<div class="add_div" style="display:none;">
+	<div class="form_div">
+	<a class="return_a"><!--<img src="../images/return_r.png"> --></a>
+	<form method="post" id="addbeltlineform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>添加生产线</h1>
+		</div>
+		<div class="form_content">
+			<ul>
+				<li class="form_content_li"><label for="number" class="form_label"> <em class="required_em">*</em>生产线编号：
+				</label>
+					<div class="form_input_div">
+						<input id="number" class="form_input" type="text" data-max="50" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指企业赋予该条生产线的唯一编号，编号不能重复。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="name" class="form_label"> <em class="required_em">*</em>生产线名称：
+				</label>
+					<div class="form_input_div">
+						<input id="name" class="form_input" type="text" data-max="50" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指企业赋予该条生产线的名称。
+						</div>
+					</div></li>
+				<!-- <li class="form_content_li attachment_li" ref="attachment_li">
+					<label for="file_upload_beltline_add" class="form_label"> <em
+						class="required_em">*</em>生产线照片：
+				</label>
+					<div class="form_input_div">
+						<input type="button" id="file_upload_beltline_add"
+							class="file_upload_input" queue="file_queue_beltline_add"
+							value="选择图片" />
+						<div id="file_queue_beltline_add"></div>
+					</div>
+					<div class="attachment_view_div">
+						<a id="attachment_a" target="_blank"></a>
+					</div>
+				</li> -->
+			</ul>
+		</div>
+		<div class="form_buttons">
+			<input class="form_submit" type="submit" value="提交">
+		</div>
+	</form>
+	<form method="post" id="addproductform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>产品、产物信息</h1>
+		</div>
+		<table class="list_table">
+			<thead>
+				<tr>
+					<td class="no_td child">NO.</td>
+					<td class="producttype_td">种类</td>
+					<td class="productname_td">产品、产物名称</td>
+					<td class="productunit_td">计量单位</td>
+					<td class="productcapacity_td">设计年生产能力</td>
+					<td class="op_td child">操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="add_tr">
+					<td class="no_td child"></td>
+					<td class="producttype_td"><select id="producttype" class="child_select" required>
+							<option value="" selected="selected">请选择</option>
+							<option value="产品">产品</option>
+							<option value="中间产物">中间产物</option>
+					</select>
+						<div class="table_tip_div product_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>请选择种类。
+							</div>
+						</div></td>
+					<td class="productname_td"><select id="productname" class="child_select" required>
+							<option value="" selected="selected">请选择</option>
+					</select>
+						<div class="table_tip_div product_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>指选择该条生产线生产的产品、产物名称。
+							</div>
+						</div></td>
+					<td class="productunit_td"><input id="productunit" class="child_input" type="text" required>
+						<div class="table_tip_div  product_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>请填写该产品、产物的计量单位。
+							</div>
+						</div></td>
+					<td class="productcapacity_td"><input id="productcapacity" class="child_input" type="num" step="0.001" min="0" required>
+						<div class="table_tip_div  product_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>指该生产线上每种产品的年生产能力，允许保留三位小数。
+							</div>
+						</div></td>
+					<td class="op_td child"><input class="child_add_a" type="submit" value="添加"></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+	<form method="post" id="addmaterialform" onsubmit="javascript:return false;" novalidate>
+
+		<div class="form_title">
+			<h1>一般原辅材料信息</h1>
+		</div>
+		<table class="list_table">
+			<thead>
+				<tr>
+					<td class="no_td child2">NO.</td>
+					<td class="materialname_td">原料名称</td>
+					<td class="materialunit_td">计量单位</td>
+					<td class="materialyearusage_td">设计年使用量</td>
+					<td class="materialconsume_td">消耗定额</td>
+					<td class="op_td child2">操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="add_tr">
+					<td class="no_td child2"></td>
+					<td class="materialname_td"><select id="materialname" class="child_select" required>
+<option value="" selected="selected">请选择</option>
+
+	<option value="6">
+		汽油</option>
+
+	<option value="7">
+		柴油</option>
+</select>
+						<div class="table_tip_div  material_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>请选择原材料。
+							</div>
+						</div></td>
+					<td class="materialunit_td"><input id="materialunit" class="child_input" type="text" required>
+						<div class="table_tip_div  material_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>请填写该原材料的计量单位。
+							</div>
+						</div></td>
+					<td class="materialyearusage_td"><input id="materialyearusage" class="child_input" type="num" step="0.001" min="0" required>
+						<div class="table_tip_div  material_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>指该生产线在设计时所确定原材料消耗量，允许保留三位小数。
+							</div>
+						</div></td>
+					<td class="materialconsume_td"><input id="materialconsume" class="child_input" type="num" step="0.001" min="0" required>
+						<div class="table_tip_div  material_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>指生产一单位产品所消耗的原材料的样本平均值，允许保留三位小数。
+							</div>
+						</div></td>
+					<td class="op_td child2"><input class="child_add_a" type="submit" value="添加"></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+	<form method="post" id="addexcipientform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>有机原辅材料信息</h1>
+		</div>
+		<table class="list_table">
+			<thead>
+				<tr>
+					<td class="no_td child3">NO.</td>
+					<td class="excipienttype_td">原料类型</td>
+					<td class="excipientname_td">原料名称</td>
+					<td class="excipientunit_td">计量单位</td>
+					<td class="excipientyearusage_td">设计年使用量</td>
+					<td class="excipientconsume_td">消耗定额</td>
+					<td class="excipientusecode_td">用途代码</td>
+					<td class="op_td child3">操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="add_tr">
+					<td class="no_td child3"></td>
+					<td class="excipienttype_td"><select id="excipienttype" class="child_select" required>
+							<option value="" selected="selected">请选择</option>
+							<option value="涂料">涂料</option>
+							<option value="胶黏剂">胶黏剂</option>
+							<option value="有机溶剂">有机溶剂</option>
+							<option value="其他原辅料">其他原辅料</option>
+					</select>
+						<div class="table_tip_div excipient_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>请选择种类。
+							</div>
+						</div></td>
+					<td class="excipientname_td"><select id="excipientname" class="child_select" required>
+							<option value="" selected="selected">请选择</option>
+					</select>
+						<div class="table_tip_div  excipient_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>请选择原料。
+							</div>
+						</div></td>
+					<td class="excipientunit_td"><input id="excipientunit" class="child_input" type="text" required>
+						<div class="table_tip_div  excipient_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>请填写该原材料的计量单位。
+							</div>
+						</div></td>
+					<td class="excipientyearusage_td"><input id="excipientyearusage" class="child_input" type="num" step="0.001" min="0" required>
+						<div class="table_tip_div  excipient_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>指该生产线在设计时所确定原材料消耗量，允许保留三位小数。
+							</div>
+						</div></td>
+					<td class="excipientconsume_td"><input id="excipientconsume" class="child_input" type="num" step="0.001" min="0" required>
+						<div class="table_tip_div  excipient_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>指生产一单位产品所消耗的含VOCs的辅料的标准数量，允许保留三位小数。
+							</div>
+						</div></td>
+					<td class="excipientusecode_td"><input id="excipientusecode" class="child_input" type="text" required>
+						<div class="table_tip_div  excipient_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>请参考《化学品用途代码表》填写用途代码。
+							</div>
+						</div></td>
+					<td class="op_td child3"><input class="child_add_a" type="submit" value="添加"></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+	<div class="excipient_downloadword_div">
+		<a href="/VocsAdvance_UN/document/化学品用途代码表.xls" target="_blank">化学品用途代码表.xls</a>
+	</div>
+	<form method="post" id="addtechnologyform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>工序信息</h1>
+		</div>
+		<table class="list_table">
+			<thead>
+				<tr>
+					<td class="no_td child4">NO.</td>
+					<td class="technologynumber_td">工序编号</td>
+					<td class="op_td child4">操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="add_tr">
+					<td class="no_td child4"></td>
+					<td class="technologynumber_td"><select id="technologynumber" class="child_select" required>
+<option value="" selected="selected">请选择</option>
+
+	<option value="2">1001</option>
+</select>
+						<div class="table_tip_div  technology_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>请选择工序。
+							</div>
+						</div></td>
+					<td class="op_td child4"><input class="child_add_a" type="submit" value="添加"></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+	<form method="post" id="addpollutantform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>特征污染物信息</h1>
+		</div>
+		<table class="list_table">
+			<thead>
+				<tr>
+					<td class="no_td child5">NO.</td>
+					<td class="pollutantname_td">特征污染物名称</td>
+					<td class="op_td child5">操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="add_tr">
+					<td class="no_td child5"></td>
+					<td class="pollutantname_td"><input id="pollutantname" class="child_input" type="text" required>
+						<div class="table_tip_div  pollutant_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>指该条生产线生产过程中排放的VOCs类物质，优先填写危害较大、排放量较多的特征污染物的名称。
+							</div>
+						</div></td>
+					<td class="op_td child5"><input class="child_add_a" type="submit" value="添加"></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</div>
+</div>
+
+    <!------  弹窗背景  -------->
+    <div class="map_bg" style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background-color: #000;filter: alpha(opacity = 30); -moz-opacity: 0.3; opacity: 0.3; z-index: -10; display:none;"></div>
+    
+</div></div>
+
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>生产车间情况</title>
+
+
+<!--<link href="../css/common.css" type="text/css" rel="stylesheet">-->
+<link href="../css/list.css" type="text/css" rel="stylesheet">
+<link href="../css/option.css" type="text/css" rel="stylesheet">
+<link href="../css/form.css" type="text/css" rel="stylesheet">
+
+<link href="../css/chips/workshop/workshop.css" rel="stylesheet" type="text/css">
+<link href="../css/Pop-ups.css" type="text/css" rel="stylesheet">
+
+<script src="../js/jquery-1.8.3.min.js"></script>
+<script src="../js/SystemNoice.js"></script>
+
+</head>
+
+
+<body>
+
+<div id="right" style="margin-left:0;overflow:hidden;"><div id="workshop_copy" class="copy_div">
+
+<div class="check_div" style="display:none;">
+	<div class="form_div">
+	<a class="return_a"><!--<img src="../images/return.png"> --></a>
+		
+		<form method="post" id="modifyworkshopform" onsubmit="javascript:return false;" ref="3" novalidate>
+			<div class="form_title">
+				<h1>添加生产车间</h1>
+			</div>
+			<div class="form_content">
+				<ul>
+					<li class="form_content_li"><label for="number" class="form_label"> <em class="required_em">*</em>车间编号：
+					</label>
+						<div class="form_input_div">
+							<input id="number" class="form_input" type="text" data-max="50" required value="10012">
+							<!-- ByXWK:乐观锁 -->
+							<input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 15:28:24 CST 2016">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>指企业赋予该车间的唯一编号，编号不能重复。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="name" class="form_label"> <em class="required_em">*</em>车间名称：
+					</label>
+						<div class="form_input_div">
+							<input id="name" class="form_input" type="text" data-max="100" required value="柴油车间">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>指企业赋予该车间的名称。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="size" class="form_label"> <em class="required_em">*</em>车间尺寸：
+					</label>
+						<div class="form_input_div">
+							<input id="sizeL" class="form_input" type="num" min="0" step="0.01" data-max="100" required value="1000"> <em class="sizeem">x</em>
+							
+								<input id="sizeW" class="form_input" type="num" min="0" step="0.01" data-max="100" required value="1000">
+							
+							
+							<em class="sizeem">x</em>
+							
+								<input id="sizeH" class="form_input" type="num" min="0" step="0.01" data-max="100" required value="1000">
+							
+							
+
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>车间的长×宽×高，计量单位米。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="closed" class="form_label"> <em class="required_em">*</em>车间密闭情况：
+					</label>
+						<div class="form_input_div">
+							<select id="closed" class="form_select" required>
+								<option value="" selected="selected">请选择</option>
+								<option value="开敞">
+									开敞</option>
+								<option value="密闭" selected="selected">
+									密闭</option>
+							</select>
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>指该车间是开敞还是密闭。 <br>
+								开敞：指车间不通过集中排风而利用自然通风进行换风的情况。 <br> 密闭：指车间利用集中排风而进行换风的情况。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="exhaust" class="form_label"> 排风量： </label>
+						<div class="form_input_div">
+							<input id="exhaust" class="form_input" type="text" data-max="100" value="10">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>车间每小时排出的风的体积，风速乘以风道截面积进行计算。计量单位立方米/小时。
+							</div>
+						</div></li>
+					
+				</ul>
+			</div>
+			<div class="form_buttons">
+				<input class="form_submit" type="submit" value="提交">
+			</div>
+		</form>
+		<form method="post" id="modifybeltlineform" onsubmit="javascript:return false;" novalidate>
+			<div class="form_title">
+				<h1>生产线</h1>
+			</div>
+			<table class="list_table">
+				<thead>
+					<tr>
+						<td class="no_td child">NO.</td>
+						<td class="beltlinenumber_td">生产线编号</td>
+						<td class="op_td child">操作</td>
+					</tr>
+				</thead>
+				<tbody>
+					
+						<tr class="child_list_tr " ref="3">
+							<td class="no_td child">
+								1</td>
+							<td class="beltlinenumber_td">
+								10001</td>
+							<td class="op_td child"><a class="child_del_a">删除</a></td>
+						</tr>
+					
+
+					<tr class="add_tr">
+						<td class="no_td child"></td>
+						<td class="beltlinenumber_td"><select id="beltlinenumber" class="child_select" required>
+
+<option value="" selected="selected">请选择</option>
+
+	<option value="2">10011</option>
+
+	<option value="3">10001</option>
+</select>
+							<div class="table_tip_div  belt_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>请选择生产线。
+								</div>
+							</div></td>
+						<td class="op_td child"><input class="child_add_a" type="submit" value="添加"></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	
+</div>
+</div>
+
+<div class="list_div">
+	<div class="list_title">
+		<h1>生产车间列表</h1>
+		<em class="add_em">+ 添加</em>
+	</div>
+	<div class="view_div">
+	<table class="list_table workshop_table" total="2" page="1">
+		<thead>
+			<tr>
+				<td class="no_td">NO.</td>
+				<td class="number_td">车间编号</td>
+				<td class="name_td">车间名称</td>
+				<td class="size_td">车间尺寸</td>
+				<td class="closed_td">密闭情况</td>
+				<td class="exhaust_td">排风量（立方米/小时）</td>
+				<td class="op_td">操作</td>
+			</tr>
+		</thead>
+		<tbody>
+			
+				<tr ref="3" class="list_tr ">
+					<td class="no_td">
+						1</td>
+					<td class="number_td"><em class="ellipsis_em" title="10012">10012</em></td>
+					<td class="name_td"><em class="ellipsis_em" title="柴油车间">柴油车间</em></td>
+					<td class="size_td"><em class="ellipsis_em" title="1000 x 1000 x 1000">1000 x 1000 x 1000</em></td>
+					<td class="closed_td"><em class="ellipsis_em" title="密闭">密闭</em></td>
+					<td class="exhaust_td"><em class="ellipsis_em" title="10">10</em></td>
+					<td class="op_td"><a class="del_a">删除</a> <!-- ByXWK:乐观锁 --> <input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 15:28:24 CST 2016"></td>
+				</tr>
+			
+				<tr ref="2" class="list_tr ne">
+					<td class="no_td">
+						2</td>
+					<td class="number_td"><em class="ellipsis_em" title="10001">10001</em></td>
+					<td class="name_td"><em class="ellipsis_em" title="汽油车间">汽油车间</em></td>
+					<td class="size_td"><em class="ellipsis_em" title="10000 x 10000 x 1000">10000 x 10000 x 1000</em></td>
+					<td class="closed_td"><em class="ellipsis_em" title="开敞">开敞</em></td>
+					<td class="exhaust_td"><em class="ellipsis_em" title="10">10</em></td>
+					<td class="op_td"><a class="del_a">删除</a> <!-- ByXWK:乐观锁 --> <input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 15:27:57 CST 2016"></td>
+				</tr>
+			
+		</tbody>
+	</table>
+
+</div>
+	<div class="page_div"></div>
+</div>
+
+<div class="add_div" style="display:none;">
+	<div class="form_div">
+	<a class="return_a"><!--<img src="../images/return_r.png">--> </a>
+	<form method="post" id="addworkshopform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>添加生产车间</h1>
+		</div>
+		<div class="form_content">
+			<ul>
+				<li class="form_content_li"><label for="number" class="form_label"> <em class="required_em">*</em>车间编号：
+				</label>
+					<div class="form_input_div">
+						<input id="number" class="form_input" type="text" data-max="50" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指企业赋予该车间的唯一编号，编号不能重复。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="name" class="form_label"> <em class="required_em">*</em>车间名称：
+				</label>
+					<div class="form_input_div">
+						<input id="name" class="form_input" type="text" data-max="100" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指企业赋予该车间的名称。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="size" class="form_label"> <em class="required_em">*</em>车间尺寸：
+				</label>
+					<div class="form_input_div">
+						<input id="sizeL" class="form_input" type="num" min="0" step="0.01" data-max="100" required> <em class="sizeem">x</em>
+						<input id="sizeW" class="form_input" type="num" min="0" step="0.01" data-max="100" required> <em class="sizeem">x</em>
+						<input id="sizeH" class="form_input" type="num" min="0" step="0.01" data-max="100" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>车间的长×宽×高，计量单位米。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="closed" class="form_label"> <em class="required_em">*</em>车间密闭情况：
+				</label>
+					<div class="form_input_div">
+						<select id="closed" class="form_select" required>
+							<option value="" selected="selected">请选择</option>
+							<option value="开敞">开敞</option>
+							<option value="密闭">密闭</option>
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指该车间是开敞还是密闭。 <br>
+							开敞：指车间不通过集中排风而利用自然通风进行换风的情况。 <br> 密闭：指车间利用集中排风而进行换风的情况。
+
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="exhaust" class="form_label"> 排风量： </label>
+					<div class="form_input_div">
+						<input id="exhaust" class="form_input" type="text" data-max="100">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>车间每小时排出的风的体积，风速乘以风道截面积进行计算。计量单位立方米/小时。
+						</div>
+					</div></li>
+				<!-- <li class="form_content_li attachment_li" ref="attachment_li">
+					<label for="file_upload_workshop_add" class="form_label"> <em
+						class="required_em">*</em>生产车间照片：
+				</label>
+					<div class="form_input_div">
+						<input type="button" id="file_upload_workshop_add"
+							class="file_upload_input" queue="file_queue_workshop_add"
+							value="选择图片" />
+						<div id="file_queue_workshop_add"></div>
+					</div>
+					<div class="attachment_view_div">
+						<a id="attachment_a" target="_blank"></a>
+					</div>
+				</li> -->
+			</ul>
+		</div>
+		<div class="form_buttons">
+			<input class="form_submit" type="submit" value="提交">
+		</div>
+	</form>
+	<form method="post" id="addbeltlineform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>生产线</h1>
+		</div>
+		<table class="list_table">
+			<thead>
+				<tr>
+					<td class="no_td child">NO.</td>
+					<td class="beltlinenumber_td">生产线编号</td>
+					<td class="op_td child">操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="add_tr">
+					<td class="no_td child"></td>
+					<td class="beltlinenumber_td"><select id="beltlinenumber" class="child_select" required>
+<option value="" selected="selected">请选择</option>
+
+	<option value="2">10011</option>
+
+	<option value="3">10001</option>
+</select>
+						<div class="table_tip_div  belt_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>请选择生产线。
+							</div>
+						</div></td>
+					<td class="op_td child"><input class="child_add_a" type="submit" value="添加"></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</div>
+</div>
+
+    <!------  弹窗背景  -------->
+    <div class="map_bg" style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background-color: #000;filter: alpha(opacity = 30); -moz-opacity: 0.3; opacity: 0.3; z-index: -10; display:none;"></div>
+    
+</div></div>
+
+</body>
+</html>

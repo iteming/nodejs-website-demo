@@ -1,0 +1,804 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>废气治理设施-废气处理</title>
+
+
+<!--<link href="../css/common.css" type="text/css" rel="stylesheet">-->
+<link href="../css/list.css" type="text/css" rel="stylesheet">
+<link href="../css/option.css" type="text/css" rel="stylesheet">
+<link href="../css/form.css" type="text/css" rel="stylesheet">
+
+<link href="../css/chips/gasfacilities/gasfacilities.css" rel="stylesheet" type="text/css">
+<link href="../css/Pop-ups.css" type="text/css" rel="stylesheet">
+
+<script src="../js/jquery-1.8.3.min.js"></script>
+<script src="../js/SystemNoice.js"></script>
+<script src="../js/ExhaustGas.js"></script>
+
+</head>
+
+
+<body>
+
+<div id="right"><div id="gasfacilities_copy" class="copy_div">
+<div class="check_div" style="display:none;">
+	<div class="form_div">
+	<a class="return_a"><!--<img src="../images/return.png"> --></a>	
+	
+		<form method="post" id="modifygasfacilitiesform" onsubmit="javascript:return false;" ref="2" novalidate>
+			<div class="form_title">
+				<h1>废气处理设施信息</h1>
+			</div>
+			<div class="form_content">
+				<ul>
+					<li class="form_content_li"><label for="number" class="form_label"> <em class="required_em">*</em>编号：
+					</label>
+						<div class="form_input_div">
+							<input id="number" class="form_input" type="text" data-max="50" required value="1001">
+							<!-- ByXWK:乐观锁 -->
+							<input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 17:49:09 CST 2016">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>指企业赋予该处理设施的唯一编号，编号不能重复。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="name" class="form_label"> <em class="required_em">*</em>名称：
+					</label>
+						<div class="form_input_div">
+							<input id="name" class="form_input" type="text" data-max="50" required value="汽油">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>指企业对该处理设施的命名或名称。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="manufacturer" class="form_label"> <em class="required_em">*</em>生产厂家：
+					</label>
+						<div class="form_input_div">
+							<input id="manufacturer" class="form_input" type="text" data-max="100" required value="河北生产厂">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>该处理设施的生产厂家或设计单位。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="model" class="form_label"> <em class="required_em">*</em>型号：
+					</label>
+						<div class="form_input_div">
+							<input id="model" class="form_input" type="text" data-max="50" required value="200">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>反映设施性质、性能、品质的一系列指标，一般由一组字母和数字以一定的规律编号组成。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="overall" class="form_label"> <em class="required_em">*</em>总投资额：
+					</label>
+						<div class="form_input_div">
+							<input id="overall" class="form_input" type="num" step="0.1" min="0" required value="1000">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>指建成该处理设施并正式投运所投入的全部资金，不包括运行费用。计量单位为万元，允许保留一位小数。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="capacity" class="form_label"> <em class="required_em">*</em>设计处理能力：
+					</label>
+						<div class="form_input_div">
+							<input id="capacity" class="form_input" type="num" step="1" min="0" required value="1000">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>指废气处理设施设计建设的、设施正常运行时，单位时间内可能处理的废气量。计量单位为立方米/时，保留整数。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="efficiency" class="form_label"> <em class="required_em">*</em>设计处理效率（%）：
+					</label>
+						<div class="form_input_div">
+							<input id="efficiency" class="form_input" type="num" step="0.01" max="100" min="0" required value="10">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>废气处理设备设计的设备正常运行时单位时间内所能去除的废气的量与废气产生量的比值。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="technology" class="form_label"> <em class="required_em">*</em>处理技术：
+					</label>
+						<div class="form_input_div">
+							<select id="technology" class="form_select" required>
+								<option value="">请选择</option>
+								
+									<option value="J1">
+										冷凝法</option>
+								
+									<option value="J2" selected="selected">
+										吸收法</option>
+								
+									<option value="J3">
+										吸附法</option>
+								
+									<option value="J4">
+										直接燃烧法</option>
+								
+									<option value="J5">
+										催化燃烧法</option>
+								
+									<option value="J6">
+										催化氧化法</option>
+								
+									<option value="J7">
+										催化还原法</option>
+								
+									<option value="J8">
+										冷凝净化法</option>
+								
+									<option value="J9">
+										其他净化方法</option>
+								
+							</select>
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请选择填写具体的净化方法。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label id="othertechnology_label" for="othertechnology" class="form_label disabled">
+							<em class="required_em">*</em>其他净化方法：
+					</label>
+						<div class="form_input_div">
+							<input id="othertechnology" class="form_input disabled" disabled="disabled" type="text" data-max="200" required value="">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请填写其他用途。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="vocsefficiency" class="form_label"> <em class="required_em">*</em>VOCs处理效率（%）：
+					</label>
+						<div class="form_input_div">
+							<input id="vocsefficiency" class="form_input" type="num" step="0.01" max="100" min="0" required value="10">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>废气处理设备设计的、正常运行情况下，单位时间内去除的总VOCs的量与总VOCs产生量的比值。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="ipi" class="form_label"> 入口平均浓度： </label>
+						<div class="form_input_div">
+							<input id="ipi" class="form_input" type="num" step="0.01" min="0" value="">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请填写入口平均浓度，单位为毫克/立方米。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="opi" class="form_label"> 出口平均浓度： </label>
+						<div class="form_input_div">
+							<input id="opi" class="form_input" type="num" step="0.01" min="0" value="">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请填写出口平均浓度，单位为毫克/立方米。
+							</div>
+						</div></li>
+				
+
+				</ul>
+			</div>
+			<div class="form_buttons">
+				<input class="form_submit" type="submit" value="保存">
+			</div>
+		</form>
+		<form method="post" id="modifypollutantform" onsubmit="javascript:return false;" novalidate>
+			<div class="form_title">
+				<h1>成分</h1>
+			</div>
+			<table class="list_table">
+				<thead>
+					<tr>
+						<td class="no_td child">NO.</td>
+						<td class="pollutantname_td">名称</td>
+						<td class="pollutantefficiency_td">设计处理效率（%）</td>
+						<td class="op_td child">操作</td>
+					</tr>
+				</thead>
+				<tbody>
+					
+						<tr class="child_list_tr " ref="2">
+							<td class="no_td child">
+								1</td>
+							<td class="pollutantname_td">
+									苯	</td>
+							<td class="pollutantefficiency_td">
+								10%</td>
+							<td class="op_td child"><a class="child_del_a">删除</a></td>
+						</tr>
+					
+					<tr class="add_tr">
+						<td class="no_td child"></td>
+						<td class="pollutantname_td"><select id="pollutantname" class="child_select" required>
+								<option value="">请选择</option>
+								
+									<option value="2013">
+										苯</option>
+								
+									<option value="2014">
+										甲苯</option>
+								
+									<option value="2015">
+										VOCs</option>
+								
+									<option value="2016">
+										其他苯系物</option>
+								
+									<option value="2018">
+										二甲苯</option>
+								
+									<option value="2019">
+										甲醛</option>
+								
+									<option value="2020">
+										苯并（a）芘</option>
+								
+									<option value="2021">
+										苯胺类</option>
+								
+									<option value="2022">
+										硝基苯类</option>
+								
+									<option value="2023">
+										氯苯类</option>
+								
+									<option value="2024">
+										光气</option>
+								
+									<option value="2025">
+										碳氢化合物（含非甲烷总烃）</option>
+								
+									<option value="2026">
+										乙醛</option>
+								
+									<option value="2027">
+										酚类</option>
+								
+									<option value="2028">
+										甲醇</option>
+								
+									<option value="2051">
+										甲硫醇</option>
+								
+									<option value="2052">
+										苯乙烯</option>
+								
+									<option value="2053">
+										三甲胺</option>
+								
+									<option value="2054">
+										二甲二硫醚</option>
+								
+									<option value="2055">
+										甲硫醚</option>
+								
+									<option value="2056">
+										丙烯晴</option>
+								
+									<option value="2057">
+										丙烯醛</option>
+								
+						</select>
+							<div class="table_tip_div pollutant_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>每种污染物只可添加一次。
+								</div>
+							</div></td>
+						<td class="pollutantefficiency_td"><input id="pollutantefficiency" class="child_input" type="num" step="0.1" max="100" min="0" required>
+							<div class="table_tip_div pollutant_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>废气处理设备设计的、正常运行情况下，单位时间内特征污染物的去除量与产生量的比值。若无，可填报验收监测的结果。允许保留一位小数。
+								</div>
+							</div></td>
+						<td class="op_td child"><input class="child_add_a" type="submit" value="添加"></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+		<form method="post" id="modifyfromform" onsubmit="javascript:return false;" novalidate>
+			<div class="form_title">
+				<h1>废气来源</h1>
+			</div>
+			<table class="list_table">
+				<thead>
+					<tr>
+						<td class="no_td child2">NO.</td>
+						<td class="fromtype_td">废气来源</td>
+						<td class="fromnumber_td">废气来源编号</td>
+						<td class="op_td child2">操作</td>
+					</tr>
+				</thead>
+				<tbody>
+					
+						<tr class="child_list_tr " ref="2">
+							<td class="no_td child2">
+								1</td>
+							<td class="fromtype_td">生产车间</td>
+							<td class="fromnumber_td">10001
+								
+								
+							</td>
+							<td class="op_td child2"><a class="child_del_a">删除</a></td>
+						</tr>
+					
+					<tr class="add_tr">
+						<td class="no_td child2"></td>
+						<td class="fromtype_td"><select id="fromtype" class="child_select" required>
+								<option value="">请选择</option>
+								<option value="生产车间">生产车间</option>
+								<option value="生产线">生产线</option>
+								<option value="工序">工序</option>
+								<option value="卧式固定顶罐">卧式固定顶罐</option>
+								<option value="立式固定顶罐">立式固定顶罐</option>
+								<option value="内浮顶罐">内浮顶罐</option>
+								<option value="外浮顶罐">外浮顶罐</option>
+								<option value="贮存场地">贮存场地</option>
+								<option value="废水治理设施">废水治理设施</option>
+								<option value="自由液面">自由液面</option>
+								<option value="装载操作">装载操作</option>
+						</select>
+							<div class="table_tip_div  from_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>选择进入该处理设施的废气的来源。
+								</div>
+							</div></td>
+						<td class="fromnumber_td"><select id="fromnumber" class="child_select" required>
+								<option value="" selected="selected">请选择</option>
+						</select>
+							<div class="table_tip_div from_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>选择进入该处理设施的废气的来源编号。
+								</div>
+							</div></td>
+						<td class="op_td child2"><input class="child_add_a" type="submit" value="添加"></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	
+</div>
+</div>
+
+<div class="list_div">
+	<div class="list_title">
+		<h1>废气处理设施列表</h1>
+		<em class="add_em">+ 添加</em>
+	</div>
+	<div class="view_div">
+	<table class="list_table gasfacilities_table" total="1" page="1">
+		<thead>
+			<tr>
+				<td class="no_td">NO.</td>
+				<td class="number_td">编号</td>
+				<td class="name_td">名称</td>
+				<td class="manufacturer_td">生产厂家</td>
+				<td class="model_td">型号</td>
+				<td class="overall_td">总投资额</td>
+				<td class="capacity_td">设计处理能力</td>
+				<td class="efficiency_td">设计处理效率</td>
+				<td class="technology_td">处理技术</td>
+				<td class="vocsefficiency_td">VOCs处理效率</td>
+				<td class="ipi_td">入口平均浓度</td>
+				<td class="opi_td">出口平均浓度</td>
+				<td class="op_td">操作</td>
+			</tr>
+		</thead>
+		<tbody>
+			
+				<tr ref="2" class="list_tr ">
+					<td class="no_td">
+						1</td>
+					<td class="number_td"><em class="ellipsis_em" title="1001">1001</em></td>
+					<td class="name_td"><em class="ellipsis_em" title="汽油">汽油</em></td>
+					<td class="manufacturer_td"><em class="ellipsis_em" title="河北生产厂">河北生产厂</em>
+					</td>
+					<td class="model_td"><em class="ellipsis_em" title="200">200</em></td>
+					<td class="overall_td"><em class="ellipsis_em" title="1000">1000</em></td>
+					<td class="capacity_td"><em class="ellipsis_em" title="1000">1000</em></td>
+					<td class="efficiency_td"><em class="ellipsis_em" title="10%">10%</em>
+					</td>
+					<td class="technology_td"><em class="ellipsis_em" title="吸收法">
+							
+								
+									
+								
+									吸收法
+								
+							 </em></td>
+					<td class="vocsefficiency_td"><em class="ellipsis_em" title="10%">10%</em>
+					</td>
+					<td class="ipi_td"><em class="ellipsis_em" title=""></em></td>
+					<td class="opi_td"><em class="ellipsis_em" title=""></em></td>
+					<td class="op_td"><a class="del_a">删除</a> <!-- ByXWK:乐观锁 --> <input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 17:49:09 CST 2016"></td>
+				</tr>
+			
+		</tbody>
+	</table>
+
+</div>
+	<div class="page_div"></div>
+</div>
+
+<div class="add_div" style="display:none;">
+	<div class="form_div">
+	<a class="return_a"><!--<img src="../images/return_r.png">--> </a>
+	<form method="post" id="addgasfacilitiesform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>添加废气处理设施</h1>
+		</div>
+		<div class="form_content">
+			<ul>
+				<li class="form_content_li"><label for="number" class="form_label"> <em class="required_em">*</em>编号：
+				</label>
+					<div class="form_input_div">
+						<input id="number" class="form_input" type="text" data-max="50" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指企业赋予该处理设施的唯一编号，编号不能重复。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="name" class="form_label"> <em class="required_em">*</em>名称：
+				</label>
+					<div class="form_input_div">
+						<input id="name" class="form_input" type="text" data-max="50" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指企业对该处理设施的命名或名称。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="manufacturer" class="form_label"> <em class="required_em">*</em>生产厂家：
+				</label>
+					<div class="form_input_div">
+						<input id="manufacturer" class="form_input" type="text" data-max="100" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>该处理设施的生产厂家或设计单位。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="model" class="form_label"> <em class="required_em">*</em>型号：
+				</label>
+					<div class="form_input_div">
+						<input id="model" class="form_input" type="text" data-max="50" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>反映设施性质、性能、品质的一系列指标，一般由一组字母和数字以一定的规律编号组成。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="overall" class="form_label"> <em class="required_em">*</em>总投资额：
+				</label>
+					<div class="form_input_div">
+						<input id="overall" class="form_input" type="num" step="0.1" min="0" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指建成该处理设施并正式投运所投入的全部资金，不包括运行费用。计量单位为万元，允许保留一位小数。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="capacity" class="form_label"> <em class="required_em">*</em>设计处理能力：
+				</label>
+					<div class="form_input_div">
+						<input id="capacity" class="form_input" type="num" step="1" min="0" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指废气处理设施设计建设的、设施正常运行时，单位时间内可能处理的废气量。计量单位为立方米/时，保留整数。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="efficiency" class="form_label"> <em class="required_em">*</em>设计处理效率（%）：
+				</label>
+					<div class="form_input_div">
+						<input id="efficiency" class="form_input" type="num" step="0.01" max="100" min="0" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>废气处理设备设计的设备正常运行时单位时间内所能去除的废气的量与废气产生量的比值。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="technology1" class="form_label"> <em class="required_em">*</em>处理技术：
+				</label>
+					<div class="form_input_div">
+						<select id="technology1" class="form_select" required>
+							<option value="">请选择</option>
+							
+								<option value="J1">
+									冷凝法</option>
+							
+								<option value="J2">
+									吸收法</option>
+							
+								<option value="J3">
+									吸附法</option>
+							
+								<option value="J4">
+									直接燃烧法</option>
+							
+								<option value="J5">
+									催化燃烧法</option>
+							
+								<option value="J6">
+									催化氧化法</option>
+							
+								<option value="J7">
+									催化还原法</option>
+							
+								<option value="J8">
+									冷凝净化法</option>
+							
+								<option value="J9">
+									其他净化方法</option>
+							
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选择填写具体的净化方法。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label id="othertechnology_label1" for="othertechnology1" class="form_label disabled"> <em class="required_em">*</em>其他净化方法：
+				</label>
+					<div class="form_input_div">
+						<input id="othertechnology1" class="form_input disabled" disabled="disabled" type="text" data-max="200" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写具体净化方法。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="vocsefficiency" class="form_label"> <em class="required_em">*</em>VOCs处理效率（%）：
+				</label>
+					<div class="form_input_div">
+						<input id="vocsefficiency" class="form_input" type="num" step="0.01" max="100" min="0" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>废气处理设备设计的、正常运行情况下，单位时间内去除的总VOCs的量与总VOCs产生量的比值。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="ipi" class="form_label">
+						入口平均浓度： </label>
+					<div class="form_input_div">
+						<input id="ipi" class="form_input" type="num" step="0.01" min="0">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写入口平均浓度，单位为毫克/立方米。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="opi" class="form_label">
+						出口平均浓度： </label>
+					<div class="form_input_div">
+						<input id="opi" class="form_input" type="num" step="0.01" min="0">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写出口平均浓度，单位为毫克/立方米。
+						</div>
+					</div></li>
+				<!--添加-->
+				<!-- <li class="form_content_li attachment_li" ref="attachment_li">
+					<label for="file_upload_gasfacilities_add" class="form_label">
+						<em class="required_em">*</em>废气处理设施照片：
+				</label>
+					<div class="form_input_div">
+						<input type="button" id="file_upload_gasfacilities_add"
+							class="file_upload_input" queue="file_queue_gasfacilities_add"
+							value="选择图片" />
+						<div id="file_queue_gasfacilities_add"></div>
+					</div>
+					<div class="attachment_view_div">
+						<a id="attachment_a" target="_blank"></a>
+					</div>
+				</li>
+ -->
+			</ul>
+		</div>
+		<div class="form_buttons">
+			<input class="form_submit" type="submit" value="提交">
+		</div>
+	</form>
+	<form method="post" id="addpollutantform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>特征污染物</h1>
+		</div>
+		<table class="list_table">
+			<thead>
+				<tr>
+					<td class="no_td child">NO.</td>
+					<td class="pollutantname_td">名称</td>
+					<td class="pollutantefficiency_td">设计处理效率（%）</td>
+					<td class="op_td child">操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="add_tr">
+					<td class="no_td child"></td>
+					<td class="pollutantname_td"><select id="pollutantname" class="child_select" required>
+							<option value="">请选择</option>
+							
+								<option value="2013">
+									苯</option>
+							
+								<option value="2014">
+									甲苯</option>
+							
+								<option value="2015">
+									VOCs</option>
+							
+								<option value="2016">
+									其他苯系物</option>
+							
+								<option value="2018">
+									二甲苯</option>
+							
+								<option value="2019">
+									甲醛</option>
+							
+								<option value="2020">
+									苯并（a）芘</option>
+							
+								<option value="2021">
+									苯胺类</option>
+							
+								<option value="2022">
+									硝基苯类</option>
+							
+								<option value="2023">
+									氯苯类</option>
+							
+								<option value="2024">
+									光气</option>
+							
+								<option value="2025">
+									碳氢化合物（含非甲烷总烃）</option>
+							
+								<option value="2026">
+									乙醛</option>
+							
+								<option value="2027">
+									酚类</option>
+							
+								<option value="2028">
+									甲醇</option>
+							
+								<option value="2051">
+									甲硫醇</option>
+							
+								<option value="2052">
+									苯乙烯</option>
+							
+								<option value="2053">
+									三甲胺</option>
+							
+								<option value="2054">
+									二甲二硫醚</option>
+							
+								<option value="2055">
+									甲硫醚</option>
+							
+								<option value="2056">
+									丙烯晴</option>
+							
+								<option value="2057">
+									丙烯醛</option>
+							
+					</select>
+						<div class="table_tip_div pollutant_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>每种污染物只可添加一次。
+							</div>
+						</div></td>
+					<td class="pollutantefficiency_td"><input id="pollutantefficiency" class="child_input" type="num" step="0.1" max="100" min="0" required>
+						<div class="table_tip_div pollutant_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>废气处理设备设计的、正常运行情况下，单位时间内特征污染物的去除量与产生量的比值。若无，可填报验收监测的结果。允许保留一位小数。
+							</div>
+						</div></td>
+					<td class="op_td child"><input class="child_add_a" type="submit" value="添加"></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+	<form method="post" id="addfromform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>废气来源</h1>
+		</div>
+		<table class="list_table">
+			<thead>
+				<tr>
+					<td class="no_td child2">NO.</td>
+					<td class="fromtype_td">废气来源</td>
+					<td class="fromnumber_td">废气来源编号</td>
+					<td class="op_td child2">操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="add_tr">
+					<td class="no_td child2"></td>
+					<td class="fromtype_td"><select id="fromtype" class="child_select" required>
+							<option value="">请选择</option>
+							<option value="生产车间">生产车间</option>
+							<option value="生产线">生产线</option>
+							<option value="工序">工序</option>
+							<option value="卧式固定顶罐">卧式固定顶罐</option>
+							<option value="立式固定顶罐">立式固定顶罐</option>
+							<option value="内浮顶罐">内浮顶罐</option>
+							<option value="外浮顶罐">外浮顶罐</option>
+							<option value="贮存场地">贮存场地</option>
+							<option value="废水治理设施">废水治理设施</option>
+							<option value="自由液面">自由液面</option>
+							<option value="装载操作">装载操作</option>
+					</select>
+						<div class="table_tip_div  from_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>选择进入该处理设施的废气的来源。
+							</div>
+						</div></td>
+					<td class="fromnumber_td"><select id="fromnumber" class="child_select" required>
+							<option value="" selected="selected">请选择</option>
+					</select>
+						<div class="table_tip_div from_tip">
+							<a class="table_icon"></a>
+							<div class="table_tip">
+								<em class="table_tip_i"></em>选择进入该处理设施的废气的来源编号。
+							</div>
+						</div></td>
+					<td class="op_td child2"><input class="child_add_a" type="submit" value="添加"></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</div>
+</div>
+
+<!------  弹窗背景  -------->
+    <div class="map_bg" style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background-color: #000;filter: alpha(opacity = 30); -moz-opacity: 0.3; opacity: 0.3; z-index: -10; display:none;"></div>
+    
+</div></div>
+
+</body>
+</html>

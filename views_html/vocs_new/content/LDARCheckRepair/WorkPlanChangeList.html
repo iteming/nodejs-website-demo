@@ -1,0 +1,433 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>LDAR工作计划变更列表</title>
+
+
+<!--<link href="../css/common.css" type="text/css" rel="stylesheet">-->
+<link href="../../css/list.css" type="text/css" rel="stylesheet">
+<link href="../../css/option.css" type="text/css" rel="stylesheet">
+<link href="../../css/form.css" type="text/css" rel="stylesheet">
+<link href="../../css/chips/LDARCheckRepair/workplan.css" type="text/css" rel="stylesheet">
+<link href="../../css/Pop-ups.css" type="text/css" rel="stylesheet">
+
+
+
+<script src="../../js/jquery-1.8.3.min.js"></script>
+<script src="../../js/SystemNoice.js"></script>
+
+
+</head>
+
+
+<body>
+
+<div id="right">
+	<div id="workplan_copy" class="copy_div" style="display: block;">
+    	
+        <div class="check_div" style="display: none;">
+        <div class="form_div">
+            <a class="return_a"><!--<img src="../images/return.png"> --></a>
+        
+            <form method="post" id="modifypaintform" onsubmit="javascript:return false;" ref="6" novalidate>
+                <div class="form_title">
+                    <h1>LDAR工作计划变更列表</h1>
+                </div>
+                <div class="form_content">
+                   <ul>
+                        
+                            <li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>计划编号：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" value="0005" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入计划编号！
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>装置总数： 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50" value="3">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入装置总数
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>起始时间：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required value="2016-11-1">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请选择起始时间
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>结束时间：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="text" data-max="10" required value="2016-11-4">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请选择结束时间
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>泄露标准：
+                            	</label>
+                                <div class="form_input_div">
+                                    <select id="type" class="form_select" required>
+                                    	<option value="">请选择</option>
+                                        <option value="国标"> 国标</option>
+                                    	<option value="地标" selected="selected">地标</option>
+                                	</select>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                        <em class="form_tip_i"></em>请选择泄露标准
+                                    </div>
+                                
+                               </li>
+
+                  			<li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>创时间建：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="text" data-max="10" required value="2016-09-12 14:00:02">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请选择创建时间
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>当前环节：
+                            	</label>
+                                <div class="form_input_div">
+                                    <select id="type" class="form_select" required>
+                                    	<option value="">请选择</option>
+                                        <option value="执行中">审核中</option>
+                                    	<option value="未完成" selected="selected">审核结束</option>
+                                	</select>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请当期环节
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>状态:
+                            	</label>
+                                <div class="form_input_div">
+                                    <select id="type" class="form_select" required>
+                                    	<option value="">请选择</option>
+                                        <option value="执行中" selected="selected">执行中</option>
+                                    	<option value="未完成">未完成</option>
+                                	</select>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>第三方检测机构
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            
+                                   <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>备注:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="textarea" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>备注
+                                    </div>
+                                </div>
+                            </li>
+                        
+                    </ul>
+                </div>
+                <div class="form_buttons">
+                    <input class="form_submit" type="submit" value="保存">
+                </div>
+            </form>
+        
+        </div>
+    </div>
+    
+        <div class="list_div" style="display: block;">
+            <div class="list_title">
+                <h1>LDAR工作计划</h1>
+                
+            </div>
+            <div class="view_div" >
+                <table class="list_table workplan_table" total="2" page="1">
+                <thead>
+                    <tr>
+                        <td class="no_td">NO.</td>
+                        <td class="wnum_td">计划编号</td>
+                        <td class="wmse_td">装置总数</td>
+                        <td class="wbegin_td">起始时间</td>
+                        <td class="wend_td">结束时间</td>
+           
+                        <td class="wxllevel_td">泄露标准</td>
+                        <td class="wcreatetime_td">创建时间</td>
+                        <td class="wupdatetime_td">更新时间</td>
+                        <td class="wcurrent_td">当前环节</td>
+ 
+                        <td class="op_td">操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr ref="7" class="list_tr ">
+                            <td class="no_td">1</td>
+                            <td class="wnum_td"><em class="ellipsis_em" title="计划编号">0005</em></td>
+                            <td class="wmse_td"><em class="ellipsis_em" title="装置总数">3</em></td>
+                            <td class="wbegin_td"><em class="ellipsis_em" title="起始时间">2016-11-1</em></td>
+ 
+                            <td class="wend_td"><em class="ellipsis_em" title="结束时间">2016-11-4</em></td>
+                            <td class="wxllevel_td"><em class="ellipsis_em" title="泄露标准">地标</em></td>
+                            <td class="wcreatetime_td"><em class="ellipsis_em" title="创建时间">2016-09-12 14:00:02</em></td>
+
+                            <td class="wupdatetime_td"><em class="ellipsis_em" title="更新时间"></em></td>
+                        
+                            <td class="wstatus_td"><em class="ellipsis_em" title="状态">执行中</em></td>
+
+                                 <td class="op_td">
+                            	<a class="del_a">编辑</a> 
+                            	<a class="del_a">删除</a> </td>
+                        </tr>
+                    
+                        <tr ref="6" class="list_tr ne">
+                            <td class="no_td">2</td>
+                          	<td class="wnum_td"><em class="ellipsis_em" title="计划编号">0006</em></td>
+                            <td class="wmse_td"><em class="ellipsis_em" title="装置总数">3</em></td>
+                            <td class="wbegin_td"><em class="ellipsis_em" title="起始时间">2016-11-1</em></td>
+ 
+                            <td class="wend_td"><em class="ellipsis_em" title="结束时间">2016-11-4</em></td>
+                            <td class="wxllevel_td"><em class="ellipsis_em" title="泄露标准">地标</em></td>
+                            <td class="wcreatetime_td"><em class="ellipsis_em" title="创建时间">2016-09-12 14:00:02</em></td>
+
+                            <td class="wupdatetime_td"><em class="ellipsis_em" title="更新时间"></em></td>
+                
+                            <td class="wstatus_td"><em class="ellipsis_em" title="状态">执行中</em></td>
+                            <td class="op_td">
+                            	<a class="del_a">编辑</a> 
+                            	<a class="del_a">删除</a> </td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        
+            </div>
+            <div class="page_div"></div>
+        </div>
+
+        <div class="add_div" style="display: none; z-index:200;">
+            <div class="form_div">
+                <a class="return_a"><!--<img src="../images/return_r.png"> --></a>
+                <form method="post" id="addordinarymaterialform" onsubmit="javascript:return false;" novalidate>
+                    <div class="form_title">
+                        <h1>创建工作计划</h1>
+                    </div>
+                    <div class="form_content">
+
+                        <ul>
+                            <li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>计划编号：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入计划编号！
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>装置总数： 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请输入装置总数
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>起始时间：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请选择起始时间
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>结束时间：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="text" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请选择结束时间
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>泄露标准：
+                            	</label>
+                                <div class="form_input_div">
+                                    <select id="type" class="form_select" required>
+                                    	<option value="">请选择</option>
+                                        <option value="国标"> 国标</option>
+                                    	<option value="地标" selected="selected">地标</option>
+                                	</select>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                        <em class="form_tip_i"></em>请选择泄露标准
+                                    </div>
+                                
+                               </li>
+
+                  			<li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>创时间建：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="text" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请选择创建时间
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>当前环节：
+                            	</label>
+                                <div class="form_input_div">
+                                    <select id="type" class="form_select" required>
+                                    	<option value="">请选择</option>
+                                        <option value="执行中">执行中</option>
+                                    	<option value="未完成" selected="selected">未完成</option>
+                                	</select>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>请当期环节
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>第三方检测机构:
+                            	</label>
+                                <div class="form_input_div">
+                                    <select id="type" class="form_select" required>
+                                    	<option value="">请选择</option>
+                                        <option value="执行中">****机构</option>
+                                    	<option value="未完成" selected="selected">*****机构</option>
+                                	</select>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>第三方检测机构
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            
+                                   <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>备注:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="textarea" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>备注
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            
+                        </ul>
+
+                    </div>
+                    <div class="form_buttons">
+                        <input class="form_submit" type="submit" value="提交">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!------  弹窗背景  -------->
+        <div class="map_bg" style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background-color: #000;filter: alpha(opacity = 30); -moz-opacity: 0.3; opacity: 0.3; z-index: -10; display:none;"></div>
+        
+	</div>
+</div>
+
+</body>
+</html>

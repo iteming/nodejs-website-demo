@@ -1,0 +1,853 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>VOCs综合管控平台</title>
+
+		<link href="css/frame.css" rel="stylesheet" type="text/css">
+		<link href="css/adpat.css" rel="stylesheet" type="text/css">
+		<link href="css/main.css" rel="stylesheet" type="text/css">
+		<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
+
+	</head>
+
+	<body>
+
+		<div class="header">
+			<div class="logo">
+				<img src="images/logo.png">
+			</div>
+
+			<div class="menu_ctl show_block">
+				<img src="images/menu_btn.png">
+			</div>
+
+			<div class="usr_center right wt_dd show_block">
+				<div class="photo">
+					<img src="images/default_usr_photo.png">
+				</div>
+				<div class="usr_info left">
+					<h4>管理员小亮</h4>
+					<p>最后登录:16:24</p>
+				</div>
+
+				<div class="drop_down">
+					<div class="photo_box">
+						<div class="photo_big">
+							<img src="images/default_usr_photo.png">
+						</div>
+						<h5>管理员小亮</h5>
+						<p>最后登录时间: 今天16:24</p>
+					</div>
+					<div class="center_part">
+						<p>
+							<a href="#">用户资料</a>
+						</p>
+						<p>
+							<a href="#">登录记录</a>
+						</p>
+					</div>
+					<div class="bottom_part">
+
+						<div class="left">
+							<a class="button btn_gray">设置</a>
+						</div>
+						<div class="right">
+							<a href="login.html" class="button btn_red">注销</a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!--user_center_end-->
+
+			<div class="header_opr right">
+				<div class="opr_single wt_dd left sms show_block"></div>
+				<div class="opr_single wt_dd left alert show_block"></div>
+				<div class="opr_single wt_dd left task show_block"></div>
+			</div>
+			<!--header_opr_end-->
+
+		</div>
+		<!--header_end-->
+
+		<div class="sider_bar">
+			<div class="relative_box">
+
+				<div class="menu_title">
+					<div class="icon left"></div>
+					<p>菜单/MENU</p>
+				</div>
+
+				<div class="menu_list" style="top:36px;">
+					<div class="list_outer content">
+						<div class="menu_single">
+							<div class="menu_parent cur">
+								<div class="indi"></div>
+								<div class="menu_icon"><img src="images/list_icon_04.png"></div>
+								<a href="content/counting.html" target="content">
+									<p>首页</p>
+								</a>
+							</div>
+
+						</div>
+
+						<div class="menu_single">
+							<div class="menu_parent">
+								<div class="indi"></div>
+								<div class="menu_icon">
+									<img src="images/com_basic.png">
+								</div>
+								<a href="content/Enterprise_BaseInfo.html" target="content">
+									<p>企业基本信息</p>
+								</a>
+							</div>
+						</div>
+
+						<div class="menu_single">
+							<div class="menu_parent">
+								<div class="indi"></div>
+								<div class="menu_icon">
+									<img src="images/com_material.png">
+								</div>
+								<p>VOCs基本信息</p>
+								<div class="arrow_down"></div>
+							</div>
+
+							<ul class="sub_menu">
+								<li class="sub_li_menu">
+									<a href="content/VOCsBasicInfo_yfcl.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>一般原辅材料</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a>
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>有机原辅材料</p>
+										<div class="arrow_down"></div>
+									</a>
+									<ul class="sub_ul_menu">
+										<li>
+											<a href="content/VOCsBasicInfo_yjfl_Paint.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>涂料类</p>
+											</a>
+										</li>
+										<li>
+											<a href="content/VOCsBasicInfo_yjfl_JNJ&YM.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>胶黏剂 & 油墨</p>
+											</a>
+										</li>
+										<li>
+											<a href="content/VOCsBasicInfo_yjfl_yjrj.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>有机溶剂</p>
+											</a>
+										</li>
+										<li>
+											<a href="content/VOCsBasicInfo_yjfl_Other.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>其他原辅料</p>
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li class="sub_li_menu">
+									<a>
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>产品信息</p>
+										<div class="arrow_down"></div>
+									</a>
+									<ul class="sub_ul_menu">
+										<li>
+											<a href="content/VOCsBasicInfo_Pro_Main.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>主要产品</p>
+											</a>
+										</li>
+										<li>
+											<a href="content/VOCsBasicInfo_Pro_zjcw.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>中间产物</p>
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/VOCsBasicInfo_gxqk.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>工序信息</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/VOCsBasicInfo_scx.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>生产线</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/VOCsBasicInfo_sccj.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>生产车间信息</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a>
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>存储设施</p>
+										<div class="arrow_down"></div>
+									</a>
+									<ul class="sub_ul_menu">
+										<li>
+											<a href="content/VOCsBasicInfo_Storage_ws.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>卧式固定顶罐</p>
+											</a>
+										</li>
+										<li>
+											<a href="content/VOCsBasicInfo_Storage_ls.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>立式固定顶罐</p>
+											</a>
+										</li>
+										<li>
+											<a href="content/VOCsBasicInfo_Storage_nf.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>内浮顶罐</p>
+											</a>
+										</li>
+										<li>
+											<a href="content/VOCsBasicInfo_Storage_wf.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>外浮顶罐</p>
+											</a>
+										</li>
+										<li>
+											<a href="content/VOCsBasicInfo_Storage_ccylcs.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>贮存原料及产品场所</p>
+											</a>
+										</li>
+										<li>
+											<a href="content/VOCsInfo/VaultTankInfo.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>拱顶罐</p>
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li class="sub_li_menu">
+									<a>
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>无组织排放</p>
+										<div class="arrow_down"></div>
+									</a>
+									<ul class="sub_ul_menu">
+										<li>
+											<a href="content/VOCsBasicInfo_Unorganized_ZZXL.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>装置泄漏点情况</p>
+											</a>
+										</li>
+										<li>
+											<a href="content/VOCsBasicInfo_Unorganized_LQTsystem.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>冷却塔、循环水冷却系统</p>
+											</a>
+										</li>
+										<li>
+											<a href="content/VOCsBasicInfo_Unorganized_GTFW.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>固体废物信息</p>
+											</a>
+										</li>
+										<li>
+											<a href="content/VOCsBasicInfo_Unorganized_ZZCZ.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>装载操作</p>
+											</a>
+										</li>
+										<li>
+											<a href="content/VOCsBasicInfo_Unorganized_SGPF.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>事故排放</p>
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/VOCsBasicInfo_OrganicWastewater_wtcl.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>有机废水委托处理</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a>
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>有机废水自行处理</p>
+										<div class="arrow_down"></div>
+									</a>
+									<ul class="sub_ul_menu">
+										<li>
+											<a href="content/VOCsBasicInfo_OrganicWastewater_BasicInfo.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>处理设施基本情况</p>
+											</a>
+										</li>
+										<li>
+											<a href="content/VOCsBasicInfo_OrganicWastewater_CS&PF.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>产生、排放情况</p>
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li class="sub_li_menu">
+									<a>
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>废气治理设施</p>
+										<div class="arrow_down"></div>
+									</a>
+									<ul class="sub_ul_menu">
+										<li>
+											<a href="content/VOCsBasicInfo_ExhaustGas_FQCL.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>废气处理设施</p>
+											</a>
+										</li>
+										<li>
+											<a href="content/VOCsBasicInfo_ExhaustGas_FQPFK.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>废气排放口情况</p>
+											</a>
+										</li>
+									</ul>
+								</li>
+									<li class="sub_li_menu">
+									<a href="content/VOCsInfo/PlayMaterial.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>挥发性物料使用信息</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/VOCsInfo/ExhaustTubeInfo.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>排气筒信息</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/VOCsInfo/GovernmentInfo.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>VOCs治理设施</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/VOCsInfo/DeviceInfo.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>装置开停车过程</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/VOCsInfo/FireworksInfo.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>烟气燃烧情况</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/VOCsInfo/TorchInfo.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>火炬运行情况</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/NoPage.html" target="content" style="display:none;">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>治理设施监管情况</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/NoPage.html" target="content" style="display:none;">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>产品改变(停、减产)后VOCs排放量变化情况</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/NoPage.html" target="content" style="display:none;">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>工艺、设备实施技改后VOCs排放量变化情况</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/NoPage.html" target="content" style="display:none;">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>VOCs废气收集处理设施情况</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/NoPage.html" target="content" style="display:none;">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>VOCs种类排放量</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/NoPage.html" target="content" style="display:none;">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>生产辅料、添加剂及其他用料年用量</p>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<div class="menu_single">
+							<div class="menu_parent">
+								<div class="indi"></div>
+								<div class="menu_icon">
+									<img src="images/organic_material.png">
+								</div>
+								<p>LDAR泄漏检测修复</p>
+								<div class="arrow_down"></div>
+							</div>
+
+							<ul class="sub_menu">
+								<li class="sub_li_menu">
+									<a href="content/LDAR_threejcjginfo.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>第三方检测机构信息</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/LDAR_fourpgjginfo.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>第四方评估机构信息</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/LDARCheckRepair/LDARWorkPlan.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>LDAR工作计划</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/LDARCheckRepair/WorkPlanChangeList.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>工作计划变更列表</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/LDARCheckRepair/LDARWorkReport.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>LDAR工作报告</p>
+										<!--<div class="arrow_down"></div> 二级菜单功能-->
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/LDARCheckRepair/ZhuangzhiInfo.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>装置信息</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/LDARCheckRepair/YuanJianInfo.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>元件信息</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/LDARCheckRepair/SealPointInfo.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>密封点建档信息</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/LDARCheckRepair/SealPointCount.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>装置密封点统计信息</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/LDARCheckRepair/InstrumentInfo.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>仪器校正信息</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/LDARCheckRepair/YanChiXiuFu.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>延迟修复信息</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/LDARCheckRepair/XieLouPointInfo.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>泄漏点位信息</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/LDARCheckRepair/AblePointInfoCheck.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>可达点仪器检测信息</p>
+									</a>
+								</li>
+								<li class="sub_li_menu" style="display:none;">
+									<a href="content/NoPage.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>目视检测信息</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/LDARCheckRepair/UnAblePointInfo.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>不可达点信息</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/LDARCheckRepair/RepairInfo.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>修复信息</p>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<div class="menu_single">
+							<div class="menu_parent">
+								<div class="indi"></div>
+								<div class="menu_icon">
+									<img src="images/pro_info.png">
+								</div>
+								<p>VOC核算期上报数据</p>
+								<div class="arrow_down"></div>
+							</div>
+
+							<ul class="sub_menu">
+								<li class="sub_li_menu">
+									<a href="content/VOCs_Cycle_zqsb.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>周期上报</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/VOCs_Cycle.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>周期明细</p>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<div class="menu_single">
+							<div class="menu_parent">
+								<div class="indi"></div>
+								<div class="menu_icon">
+									<img src="images/list_icon_01.png">
+								</div>
+								<p>消息提醒</p>
+								<div class="arrow_down"></div>
+							</div>
+
+							<ul class="sub_menu">
+								<li class="sub_li_menu">
+									<a href="content/NewMessage.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>消息管理</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/Message_systemnoice.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>系统公告</p>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<div class="menu_single">
+							<div class="menu_parent">
+								<div class="indi"></div>
+								<div class="menu_icon">
+									<img src="images/list_icon_01.png">
+								</div>
+								<p>系统管理</p>
+								<div class="arrow_down"></div>
+							</div>
+
+							<ul class="sub_menu">
+								<li class="sub_li_menu">
+									<a href="content/SysManage/UserManange.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>用户管理</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/SysManage/RoleMnange.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>角色管理</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/SysManage/Departmanage.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>部门管理</p>
+									</a>
+								</li>
+									<li class="sub_li_menu">
+									<a href="content/SysManage/DistrictManage.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>行政地区</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a >
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>数据字典</p>
+										<div class="arrow_down"></div>
+									</a>
+									
+									<ul class="sub_ul_menu">
+										<li>
+											<a href="content/SysManage/zhuangzhi.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>装置</p>
+											</a>
+										</li>
+						
+										<li>
+											<a href="content/SysManage/mifendianleixing.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>密封点类型</p>
+											</a>
+										</li>
+										<li>
+											<a href="content/SysManage/jiezhi.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>介质</p>
+											</a>
+										</li>
+										<li>
+											<a href="content/SysManage/jiezhizhzuangtai.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>介质状态</p>
+											</a>
+										</li>
+										<li>
+											<a href="content/SysManage/hangye.html" target="content">
+												<div class="menu_sub_icon">
+													<img src="images/sub_menu_icon.png">
+												</div>
+												<p>行业</p>
+											</a>
+										</li>
+							</ul>
+						
+						
+								</li>
+							
+								<li class="sub_li_menu">
+									<a href="content/SysManage/OperationLog.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>操作日志查询</p>
+									</a>
+								</li>
+								<li class="sub_li_menu">
+									<a href="content/SysManage/LoginLog.html" target="content">
+										<div class="menu_icon">
+											<img src="images/sub_menu_icon.png">
+										</div>
+										<p>登录日志查询</p>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--sider_bar_end-->
+
+		<div class="content_main">
+			<iframe name="content" width=100% height=100% src="content/counting.html" frameborder=no></iframe>
+		</div>
+		<!--content_end-->
+
+		<div class="copyright">
+			<p>Copyright © 2014-2016 <span style="color:#3d8fbd; font-weight:bold;">Tanlent Software.</span> All rights reserved.</p>
+			<h5>版本号:v1.1</h5>
+		</div>
+
+	</body>
+
+	<script src="js/jquery-1.8.3.min.js"></script>
+	<script src="js/jquery.color.js"></script>
+	<script src="js/frame.js"></script>
+	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<script>
+		(function($) {
+			$(window).load(function() {
+				$(".content").mCustomScrollbar({
+					scrollButtons: {
+						enable: true
+					},
+					advanced: {
+						updateOnContentResize: true
+					}
+				});
+			});
+
+			<!--		$('.public').html(main_frame);-->
+		})(jQuery);
+	</script>
+
+</html>

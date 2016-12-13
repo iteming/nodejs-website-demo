@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+
+/*燃料类型*/
+.business0930_table .burntype_td {
+	width: 60px;
+}
+/*锅炉形式*/
+.business0930_table .boilertype_td {
+	width: 180px;
+}
+/*选择*/
+.business0930_table .select_td {
+	width: 30px;
+}
+/*年运行小时（小时）*/
+.business0930_table .yearrunhour_td {
+	width: 80px;
+}
+/*燃料消耗量*/
+.business0930_table .burnconsume_td {
+	width: 80px;
+}
+/*单位*/
+.business0930_table .unit_td {
+	width: 60px;
+}

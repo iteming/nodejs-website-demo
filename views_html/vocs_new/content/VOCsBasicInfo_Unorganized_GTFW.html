@@ -1,0 +1,370 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无组织排放-固体废物</title>
+
+
+<!--<link href="../css/common.css" type="text/css" rel="stylesheet">-->
+<link href="../css/list.css" type="text/css" rel="stylesheet">
+<link href="../css/option.css" type="text/css" rel="stylesheet">
+<link href="../css/form.css" type="text/css" rel="stylesheet">
+
+<link href="../css/chips/slag/slag.css" rel="stylesheet" type="text/css">
+<link href="../css/Pop-ups.css" type="text/css" rel="stylesheet">
+
+<script src="../js/jquery-1.8.3.min.js"></script>
+<script src="../js/SystemNoice.js"></script>
+<script src="../js/UnorganizedEmissions.js"></script>
+
+</head>
+
+
+<body>
+
+<div id="right"><div id="slag_copy" class="copy_div" style="display: block;">
+
+<div class="check_div" style="display:none;">
+	<div class="form_div">
+	<a class="return_a"><!--<img src="../images/return.png">--> </a>	
+	
+		<form method="post" id="modifyslagform" onsubmit="javascript:return false;" ref="3" novalidate>
+			<div class="form_title">
+				<h1>固体废物信息</h1>
+			</div>
+			<div class="form_content">
+				<ul>
+					<li class="form_content_li"><label for="name" class="form_label"> <em class="required_em">*</em>固体废物名称：
+					</label>
+						<div class="form_input_div">
+							<input id="name" class="form_input" type="text" data-max="100" required value="10010">
+							<!-- ByXWK:乐观锁 -->
+							<input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 17:35:00 CST 2016">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>指在生产过程中产生的丧失原有的利用价值或者虽未丧失利用价值但被抛弃或者放弃的固体、半固体和置于容器中的气态物品、物质以及法律、行政法规规定纳入废物管理的物品、物质，包括喷涂过程中产生的漆渣等。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="type" class="form_label"> <em class="required_em">*</em>固体废物形态：
+					</label>
+						<div class="form_input_div">
+							<select id="type" class="form_select" required>
+								<option value="">请选择</option>
+								<option value="固态">
+									固态</option>
+								<option value="半固态" selected="selected">
+									半固态</option>
+								<option value="其他">
+									其他</option>
+							</select>
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请选择固体废物形态。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="othertype" class="form_label"> <em class="required_em">*</em>其他固体废物形态：
+					</label>
+						<div class="form_input_div">
+							<input id="othertype" class="form_input disabled" disabled="disabled" type="text" data-max="50" required value="">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请填写其他固体废物形态。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="storage" class="form_label"> <em class="required_em">*</em>贮存场容量：
+					</label>
+						<div class="form_input_div">
+							<input id="storage" class="form_input " type="num" min="0" step="0.1" required value="10">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请填写贮存场容量，单位是立方米。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="open" class="form_label"> <em class="required_em">*</em>贮存场密闭情况：
+					</label>
+
+						<div class="form_input_div">
+							<select id="open" class="form_select" required>
+								<option value="">请选择</option>
+								<option value="开敞">
+									开敞</option>
+								<option value="密闭" selected="selected">
+									密闭</option>
+							</select>
+
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请选择贮存场密闭情况。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="fill" class="form_label"> <em class="required_em">*</em>填埋场容量：
+					</label>
+						<div class="form_input_div">
+							<input id="fill" class="form_input " type="num" min="0" step="0.1" required value="10">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请填写填埋场容量，单位是立方米。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="fname" class="form_label"> <em class="required_em">*</em>处置设施名称：
+					</label>
+						<div class="form_input_div">
+							<input id="fname" class="form_input " type="text" data-max="50" required value="10">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请填写处置设施名称。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="fcount" class="form_label"> <em class="required_em">*</em>处置设施数量：
+					</label>
+						<div class="form_input_div">
+							<input id="fcount" class="form_input " type="num" step="1" min="0" required value="10">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请填写处置设施数量，单位是台。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="ability" class="form_label"> <em class="required_em">*</em>处置设施设计处理能力：
+					</label>
+						<div class="form_input_div">
+							<input id="ability" class="form_input " type="text" data-max="100" required value="10">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>指设施设计建设的、设施正常运行时，单位时间内可能处理的固体废物的量，单位为吨/天。
+							</div>
+						</div></li>
+
+				</ul>
+			</div>
+			<div class="form_buttons">
+				<input class="form_submit" type="submit" value="保存">
+			</div>
+		</form>
+	
+</div>
+</div>
+
+<div class="list_div">
+	<div class="list_title">
+		<h1>固体废物列表</h1>
+		<em class="add_em">+ 添加</em>
+	</div>
+	<div class="view_div">
+
+	<table class="list_table slag_table" total="2" page="1">
+		<thead>
+			<tr>
+				<td class="no_td">NO.</td>
+				<td class="name_td">固体废物名称</td>
+				<td class="type_td">固体废物形态</td>
+				<td class="othertype_td">其他形态</td>
+				<td class="storage_td">贮存场容量</td>
+				<td class="open_td">贮存场密闭情况</td>
+				<td class="fill_td">填埋场容量</td>
+				<td class="fname_td">处置设施名称</td>
+				<td class="fcount_td">处置设施数量</td>
+				<td class="ability_td">处置设施处理能力</td>
+				<td class="op_td">操作</td>
+			</tr>
+		</thead>
+		<tbody>
+			
+				<tr ref="3" class="list_tr ">
+					<td class="no_td">
+						1</td>
+					<td class="name_td"><em class="ellipsis_em" title="10010">10010</em></td>
+					<td class="type_td"><em class="ellipsis_em" title="半固态">半固态</em></td>
+					<td class="othertype_td"><em class="ellipsis_em" title=""></em></td>
+					<td class="storage_td"><em class="ellipsis_em" title="10">10</em></td>
+					<td class="open_td"><em class="ellipsis_em" title="密闭">密闭</em></td>
+					<td class="fill_td"><em class="ellipsis_em" title="10">10</em></td>
+					<td class="fname_td"><em class="ellipsis_em" title="10">10</em></td>
+					<td class="fcount_td"><em class="ellipsis_em" title="10">10</em></td>
+					<td class="ability_td"><em class="ellipsis_em" title="10">10</em></td>
+
+					<td class="op_td"><a class="del_a">删除</a> <!-- ByXWK:乐观锁 --> <input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 17:35:00 CST 2016"></td>
+				</tr>
+			
+				<tr ref="2" class="list_tr ne">
+					<td class="no_td">
+						2</td>
+					<td class="name_td"><em class="ellipsis_em" title="汽油">汽油</em></td>
+					<td class="type_td"><em class="ellipsis_em" title="半固态">半固态</em></td>
+					<td class="othertype_td"><em class="ellipsis_em" title=""></em></td>
+					<td class="storage_td"><em class="ellipsis_em" title="10">10</em></td>
+					<td class="open_td"><em class="ellipsis_em" title="开敞">开敞</em></td>
+					<td class="fill_td"><em class="ellipsis_em" title="10">10</em></td>
+					<td class="fname_td"><em class="ellipsis_em" title="10">10</em></td>
+					<td class="fcount_td"><em class="ellipsis_em" title="10">10</em></td>
+					<td class="ability_td"><em class="ellipsis_em" title="10">10</em></td>
+
+					<td class="op_td"><a class="del_a">删除</a> <!-- ByXWK:乐观锁 --> <input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 17:34:43 CST 2016"></td>
+				</tr>
+			
+		</tbody>
+	</table>
+
+</div>
+	<div class="page_div"></div>
+</div>
+
+<div class="add_div" style="display:none;">
+	<div class="form_div">
+	<a class="return_a"><!--<img src="../images/return_r.png"> --></a>
+	<form method="post" id="addslagform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>添加固体废物</h1>
+		</div>
+		<div class="form_content">
+			<ul>
+				<li class="form_content_li"><label for="name" class="form_label"> <em class="required_em">*</em>固体废物名称：
+				</label>
+					<div class="form_input_div">
+						<input id="name" class="form_input" type="text" data-max="100" required>
+
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指在生产过程中产生的丧失原有的利用价值或者虽未丧失利用价值但被抛弃或者放弃的固体、半固体和置于容器中的气态物品、物质以及法律、行政法规规定纳入废物管理的物品、物质，包括喷涂过程中产生的漆渣等。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="type" class="form_label"> <em class="required_em">*</em>固体废物形态：
+				</label>
+					<div class="form_input_div">
+						<select id="type1" class="form_select" required>
+							<option value="">请选择</option>
+							<option value="固态">
+								固态</option>
+							<option value="半固态">
+								半固态</option>
+							<option value="其他">
+								其他</option>
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选择固体废物形态。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="othertype" class="form_label"> <em class="required_em">*</em>其他固体废物形态：
+				</label>
+					<div class="form_input_div">
+						<input id="othertype1" class="form_input disabled" disabled="disabled" type="text" data-max="50" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写其他固体废物形态。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="storage" class="form_label"> <em class="required_em">*</em>贮存场容量：
+				</label>
+					<div class="form_input_div">
+						<input id="storage" class="form_input " type="num" min="0" step="0.1" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写贮存场容量，单位是立方米。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="open" class="form_label"> <em class="required_em">*</em>贮存场密闭情况：
+				</label>
+
+					<div class="form_input_div">
+						<select id="open" class="form_select" required>
+							<option value="">请选择</option>
+							<option value="开敞">
+								开敞</option>
+							<option value="密闭">
+								密闭</option>
+						</select>
+
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选择贮存场密闭情况。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="fill" class="form_label"> <em class="required_em">*</em>填埋场容量：
+				</label>
+					<div class="form_input_div">
+						<input id="fill" class="form_input " type="num" min="0" step="0.1" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写填埋场容量，单位是立方米。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="fname" class="form_label"> <em class="required_em">*</em>处置设施名称：
+				</label>
+					<div class="form_input_div">
+						<input id="fname" class="form_input " type="text" data-max="50" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写处置设施名称。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="fcount" class="form_label"> <em class="required_em">*</em>处置设施数量：
+				</label>
+					<div class="form_input_div">
+						<input id="fcount" class="form_input " type="num" step="1" min="0" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写处置设施数量，单位是台。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="ability" class="form_label"> <em class="required_em">*</em>处置设施设计处理能力：
+				</label>
+					<div class="form_input_div">
+						<input id="ability" class="form_input " type="text" data-max="100" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>指设施设计建设的、设施正常运行时，单位时间内可能处理的固体废物的量，单位为吨/天。
+						</div>
+					</div></li>
+
+			</ul>
+		</div>
+		<div class="form_buttons">
+			<input class="form_submit" type="submit" value="提交">
+		</div>
+	</form>
+</div>
+</div>
+
+<!------  弹窗背景  -------->
+    <div class="map_bg" style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background-color: #000;filter: alpha(opacity = 30); -moz-opacity: 0.3; opacity: 0.3; z-index: -10; display:none;"></div>
+    
+</div></div>
+
+</body>
+</html>

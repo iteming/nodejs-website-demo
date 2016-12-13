@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+
+/****************************  核算周期 明细内页 调整公用样式  *******************************/
+
+.list_div{
+	width:830px;
+	padding-bottom: 70px;
+}
+#business_copy .businesstable{
+	width:790px;
+}
+
+.list_table,.form_div{
+	width:830px;
+}
+
+.form_submit{
+	margin-left:125px;
+}
+
+.form_content table thead tr td{
+	padding-top:0;
+}
+
+
+.form_title h2{
+	font-size:16px;
+}

@@ -1,0 +1,168 @@
+@CHARSET "UTF-8";
+
+#otherexcipient_copy .list_table .no_td {
+	width: 50px;
+}
+
+#otherexcipient_copy .list_table .no_td.child {
+	width: 150px;
+}
+
+#otherexcipient_copy .list_table .no_td.child2 {
+	width: 200px;
+}
+
+#otherexcipient_copy .list_table .cname_td {
+	width: 200px;
+}
+
+#otherexcipient_copy .list_table .ename_td {
+	width: 200px;
+}
+
+#otherexcipient_copy .list_table .application_td {
+	width: 200px;
+}
+
+#otherexcipient_copy .list_table .vocspercentage_td {
+	width: 200px;
+}
+
+#otherexcipient_copy .list_table .component_td {
+	width: 300px;
+	position: relative;
+}
+
+#otherexcipient_copy .list_table	.proportion_td {
+	width: 300px;
+	position: relative;
+}
+
+#otherexcipient_copy .list_table .manufacturer_td {
+	width: 500px;
+	position: relative;
+}
+
+#otherexcipient_copy .list_table .state_td {
+	width: 50px;
+}
+
+#otherexcipient_copy .list_table .op_td {
+	width: 50px;
+}
+
+#otherexcipient_copy .list_table .op_td.child {
+	width: 150px;
+}
+
+#otherexcipient_copy .list_table .op_td.child2 {
+	width: 200px;
+}
+
+#otherexcipient_copy .child_input {
+	width: 240px;
+	margin: 0;
+	padding: 4px;
+	height: 22px;
+	line-height: 22px;
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	background: #FFF url(../../../images/input_bg.gif) 0 0 no-repeat;
+	box-shadow: 0 1px 2px #f4f4f4 inset;
+	vertical-align: middle;
+}
+
+#addotherexcipientform .form_buttons {
+	position: absolute;
+	bottom: 20px;
+}
+
+#otherexcipient_copy .add_div .form_div {
+	padding-bottom: 80px;
+}
+
+#modifyotherexcipientform .form_buttons {
+	position: absolute;
+	bottom: 20px;
+}
+
+#otherexcipient_copy .check_div .form_div {
+	padding-bottom: 80px;
+}
+
+#otherexcipient_copy .table_tip_div.component_tip {
+	width: 225px;
+	line-height: 18px;
+	position: absolute;
+	top: 65px;
+	left: 18px;
+	display: none;
+}
+
+#otherexcipient_copy .table_tip_div.manufacturer_tip {
+	width: 225px;
+	line-height: 18px;
+	position: absolute;
+	top: 65px;
+	left: 119px;
+	display: none;
+}
+
+#otherexcipient_copy .table_tip {
+	position: relative;
+	width: 225px;
+	z-index: 5;
+	margin-left: 6px;
+	border: solid 1px #0066cc;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	background: #f5faff;
+	color: #0066cc;
+	padding: 7px 12px 5px 12px;
+	font-size: 12px;
+	text-align: left;
+}
+
+#otherexcipient_copy .table_tip_i {
+	position: absolute;
+	top: -4px;
+	left: 12px;
+	background: url("../../../images/up_arrow_ico.png") no-repeat;
+	width: 8px;
+	height: 4px;
+	font-size: 4px;
+	display: block;
+}
+
+#otherexcipient_copy .form_content .form_content_li.attachment_li {
+	margin-bottom: 20px;
+	position: relative;
+	overflow: hidden;
+	height: auto;
+}
+
+#otherexcipient_copy #file_upload_otherexcipient_add {
+	margin-top: 7px;
+}
+
+#otherexcipient_copy .attachment_view_div {
+	float: left;
+	margin-left: 155px;
+	margin-top: 12px;
+	width: 650px;
+}
+
+#otherexcipient_copy .otherexcipient_attachment {
+	height: 30px;
+	line-height: 30px;
+}
+
+#otherexcipient_copy .attachment_del_a {
+	margin-left: 20px;
+	color: #999;
+}
+
+#otherexcipient_copy .attachment_del_a:hover {
+	color: #dd1778;
+}

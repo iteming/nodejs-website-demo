@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>发挥性物料使用信息</title>
+		<link href="../../css/list.css" type="text/css" rel="stylesheet">
+		<link href="../../css/option.css" type="text/css" rel="stylesheet">
+		<link href="../../css/form.css" type="text/css" rel="stylesheet">
+		<link href="../../css/backtable.css" type="text/css" rel="stylesheet">
+		<link href="../../css/background/system/CompanyManage.css" rel="stylesheet" type="text/css">
+		<link href="../../css/Pop-ups.css" type="text/css" rel="stylesheet">
+		<script src="../../js/jquery-1.8.3.min.js"></script>
+		<script src="../../js/system/company.js"></script>
+		<script src="../../js/sysmanage/UserManage.js"></script>
+	</head>
+
+	<body>
+		<div id="right">
+			<div id="usermanage" class="copy_div" style="display: block;">
+				<div class="list_div" style="left: 0px; display: block;">
+					<div class="list_title">
+						<h1>发挥性物料使用信息</h1>
+						<em class="add_em">+ 添加</em>
+					</div>
+					<div class="view_div">
+						<table class="list_table user_table" total="7" page="1">
+							<thead>
+								<tr>
+									<td class="no_td">NO.</td>
+									<td class="user_td">使用挥发性有机物料对应的产品名称</td>
+									<td class="username_td">挥发性有机物料名称</td>
+									<td class="userdep_td">挥发性有机物料组成 </td>
+									<td class="userisuse_td">物料衡算信息</td>
+									<td class="userisuse_td">正常工作频率</td>
+									<td class="userisuse_td">每月实际消耗量</td>
+									<td class="usercontrol_td">操作</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ref="8" class="list_tr ">
+									<td class="no_td">
+										1</td>
+									<td class="user_td"><em class="ellipsis_em" title="登录名">二氧化碳</em></td>
+									<td class="username_td"><em class="ellipsis_em" title="用户名">二氧化碳</em></td>
+									<td class="userdep_td"><em class="ellipsis_em" title="部门">二氧化碳</em></td>
+									<td class="usertel_td"><em class="ellipsis_em" title="座机号码">010-2134571</em></td>
+									<td class="userdegree_td"><em class="ellipsis_em" title="职位"></em>10</td>
+									<td class="usersafelevel_td"><em class="ellipsis_em" title="安全级别">10</em></td>
+									<td class="usercontrol_td">
+										<a class="del_a">删除</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+	</body>
+	<div class="add_div" style="display:none;">
+		<div class="form_div">
+			<a class="return_a">
+				<!--<img src="../images/return_r.png"> --></a>
+			<form method="post" id="addaccountform" onsubmit="javascript:return false;" novalidate>
+				<div class="form_title">
+					<h1>发挥性物料使用信息</h1>
+				</div>
+				<div class="form_content">
+					<ul>
+						<li class="form_content_li"><label for="title" class="form_label"> <em class="required_em">*</em>使用挥发性有机物料对应的产品名称：
+                    </label>
+							<div class="form_input_div">
+								<input id="title" class="form_input" type="text" data-max="100" required>
+							</div>
+							<div class="form_tip_div">
+								<a class="form_icon"></a>
+								<div class="form_tip">
+									<em class="form_tip_i"></em>请输入使用挥发性有机物料对应的产品名称；
+								</div>
+							</div>
+						</li>
+
+						<li class="form_content_li">
+							<label for="title" class="form_label"> 
+						<em class="required_em">*</em>挥发性有机物料名称
+                    </label>
+							<div class="form_input_div">
+								<input id="title" class="form_input" type="text" data-max="100" required>
+							</div>
+							<div class="form_tip_div">
+								<a class="form_icon"></a>
+								<div class="form_tip">
+									<em class="form_tip_i"></em>请输入挥发性有机物料名称
+								</div>
+							</div>
+						</li>
+
+						<li class="form_content_li"><label for="title" class="form_label"> <em class="required_em">*</em>挥发性有机物料组成：
+                    </label>
+							<div class="form_input_div">
+								<input id="title" class="form_input" type="text" data-max="100" required>
+							</div>
+							<div class="form_tip_div">
+								<a class="form_icon"></a>
+								<div class="form_tip">
+									<em class="form_tip_i"></em>请输入挥发性有机物料组成
+								</div>
+							</div>
+						</li>
+
+						<li class="form_content_li"><label for="title" class="form_label"> <em class="required_em">*</em>主要成分：
+                    </label>
+							<div class="form_input_div">
+								<input id="title" class="form_input" type="text" data-max="100" required>
+							</div>
+							<div class="form_tip_div">
+								<a class="form_icon"></a>
+								<div class="form_tip">
+									<em class="form_tip_i"></em>请输入主要成分
+								</div>
+							</div>
+						</li>
+
+						<li class="form_content_li"><label for="title" class="form_label"> <em class="required_em">*</em>所占比例（%）：
+                    </label>
+							<div class="form_input_div">
+								<input id="title" class="form_input" type="text" data-max="100" required>
+							</div>
+							<div class="form_tip_div">
+								<a class="form_icon"></a>
+								<div class="form_tip">
+									<em class="form_tip_i"></em>请输入所占比例（%）
+								</div>
+							</div>
+						</li>
+
+						<li class="form_content_li"><label for="title" class="form_label"> <em class="required_em">*</em>物料衡算信息：
+                    </label>
+							<div class="form_input_div">
+								<input id="title" class="form_input" type="text" data-max="100" required>
+							</div>
+							<div class="form_tip_div">
+								<a class="form_icon"></a>
+								<div class="form_tip">
+									<em class="form_tip_i"></em>请输入物料衡算信息
+								</div>
+							</div>
+						</li>
+
+						<li class="form_content_li"><label for="title" class="form_label"> <em class="required_em">*</em>年度净消耗量（吨/年）：
+                    </label>
+							<div class="form_input_div">
+								<input id="title" class="form_input" type="text" data-max="100" required>
+							</div>
+							<div class="form_tip_div">
+								<a class="form_icon"></a>
+								<div class="form_tip">
+									<em class="form_tip_i"></em>请输入年度净消耗量（吨/年）
+								</div>
+							</div>
+						</li>
+
+						<li class="form_content_li"><label for="title" class="form_label"> <em class="required_em">*</em>进入产品的量（吨/年）：
+                    </label>
+							<div class="form_input_div">
+								<input id="title" class="form_input" type="text" data-max="100" required>
+							</div>
+							<div class="form_tip_div">
+								<a class="form_icon"></a>
+								<div class="form_tip">
+									<em class="form_tip_i"></em>请输入进入产品的量（吨/年）
+								</div>
+							</div>
+						</li>
+
+						<li class="form_content_li"><label for="title" class="form_label"> <em class="required_em">*</em>进入废水中的量（吨/年）：
+                    </label>
+							<div class="form_input_div">
+								<input id="title" class="form_input" type="text" data-max="100" required>
+							</div>
+							<div class="form_tip_div">
+								<a class="form_icon"></a>
+								<div class="form_tip">
+									<em class="form_tip_i"></em>请输入进入废水中的量（吨/年）
+								</div>
+							</div>
+						</li>
+
+						<li class="form_content_li"><label for="title" class="form_label"> <em class="required_em">*</em>进入固废中的量（吨/年）：
+                    </label>
+							<div class="form_input_div">
+								<input id="title" class="form_input" type="text" data-max="100" required>
+							</div>
+							<div class="form_tip_div">
+								<a class="form_icon"></a>
+								<div class="form_tip">
+									<em class="form_tip_i"></em>请输入进入固废中的量（吨/年）
+								</div>
+							</div>
+						</li>
+
+						<li class="form_content_li"><label for="title" class="form_label"> <em class="required_em">*</em>以气态形式散发的量(吨/年）：
+                    </label>
+							<div class="form_input_div">
+								<input id="title" class="form_input" type="text" data-max="100" required>
+							</div>
+							<div class="form_tip_div">
+								<a class="form_icon"></a>
+								<div class="form_tip">
+									<em class="form_tip_i"></em>请输入以气态形式散发的量(吨/年）
+								</div>
+							</div>
+						</li>
+
+						<li class="form_content_li"><label for="title" class="form_label"> <em class="required_em">*</em>回收处理量（吨/年）：
+                    </label>
+							<div class="form_input_div">
+								<input id="title" class="form_input" type="text" data-max="100" required>
+							</div>
+							<div class="form_tip_div">
+								<a class="form_icon"></a>
+								<div class="form_tip">
+									<em class="form_tip_i"></em>请输入回收处理量（吨/年）
+								</div>
+							</div>
+						</li>
+						<li class="form_content_li"><label for="title" class="form_label"> <em class="required_em">*</em>正常工作频率：
+                    </label>
+							<div class="form_input_div">
+								<input id="title" class="form_input" type="text" data-max="100" required>
+							</div>
+							<div class="form_tip_div">
+								<a class="form_icon"></a>
+								<div class="form_tip">
+									<em class="form_tip_i"></em>请输入正常工作频率
+								</div>
+							</div>
+						</li>
+						<li class="form_content_li"><label for="title" class="form_label"> <em class="required_em">*</em>每月实际消耗量：
+                    </label>
+							<div class="form_input_div">
+								<input id="title" class="form_input" type="text" data-max="100" required>
+							</div>
+							<div class="form_tip_div">
+								<a class="form_icon"></a>
+								<div class="form_tip">
+									<em class="form_tip_i"></em>请输入每月实际消耗量
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="form_buttons">
+					<input class="form_submit" type="submit" value="提交">
+				</div>
+			</form>
+		</div>
+	</div>
+
+</html>

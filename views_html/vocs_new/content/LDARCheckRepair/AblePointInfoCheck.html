@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>元件信息</title>
+		<link href="../../css/list.css" type="text/css" rel="stylesheet">
+		<link href="../../css/option.css" type="text/css" rel="stylesheet">
+		<link href="../../css/form.css" type="text/css" rel="stylesheet">
+		<link href="../../css/Pop-ups.css" type="text/css" rel="stylesheet">
+		<link href="../../css/chips/LDARCheckRepair/instrumentinfo.css" rel="stylesheet" type="text/css">
+		<script src="../../js/jquery-1.8.3.min.js"></script>
+		<script src="../../js/SystemNoice.js"></script>
+	</head>
+	<body>
+		<div id="right">
+	<div id="workplan_copy" class="copy_div" style="display: block;">
+    
+    	 <div class="check_div" style="display: none;">
+        <div class="form_div">
+            <a class="return_a"><!--<img src="../images/return.png"> --></a>
+        
+            <form method="post" id="modifypaintform" onsubmit="javascript:return false;" ref="6" novalidate>
+                <div class="form_title">
+                    <h1>可达点仪器检测信息</h1>
+                </div>
+                <div class="form_content">
+                    <ul>
+                    	<li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>装置名称：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required value="装置名称">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>装置名称
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>装置代码： 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50" value="装置代码">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>装置代码
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>投产日期：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required value="2016-11-1">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>投产日期
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>季度运行天数：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="text" data-max="10" required value="12">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>季度运行天数
+                                    </div>
+                                </div>
+                            </li>
+
+                          	<li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>日均运行小时：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required value="6">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>日均运行小时
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>组件编码： 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50" value="1111">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>组件编码
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>流体成分：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required value="流体成分">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>流体成分
+                                    </div>
+                                </div>
+                            </li>
+
+                        	<li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>介质状态：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required value="介质状态">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>介质状态
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>挥发性有机物质量占比（%）： 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50" value="20">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>挥发性有机物质量占比（%）
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>是否检测：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required value="是">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>是否检测
+                                    </div>
+                                </div>
+                            </li>
+
+                        	<li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>组件检测方式：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required value="组件检测方式">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>组件检测方式
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>检测频率： 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50" value="检测频率">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>检测频率
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>组件检测属性：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required value="组件检测属性">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>组件检测属性
+                                    </div>
+                                </div>
+                            </li>
+                           	<li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>可达点或不可达点的判定依据：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required value="可达点或不可达点的判定依据">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>可达点或不可达点的判定依据
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>运行状态： 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50" value="运行状态">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>运行状态
+                                    </div>
+                                </div></li>
+     
+                        
+                        	<li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>仪器检测时间：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required value="2016-11-1">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>仪器检测时间
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>检测仪器名称：
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50" value="检测仪器名称">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>检测仪器名称
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>检测仪器型号：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required value="检测仪器型号">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>检测仪器型号
+                                    </div>
+                                </div>
+                            </li>
+                           	<li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>检测器类型：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required value="检测器类型">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>检测器类型
+                                    </div>
+                                </div>
+                            </li>
+                          
+                        
+                        	<li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>仪器序列号：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required value="111111">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>仪器序列号
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>检测仪器名称： 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50" value="检测仪器名称">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>检测仪器名称
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>检测人员安全防护措施：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required value="检测器类型">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>检测人员安全防护措施
+                                    </div>
+                                </div>
+                            </li>
+                        	
+                        	<li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>背景检测浓度（ppmv）：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required value="背景检测浓度">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>背景检测浓度（ppmv）
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>仪器检测浓度（ppmv）： 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50" value="仪器检测浓度">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>仪器检测浓度（ppmv）
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>净检测浓度（ppmv）：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required value="净检测浓度">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>净检测浓度（ppmv）
+                                    </div>
+                                </div>
+                            </li>
+                           	<li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>泄漏定义值（ppmv）：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required value="泄漏定义值">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>泄漏定义值（ppmv）
+                                    </div>
+                                </div>
+                            </li>
+                           
+                        
+                        <li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>是否泄漏：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required value="否">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>是否泄漏
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>创建时间： 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50" value="2016-11-1">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>创建时间
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>更新时间：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required value="2016-11-2">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>更新时间
+                                    </div>
+                                </div>
+                            </li>
+                    </ul>
+                </div>
+                <div class="form_buttons">
+                    <input class="form_submit" type="submit" value="保存">
+                </div>
+            </form>
+        
+        </div>
+    </div>
+    
+        <div class="list_div" style="display: block;">
+            <div class="list_title">
+                <h1>可达点仪器检测信息</h1>
+                <em class="add_em">+ 添加</em>
+            </div>
+            <div class="view_div" >
+                <table class="list_table workplan_table" total="2" page="1">
+                <thead>
+                    <tr>
+                        <td class="no_td">NO.</td>
+                        <td class="iremark_td">装置名称</td>
+                        <td class="iremark_td">装置代码</td>
+                        <td class="iremark_td">投产日期</td>
+                        <td class="iremark_td">季度运行天数</td>
+                        <td class="iremark_td">日均运行小时</td>
+                        <td class="iremark_td">组件编码</td>
+                        <td class="iremark_td">流体成分</td>
+                        <td class="iremark_td">介质状态</td>
+                        <td class="iremark_td">挥发性有机物质量占比（%）</td>
+                        <td class="iremark_td">是否检测</td>
+                        <td class="iremark_td">组件检测方式</td>
+                        <td class="iremark_td">检测频率</td>
+                        <td class="iremark_td">组件检测属性</td>
+                        <td class="iremark_td">可达点或不可达点的判定依据</td>
+                        <td class="iremark_td">运行状态</td>
+                        <td class="iremark_td">仪器检测时间</td>
+                        <td class="iremark_td">检测仪器名称</td>
+                        <td class="iremark_td">检测仪器型号</td>
+                    	<td class="iremark_td">检测器类型</td>
+                        <td class="iremark_td">仪器序列号</td>
+                        <td class="iremark_td">检测人员姓名</td>
+                        <td class="iremark_td">检测人员安全防护措施</td>
+                        <td class="iremark_td">背景检测浓度（ppmv）</td>
+                        <td class="iremark_td">仪器检测浓度（ppmv）</td>
+                        <td class="iremark_td">净检测浓度（ppmv）</td>
+                        <td class="iremark_td">泄漏定义值（ppmv）</td>
+                        <td class="iremark_td">是否泄漏</td>
+                        <td class="iremark_td">创建时间</td>
+                        <td class="iremark_td">更新时间</td>
+                  
+                        <td class="op_td">操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr ref="7" class="list_tr ">
+                        	<td class="no_td">1</td>
+
+                            <td class="iremark_td"><em class="ellipsis_em" title="装置名称">阀体</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="装置代码">XCHLJ0-01-01-000102V</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="自定义代码">2012/12/01</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="备注">120</em></td>
+                            
+                            <td class="iremark_td"><em class="ellipsis_em" title="检测人员">12</em></td>
+                            
+                            <td class="iremark_td"><em class="ellipsis_em" title="第一次修复日期">XCHLJ0-01-01-0001</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="第一次修复后浓度"></em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="第一次修复方法">气体</em></td>
+                            
+                            <td class="iremark_td"><em class="ellipsis_em" title="第一次维修人员">1%</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="第二次修复日期">是</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="第二次修复后浓度"></em></td>
+
+                            <td class="iremark_td"><em class="ellipsis_em" title="第二次修复方法">36h</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="第二次维修人员"></em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="延期修复时长">不可达</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="计划最近停车时间">正常</em></td>
+
+                            <td class="iremark_td"><em class="ellipsis_em" title="申请延期修复的理由">180</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="第二次修复图">test</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="泄漏源修复措施">R1101反应器</em></td>
+                            
+                            <td class="iremark_td"><em class="ellipsis_em" title="申请延期修复的理由">test</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="第二次修复图">XXX-10-12</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="泄漏源修复措施">张sir</em></td>
+                            
+                            <td class="iremark_td"><em class="ellipsis_em" title="申请延期修复的理由">有</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="第二次修复图">100（ppmv）</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="泄漏源修复措施">120（ppmv）</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="申请延期修复的理由">300（ppmv）</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="泄漏源修复措施">500（ppmv）</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="申请延期修复的理由">否</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="第二次修复图">2016/12/12</em></td>
+                            <td class="iremark_td"><em class="ellipsis_em" title="泄漏源修复措施">2016/12/12（ppmv）</em></td>
+
+                            <td class="op_td">
+                            	<a class="del_a">修改</a> 
+                            	<a class="del_a">删除</a> 
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+        
+            </div>
+            <div class="page_div"></div>
+        </div>
+
+        <div class="add_div" style="display: none; z-index:200;">
+            <div class="form_div">
+                <a class="return_a"><!--<img src="../images/return_r.png"> --></a>
+                <form method="post" id="addordinarymaterialform" onsubmit="javascript:return false;" novalidate>
+                    <div class="form_title">
+                        <h1>添加可达点仪器检测信息</h1>
+                    </div>
+                    <div class="form_content">
+                        <ul>
+                            <li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>装置名称:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>装置名称
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>装置代码: 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>装置代码
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>投产日期：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>投产日期
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>季度运行天数：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="text" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>季度运行天数
+                                    </div>
+                                </div>
+                            </li>
+
+                          	<li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>日均运行小时:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>日均运行小时
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>组件编码: 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>组件编码
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>流体成分：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>流体成分
+                                    </div>
+                                </div>
+                            </li>
+
+                        	<li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>介质状态:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>介质状态
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>挥发性有机物质量占比（%）: 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>挥发性有机物质量占比（%）
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>是否检测：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>是否检测
+                                    </div>
+                                </div>
+                            </li>
+
+                        	<li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>组件检测方式:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>组件检测方式
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>检测频率: 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>检测频率
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>组件检测属性：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>组件检测属性
+                                    </div>
+                                </div>
+                            </li>
+                           	<li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>可达点或不可达点的判定依据:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>可达点或不可达点的判定依据
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>运行状态: 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>运行状态
+                                    </div>
+                                </div></li>
+     
+                        
+                        	<li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>仪器检测时间:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>仪器检测时间
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>检测仪器名称: 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>检测仪器名称
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>检测仪器型号：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>检测仪器型号
+                                    </div>
+                                </div>
+                            </li>
+                           	<li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>检测器类型:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>检测器类型
+                                    </div>
+                                </div>
+                            </li>
+                          
+                        
+                        	<li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>仪器序列号:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>仪器序列号
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>检测仪器名称: 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>检测仪器名称
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>检测器类型：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>检测器类型
+                                    </div>
+                                </div>
+                            </li>
+                           	<li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>仪器序列号:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>仪器序列号
+                                    </div>
+                                </div>
+                            </li>
+                           
+                        	
+                        	<li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>仪器序列号:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>仪器序列号
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>检测仪器名称: 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>检测仪器名称
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>检测器类型：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>检测器类型
+                                    </div>
+                                </div>
+                            </li>
+                           	<li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>仪器序列号:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>仪器序列号
+                                    </div>
+                                </div>
+                            </li>
+                           
+                        
+                        <li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>检测人员姓名:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>检测人员姓名
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form_content_li">
+                            	<label for="ename" class="form_label">
+                            	 	<em class="required_em">*</em>检测人员安全防护措施: 
+                           		 </label>
+                                <div class="form_input_div">
+                                    <input id="ename" class="form_input" type="text" data-max="50">
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>检测人员安全防护措施
+                                    </div>
+                                </div></li>
+                            <li class="form_content_li">
+                            	<label for="unit" class="form_label"> 
+                            		<em class="required_em">*</em>净检测浓度：
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="unit" class="form_input" type="datetime" data-max="10" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>净检测浓度
+                                    </div>
+                                </div>
+                            </li>
+                           	<li class="form_content_li">
+                            	<label for="cname" class="form_label"> 
+                            		<em class="required_em">*</em>更新时间:
+                            	</label>
+                                <div class="form_input_div">
+                                    <input id="cname" class="form_input" type="text" data-max="50" required>
+                                </div>
+                                <div class="form_tip_div">
+                                    <a class="form_icon"></a>
+                                    <div class="form_tip">
+                                        <em class="form_tip_i"></em>更新时间
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="form_buttons">
+                        <input class="form_submit" type="submit" value="提交">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!------  弹窗背景  -------->
+        <div class="map_bg" style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background-color: #000;filter: alpha(opacity = 30); -moz-opacity: 0.3; opacity: 0.3; z-index: -10; display:none;"></div>
+        
+	</div>
+</div>
+
+	</body>
+</html>

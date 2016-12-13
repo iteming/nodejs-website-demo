@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+
+.business0730_table .no_td {
+	width: 50px;
+}
+
+.business0730_table .conveyance_td {
+	width: 80px;
+}
+
+.business0730_table .operation_td {
+	width: 100px;
+}
+
+.business0730_table .mode_td {
+	width: 100px;
+}
+
+.business0730_table .pressure_td {
+	width: 140px;
+}
+
+.business0730_table .mol_td {
+	width: 140px;
+}
+
+.business0730_table .freightdata_td {
+	width: 100px;
+}
+
+.business0730_table .materialdata_td {
+	width: 160px;
+}

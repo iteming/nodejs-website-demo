@@ -1,0 +1,1061 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无组织排放-装载操作</title>
+
+
+<!--<link href="../css/common.css" type="text/css" rel="stylesheet">-->
+<link href="../css/list.css" type="text/css" rel="stylesheet">
+<link href="../css/option.css" type="text/css" rel="stylesheet">
+<link href="../css/form.css" type="text/css" rel="stylesheet">
+
+<link href="../css/chips/freight/freight.css" rel="stylesheet" type="text/css">
+<link href="../css/Pop-ups.css" type="text/css" rel="stylesheet">
+
+<script src="../js/jquery-1.8.3.min.js"></script>
+<script src="../js/SystemNoice.js"></script>
+<script src="../js/UnorganizedEmissions.js"></script>
+
+</head>
+
+
+<body>
+
+<div id="right"><div id="freight_copy" class="copy_div" style="display: block;">
+<div class="check_div" style="display:none;">
+	<div class="form_div">
+	<a class="return_a"><!--<img src="../images/return.png"> --></a>
+	
+		<form method="post" id="modifyfreightform" onsubmit="javascript:return false;" ref="4" novalidate>
+			<div class="form_title">
+				<h1>装载操作信息</h1>
+			</div>
+			<div class="form_content">
+				<ul>
+					<li class="form_content_li"><label for="conveyance" class="form_label"> <em class="required_em">*</em>运输工具：
+					</label>
+						<div class="form_input_div">
+							<select id="conveyance" class="form_select" required>
+								<option value="" selected="selected">请选择</option>
+								<option value="油罐卡车">
+									油罐卡车</option>
+								<option value="油罐列车">
+									油罐列车</option>
+								<option value="油轮" selected="selected">
+									油轮</option>
+							</select>
+							<!-- ByXWK:乐观锁 -->
+							<input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 17:36:30 CST 2016">
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请选择运输工具。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="operation" class="form_label"> <em class="required_em">*</em>操作方式：
+					</label>
+						<div class="form_input_div">
+							<select id="operation" class="form_select" required>
+								<option value="" selected="selected">请选择</option>
+								<option value="浸没式装载" selected="selected">
+									浸没式装载</option>
+								<option value="倾倒装载">
+									倾倒装载</option>
+								<option value="其他">
+									其他</option>
+							</select>
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请选择操作方式。
+							</div>
+						</div></li>
+
+
+					<li class="form_content_li"><label id="otheroperation_label" for="otheroperation" class="form_label  
+						  disabled">
+							<em class="required_em">*</em>其他操作方式：
+					</label>
+						<div class="form_input_div">
+							<input id="otheroperation" class="form_input disabled" disabled="disabled" type="text" required value="">
+						</div>
+
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请填写其他操作方式。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="mode" class="form_label"> <em class="required_em">*</em>模式：
+					</label>
+						<div class="form_input_div">
+							<select id="mode" class="form_select" required>
+								<option value="" selected="selected">请选择</option>
+								<option value="清洁油罐">
+									清洁油罐</option>
+								<option value="一般模式">
+									一般模式</option>
+								<option value="蒸汽平衡" selected="selected">
+									蒸汽平衡</option>
+								<option value="其他">
+									其他</option>
+							</select>
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请选择模式。
+							</div>
+						</div></li>
+
+
+					<li class="form_content_li"><label id="othermode_label" for="othermode" class="form_label  
+						  disabled">
+							<em class="required_em">*</em>其他模式：
+					</label>
+						<div class="form_input_div">
+							<input id="othermode" class="form_input disabled" disabled="disabled" type="text" required value="">
+						</div>
+
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请填写其他模式。
+							</div>
+						</div></li>
+
+
+					<li class="form_content_li"><label for="pressure" class="form_label"> <em class="required_em">*</em>真实蒸汽压：
+					</label>
+						<div class="form_input_div">
+							<input id="pressure" class="form_input" type="num" step="0.01" min="0" value="10" required>
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请填写真实蒸汽压,单位帕小数点后最多保留两位。
+							</div>
+						</div></li>
+					<li class="form_content_li"><label for="mol" class="form_label"> <em class="required_em">*</em>物料分子量：
+					</label>
+						<div class="form_input_div">
+							<input id="mol" class="form_input" type="num" step="0.01" min="0" value="10" required>
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请填写物料分子量,单位千克/摩尔小数点后最多保留两位。
+							</div>
+						</div></li>
+				</ul>
+				<li class="form_content_li"><label for="loada" class="form_label"> <em class="required_em">*</em>实际装载温度摄氏度：
+				</label>
+					<div class="form_input_div">
+						<input id="loada" class="form_input wl" type="text" data-max="100" value="10" required>
+					</div>
+					<div class="form_tip_div ns">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写实际装载温度摄氏度。
+						</div>
+					</div></li>
+
+				
+				<li class="form_content_li yc wh"><label for="loadc" class="form_label sf"> <em class="required_em">*</em>油气分子量克/摩尔：
+				</label>
+					<div class="form_input_div">
+						<input id="loadc" class="form_input wl" type="text" data-max="100" value="10" required>
+					</div>
+					<div class="form_tip_div ns">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写油气分子量克/摩尔。
+						</div>
+					</div></li>
+			
+					
+	<li class="form_content_lik"><label for="suanfa" class="form_label"> <em class="required_em">*</em>选择算法：
+			</label>
+				<div class="form_input_div" id="orange" orange="公式法">
+				<!-- 	<select id="suanfa" class="form_select" required>
+						<option value="请选择">请选择</option>
+						<option value="公式法">公式法</option>
+						<option value="排放系数法1">排放系数法1</option>
+						<option value="排放系数法2">排放系数法2</option>
+					</select> -->
+					<div class="form_input_div">
+						<label><input name="Fruit" type="checkbox" value="公式法" class="orange1" checked="checked">公式法<br> </label> <label><input name="Fruit" type="checkbox" value="排放系数法1" class="orange2">排放系数法1<br> </label> <label><input name="Fruit" type="checkbox" value="排放系数法2" class="orange3">排放系数法2<br>
+						</label>
+					</div>
+				</div>
+				<div class="form_tip_div">
+					<a class="form_icon"></a>
+					<div class="form_tip">
+						<em class="form_tip_i"></em>请选择算法。
+					</div>
+				</div></li>
+				
+				<div class="form_title gs1" style="display: block;">
+				<h2>公式法</h2>
+			</div>
+			
+				<div class="gs1" style="display: block;">
+					<li class="form_content_li gs"><label for="closed" class="form_label"> <em class="required_em">*</em>控制措施：
+					</label>
+						<div class="form_input_div">
+							<select id="cuoshi" class="form_select s1">
+								<option value="">请选择</option>
+								<option value="装载系统未设蒸气平衡/处理系统">装载系统未设蒸气平衡/处理系统</option>
+								<option value="真空装载且保持真空度小于-0.37千帕">真空装载且保持真空度小于-0.37千帕</option>
+								<option value="罐车与油气收集系统法兰、硬管螺栓连接" selected="selected">罐车与油气收集系统法兰、硬管螺栓连接</option>
+								<option value="其他情况">其他情况</option>
+							</select>
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请选择控制措施。
+							</div>
+						</div></li>
+
+					<li class="form_content_li gs"><label for="closed" class="form_label"> <em class="required_em">*</em>装载方式：
+					</label>
+						<div class="form_input_div">
+							<select id="zhuangzai" class="form_select s1" classify="船舶装载">
+								<option value="">请选择</option>
+								<option value="公路、铁路装载">公路、铁路装载</option>
+								<option value="船舶装载" selected="selected">船舶装载</option>
+							</select>
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请选择装载方式。
+							</div>
+						</div></li>
+
+					<li class="form_content_li gs scar" style="display: none;"><label for="closed" class="form_label"> <em class="required_em">*</em>操作方式：
+					</label>
+						<div class="form_input_div">
+							<select id="caozuo" class="form_select s1 gscar">
+								<option value="">请选择</option>
+								<option value="底部/液下装载新罐车或清洗后的罐车">底部/液下装载新罐车或清洗后的罐车</option>
+								<option value="底部/液下装载正常工况普通的罐车">底部/液下装载正常工况普通的罐车</option>
+								<option value="喷溅式装载新罐车或清洗后的罐车">喷溅式装载新罐车或清洗后的罐车</option>
+								<option value="喷溅式装载正常工况普通的罐车">喷溅式装载正常工况普通的罐车</option>
+							</select>
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请选择操作方式。
+							</div>
+						</div></li>
+
+					<li class="form_content_li sship"><label for="closed" class="form_label"> <em class="required_em">*</em>船舶装载：
+					</label>
+						<div class="form_input_div">
+							<select id="chuanbozz" class="form_select s1 gsship" value="船舶装载原油">
+								<option value="">请选择</option>
+								<option value="船舶装载原油" selected="selected">船舶装载原油</option>
+								<option value="船舶装载汽油">船舶装载汽油</option>
+								<option value="船舶装载汽油和原油以外的产品">船舶装载汽油和原油以外的产品</option>
+							</select>
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请选择船舶装载。
+							</div>
+						</div></li>
+
+					<li class="form_content_li gs sship yy"><label for="closed" class="form_label"> <em class="required_em">*</em>船舶装载原油情况：
+					</label>
+						<div class="form_input_div">
+							<select id="zhuangzaiyy" class="form_select s1  gsship mark1">
+								<option value="">请选择</option>
+								<option value="未清洗,挥发性物质">未清洗,挥发性物质</option>
+								<option value="装有压舱物,挥发性物质" selected="selected">装有压舱物,挥发性物质</option>
+								<option value="清洗后/无油品蒸气,挥发性物质">清洗后/无油品蒸气,挥发性物质</option>
+								<option value="任何状态,不挥发物质">任何状态,不挥发物质</option>
+							</select>
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请选船舶装载原油船舱情况,上次装载情况。
+							</div>
+						</div></li>
+
+					<li class="form_content_li gs sship qy" style="display: none;"><label for="closed" class="form_label"> <em class="required_em">*</em>船舶装载汽油情况：
+					</label>
+						<div class="form_input_div">
+							<select id="zhuangzaiqy" class="form_select s1 gsship mark1">
+								<option value="">请选择</option>
+								<option value="未清洗,挥发性物质,油轮/远洋驳船(船舱深度12.2米)">未清洗，挥发性物质，油轮/远洋驳船船舱深度12.2米</option>
+								<option value="未清洗,挥发性物质,驳船船(舱深度3-3.7米)">未清洗,挥发性物质,驳船船(舱深度3-3.7米)</option>
+								<option value="装有压舱物,挥发性物质,油轮/远洋驳船(船舱深度12.2米)">装有压舱物,挥发性物质,油轮/远洋驳船(船舱深度12.2米)</option>
+								<option value="装有压舱物,挥发性物质,驳船船(舱深度3-3.7米)">装有压舱物,挥发性物质,驳船船(舱深度3-3.7米)</option>
+								<option value="清洗后,挥发性物质,油轮/远洋驳船(船舱深度12.2米)">清洗后,挥发性物质,油轮/远洋驳船(船舱深度12.2米)</option>
+								<option value="清洗后,挥发性物质,驳船船(舱深度3-3.7米)">清洗后,挥发性物质,驳船船(舱深度3-3.7米)</option>
+								<option value="无油品蒸气,挥发性物质,油轮/远洋驳船(船舱深度12.2米)">无油品蒸气,挥发性物质,油轮/远洋驳船(船舱深度12.2米)</option>
+								<option value="无油品蒸气,挥发性物质,驳船船(舱深度3-3.7米)">无油品蒸气,挥发性物质,驳船船(舱深度3-3.7米)</option>
+								<option value="任何状态,不挥发物质,油轮/远洋驳船(船舱深度12.2米)">任何状态,不挥发物质,油轮/远洋驳船(船舱深度12.2米)</option>
+								<option value="任何状态,不挥发物质,驳船(船舱深度3-3.7米)">任何状态,不挥发物质,驳船(船舱深度3-3.7米)</option>
+								<option value="无油品蒸气,任何货物,油轮/远洋驳船(船舱深度12.2米)">无油品蒸气,任何货物,油轮/远洋驳船(船舱深度12.2米)</option>
+								<option value="无油品蒸气,任何货物,驳船(船舱深度3-3.7米)">无油品蒸气,任何货物,驳船(船舱深度3-3.7米)</option>
+								<option value="典型总体状况,任何货物,油轮/远洋驳船(船舱深度12.2米)">典型总体状况,任何货物,油轮/远洋驳船(船舱深度12.2米)</option>
+								<option value="典型总体状况,任何货物,驳船(船舱深度3-3.7米)">典型总体状况,任何货物,驳船(船舱深度3-3.7米)</option>
+
+							</select>
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请选船舶装载原油船舱情况,上次装载),船舶情况。
+							</div>
+						</div></li>
+
+					<li class="form_content_li gs sship qt" style="display: none;"><label for="closed" class="form_label"> <em class="required_em">*</em>船舶装载汽油和原油以外的产品：
+					</label>
+						<div class="form_input_div">
+							<select id="zhuangzaiqt" class="form_select s1  gsship mark1">
+								<option value="">请选择</option>
+								<option value="水运,轮船液下装载(国际)">水运,轮船液下装载国际</option>
+								<option value="水运,驳船液下装载(国内)">水运,驳船液下装载国内</option>
+							</select>
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请选船舶装载汽油和原油以外的产品交通工具,操作方式。
+							</div>
+						</div></li>
+				</div>
+				
+				<div class="form_title pf2" style="display: none;">
+				<h2>排放系数2</h2>
+			</div>	
+			
+				<div class="pf2" style="display: none;">
+					<li class="form_content_li pf"><label for="cartype" class="form_label"> <em class="required_em">*</em>装载罐车类型：
+					</label>
+						<div class="form_input_div">
+							<select id="ctype" class="form_select p2" classify="">
+								<option value="">请选择</option>
+								<option value="汽车/火车罐车">汽车/火车罐车</option>
+								<option value="海轮;其它产品唯一">海轮;其它产品唯一</option>
+							</select>
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请选择交通工具。
+							</div>
+						</div></li>
+
+					<li class="form_content_li pf p2car" style="display: none;"><label for="cartype" class="form_label"> <em class="required_em">*</em>装载方法：
+					</label>
+						<div class="form_input_div">
+							<select id="cartype" class="form_select p2">
+								<option value="">请选择</option>
+								<option value="液下装载;专用一般服务">液下装载;专用一般服务</option>
+								<option value="液下装载;专用蒸气平衡服务">液下装载;专用蒸气平衡服务</option>
+								<option value="喷溅装载;专用一般服务">喷溅装载;专用一般服务</option>
+								<option value="喷溅装载;专用蒸气平衡服务">喷溅装载;专用蒸气平衡服务</option>
+							</select>
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请选择装载方法。
+							</div>
+						</div></li>
+
+					<li class="form_content_li pf p2ship"><label for="cartype" class="form_label"> <em class="required_em">*</em>装载方法：
+					</label>
+						<div class="form_input_div">
+							<select id="shiptype" class="form_select p2">
+								<option value="">请选择</option>
+								<option value="液下装载;船">液下装载;船</option>
+								<option value="液下装载;船">液下装载;船</option>
+							</select>
+						</div>
+						<div class="form_tip_div">
+							<a class="form_icon"></a>
+							<div class="form_tip">
+								<em class="form_tip_i"></em>请选择装载方法。
+							</div>
+						</div></li>
+				</div>
+				
+
+				<div class="form_buttons">
+					<input class="form_submit" type="submit" value="保存">
+				</div>
+		
+		<div class="pf1" style="display: none;">
+			<form method="post" id="addpf1form" onsubmit="javascript:return false;" novalidate>
+				<div class="form_title">
+					<h1>排放系数1</h1>
+				</div>
+				<table class="list_table">
+					<thead>
+						<tr>
+							<td class="no_td child">NO.</td>
+							<td class="pftype_td">装载运输方式</td>
+							<td class="pfmaterial_td">装载物料</td>
+							<td class="pfprocess_td">装载方式</td>
+							<td class="op_td child">操作</td>
+						</tr>
+					</thead>
+					<tbody>
+						
+						<tr class="add_tr">
+							<td class="no_td child"></td>
+							<td class="pftype_td"><select id="pftype" class="child_select p1">
+									<option value="" selected="selected">请选择</option>
+									<option mi="a" value="公路及铁路装载">公路及铁路装载</option>
+									<option mi="b" value="船舶装载">船舶装载</option>
+							</select>
+								<div class="table_tip_div product_tip">
+									<a class="table_icon"></a>
+									<div class="table_tip">
+										<em class="table_tip_i"></em>请选择装载运输方式。
+									</div>
+								</div></td>
+							<td class="pfmaterial_td"><select id="pfmaterial" class="child_select m p1">
+									<option value="" selected="selected">请选择</option>
+							</select>
+								<div class="table_tip_div product_tip">
+									<a class="table_icon"></a>
+									<div class="table_tip">
+										<em class="table_tip_i"></em>指选择装载物料。
+									</div>
+								</div></td>
+							<td class="pfprocess_td"><select id="pfprocess" class="child_select l p1">
+									<option value="" selected="selected">请选择</option>
+							</select>
+								<div class="table_tip_div product_tip">
+									<a class="table_icon"></a>
+									<div class="table_tip">
+										<em class="table_tip_i"></em>指选择装载方式。
+									</div>
+								</div></td>
+							<td class="op_td child"><input class="child_add_a" type="submit" value="添加"></td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+</div></form>
+<!-- <div class="form_buttons">
+			<input class="form_submit" type="submit" value="保存" />
+		</div> -->
+
+
+</div>
+</div>
+
+<div class="list_div">
+	<div class="list_title">
+		<h1>装载操作列表</h1>
+		<em class="add_em">+ 添加</em>
+	</div>
+	<div class="view_div">
+	<div class="lt_div">
+		<table class="list_table freight_table" total="3" page="1">
+			<thead>
+				<tr>
+					<td class="no_td">NO.</td>
+					<td class="conveyance_td">运输工具</td>
+					<td class="operation_td">操作方式</td>
+					<td class="mode_td">模式</td>
+					<td class="pressure_td">真实蒸汽压（帕）</td>
+					<td class="mol_td">物料分子量（千克/摩尔）</td>
+					<td class="loada_td">实际装载温度（摄氏度））</td>
+					<!-- <td class="loadb_td">装载物料的真实蒸汽压（千帕）</td> -->
+					<td class="loadc_td">油气分子量（克/摩尔）</td>
+					<td class="suanfa_td">选择算法</td>
+					<td class="cuoshi_td">控制措施</td>
+					<td class="zhuangzai_td">装载方式</td>
+					<td class="caozuo_td">操作方式</td>
+					<td class="chuanbozz_td">船舶装载</td>
+					<td class="zhuangzaiyy_td">船舶装载原油情况</td>
+					<td class="zhuangzaiqy_td">船舶装载汽油情况</td>
+					<td class="zhuangzaiqt_td">船舶装载汽油和原油以外的产品</td>
+					<td class="ctype_td">装载运输方式</td>
+					<td class="cartype_td">车类装载方法</td>
+					<td class="shiptype_td">船类装载方法</td>
+
+					<td class="op_td">操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				
+					<tr ref="4" class="list_tr ">
+						<td class="no_td">
+							1</td>
+						<td class="conveyance_td"><em class="ellipsis_em" title="油轮">油轮</em></td>
+						<td class="operation_td"><em class="ellipsis_em" title="浸没式装载"> 
+									
+									
+                                 浸没式装载
+                       
+								
+						</em></td>
+						<td class="mode_td"><em class="ellipsis_em" title="蒸汽平衡"> 
+									
+									
+                                蒸汽平衡
+                       
+								
+						</em></td>
+						<td class="pressure_td"><em class="ellipsis_em" title="10">10</em></td>
+						<td class="mol_td"><em class="ellipsis_em" title="10">10</em></td>
+						<td class="loada_td"><em class="ellipsis_em" title="10">10</em></td>
+						
+						<td class="loadc_td"><em class="ellipsis_em" title="10">10</em></td>
+						<td class="suanfa_td"><em class="ellipsis_em" title="公式法">公式法</em></td>
+						<td class="cuoshi_td"><em class="ellipsis_em" title="罐车与油气收集系统法兰、硬管螺栓连接">罐车与油气收集系统法兰、硬管螺栓连接</em></td>
+						<td class="zhuangzai_td"><em class="ellipsis_em" title="船舶装载">船舶装载</em></td>
+						<td class="caozuo_td"><em class="ellipsis_em" title=""></em></td>
+						<td class="chuanbozz_td"><em class="ellipsis_em" title="船舶装载原油">船舶装载原油</em></td>
+						<td class="zhuangzaiyy_td"><em class="ellipsis_em" title="装有压舱物,挥发性物质">装有压舱物,挥发性物质</em></td>
+						<td class="zhuangzaiqy_td"><em class="ellipsis_em" title=""></em></td>
+						<td class="zhuangzaiqt_td"><em class="ellipsis_em" title=""></em></td>
+						<td class="ctype_td"><em class="ellipsis_em" title=""></em></td>
+						<td class="cartype_td"><em class="ellipsis_em" title=""></em></td>
+						<td class="shiptype_td"><em class="ellipsis_em" title=""></em></td>
+						<td class="op_td"><a class="del_a">删除</a> <!-- ByXWK:乐观锁 -->
+							<input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 17:36:30 CST 2016"></td>
+					</tr>
+				
+					<tr ref="3" class="list_tr ne">
+						<td class="no_td">
+							2</td>
+						<td class="conveyance_td"><em class="ellipsis_em" title="油罐列车">油罐列车</em></td>
+						<td class="operation_td"><em class="ellipsis_em" title="倾倒装载"> 
+									
+									
+                                 倾倒装载
+                       
+								
+						</em></td>
+						<td class="mode_td"><em class="ellipsis_em" title="一般模式"> 
+									
+									
+                                一般模式
+                       
+								
+						</em></td>
+						<td class="pressure_td"><em class="ellipsis_em" title="10">10</em></td>
+						<td class="mol_td"><em class="ellipsis_em" title="10">10</em></td>
+						<td class="loada_td"><em class="ellipsis_em" title="10">10</em></td>
+						
+						<td class="loadc_td"><em class="ellipsis_em" title="10">10</em></td>
+						<td class="suanfa_td"><em class="ellipsis_em" title="排放系数法1">排放系数法1</em></td>
+						<td class="cuoshi_td"><em class="ellipsis_em" title=""></em></td>
+						<td class="zhuangzai_td"><em class="ellipsis_em" title=""></em></td>
+						<td class="caozuo_td"><em class="ellipsis_em" title=""></em></td>
+						<td class="chuanbozz_td"><em class="ellipsis_em" title=""></em></td>
+						<td class="zhuangzaiyy_td"><em class="ellipsis_em" title=""></em></td>
+						<td class="zhuangzaiqy_td"><em class="ellipsis_em" title=""></em></td>
+						<td class="zhuangzaiqt_td"><em class="ellipsis_em" title=""></em></td>
+						<td class="ctype_td"><em class="ellipsis_em" title=""></em></td>
+						<td class="cartype_td"><em class="ellipsis_em" title=""></em></td>
+						<td class="shiptype_td"><em class="ellipsis_em" title=""></em></td>
+						<td class="op_td"><a class="del_a">删除</a> <!-- ByXWK:乐观锁 -->
+							<input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 17:35:57 CST 2016"></td>
+					</tr>
+				
+					<tr ref="2" class="list_tr ">
+						<td class="no_td">
+							3</td>
+						<td class="conveyance_td"><em class="ellipsis_em" title="油罐卡车">油罐卡车</em></td>
+						<td class="operation_td"><em class="ellipsis_em" title="浸没式装载"> 
+									
+									
+                                 浸没式装载
+                       
+								
+						</em></td>
+						<td class="mode_td"><em class="ellipsis_em" title="清洁油罐"> 
+									
+									
+                                清洁油罐
+                       
+								
+						</em></td>
+						<td class="pressure_td"><em class="ellipsis_em" title="10">10</em></td>
+						<td class="mol_td"><em class="ellipsis_em" title="10">10</em></td>
+						<td class="loada_td"><em class="ellipsis_em" title="10">10</em></td>
+						
+						<td class="loadc_td"><em class="ellipsis_em" title="10">10</em></td>
+						<td class="suanfa_td"><em class="ellipsis_em" title="公式法">公式法</em></td>
+						<td class="cuoshi_td"><em class="ellipsis_em" title="装载系统未设蒸气平衡/处理系统">装载系统未设蒸气平衡/处理系统</em></td>
+						<td class="zhuangzai_td"><em class="ellipsis_em" title="公路、铁路装载">公路、铁路装载</em></td>
+						<td class="caozuo_td"><em class="ellipsis_em" title="底部/液下装载新罐车或清洗后的罐车">底部/液下装载新罐车或清洗后的罐车</em></td>
+						<td class="chuanbozz_td"><em class="ellipsis_em" title=""></em></td>
+						<td class="zhuangzaiyy_td"><em class="ellipsis_em" title=""></em></td>
+						<td class="zhuangzaiqy_td"><em class="ellipsis_em" title=""></em></td>
+						<td class="zhuangzaiqt_td"><em class="ellipsis_em" title=""></em></td>
+						<td class="ctype_td"><em class="ellipsis_em" title=""></em></td>
+						<td class="cartype_td"><em class="ellipsis_em" title=""></em></td>
+						<td class="shiptype_td"><em class="ellipsis_em" title=""></em></td>
+						<td class="op_td"><a class="del_a">删除</a> <!-- ByXWK:乐观锁 -->
+							<input type="hidden" class="versionsHidden" name="versions" value="Wed Sep 28 17:35:26 CST 2016"></td>
+					</tr>
+				
+			</tbody>
+		</table>
+	</div>
+
+</div>
+	<div class="page_div"></div>
+</div>
+
+<div class="add_div" style="display:none;">
+	<div class="form_div">
+	<a class="return_a"><!--<img src="../images/return_r.png"> --></a>
+	<form method="post" id="addfreightform" onsubmit="javascript:return false;" novalidate>
+		<div class="form_title">
+			<h1>添加装载操作</h1>
+		</div>
+		<div class="form_content">
+			<ul>
+
+				<li class="form_content_li"><label for="conveyance" class="form_label"> <em class="required_em">*</em>运输工具：
+				</label>
+					<div class="form_input_div">
+						<select id="conveyance" class="form_select" required>
+							<option value="" selected="selected">请选择</option>
+							<option value="油罐卡车">油罐卡车</option>
+							<option value="油罐列车">油罐列车</option>
+							<option value="油轮">油轮</option>
+						</select>
+						<!-- ByXWK:乐观锁 -->
+						<input type="hidden" class="versionsHidden" name="versions" value="">
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选择运输工具。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="operation" class="form_label"> <em class="required_em">*</em>操作方式：
+				</label>
+					<div class="form_input_div">
+						<select id="operation1" class="form_select" required>
+							<option value="" selected="selected">请选择</option>
+							<option value="浸没式装载">浸没式装载</option>
+							<option value="倾倒装载">倾倒装载</option>
+							<option value="其他">其他</option>
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选择操作方式。
+						</div>
+					</div></li>
+
+
+				<li class="form_content_li"><label id="otheroperation_label1" for="otheroperation" class="form_label  
+						  disabled">
+						<em class="required_em">*</em>其他操作方式：
+				</label>
+					<div class="form_input_div">
+						<input id="otheroperation1" class="form_input disabled" disabled="disabled" type="text" required>
+					</div>
+
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写其他操作方式。
+						</div>
+					</div></li>
+
+
+
+
+				<li class="form_content_li"><label for="mode" class="form_label"> <em class="required_em">*</em>模式：
+				</label>
+					<div class="form_input_div">
+						<select id="mode1" class="form_select" required>
+							<option value="" selected="selected">请选择</option>
+							<option value="清洁油罐">清洁油罐</option>
+							<option value="一般模式">一般模式</option>
+							<option value="蒸汽平衡">蒸汽平衡</option>
+							<option value="其他">其他</option>
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选择模式。
+						</div>
+					</div></li>
+
+
+				<li class="form_content_li"><label id="othermode_label1" for="othermode" class="form_label  
+						  disabled">
+						<em class="required_em">*</em>其他模式：
+				</label>
+					<div class="form_input_div">
+						<input id="othermode1" class="form_input disabled" disabled="disabled" type="text" required>
+					</div>
+
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写其他模式。
+						</div>
+					</div></li>
+
+
+				<li class="form_content_li"><label for="pressure" class="form_label"> <em class="required_em">*</em>真实蒸汽压：
+				</label>
+					<div class="form_input_div">
+						<input id="pressure" class="form_input" type="num" step="0.01" min="0" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写真实蒸汽压,单位帕小数点后最多保留两位。
+						</div>
+					</div></li>
+				<li class="form_content_li"><label for="mol" class="form_label">
+						<em class="required_em">*</em>物料分子量：
+				</label>
+					<div class="form_input_div">
+						<input id="mol" class="form_input" type="num" step="0.01" min="0" required>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请填写物料分子量,单位千克/摩尔小数点后最多保留两位。
+						</div>
+					</div></li>
+			</ul>
+			<li class="form_content_li"><label for="loada" class="form_label"> <em class="required_em">*</em>实际装载温度摄氏度：
+			</label>
+				<div class="form_input_div">
+					<input id="loada" class="form_input wl" type="text" data-max="100" required>
+				</div>
+				<div class="form_tip_div ns">
+					<a class="form_icon"></a>
+					<div class="form_tip">
+						<em class="form_tip_i"></em>请填写实际装载温度摄氏度。
+					</div>
+				</div></li>
+
+			<!-- <li class="form_content_li yc wh"><label for="loadb"
+				class="form_label sf"> <em class="required_em">*</em>装载物料的真实蒸汽压千帕：
+			</label>
+				<div class="form_input_div">
+					<input id="loadb" class="form_input wl" type="text" data-max="100"
+						required />
+				</div>
+				<div class="form_tip_div ns">
+					<a class="form_icon"></a>
+					<div class="form_tip">
+						<em class="form_tip_i"></em>请填写装载物料的真实蒸汽压千帕。
+					</div>
+				</div></li> -->
+			<li class="form_content_li yc wh"><label for="loadc" class="form_label sf"> <em class="required_em">*</em>油气分子量克/摩尔：
+			</label>
+				<div class="form_input_div">
+					<input id="loadc" class="form_input wl" type="text" data-max="100" required>
+				</div>
+				<div class="form_tip_div ns">
+					<a class="form_icon"></a>
+					<div class="form_tip">
+						<em class="form_tip_i"></em>请填写油气分子量克/摩尔。
+					</div>
+				</div></li>
+			<li class="form_content_lik"><label for="suanfa" class="form_label"> <em class="required_em">*</em>选择算法：
+			</label>
+				<div class="form_input_div">
+				<!-- 	<select id="suanfa" class="form_select" required>
+						<option value="请选择">请选择</option>
+						<option value="公式法">公式法</option>
+						<option value="排放系数法1">排放系数法1</option>
+						<option value="排放系数法2">排放系数法2</option>
+					</select> -->
+					<div class="form_input_div">
+						<label><input id="F-gs" name="Fruit" type="checkbox" value="公式法">公式法<br> </label>
+                        <label><input id="F-pf1" name="Fruit" type="checkbox" value="排放系数法1">排放系数法1<br> </label>
+                        <label><input id="F-pf2" name="Fruit" type="checkbox" value="排放系数法2">排放系数法2<br></label>
+					</div>
+				</div>
+				<div class="form_tip_div">
+					<a class="form_icon"></a>
+					<div class="form_tip">
+						<em class="form_tip_i"></em>请选择算法。
+					</div>
+				</div></li>
+			<div class="form_title gs1" style="display: none;">
+				<h2>公式法</h2>
+			</div>
+
+			<div class="gs1" style="display: none;">
+				<li class="form_content_li gs "><label for="closed" class="form_label"> <em class="required_em">*</em>控制措施：
+				</label>
+					<div class="form_input_div">
+						<select id="cuoshi" class="form_select s1">
+							<option value="">请选择</option>
+							<option value="装载系统未设蒸气平衡/处理系统">装载系统未设蒸气平衡/处理系统</option>
+							<option value="真空装载且保持真空度小于-0.37千帕">真空装载且保持真空度小于-0.37千帕</option>
+							<option value="罐车与油气收集系统法兰、硬管螺栓连接">罐车与油气收集系统法兰、硬管螺栓连接</option>
+							<option value="其他情况">其他情况</option>
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选择控制措施。
+						</div>
+					</div></li>
+
+				<li class="form_content_li gs "><label for="closed" class="form_label"> <em class="required_em">*</em>装载方式：
+				</label>
+					<div class="form_input_div">
+						<select id="zhuangzai1" class="form_select s1">
+							<option value="">请选择</option>
+							<option value="公路、铁路装载">公路、铁路装载</option>
+							<option value="船舶装载">船舶装载</option>
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选择装载方式。
+						</div>
+					</div></li>
+
+				<li class="form_content_li gs scar"><label for="closed" class="form_label"> <em class="required_em">*</em>操作方式：
+				</label>
+					<div class="form_input_div">
+						<select id="caozuo" class="form_select s1 gscar">
+							<option value="">请选择</option>
+							<option value="底部/液下装载新罐车或清洗后的罐车">底部/液下装载新罐车或清洗后的罐车</option>
+							<option value="底部/液下装载正常工况普通的罐车">底部/液下装载正常工况普通的罐车</option>
+							<option value="喷溅式装载新罐车或清洗后的罐车">喷溅式装载新罐车或清洗后的罐车</option>
+							<option value="喷溅式装载正常工况普通的罐车">喷溅式装载正常工况普通的罐车</option>
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选择操作方式。
+						</div>
+					</div></li>
+
+				<li class="form_content_li sship"><label for="closed" class="form_label"> <em class="required_em">*</em>船舶装载：
+				</label>
+					<div class="form_input_div">
+						<select id="chuanbozz" class="form_select s1 gsship">
+							<option value="">请选择</option>
+							<option value="船舶装载原油">船舶装载原油</option>
+							<option value="船舶装载汽油">船舶装载汽油</option>
+							<option value="船舶装载汽油和原油以外的产品">船舶装载汽油和原油以外的产品</option>
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选择船舶装载。
+						</div>
+					</div></li>
+
+				<li class="form_content_li gs sship yy"><label for="closed" class="form_label"> <em class="required_em">*</em>船舶装载原油情况：
+				</label>
+					<div class="form_input_div">
+						<select id="zhuangzaiyy" class="form_select s1 gsship mark1">
+							<option value="">请选择</option>
+							<option value="未清洗,挥发性物质">未清洗,挥发性物质</option>
+							<option value="装有压舱物,挥发性物质">装有压舱物挥发性物质</option>
+							<option value="清洗后/无油品蒸气,挥发性物质">清洗后/无油品蒸气,挥发性物质</option>
+							<option value="任何状态,不挥发物质">任何状态,不挥发物质</option>
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选船舶装载原油船舱情况,上次装载情况。
+						</div>
+					</div></li>
+
+				<li class="form_content_li gs sship qy"><label for="closed" class="form_label"> <em class="required_em">*</em>船舶装载汽油情况：
+				</label>
+					<div class="form_input_div">
+						<select id="zhuangzaiqy" class="form_select s1 gsship mark1">
+							<option value="">请选择</option>
+							<option value="未清洗,挥发性物质,油轮/远洋驳船(船舱深度12.2米)">未清洗,挥发性物质,油轮/远洋驳船(船舱深度12.2米)</option>
+							<option value="未清洗,挥发性物质,驳船船(舱深度3-3.7米)">未清洗,挥发性物质,驳船船(舱深度3-3.7米)</option>
+							<option value="装有压舱物,挥发性物质,油轮/远洋驳船(船舱深度12.2米)">装有压舱物,挥发性物质,油轮/远洋驳船(船舱深度12.2米)</option>
+							<option value="装有压舱物,挥发性物质,驳船船(舱深度3-3.7米)">装有压舱物,挥发性物质,驳船船(舱深度3-3.7米)</option>
+							<option value="清洗后,挥发性物质,油轮/远洋驳船(船舱深度12.2米)">清洗后,挥发性物质,油轮/远洋驳船(船舱深度12.2米)</option>
+							<option value="清洗后,挥发性物质,驳船船(舱深度3-3.7米)">清洗后,挥发性物质,驳船船(舱深度3-3.7米)</option>
+							<option value="无油品蒸气,挥发性物质,油轮/远洋驳船(船舱深度12.2米)">无油品蒸气,挥发性物质,油轮/远洋驳船(船舱深度12.2米)</option>
+							<option value="无油品蒸气,挥发性物质,驳船船(舱深度3-3.7米)">无油品蒸气,挥发性物质,驳船船(舱深度3-3.7米)</option>
+							<option value="任何状态,不挥发物质,油轮/远洋驳船(船舱深度12.2米)">任何状态,不挥发物质,油轮/远洋驳船(船舱深度12.2米)</option>
+							<option value="任何状态,不挥发物质,驳船(船舱深度3-3.7米)">任何状态,不挥发物质,驳船(船舱深度3-3.7米)</option>
+							<option value="无油品蒸气,任何货物,油轮/远洋驳船(船舱深度12.2米)">无油品蒸气,任何货物,油轮/远洋驳船(船舱深度12.2米)</option>
+							<option value="无油品蒸气,任何货物,驳船(船舱深度3-3.7米)">无油品蒸气,任何货物,驳船(船舱深度3-3.7米)</option>
+							<option value="典型总体状况,任何货物,油轮/远洋驳船(船舱深度12.2米)">典型总体状况,任何货物,油轮/远洋驳船(船舱深度12.2米)</option>
+							<option value="典型总体状况,任何货物,驳船(船舱深度3-3.7米)">典型总体状况,任何货物,驳船(船舱深度3-3.7米)</option>
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选船舶装载原油船舱情况,上次装载,船舶情况。
+						</div>
+					</div></li>
+
+				<li class="form_content_li gs sship qt"><label for="closed" class="form_label"> <em class="required_em">*</em>船舶装载汽油和原油以外的产品：
+				</label>
+					<div class="form_input_div">
+						<select id="zhuangzaiqt" class="form_select s1 gsship mark1">
+							<option value="">请选择</option>
+							<option value="水运,轮船液下装载(国际)">水运,轮船液下装载(国际)</option>
+							<option value="水运,驳船液下装载(国内)">水运,驳船液下装载(国内)</option>
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选船舶装载汽油和原油以外的产品交通工具,操作方式。
+						</div>
+					</div></li>
+			</div>
+
+			<div class="form_title pf2" style="display: none;">
+				<h2>排放系数2</h2>
+			</div>
+			<div class="pf2" style="display: none;">
+				<li class="form_content_li pf"><label for="cartype" class="form_label"> <em class="required_em">*</em>装载罐车类型：
+				</label>
+					<div class="form_input_div">
+						<select id="ctype1" class="form_select p2 ">
+							<option value="">请选择</option>
+							<option value="汽车/火车罐车">汽车/火车罐车</option>
+							<option value="海轮,其它产品唯一">海轮;其它产品唯一</option>
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选择交通工具。
+						</div>
+					</div></li>
+
+				<li class="form_content_li pf p2car"><label for="cartype" class="form_label"> <em class="required_em">*</em>装载方法：
+				</label>
+					<div class="form_input_div">
+						<select id="cartype" class="notio1 form_select p2">
+							<option value="">请选择</option>
+							<option value="液下装载;专用一般服务">液下装载;专用一般服务</option>
+							<option value="液下装载;专用蒸气平衡服务">液下装载;专用蒸气平衡服务</option>
+							<option value="喷溅装载;专用一般服务">喷溅装载;专用一般服务</option>
+							<option value="喷溅装载;专用蒸气平衡服务">喷溅装载;专用蒸气平衡服务</option>
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选择装载方法。
+						</div>
+					</div></li>
+
+				<li class="form_content_li pf p2ship"><label for="cartype" class="form_label"> <em class="required_em">*</em>装载方法：
+				</label>
+					<div class="form_input_div">
+						<select id="shiptype" class="notio2 form_select p2">
+							<option value="">请选择</option>
+							<option value="液下装载,船">液下装载;船</option>
+							<option value="液下装载,驳船">液下装载;驳船</option>
+						</select>
+					</div>
+					<div class="form_tip_div">
+						<a class="form_icon"></a>
+						<div class="form_tip">
+							<em class="form_tip_i"></em>请选择装载方法。
+						</div>
+					</div></li>
+			</div>
+			
+
+			<div class="form_buttons">
+				<input class="form_submit" type="submit" value="提交">
+			</div>
+	
+	<div class="pf1" style="display: none;">
+		<form method="post" id="addpf1form" onsubmit="javascript:return false;" novalidate>
+			<div class="form_title">
+				<h1>排放系数1</h1>
+			</div>
+			<table class="list_table">
+				<thead>
+					<tr>
+						<td class="no_td child">NO.</td>
+						<td class="pftype_td">装载运输方式</td>
+						<td class="pfmaterial_td">装载物料</td>
+						<td class="pfprocess_td">装载方式</td>
+						<td class="op_td child">操作</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="add_tr">
+						<td class="no_td child"></td>
+						<td class="pftype_td"><select id="pftype" class="child_select p1">
+								<option value="" selected="selected">请选择</option>
+								<option mi="a" value="公路及铁路装载">公路及铁路装载</option>
+								<option mi="b" value="船舶装载">船舶装载</option>
+						</select>
+							<div class="table_tip_div product_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>请选择装载运输方式。
+								</div>
+							</div></td>
+						<td class="pfmaterial_td"><select id="pfmaterial" class="child_select m p1">
+								<option value="" selected="selected">请选择</option><option mi="a" value="汽油">汽油</option><option mi="b" value="煤油">煤油</option><option mi="c" value="柴油">柴油</option><option mi="d" value="轻石脑油">轻石脑油</option><option mi="e" value="重石脑油">重石脑油</option><option mi="f" value="原油">原油</option><option mi="g" value="轻污油">轻污油</option><option mi="h" value="重污油">重污油</option>
+						</select>
+							<div class="table_tip_div product_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>指选择装载物料。
+								</div>
+							</div></td>
+						<td class="pfprocess_td"><select id="pfprocess" class="child_select l p1">
+								<option value="" selected="selected">请选择</option><option mi="a" value="底部/液下装载-新罐车或清洗后的罐车">底部/液下装载-新罐车或清洗后的罐车</option><option mi="b" value="底部/液下装载-正常工况(普通)的罐车">底部/液下装载-正常工况(普通)的罐车</option><option mi="c" value="喷溅装载-新罐车或清洗后的罐车">喷溅装载-新罐车或清洗后的罐车</option><option mi="d" value="喷溅装载-正常工况(普通)的罐车">喷溅装载-正常工况(普通)的罐车</option>
+                                <option mi="a" value="远洋驳船" style="display:none;">远洋驳船</option><option style="display:none;" mi="a" value="驳船">驳船</option>
+						</select>
+							<div class="table_tip_div product_tip">
+								<a class="table_icon"></a>
+								<div class="table_tip">
+									<em class="table_tip_i"></em>指选择装载方式。
+								</div>
+							</div></td>
+						<td class="op_td child"><input class="child_add_a" type="submit" value="添加"></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div></form></div>
+</div>
+
+<!------  弹窗背景  -------->
+    <div class="map_bg" style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background-color: #000;filter: alpha(opacity = 30); -moz-opacity: 0.3; opacity: 0.3; z-index: -10; display:none;"></div>
+    
+</div></div>
+
+</body>
+</html>
