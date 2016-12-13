@@ -7,6 +7,7 @@
     status          状态(0.禁用,1.启用)
     createtime      创建日期
     lastlogintime   最后登录日期
+    avatar          用户头像
 
     phone           电话
     mobile          手机
@@ -15,7 +16,6 @@
     type            用户类型(管理员,企业,个人)
     address         地址
     zipcode         邮编
-    avatar          用户头像
 
 公司信息(company)：
     id

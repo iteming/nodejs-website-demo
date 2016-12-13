@@ -5,24 +5,42 @@
     .menu_list(style='top:40px'): .list_outer.content.mcustomscrollbox._mCS_1
         .mCustomScrollBox.mCS-light#mCSB_1(style="position:relative; height:100%; overflow:hidden; max-width:100%;")
             .mCSB_container.mCS_no_scrollbar(style="position:relative; top:0;")
-                .menu_single: a(href='#',target='_self'): .menu_parent
-                    .menu_icon: img(src='../img/cms/com_basic.png')
+                .menu_single: a(href='/cms/company',target='_self'): .menu_parent
+                    .menu_icon: img(src='#{website.siteurl + "img/cms/com_basic.png"}')
                     p 企业基本信息
-                .menu_single: a(href='#',target='_self'): .menu_parent
-                    .menu_icon: img(src='../img/cms/com_basic.png')
+                .menu_single: a(href='/cms/contact',target='_self'): .menu_parent
+                    .menu_icon: img(src='#{website.siteurl + "img/cms/com_basic.png"}')
+                    p 企业联系方式
+                .menu_single: a(href='/cms/notice',target='_self'): .menu_parent
+                    .menu_icon: img(src='#{website.siteurl + "img/cms/com_basic.png"}')
                     p 通知公告
+                .menu_single: a(href='/cms/news',target='_self'): .menu_parent
+                    .menu_icon: img(src='#{website.siteurl + "img/cms/com_basic.png"}')
+                    p 新闻中心
                 .menu_single
                     .menu_parent
-                        .menu_icon: img(src='../img/cms/com_basic.png')
-                        p 企业产品
+                        .menu_icon: img(src='#{website.siteurl + "img/cms/com_basic.png"}')
+                        p 企业产品管理
                         .arrow_down(style="background-position: 0px 0px;")
                     ul.sub_menu(style='display: none')
-                        li.sub: a(href='#',target='_self')
-                            .menu_icon: img(src='../img/cms/sub_menu_icon.png')
-                            p 产品列表
-                        li.sub: a(href='#',target='_self')
-                            .menu_icon: img(src='../img/cms/sub_menu_icon.png')
-                            p 产品图片
+                        li.sub: a(href='/cms/product',target='_self')
+                            .menu_icon: img(src='#{website.siteurl + "img/cms/sub_menu_icon.png"}')
+                            p 产品管理
+                        li.sub: a(href='/cms/category',target='_self')
+                            .menu_icon: img(src='#{website.siteurl + "img/cms/sub_menu_icon.png"}')
+                            p 分类管理
+                .menu_single: a(href='/cms/honor',target='_self'): .menu_parent
+                    .menu_icon: img(src='#{website.siteurl + "img/cms/com_basic.png"}')
+                    p 荣誉证书
+                .menu_single: a(href='/cms/photo',target='_self'): .menu_parent
+                    .menu_icon: img(src='#{website.siteurl + "img/cms/com_basic.png"}')
+                    p 企业相册
+                .menu_single: a(href='/cms/comment',target='_self'): .menu_parent
+                    .menu_icon: img(src='#{website.siteurl + "img/cms/com_basic.png"}')
+                    p 评论留言
+                .menu_single: a(href='/cms/website',target='_self'): .menu_parent
+                    .menu_icon: img(src='#{website.siteurl + "img/cms/com_basic.png"}')
+                    p 网站信息
             .mCSB_scrollTools(style="position: absolute; display: none;")
                 a.mCSB_buttonUp(oncontextmenu="return false;")
                 .mCSB_draggerContainer
