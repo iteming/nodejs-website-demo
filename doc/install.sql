@@ -208,4 +208,4 @@ INSERT INTO `user` VALUES ('1', 'iteming', '123456', '系统管理员', '1', '20
 -- ----------------------------
 -- Records of website
 -- ----------------------------
-INSERT INTO `website` VALUES ('1', 'http://127.0.0.1:3000/', '石家庄千甫金属制品有限公司', null, null, null, null, 'iteming', 'www.iteming.wang', '0');
+INSERT INTO `website` VALUES ('1', 'http://127.0.0.1:3000/', '石家庄千甫金属制品有限公司', null, null, null, null, 'iteming', 'http://www.iteming.wang', '0');
