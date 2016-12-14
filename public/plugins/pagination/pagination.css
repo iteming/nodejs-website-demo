@@ -1,0 +1,195 @@
+.pagination {
+            font-size: 80%;
+        }
+        
+.pagination a {
+    text-decoration: none;
+	border: solid 1px #AAE;
+	color: #15B;
+}
+
+.pagination a, .pagination span {
+    display: block;
+    float: left;
+    padding: 0.3em 0.5em;
+    margin-right: 5px;
+	margin-bottom: 5px;
+	min-width:1em;
+	text-align:center;
+}
+
+.pagination .current {
+    background: #26B;
+    color: #fff;
+	border: solid 1px #AAE;
+}
+
+.pagination .current.prev, .pagination .current.next{
+	color:#999;
+	border-color:#999;
+	background:#fff;
+}
+
+
+
+/* -----------------  */
+
+.pagination-jzk
+{
+    margin: 20px 0;
+}
+
+    .pagination-jzk
+    {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        margin-left: 0;
+        margin-bottom: 0;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+        .pagination-jzk
+        {
+            display: inline;
+        }
+        
+        .pagination-jzk > span + span,.pagination-jzk > span + a,.pagination-jzk > a + span,.pagination-jzk > a + a
+        {
+            margin-left: 1px;
+        }
+
+            .pagination-jzk > a, .pagination-jzk > span
+            {
+                color: #5f5d5d;
+                float: left;
+                padding: 4px 12px;
+                line-height: 20px;
+                text-decoration: none;
+                background-color: #ffffff;
+                border: 1px solid #dddddd;
+                border-left-width: 0;
+                /*margin-right:1px;*/
+            }
+
+                .pagination-jzk > a:hover, .pagination-jzk > a:focus, .pagination-jzk > .active > a, .pagination-jzk > .active > span
+                {
+	                border: solid 1px #378c8d;
+                    color: #fff;
+                    background-color: #33A1A2;
+                }
+
+        .pagination-jzk > .active > a, .pagination-jzk > .active > span
+        {
+            color: #999999;
+            cursor: default;
+        }
+        
+        .pagination-jzk > span.current {
+            background: #33A1A2;
+            color: #fff;
+	        border: solid 1px #378c8d;
+        }
+
+        .pagination-jzk > .disabled > span, .pagination-jzk > .disabled > a, .pagination-jzk > .disabled > a:hover, .pagination-jzk > .disabled > a:focus
+        {
+            color: #999999;
+            background-color: transparent;
+            cursor: default;
+        }
+
+        .pagination-jzk:first-child > a, .pagination-jzk:first-child > span
+        {
+            border-left-width: 1px;
+            -webkit-border-top-left-radius: 4px;
+            -moz-border-radius-topleft: 4px;
+            border-top-left-radius: 4px;
+            -webkit-border-bottom-left-radius: 4px;
+            -moz-border-radius-bottomleft: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        .pagination-jzk:last-child > a, .pagination-jzk:last-child > span
+        {
+            -webkit-border-top-right-radius: 4px;
+            -moz-border-radius-topright: 4px;
+            border-top-right-radius: 4px;
+            -webkit-border-bottom-right-radius: 4px;
+            -moz-border-radius-bottomright: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+.pagination-jzk-centered
+{
+    text-align: center;
+}
+
+.pagination-jzk-right
+{
+    text-align: right;
+}
+
+.pagination-jzk-large > a, .pagination-jzk-large > span
+{
+    padding: 11px 19px;
+    font-size: 17.5px;
+}
+
+.pagination-jzk-large:first-child > a, .pagination-jzk-large:first-child > span
+{
+    -webkit-border-top-left-radius: 6px;
+    -moz-border-radius-topleft: 6px;
+    border-top-left-radius: 6px;
+    -webkit-border-bottom-left-radius: 6px;
+    -moz-border-radius-bottomleft: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.pagination-jzk-large:last-child > a, .pagination-jzk-large:last-child > span
+{
+    -webkit-border-top-right-radius: 6px;
+    -moz-border-radius-topright: 6px;
+    border-top-right-radius: 6px;
+    -webkit-border-bottom-right-radius: 6px;
+    -moz-border-radius-bottomright: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.pagination-jzk-mini:first-child > a, .pagination-jzk-small:first-child > a, .pagination-jzk-mini:first-child > span, .pagination-jzk-small:first-child > span
+{
+    -webkit-border-top-left-radius: 3px;
+    -moz-border-radius-topleft: 3px;
+    border-top-left-radius: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    -moz-border-radius-bottomleft: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.pagination-jzk-mini:last-child > a, .pagination-jzk-small:last-child > a, .pagination-jzk-mini:last-child > span, .pagination-jzk-small:last-child > span
+{
+    -webkit-border-top-right-radius: 3px;
+    -moz-border-radius-topright: 3px;
+    border-top-right-radius: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    -moz-border-radius-bottomright: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.pagination-jzk-small > a, .pagination-jzk-small > span
+{
+    padding: 2px 10px;
+    font-size: 11.9px;
+}
+
+.pagination-jzk-mini > a, .pagination-jzk-mini > span
+{
+    padding: 0 6px;
+    font-size: 10.5px;
+}
+
+/* -----------------  */

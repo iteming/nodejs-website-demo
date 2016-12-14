@@ -6,3 +6,28 @@ block cms_content
     .content_main
         mixin toastr(status, msg)
         .container-fluid
+            section.todo-content
+                div.panel-title.pll General Form Elements
+                    small Preview
+            .col-md-12: .box.box-info
+                .box-header.with-border: h3.box-title Horizontal Form
+                .box-body: .col-sm-12: .row
+                    table#example1.table.table-striped.table-bordered(role="grid")
+                        thead: tr(role='row')
+                            th title
+                            th content
+                            th datetime
+                        tbody
+                            tr.odd(role='row')
+                                td test title 1
+                                td content test ... 1
+                                td 2016-12-14
+                            tr.even(role='row')
+                                td test title 2
+                                td content test ... 2
+                                td 2016-12-15
+                .box-footer
+                    .clearfix.pagination-jzk-right: .pagination-jzk.pull-right.mtn#pagination
+
+append scripts
+    script(type='text/javascript',src='/js/cms/PaginationPageJS.js')

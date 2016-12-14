@@ -536,7 +536,7 @@
     right: 0;
     bottom: 35px;
     background-color: #ecf0f5;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .copyright {

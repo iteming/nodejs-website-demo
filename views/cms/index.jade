@@ -9,33 +9,33 @@ block cms_content
             h1 我是cms管理系统主页
             .row
                 .col-md-3
-                    h3.demo-panel-title(style='font-size: 24px;font-weight: 700;') Checkboxes
-                    label.checkbox
+                    h3.panel-title Checkboxes
+                    div.checkbox: label
                         span.icons
                         span.icon-to-fade
                         -var someValue=false
                         input(type='checkbox', checked=someValue)
                         lable checkbox's UnChecked
-                    label.checkbox
+                    div.checkbox: label
                         span.icons
                         span.icon-to-fade
                         input(type='checkbox', checked)
                         lable Checkbox's Checked
                 .col-md-3
-                    h3.demo-panel-title(style='font-size: 24px;font-weight: 700;') Radio Buttons
-                    label.radio
+                    h3.panel-title Radio Buttons
+                    div.radio: label
                         span.icons
                         span.icon-to-fade
                         input(type='radio',name='radio1',checked)
                         lable Radio's Checked
-                    label.radio
+                    div.radio: label
                         span.icons
                         span.icon-to-fade
                         input(type='radio',name='radio1')
                         lable Radio's UnChecked
             .row
                 .col-md-3
-                    h3.demo-panel-title(style='font-size: 24px;font-weight: 700;') DropDownList
+                    h3.panel-title DropDownList
                     .btn-group.select.select-block
                         button.btn.btn-inverse.dropdown-toggle.clearfix(data-toggle='dropdown')
                             span.filter-option.pull-left Large button &nbsp;
@@ -46,7 +46,3 @@ block cms_content
                             li: a(href='#') Something else here
                             li.divider
                             li: a(href='#') Separated link
-
-                .col-md-3
-                    i.fa.fa-address-card.fa-lg
-                    i.fa.fa-fax

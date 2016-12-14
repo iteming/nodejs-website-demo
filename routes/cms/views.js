@@ -85,7 +85,7 @@ router.get('/user/center', function (req, res, next) {
     var user = req.cookies.user;
     var website = req.cookies.website;
     if (!user) {
-        res.redirect('login');
+        res.redirect('../login');
         return;
     }
     res.render('cms/user/center', {user: user, website: website});
@@ -93,7 +93,7 @@ router.get('/user/center', function (req, res, next) {
 // 设置密码
 router.get('/user/forget', function (req, res, next) {
     // var user = req.cookies.user;
-    // if(!user) { res.redirect('login'); return; }
+    // if(!user) { res.redirect('../login'); return; }
     res.render('cms/user/forget');
 });
 
