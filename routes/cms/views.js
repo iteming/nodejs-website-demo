@@ -1,5 +1,6 @@
 var express = require('express');
 var util = require('util');
+var moment = require('moment');
 var router = express.Router();
 require('../core/CommonUtil');
 require('../core/HttpWrapper');
@@ -71,6 +72,7 @@ router.post('/login', function (req, res, next) {
                 res.render('cms/login', {status: 2, msg: '密码错误!', username: req.body.username});
                 return;
             }
+            if (user.lastlogintime) user.lastlogintime = moment(user.lastlogintime).format("YYYY年MM月DD日 HH:mm:ss");
             res.cookie('user', user, {maxAge: 60 * 60 * 1000}); //24 * 60 * 60 * 1000
             res.redirect('index');
             return;
