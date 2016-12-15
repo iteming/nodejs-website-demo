@@ -20,14 +20,14 @@
 公司信息(company)：
     id
     company_name    公司名称(石家庄千甫金属制品有限公司)
-    description     公司介绍
+    description     公司介绍(公司主营：锌锭、铝锭加工销售；氧化锌、铜锭、铅锭、锌矿粉、锌渣销售)
     address         公司地址(河北省石家庄市晋州市邵庄村)
-    company_type    公司类型(有限责任公司(自然人独资)/生产商/经销商)
-    company_size    公司规模
+    company_type    公司类型(生产商/经销商)
+    company_size    公司规模(50-100人)
     regist_capital  注册资本(100万人民币)
     regist_date     注册年份(2016年8月)
-    business_model  经营模式
-    business_scope  经营范围(锌锭、铝锭加工销售；氧化锌、铜锭、铅锭、锌矿粉、锌渣销售（依法须经批准的项目，经相关部门批准后方可开展经营活动）。)
+    business_model  经营模式(有限责任公司(自然人独资))
+    business_scope  经营范围(锌锭、铝锭加工销售；氧化锌、铜锭、铅锭、锌矿粉、锌渣销售(依法须经批准的项目，经相关部门批准后方可开展经营活动).)
 
 联系方式(contact)：
     id
@@ -119,6 +119,7 @@
     siteurl         网站URL
     title           网站标题
     description     网站描述
+    keywords        网站关键词
     logo            网站logo url
     carousel        轮播图片url
     icp_num         备案

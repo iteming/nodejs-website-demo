@@ -397,6 +397,7 @@
     overflow: hidden;
     margin: 5px 5px 5px 10px;
     float: left;
+    font-size: 18px;
 }
 
 .menu_list .menu_parent.cur .menu_icon img {

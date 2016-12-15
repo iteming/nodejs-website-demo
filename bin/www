@@ -90,7 +90,5 @@ function onListening() {
     debug('Listening on ' + bind);
     console.log('Server running at http://'+ hostname +':'+ addr.port + '/');
     console.log('Server running at http://'+ hostname +':'+ addr.port + '/cms/login');
-    console.log('Server running at http://'+ hostname +':'+ addr.port + '/cms/index');
     console.log('Jade document path : https://segmentfault.com/a/1190000000357534#articleHeader6');
-    console.log('flat-ui document path : http://www.bootcss.com/p/flat-ui/');
 }

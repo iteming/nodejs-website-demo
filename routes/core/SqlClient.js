@@ -57,7 +57,7 @@ SqlClient.prototype={
 			if(obj.hasOwnProperty(name) && name != 'tablename'){
 				if(name == 'id' && CommonUtil.isStrEmpty(obj[name])){//mysql id 自增处理
 				}else{
-					console.log(obj.hasOwnProperty(name));
+					// console.log(obj.hasOwnProperty(name));
 					cols.push(name);
 					params.push('?');
 					paramValues.push(obj[name]);

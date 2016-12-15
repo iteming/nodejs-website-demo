@@ -1,8 +1,58 @@
 extends layouts/layout
 block loadtitle
-    -var title='CMS 企业基本信息'
+    -var title='CMS 公司基本信息'
 
 block cms_content
     .content_main
         mixin toastr(status, msg)
         .container-fluid
+            section.todo-content
+                div.panel-title.pll 公司信息
+                    small 公司基本信息维护
+            .col-md-12: .box.box-info
+                .box-header.with-border: h3.box-title 公司信息
+                form.form-horizontal(data-validate="parsley", method='post', action='/cms/company')
+                    .box-body
+                        .form-group
+                            input#id(name='id',type='hidden',value="#{company.id}")
+                            label.col-sm-1.control-label(for='company_name') 公司名称
+                            .col-sm-7: input#company_name.form-control.parsley-validated(name='company_name',type='text',placeholder='公司名称',
+                                        value="#{company.company_name}",autocomplete="off",data-required="true")
+                        .form-group
+                            label.col-sm-1.control-label(for='description') 公司介绍
+                            .col-sm-7: textarea#description.textarea.form-control.parsley-validated(name="description",rows="5",placeholder="公司介绍",
+                                        autocomplete="off",data-required="true") #{company.description}
+                        .form-group
+                            label.col-sm-1.control-label(for='address') 公司地址
+                            .col-sm-3: input#address.form-control.parsley-validated(name='address',type='text',placeholder='公司地址',
+                                        value="#{company.address}",autocomplete="off",data-required="true")
+                            label.col-sm-1.control-label(for='company_type') 公司类型
+                            .col-sm-3: input#company_type.form-control.parsley-validated(name='company_type',type='text',placeholder='生产商/经销商/批发商/加工商',
+                                        value="#{company.company_type}",autocomplete="off")
+                        .form-group
+                            label.col-sm-1.control-label(for='company_size') 公司规模
+                            .col-sm-3: input#company_size.form-control.parsley-validated(name='company_size',type='text',placeholder='公司规模(ex: 1-49人)',
+                                        value="#{company.company_size}",autocomplete="off")
+                            label.col-sm-1.control-label(for='regist_capital') 注册资本
+                            .col-sm-3: input#regist_capital.form-control.parsley-validated(name='regist_capital',type='text',placeholder='注册资本(ex: N万人民币)',
+                                        value="#{company.regist_capital}",autocomplete="off")
+                        .form-group
+                            label.col-sm-1.control-label(for='regist_date') 注册年份
+                            .col-sm-3: input#regist_date.form-control.parsley-validated(name='regist_date',type='text',placeholder='注册年份',
+                                        value="#{company.regist_date}",autocomplete="off")
+                            label.col-sm-1.control-label(for='business_model') 经营模式
+                            .col-sm-3: input#business_model.form-control.parsley-validated(name='business_model',type='text',placeholder='经营模式(ex: 私营/国营/外资/合资/股份制/独资)',
+                                        value="#{company.business_model}",autocomplete="off")
+                        .form-group
+                            label.col-sm-1.control-label(for='business_scope') 经营范围
+                            .col-sm-7: textarea#business_scope.textarea.form-control.parsley-validated(name="business_scope",rows="5",placeholder="经营范围(ex: 各种型号锌锭、锌粉)",
+                                        autocomplete="off") #{company.business_scope}
+                        .form-group: .col-sm-offset-1.col-sm-11
+                            a.btn.btn-default(type='button',href='/cms/') 取消更改
+                            button.btn.btn-info.mll(type='submit') 确认更改
+
+append scripts
+    script(type='text/javascript').
+        $(document).ready(function () {
+            $("#regist_date").datepicker({todayHighlight: true, format: 'yyyy-mm-dd', autoclose: true});
+        });

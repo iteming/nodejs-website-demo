@@ -2,7 +2,111 @@ extends layouts/layout
 block loadtitle
     -var title='CMS 企业联系方式'
 
+append styles
+    style(type="text/css").
+        #allmap {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            font-family: "微软雅黑";
+        }
+
 block cms_content
     .content_main
         mixin toastr(status, msg)
         .container-fluid
+            section.todo-content
+                div.panel-title.pll 公司联系方式
+                    small 公司联系方式维护
+            .col-md-12: .box.box-info
+                .box-header.with-border: h3.box-title 公司联系方式
+                form.form-horizontal(data-validate="parsley", method='post', action='/cms/contact')
+                    .box-body
+                        .form-group
+                            input#id(name='id',type='hidden',value="#{contact.id}")
+                            label.col-sm-1.control-label(for='contact_name') 联系人
+                            .col-sm-3: input#contact_name.form-control.parsley-validated(name='contact_name',type='text',placeholder='联系人',
+                            value="#{contact.contact_name}",autocomplete="off",data-required="true")
+                            label.col-sm-1.control-label(for='contact_phone') 联系电话
+                            .col-sm-3: input#contact_phone.form-control.parsley-validated(name='contact_phone',type='text',placeholder='联系电话',
+                            value="#{contact.contact_phone}",autocomplete="off")
+                        .form-group
+                            label.col-sm-1.control-label(for='contact_email') 联系邮箱
+                            .col-sm-3: input#contact_email.form-control.parsley-validated(name='contact_email',type='text',placeholder='联系邮箱',
+                            value="#{contact.contact_email}",autocomplete="off")
+                            label.col-sm-1.control-label(for='contact_mobile') 联系手机
+                            .col-sm-3: input#contact_mobile.form-control.parsley-validated(name='contact_mobile',type='text',placeholder='联系手机',
+                            value="#{contact.contact_mobile}",autocomplete="off")
+                        .form-group
+                            label.col-sm-1.control-label(for='contact_fax') 传真
+                            .col-sm-3: input#contact_fax.form-control.parsley-validated(name='contact_fax',type='text',placeholder='传真',
+                            value="#{contact.contact_fax}",autocomplete="off")
+                            label.col-sm-1.control-label(for='contact_qq') QQ
+                            .col-sm-3: input#contact_qq.form-control.parsley-validated(name='contact_qq',type='text',placeholder='QQ',
+                            value="#{contact.contact_qq}",autocomplete="off")
+                        .form-group
+                            label.col-sm-1.control-label(for='location_lng') 经度LNG
+                            .col-sm-3: input#location_lng.form-control.parsley-validated(name='location_lng',type='text',placeholder='经度LNG',
+                            value="#{contact.location_lng}",autocomplete="off",readonly="readonly")
+                            label.col-sm-1.control-label(for='location_lat') 纬度LAT
+                            .col-sm-3: input#location_lat.form-control.parsley-validated(name='location_lat',type='text',placeholder='纬度LAT',
+                            value="#{contact.location_lat}",autocomplete="off",readonly="readonly")
+                        .form-group: .col-sm-offset-1.col-sm-11
+                            a.btn.btn-default(type='button',href='/cms/') 取消更改
+                            button.btn.btn-info.mll(type='submit') 确认更改
+                            button#close.btn.btn-danger.mll(type='button',style='display:none;') 关闭地图
+                        .form-group(style='display:none;'): .col-sm-offset-1.col-sm-7
+                            div(style='width: 700px;height: 450px;')
+                                blockquote: small * 点击选择地图位置
+                                #allmap
+
+append scripts
+    script(type='text/javascript',src="http://api.map.baidu.com/api?v=2.0&ak=z9lTh5KAhB2bPhQ2CUZG5Lpq")
+    script(type='text/javascript').
+        $(document).ready(function () {
+            function mapShow() {
+                var div_map = $("#allmap").parent().parent().parent();
+                var btn_close = $("#close");
+                if (div_map.css("display")=="none") {
+                    div_map.show();
+                    btn_close.show();
+                    execBDMap();
+                } else {
+                    div_map.hide();
+                    btn_close.hide();
+                }
+            }
+
+            $("#location_lng").on("click", mapShow);
+            $("#location_lat").on("click", mapShow);
+            $("#close").on("click", mapShow);
+
+            function execBDMap() {
+                // 百度地图API功能
+                var map = new BMap.Map("allmap");                           // 创建Map实例
+                var point = new BMap.Point('#{contact.location_lng}',
+                        '#{contact.location_lat}');                         // 创建Point点
+                map.centerAndZoom(point, 13);                               // 初始化地图,设置中心点坐标、地图缩放级别
+                map.addControl(new BMap.MapTypeControl());                  // 添加地图类型控件
+                map.enableScrollWheelZoom(true);                            // 启用滚轮放大缩小，默认禁用
+                map.enableContinuousZoom(true);                             // 启用地图惯性拖拽，默认禁用
+                var marker = new BMap.Marker(point);                        // 创建标注
+                map.addOverlay(marker);                                     // 将标注添加到地图中
+                marker.setAnimation(BMAP_ANIMATION_BOUNCE);                 // 跳动的动画
+
+                function clickPoint(e) {
+                    map.removeOverlay(marker);
+                    point = new BMap.Point(e.point.lng, e.point.lat);
+                    marker = new BMap.Marker(point);
+                    map.addOverlay(marker);
+                    marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+
+                    $("#location_lng").val(e.point.lng);
+                    $("#location_lat").val(e.point.lat);
+                }
+
+                map.addEventListener("click", clickPoint);
+            }
+        });
+

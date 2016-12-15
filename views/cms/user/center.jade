@@ -3,42 +3,61 @@ block loadtitle
     -var title='CMS 用户中心'
 
 append styles
-    link(rel='stylesheet', href='/plugins/kindeditor-4.1.11/themes/default/default.css')
-    link(rel='stylesheet', href='/plugins/kindeditor-4.1.11/plugins/code/prettify.css')
-    link(rel='stylesheet', href='/plugins/jquery-file-upload/css/jquery.fileupload.css')
+    //link(rel='stylesheet', href='/plugins/kindeditor-4.1.11/themes/default/default.css')
+    //link(rel='stylesheet', href='/plugins/kindeditor-4.1.11/plugins/code/prettify.css')
+    //link(rel='stylesheet', href='/plugins/jquery-file-upload/css/jquery.fileupload.css')
 
 block cms_content
     .content_main
         mixin toastr(status, msg)
         .container-fluid
             section.todo-content
-                div.panel-title.pll General Form Elements
-                    small Preview
+                div.panel-title.pll 用户中心
+                    small 用户资料维护
             .col-md-12: .box.box-info
-                .box-header.with-border: h3.box-title Horizontal Form
-                form.form-horizontal(data-validate="parsley")
+                .box-header.with-border: h3.box-title 用户中心
+                form.form-horizontal(data-validate="parsley", method='post', action='/cms/user/center')
                     .box-body
                         .form-group
-                            label.col-sm-1.control-label(for='input1') Email
-                            .col-sm-3: input#input1.form-control.parsley-validated(name='input1',type='email',placeholder='Email',value="")
-                            label.col-sm-1.control-label Password
-                            .col-sm-3: input.form-control.parsley-validated(name='Password',type='password',placeholder='Password',value="")
+                            label.col-sm-1.control-label(style='margin-top:40px') 用户头像
+                            .col-sm-11: img(style='width:100px;height:100px;',src='#{user.avatar ? website.siteurl + user.avatar : website.siteurl + "img/cms/default_usr_photo.png"}')
                         .form-group
-                            label.col-sm-1.control-label Line2
-                            .col-sm-3: input.form-control.parsley-validated(name='Line2',type='text',placeholder='Line2',value="")
+                            label.col-sm-1.control-label(for='username') 用户名
+                            .col-sm-3: input#username.form-control.parsley-validated(name='username',type='text',placeholder='username',
+                                            value="#{user.username}",autocomplete="off",data-required="true")
+                            label.col-sm-1.control-label(for='displayname') 真实姓名
+                            .col-sm-3: input#displayname.form-control.parsley-validated(name='displayname',type='text',placeholder='displayname',
+                                            value="#{user.displayname}",autocomplete="off",data-required="true")
                         .form-group
-                            label.col-sm-1.control-label Textarea
-                            .col-sm-7: textarea#Content.textarea.form-control.parsley-validated(name="Content",rows="5",placeholder="Enter text ...")
-                        .form-group: .col-sm-offset-1.col-sm-11: .checkbox: label
-                                input.checkbox(type='checkbox')
-                                | Remember me
+                            label.col-sm-1.control-label(for='createtime') 创建时间
+                            .col-sm-3: input#createtime.form-control.parsley-validated(name='createtime',type='text',placeholder='createtime',
+                                            value="#{user.createtime}",data-type="dateIso")
+                            label.col-sm-1.control-label(for='lastlogintime') 最后登录
+                            .col-sm-3: input#lastlogintime.form-control.parsley-validated(name='lastlogintime',type='text',placeholder='lastlogintime',
+                                            value="#{user.lastlogintime}",data-type="dateIso")
+                        .form-group
+                            label.col-sm-1.control-label(for='status') 用户状态
+                            .col-sm-3: input#status(name='status',type='checkbox',data-toggle="switch",checked=user.status==1,data-on-text="启用",data-off-text="禁用")
                         .form-group: .col-sm-offset-1.col-sm-11
-                            button.btn.btn-default(type='button') Cancel
-                            button.btn.btn-info.mll(type='submit') Sign in
+                            a.btn.btn-default(type='button',href='/cms/') 取消更改
+                            button.btn.btn-info.mll(type='submit') 确认更改
+
+                        //.form-group
+                        //    label.col-sm-1.control-label Textarea
+                        //    .col-sm-7: textarea#Content.textarea.form-control.parsley-validated(name="Content",rows="5",placeholder="Enter text ...")
+                        //.form-group: .col-sm-offset-1.col-sm-11: .checkbox: label
+                        //        input.checkbox(type='checkbox')
+                        //        | Remember me
 
 append scripts
-    script(type='text/javascript',src='/plugins/kindeditor-4.1.11/kindeditor.js')
-    script(type='text/javascript',src='/plugins/kindeditor-4.1.11/lang/zh-CN.js')
-    script(type='text/javascript',src='/plugins/kindeditor-4.1.11/plugins/code/prettify.js')
-    script(type='text/javascript',src='/plugins/jquery-file-upload/js/jquery.fileupload-ajax.js')
-    script(type='text/javascript',src='/js/cms/KindEditorPageJS.js')
+    //script(type='text/javascript',src='/plugins/kindeditor-4.1.11/kindeditor.js')
+    //script(type='text/javascript',src='/plugins/kindeditor-4.1.11/lang/zh-CN.js')
+    //script(type='text/javascript',src='/plugins/kindeditor-4.1.11/plugins/code/prettify.js')
+    //script(type='text/javascript',src='/js/cms/KindEditorPageJS.js')
+    //script(type='text/javascript',src='/plugins/jquery-file-upload/js/jquery.fileupload-ajax.js')
+
+    script(type='text/javascript').
+        $(document).ready(function () {
+            $("#createtime").datepicker({todayHighlight: true, format: 'yyyy-mm-dd', autoclose: true});
+            $("#lastlogintime").datepicker({todayHighlight: true, format: 'yyyy-mm-dd', autoclose: true});
+        });

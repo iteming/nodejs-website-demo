@@ -15,6 +15,7 @@
 .toast-message {
     -ms-word-wrap: break-word;
     word-wrap: break-word;
+    font-size: 18px;
 }
 
 .toast-message a,

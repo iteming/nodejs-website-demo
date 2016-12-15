@@ -190,6 +190,7 @@ CREATE TABLE `website` (
   `siteurl` varchar(100) DEFAULT NULL,
   `title` varchar(100) DEFAULT NULL,
   `description` varchar(100) DEFAULT NULL,
+  `keywords` varchar(100) DEFAULT NULL,
   `logo` varchar(100) DEFAULT NULL,
   `carousel` varchar(500) DEFAULT NULL,
   `icp_num` varchar(100) DEFAULT NULL,
@@ -208,4 +209,15 @@ INSERT INTO `user` VALUES ('1', 'iteming', '123456', '系统管理员', '1', '20
 -- ----------------------------
 -- Records of website
 -- ----------------------------
-INSERT INTO `website` VALUES ('1', 'http://127.0.0.1:3000/', '石家庄千甫金属制品有限公司', null, null, null, null, 'iteming', 'http://www.iteming.wang', '0');
+INSERT INTO `website` VALUES ('1', 'http://127.0.0.1:3000/', '石家庄千甫金属制品有限公司', '公司主营：锌锭、铝锭加工销售；氧化锌、铜锭、铅锭、锌矿粉、锌渣销售', '锌锭、铝锭加工销售；氧化锌、铜锭、铅锭、锌矿粉、锌渣销售', '', '', '冀ICP备15016569号', 'iteming', 'http://www.iteming.wang/', '0');
+
+-- ----------------------------
+-- Records of company
+-- ----------------------------
+INSERT INTO `company` VALUES ('1', '石家庄千甫金属制品有限公司', '公司主营：锌锭、铝锭加工销售；氧化锌、铜锭、铅锭、锌矿粉、锌渣销售', '河北省石家庄市晋州市邵庄村', '生产商/经销商', '50-100人', '100万人民币', '2016-08-06 00:00:00', '有限责任公司(自然人独资)', '锌锭、铝锭加工销售；氧化锌、铜锭、铅锭、锌矿粉、锌渣销售(依法须经批准的项目，经相关部门批准后方可开展经营活动).');
+
+-- ----------------------------
+-- Records of contact
+-- ----------------------------
+INSERT INTO `contact` VALUES ('1', '张英民', '0310-5555555', 'sjzqfjs@163.com', '13014334123', '0310-5555555', '1203706884', '115.028155', '37.992195');
+

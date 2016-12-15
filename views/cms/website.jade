@@ -6,3 +6,59 @@ block cms_content
     .content_main
         mixin toastr(status, msg)
         .container-fluid
+            section.todo-content
+                div.panel-title.pll 网站信息
+                    small 网站信息维护
+            .col-md-12: .box.box-info
+                .box-header.with-border: h3.box-title 网站信息
+                form.form-horizontal(data-validate="parsley", method='post', action='/cms/website')
+                    .box-body
+                        .form-group
+                            input#id(name='id',type='hidden',value="#{website.id}")
+                            label.col-sm-1.control-label(for='title') 网站标题
+                            .col-sm-7: input#title.form-control.parsley-validated(name='title',type='text',placeholder='网站标题',
+                            value="#{website.title}",autocomplete="off",data-required="true")
+                        .form-group
+                            label.col-sm-1.control-label(for='siteurl') 网站网址
+                            .col-sm-7: input#siteurl.form-control.parsley-validated(name='siteurl',type='text',placeholder='网站网址',
+                            value="#{website.siteurl}",autocomplete="off",data-required="true")
+                        .form-group
+                            label.col-sm-1.control-label(for='keywords') 搜索关键词
+                            .col-sm-7: input#keywords.form-control.parsley-validated(name='keywords',type='text',placeholder='搜索关键词',
+                            value="#{website.keywords}",autocomplete="off",data-required="true")
+                        .form-group
+                            label.col-sm-1.control-label(for='description') 网站描述
+                            .col-sm-7: textarea#description.textarea.form-control.parsley-validated(name="description",rows="5",placeholder="网站描述",
+                            autocomplete="off",data-required="true") #{website.description}
+                        .form-group
+                            label.col-sm-1.control-label(style='margin-top:40px') LOGO
+                            .col-sm-3
+                                img(name='logo',style='width:100px;height:100px;display:inline;',src='#{website.logo ? website.siteurl + website.logo : ""}')
+                                a.btn.btn-inverse.mll(style='margin-top:59px') upload
+                        .form-group
+                            label.col-sm-1.control-label(for='support_name') 技术支持
+                            .col-sm-3: input#support_name.form-control.parsley-validated(name='support_name',type='text',placeholder='技术支持',
+                            value="#{website.support_name}",autocomplete="off",data-required="true")
+                            label.col-sm-1.control-label(for='support_url') 技术支持网址
+                            .col-sm-3: input#support_url.form-control.parsley-validated(name='support_url',type='text',placeholder='技术支持网址',
+                            value="#{website.support_url}",autocomplete="off")
+                        .form-group
+                            label.col-sm-1.control-label(for='icp_num') 备案号
+                            .col-sm-3: input#icp_num.form-control.parsley-validated(name='icp_num',type='text',placeholder='公司规模(ex: 1-49人)',
+                            value="#{website.icp_num}",autocomplete="off")
+                            label.col-sm-1.control-label(for='views') 浏览次数
+                            .col-sm-3: input#views.form-control.parsley-validated(name='views',type='text',placeholder='浏览次数',
+                            value="#{website.views}",autocomplete="off",disabled="disabled")
+                        .form-group
+                            label.col-sm-1.control-label(for='carousel') 轮播图片
+                            .col-sm-7: input#carousel.form-control.parsley-validated(name='carousel',type='text',placeholder='轮播图片',
+                            value="#{website.carousel}",autocomplete="off",readonly="readonly")
+
+                        .form-group: .col-sm-offset-1.col-sm-11
+                            a.btn.btn-default(type='button',href='/cms/') 取消更改
+                            button.btn.btn-info.mll(type='submit') 确认更改
+
+append scripts
+    script(type='text/javascript').
+        $(document).ready(function () {
+        });

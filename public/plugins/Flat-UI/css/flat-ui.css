@@ -454,7 +454,7 @@
 
 body {
     font-family: "Lato", Helvetica, Arial, sans-serif;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 1.72222;
     color: #34495e;
     background-color: #ffffff;
@@ -1538,7 +1538,7 @@ input[type="search"] {
 
 label {
     font-weight: normal;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 2.3;
 }
 
@@ -1563,7 +1563,7 @@ label {
     border: 2px solid #bdc3c7;
     color: #34495e;
     font-family: "Lato", Helvetica, Arial, sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.467;
     padding: 8px 12px;
     height: 42px;
