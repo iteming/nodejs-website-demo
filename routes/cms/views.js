@@ -319,7 +319,7 @@ router.get('/news/details/:id', function (req, res, next) {
 });
 
 // 更新新闻内容
-router.post('/cms/news/update', function () {
+router.post('/news/update', function (req, res, next) {
     var user = req.cookies.user;
     var website = req.cookies.website;
     if (!user) {
