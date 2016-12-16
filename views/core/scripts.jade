@@ -12,3 +12,23 @@ script(type='text/javascript',src='/js/ie8-placeholder.js')
 script(type='text/javascript',src='/js/ie8-extend.js')
 script(type='text/javascript',src='/js/qrcode.js')
 script(type='text/javascript',src='/js/launch.js')
+
+script(type='text/javascript').
+    $(window).load(function () {
+        Plugins.init();
+
+        var browser = navigator.appName;
+        if (browser == 'Microsoft Internet Explorer') {
+            var appversion = navigator.appVersion;
+            var version = appversion.split(';');
+            var trim_Version = version[1].replace(/[ ]/g, '');
+
+            if (trim_Version == 'MSIE9.0' || trim_Version == 'MSIE8.0') {
+                // $('input, textarea').placeholder();
+            }
+            if (trim_Version == 'MSIE6.0' || trim_Version == 'MSIE7.0') {
+                alert('建议在IE8以上或者谷歌、火狐等浏览器浏览，当前IE内核为：' + trim_Version);
+                return;
+            }
+        }
+    });

@@ -1,7 +1,17 @@
-$(function () {
+var hidden_toast = function () {
+    $('#toast-container').css('display', 'none');
+};
+
+var tooltip = function () {
+    $("[data-toggle='tooltip']").tooltip();
+};
+
+var checkbox = function () {
     $(':checkbox').radiocheck();
     $(':radio').radiocheck();
+};
 
+var toastr = function () {
     toastr.options = {
         "closeButton": false,
         "debug": false,
@@ -16,7 +26,9 @@ $(function () {
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
     };
+};
 
+var toastrAutoClose = function () {
     if ($("#toast-container").length > 0) {
         if ($('#toast-container').css('display') == 'block') {
             setTimeout(function () {
@@ -24,33 +36,41 @@ $(function () {
             }, '3000')
         }
     }
+};
+var toastrShow = function (status, msg) {
+    if ($("#toast-container").length > 0) {
+        if ($('#toast-container').css('display') == 'none') {
+            $('#toast-container').css('display', 'block');
+            var msgclass = status==1?'toast-success':(status==2?'toast-error':(status==3?'toast-warning':'toast-info'));
+            var html = '<div class="toast '+msgclass+'"><div class="toast-message">'+msg+'</div></div>';
+            $('#toast-container').html(html);
 
-    $(window).load(function () {
-        var browser = navigator.appName;
-        if (browser == 'Microsoft Internet Explorer') {
-            var appversion = navigator.appVersion;
-            var version = appversion.split(';');
-            var trim_Version = version[1].replace(/[ ]/g, '');
-
-            if (trim_Version == 'MSIE9.0' || trim_Version == 'MSIE8.0') {
-                // $('input, textarea').placeholder();
-            }
-            if (trim_Version == 'MSIE6.0' || trim_Version == 'MSIE7.0') {
-                alert('建议在IE8以上或者谷歌、火狐等浏览器浏览，当前IE内核为：' + trim_Version);
-                return;
-            }
-        };
-
-        if ($('.content').length > 0) {
-            $('.content').mCustomScrollbar({
-                scrollButtons: {
-                    enable: true
-                }
-            });
+            setTimeout(function () {
+                $('#toast-container').css('display', 'none');
+            }, '3000')
         }
-    });
-});
+    }
+};
 
-function hidden_toast() {
-    $('#toast-container').css('display', 'none');
-}
+var mCustomScrollbar = function () {
+    if ($('.content').length > 0) {
+        $('.content').mCustomScrollbar({
+            scrollButtons: {
+                enable: true
+            }
+        });
+    }
+};
+
+var Plugins = function () {
+    "use strict";
+    return {
+        init: function () {
+            tooltip();
+            checkbox();
+            toastr();
+            toastrAutoClose();
+            mCustomScrollbar();
+        }
+    }
+}();

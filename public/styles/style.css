@@ -35,3 +35,10 @@ a:hover { color: #F76F76; }
     color: #34495e !important;
     cursor: pointer !important;
 }
+
+table a,.input-group .btn{
+    color: #bdc3c7;
+}
+table a:hover,.input-group .btn:hover{
+    color: #91979b;
+}

@@ -416,11 +416,12 @@
 /* container */
 .ke-container {
 	display: block;
-	border: 1px solid #CCCCCC;
+	border: 2px solid #CCCCCC;
 	background-color: #FFF;
 	overflow: hidden;
 	margin: 0;
 	padding: 0;
+	border-radius: 6px;
 }
 /* toolbar */
 .ke-toolbar {

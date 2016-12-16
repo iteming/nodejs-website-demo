@@ -85,6 +85,8 @@ CREATE TABLE `notice` (
   `content` text DEFAULT NULL,
   `createtime` datetime DEFAULT NULL,
   `status` int(1) DEFAULT 1,
+  `settop` int(1) DEFAULT 0,
+  `views` int(11) DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
@@ -99,6 +101,7 @@ CREATE TABLE `news` (
   `content` text DEFAULT NULL,
   `createtime` datetime DEFAULT NULL,
   `status` int(1) DEFAULT 1,
+  `settop` int(1) DEFAULT 0,
   `views` int(11) DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
@@ -221,3 +224,9 @@ INSERT INTO `company` VALUES ('1', '石家庄千甫金属制品有限公司', '�
 -- ----------------------------
 INSERT INTO `contact` VALUES ('1', '张英民', '0310-5555555', 'sjzqfjs@163.com', '13014334123', '0310-5555555', '1203706884', '115.028155', '37.992195');
 
+-- ----------------------------
+-- Records of news
+-- ----------------------------
+INSERT INTO `news` VALUES ('1', '对方撤回了一条消息。教你如何查看已撤回的微信消息！', '不知道大家有没有这样的感觉，有时候你在给朋友发微信时，对方可能趁你不注意发了消息然后撤回了。比如...  好想知道女神跟我说了什么，是同意了吗?还是拒绝了?我要不要直接打电话过去?万一要是拒绝了我还跟她打电话岂不是很没面子?好吧我顿时感觉这个消息撤回功能简直是人类技术文明的倒退啊!这样让人心痒痒的还不如当没接到过这条消息啊。不过作为一个技术控，绝不能就此知难而退，为了研究出女神到底说了什么，我研究了一晚防撤回的方法，所以今天打算来分享给大家。ps：只针对iPhone用户防文字撤销\r\n　　好了，言归正传。首先我们来打开iPhone的设置，选中通知栏。\r\n　　▼\r\n　　把微信设置为允许通知并打开所有通知选项相信看到这里，机智的小伙伴已经知道该从哪里查看撤回的消息了，没错就是通知栏!\r\n　　请大家不要在意图片里的细节，毕竟这只是一篇正经的教程帖。\r\n　　如果你按照这个方法还是无法查看到撤回消息的话，那一定是微信内的设置问题了，可以打开微信设置里的新消息通知，然后打开通知显示消息详情就好啦~\r\n　　PS:最后提醒一下，如果你的女票爱查岗的话请谨慎打开此功能，不然在关键时候弹出一条不合时宜的消息的话，可别怪我没提醒你有生命危险啊~', '2016-12-16 15:39:38', '1', '0', '0');
+INSERT INTO `news` VALUES ('2', '新通知', '公告：恭喜网站上线', '2016-12-16 15:41:36', '1', '1', '0');
+INSERT INTO `news` VALUES ('3', '再来一条非置顶公告', '公告内容', '2016-12-16 16:48:18', '1', '0', '0');

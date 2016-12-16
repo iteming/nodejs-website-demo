@@ -68,6 +68,8 @@ Notice=function(){
     this.content="";          //公告内容
     this.createtime="";       //公告日期
     this.status=0;           //状态
+    this.settop=0;         //是否置顶
+    this.views=0;         //浏览次数
 };
 
 //新闻表
@@ -78,7 +80,8 @@ News=function(){
     this.content="";          //公告内容
     this.createtime="";       //公告日期
     this.status=0;           //状态
-    this.views=0;           //浏览次数
+    this.settop=0;         //是否置顶
+    this.views=0;         //浏览次数
 };
 
 //产品分类表

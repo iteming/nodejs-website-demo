@@ -59,6 +59,8 @@
     content         公告内容
     createtime      公告日期
     status          状态
+    settop          是否置顶
+    views           浏览次数
 
 新闻中心(news)：
     id
@@ -66,6 +68,7 @@
     content         新闻内容
     createtime      新闻日期
     status          状态
+    settop          是否置顶
     views           浏览次数
 
 产品分类(category)：

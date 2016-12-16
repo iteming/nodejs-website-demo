@@ -1,6 +1,6 @@
 var editor;
 KindEditor.ready(function (K) {
-    editor = K.create('textarea[name="Content"]', {
+    editor = K.create('textarea[name="content"]', {
         cssPath: '../../../plugins/kindeditor-4.1.11/plugins/code/prettify.css',
         uploadJson: '../../../plugins/kindeditor-4.1.11/asp.net/upload_json.ashx',
         fileManagerJson: '../../../plugins/kindeditor-4.1.11/asp.net/file_manager_json.ashx',
@@ -17,6 +17,4 @@ KindEditor.ready(function (K) {
             });
         }
     });
-    // prettyPrint();
-    // MyPage.SetContents();
 });

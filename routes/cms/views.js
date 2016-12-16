@@ -262,6 +262,7 @@ router.get('/notice', function (req, res, next) {
     }
     res.render('cms/notice', {user: user, website: website});
 });
+
 // 新闻中心
 router.get('/news', function (req, res, next) {
     var user = req.cookies.user;
@@ -272,6 +273,62 @@ router.get('/news', function (req, res, next) {
     }
     res.render('cms/news', {user: user, website: website});
 });
+// 获取新闻列表
+router.post('/news/list', function (req, res, next) {
+    var whereSql = req.body.wd ? util.format(" where title like '%%%s%' or content like '%%%s%' ", req.body.wd, req.body.wd) : "";
+    var limitSql = util.format(" order by settop desc,createtime desc Limit %s,%s ", (req.body.page_index - 1) * req.body.page_size, req.body.page_size);
+
+    var sqlClient = new SqlClient();
+    var news = new News();
+    sqlClient.query(news, function (result) {
+        var recordCount = result[0]["count"];
+        if (recordCount == 0) {
+            res.json({status: 3, msg: '暂无记录!', data: null, recordCount: 0});
+            return;
+        }
+        sqlClient.query(news, function (result) {
+            if (result != null && result.length > 0) {
+                result.forEach(function (item) {
+                    item.createtime = moment(item.createtime).format("YYYY-MM-DD HH:mm:ss");
+                });
+                res.json({status: 1, msg: '查询成功!', data: result, recordCount: recordCount});
+            }
+        }, whereSql, limitSql);
+    }, whereSql, null, true);
+});
+
+// 新闻详情页
+router.get('/news/details/:id', function (req, res, next) {
+    var user = req.cookies.user;
+    var website = req.cookies.website;
+    if (!user) {
+        res.redirect('/cms/login');
+        return;
+    }
+    var sqlClient = new SqlClient();
+    var news = new News();
+    news.id = req.params.id;
+    sqlClient.getById(news, function (result) {
+        if (result != null) {
+            if (result.createtime) result.createtime = moment(result.createtime).format("YYYY-MM-DD HH:mm:ss");
+            res.render('cms/news_details', {user: user, website: website, news: result});
+            return;
+        }
+        res.render('cms/news_details', {user: user, website: website, news: news});
+    });
+});
+
+// 更新新闻内容
+router.post('/cms/news/update', function () {
+    var user = req.cookies.user;
+    var website = req.cookies.website;
+    if (!user) {
+        res.redirect('/cms/login');
+        return;
+    }
+    res.render('cms/news', {status: 1, msg: '更新成功!', user: user, website: website});
+});
+
 // 产品管理
 router.get('/product', function (req, res, next) {
     var user = req.cookies.user;

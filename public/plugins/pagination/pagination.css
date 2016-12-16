@@ -36,7 +36,7 @@
 
 .pagination-jzk
 {
-    margin: 20px 0;
+    margin: 0px 0;
 }
 
     .pagination-jzk
@@ -79,9 +79,9 @@
 
                 .pagination-jzk > a:hover, .pagination-jzk > a:focus, .pagination-jzk > .active > a, .pagination-jzk > .active > span
                 {
-	                border: solid 1px #378c8d;
+	                border: solid 1px #1bbd9d;
                     color: #fff;
-                    background-color: #33A1A2;
+                    background-color: #1abc9c;
                 }
 
         .pagination-jzk > .active > a, .pagination-jzk > .active > span
@@ -91,9 +91,9 @@
         }
         
         .pagination-jzk > span.current {
-            background: #33A1A2;
+            border: solid 1px #1bbd9d;
             color: #fff;
-	        border: solid 1px #378c8d;
+            background: #1abc9c;
         }
 
         .pagination-jzk > .disabled > span, .pagination-jzk > .disabled > a, .pagination-jzk > .disabled > a:hover, .pagination-jzk > .disabled > a:focus

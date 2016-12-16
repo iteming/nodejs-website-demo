@@ -10,6 +10,10 @@ append styles
             overflow: hidden;
             margin: 0;
             font-family: "微软雅黑";
+            border: 2px dashed #bbbbbb;
+        }
+        blockquote{
+            margin: 0 0 10px;
         }
 
 block cms_content
@@ -57,8 +61,8 @@ block cms_content
                             button.btn.btn-info.mll(type='submit') 确认更改
                             button#close.btn.btn-danger.mll(type='button',style='display:none;') 关闭地图
                         .form-group(style='display:none;'): .col-sm-offset-1.col-sm-7
+                            blockquote: small * 点击选择地图位置
                             div(style='width: 700px;height: 450px;')
-                                blockquote: small * 点击选择地图位置
                                 #allmap
 
 append scripts
@@ -109,4 +113,3 @@ append scripts
                 map.addEventListener("click", clickPoint);
             }
         });
-

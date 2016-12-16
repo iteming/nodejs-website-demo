@@ -1,0 +1,48 @@
+extends layouts/layout
+block loadtitle
+    -var title='CMS 新闻详情'
+
+append styles
+    link(rel='stylesheet', href='/plugins/kindeditor-4.1.11/themes/default/default.css')
+    link(rel='stylesheet', href='/plugins/kindeditor-4.1.11/plugins/code/prettify.css')
+    link(rel='stylesheet', href='/plugins/jquery-file-upload/css/jquery.fileupload.css')
+
+block cms_content
+    .content_main
+        mixin toastr(status, msg)
+        .container-fluid
+            section.todo-content
+                div.panel-title.pll 新闻详情
+                    small 新闻详情维护
+            .col-md-12: .box.box-info
+                .box-header.with-border: h3.box-title 新闻详情维护
+                form.form-horizontal(data-validate="parsley", method='post', action='/cms/news/update')
+                    .box-body
+                        .form-group
+                            input#id(name='id',type='hidden',value="#{news.id}")
+                            label.col-sm-1.control-label(for='title') 新闻标题
+                            .col-sm-7: input#title.form-control.parsley-validated(name='title',type='text',placeholder='新闻标题',
+                                value="#{news.title}",autocomplete="off",data-required="true")
+                        .form-group
+                            label.col-sm-1.control-label 新闻内容
+                            .col-sm-7: textarea#content.textarea.form-control.parsley-validated(name="content",placeholder="Enter text ...",
+                                rows="15") #{news.content}
+                        .form-group: .col-sm-offset-1.col-sm-11
+                            a.btn.btn-default(type='button',href='/cms/') 取消更改
+                            button#submit.btn.btn-info.mll(type='button') 确认更改
+
+append scripts
+    script(type='text/javascript',src='/plugins/kindeditor-4.1.11/kindeditor.js')
+    script(type='text/javascript',src='/plugins/kindeditor-4.1.11/lang/zh-CN.js')
+    script(type='text/javascript',src='/plugins/kindeditor-4.1.11/plugins/code/prettify.js')
+    script(type='text/javascript',src='/js/cms/KindEditorPageJS.js')
+    script(type='text/javascript',src='/plugins/jquery-file-upload/js/jquery.fileupload-ajax.js')
+    script(type='text/javascript').
+        $(document).ready(function () {
+            $("#submit").on('click',function () {
+                alert(1);
+                alert(editor);
+                //alert(editor.html());
+                $("form").submit();
+            });
+        });

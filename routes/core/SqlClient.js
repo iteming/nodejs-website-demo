@@ -7,7 +7,7 @@ var pool=require('../jdbc').pool;
  */
 SqlClient=function(){};
 SqlClient.prototype={
-	
+
 	//根据id获取
 	getById : function(obj,callback){
 		pool.getConnection(function(err, connection) {
@@ -28,15 +28,18 @@ SqlClient.prototype={
 			connection.release();
 		});
 	},
-	
+
 	//查询列表
-	query : function(obj, callback, where){
+	query : function(obj, callback, where, limit, count){
 		pool.getConnection(function(err, connection) {
-			var sql = 'SELECT * FROM '+obj['tablename'];
-			if(where){
-				sql += where;
-			}
-			console.log('##    sql: '+sql);
+			var sql = '';
+			if(count) sql = 'SELECT count(id) as count FROM '+obj['tablename'];
+			else sql = 'SELECT * FROM '+obj['tablename'];
+
+			if(where) sql += where;
+			if(limit) sql += limit;
+
+			// console.log('##    sql: '+sql);
 			connection.query(sql, function(err, result) {
 				if(err){
 		        	console.log('[query error] - ',err.message);
@@ -47,7 +50,7 @@ SqlClient.prototype={
 			connection.release();
 		});
 	},
-	
+
 	//创建
 	create : function(obj,callback){
 		var cols = [];
@@ -78,7 +81,7 @@ SqlClient.prototype={
 			connection.release();
 		});
 	},
-	
+
 	//更新，如果不为null就更新
 	update : function(obj,callback){
 		var cols = [];
@@ -103,7 +106,7 @@ SqlClient.prototype={
 			connection.release();
 		});
 	},
-	
+
 	//删除
 	deleteById : function(obj,callback){
 		pool.getConnection(function(err, connection) {
@@ -119,7 +122,7 @@ SqlClient.prototype={
 			connection.release();
 		});
 	},
-	
+
 	//执行SQL
 	queryBySql : function(sql,paramValues,callback){
 		pool.getConnection(function(err, connection) {
@@ -135,7 +138,7 @@ SqlClient.prototype={
 			connection.release();
 		});
 	}
-	
+
 };
 
 
