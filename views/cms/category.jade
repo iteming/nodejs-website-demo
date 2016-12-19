@@ -7,10 +7,10 @@ block cms_content
         mixin toastr(status, msg)
         .container-fluid(ng-app="list",ng-controller="listCtrl")
             section.todo-content
-                div.panel-title.pll 新闻中心
-                    small 新闻列表
+                div.panel-title.pll 分类列表
+                    small 分类列表
             .col-md-12: .box.box-info
-                .box-header.with-border: h3.box-title 新闻列表
+                .box-header.with-border: h3.box-title 分类列表
                 .box-body
                     .col-sm-12: .row: .input-group.form-group
                         input#wd.form-control(type='text',placeholder='Search Word ..',value='')
@@ -23,11 +23,11 @@ block cms_content
                                 button.btn.btn-xs.btn-danger.mrl(type="button",ng-click='Pager.Delete(item.id)'): span.fui-cross
                                 label {{item.name}}
                 .box-footer
-                    #ins_div.col-sm-3(style='display: none'): .input-group
+                    .clearfix.pagination-jzk-right: .pagination-jzk.pull-right.mtn#pagination
+                    #ins_div.mln.mtm(style='display: none'): .input-group
                         input#ins.form-control(type='text',placeholder="Input Content ..",value='')
                         span.input-group-btn
                             button.btn(type="button",ng-click='Pager.Insert()'): span.fui-check
-                    .clearfix.pagination-jzk-right: .pagination-jzk.pull-right.mtn#pagination
 
 
 

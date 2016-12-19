@@ -278,14 +278,13 @@ router.post('/notice/list', function (req, res, next) {
         sqlClient.query(notice, function (result) {
             if (result != null && result.length > 0) {
                 result.forEach(function (item) {
-                    item.createtime = moment(item.createtime).format("YYYY-MM-DD HH:mm:ss");
+                    item.createtime = moment(item.createtime).format("YYYY-MM-DD");
                 });
                 res.json({status: 1, msg: '查询成功!', data: result, recordCount: recordCount});
             }
         }, whereSql, limitSql);
     }, whereSql, null, true);
 });
-
 // 公告详情页
 router.get('/notice/details/:id', function (req, res, next) {
     var user = req.cookies.user;
@@ -333,6 +332,7 @@ router.post('/notice/update', function (req, res, next) {
     }
 });
 
+
 // 新闻中心
 router.get('/news', function (req, res, next) {
     var user = req.cookies.user;
@@ -359,14 +359,13 @@ router.post('/news/list', function (req, res, next) {
         sqlClient.query(news, function (result) {
             if (result != null && result.length > 0) {
                 result.forEach(function (item) {
-                    item.createtime = moment(item.createtime).format("YYYY-MM-DD HH:mm:ss");
+                    item.createtime = moment(item.createtime).format("YYYY-MM-DD");
                 });
                 res.json({status: 1, msg: '查询成功!', data: result, recordCount: recordCount});
             }
         }, whereSql, limitSql);
     }, whereSql, null, true);
 });
-
 // 新闻详情页
 router.get('/news/details/:id', function (req, res, next) {
     var user = req.cookies.user;
@@ -414,6 +413,7 @@ router.post('/news/update', function (req, res, next) {
     }
 });
 
+
 // 产品管理
 router.get('/product', function (req, res, next) {
     var user = req.cookies.user;
@@ -424,6 +424,8 @@ router.get('/product', function (req, res, next) {
     }
     res.render('cms/product', {user: user, website: website});
 });
+
+
 // 分类管理
 router.get('/category', function (req, res, next) {
     var user = req.cookies.user;
@@ -450,7 +452,7 @@ router.post('/category/list', function (req, res, next) {
         sqlClient.query(category, function (result) {
             if (result != null && result.length > 0) {
                 // result.forEach(function (item) {
-                //     item.createtime = moment(item.createtime).format("YYYY-MM-DD HH:mm:ss");
+                //     item.createtime = moment(item.createtime).format("YYYY-MM-DD");
                 // });
                 res.json({status: 1, msg: '查询成功!', data: result, recordCount: recordCount});
             }
@@ -484,6 +486,7 @@ router.post('/category/delete', function (req, res, next) {
     });
 });
 
+
 // 荣誉证书
 router.get('/honor', function (req, res, next) {
     var user = req.cookies.user;
@@ -494,6 +497,88 @@ router.get('/honor', function (req, res, next) {
     }
     res.render('cms/honor', {user: user, website: website});
 });
+// 获取荣誉列表
+router.post('/honor/list', function (req, res, next) {
+    var selectWhat = " A.*,B.pic_url_loc ";
+    var join = " LEFT JOIN picture AS B ON A.honor_main_id = B.id AND B.pic_type = 2 ";
+    var whereSql = req.body.wd ? util.format(" where honor_name like '%%%s%' or certification like '%%%s%' ", req.body.wd, req.body.wd) : "";
+    var limitSql = util.format(" order by publish_date desc,createtime desc Limit %s,%s ", (req.body.page_index - 1) * req.body.page_size, req.body.page_size);
+
+    var sqlClient = new SqlClient();
+    var honor = new Honor();
+    sqlClient.query(honor, function (result) {
+        var recordCount = result[0]["count"];
+        if (recordCount == 0) {
+            res.json({status: 3, msg: '暂无记录!', data: null, recordCount: 0});
+            return;
+        }
+        sqlClient.query(honor, function (result) {
+            if (result != null && result.length > 0) {
+                result.forEach(function (item) {
+                    item.publish_date = moment(item.publish_date).format("YYYY-MM-DD");
+                    item.expiry_date = moment(item.expiry_date).format("YYYY-MM-DD");
+                    item.createtime = moment(item.createtime).format("YYYY-MM-DD");
+                });
+                res.json({status: 1, msg: '查询成功!', data: result, recordCount: recordCount});
+            }
+        }, whereSql, limitSql, false, selectWhat, join);
+    }, whereSql, null, true, selectWhat, join);
+});
+// 荣誉详情页
+router.get('/honor/details/:id', function (req, res, next) {
+    var user = req.cookies.user;
+    var website = req.cookies.website;
+    if (!user || !website) {
+        res.redirect('/cms/login');
+        return;
+    }
+
+    var selectWhat = " A.*,B.pic_url_loc ";
+    var join = " LEFT JOIN picture AS B ON A.honor_main_id = B.id AND B.pic_type = 2 ";
+    var sqlClient = new SqlClient();
+    var honor = new Honor();
+    honor.id = req.params.id;
+    sqlClient.getById(honor, function (result) {
+        if (result != null) {
+            if (result.createtime) {
+                result.publish_date = moment(result.publish_date).format("YYYY-MM-DD");
+                result.expiry_date = moment(result.expiry_date).format("YYYY-MM-DD");
+                result.createtime = moment(result.createtime).format("YYYY-MM-DD");
+            }
+            res.render('cms/honor_details', {user: user, website: website, honor: result});
+            return;
+        }
+        res.render('cms/honor_details', {user: user, website: website, honor: honor});
+    },selectWhat,join);
+});
+// 更新荣誉内容
+router.post('/honor/update', function (req, res, next) {
+    var sqlClient = new SqlClient();
+    var honor = new Honor();
+    honor.title = req.body.title;
+    honor.content = req.body.content;
+    honor.createtime = req.body.createtime;
+    honor.status = req.body.status && req.body.status == 'on' ? true : false;
+    honor.settop = req.body.settop && req.body.settop == 'on' ? true : false;
+    honor.views = req.body.views ? req.body.views : 0;
+    honor.id = req.body.id;
+
+    var callback = function (result) {
+        if (result != null && result > 0) {
+            res.json({status: 1, msg: '更新成功!'});
+            return;
+        }
+        res.render({status: 2, msg: '更新失败!'});
+    };
+
+    if (honor.id === null || honor.id === "null" || honor.id === 0 || honor.id === "0") {
+        sqlClient.create(honor, callback);
+    } else {
+        sqlClient.update(honor, callback);
+    }
+});
+
+
 // 公司相册
 router.get('/photo', function (req, res, next) {
     var user = req.cookies.user;

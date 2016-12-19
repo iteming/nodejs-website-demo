@@ -9,9 +9,16 @@ SqlClient=function(){};
 SqlClient.prototype={
 
 	//根据id获取
-	getById : function(obj,callback){
+	getById : function(obj,callback,selectWhat,join){
 		pool.getConnection(function(err, connection) {
-			var sql = 'SELECT * FROM '+obj['tablename']+' WHERE ID = '+obj['id'];
+			var sql = 'SELECT ';
+			if(selectWhat) sql += selectWhat;
+			else sql += ' A.*';
+			sql += ' FROM '+obj['tablename']+' AS A';
+
+			if(join) sql += join;
+			sql += ' WHERE A.ID = '+obj['id'];
+
 			console.log('##    sql: '+sql);
 			connection.query(sql, function(err, result) {
 				if(err){
@@ -30,12 +37,15 @@ SqlClient.prototype={
 	},
 
 	//查询列表
-	query : function(obj, callback, where, limit, count){
+	query : function(obj, callback, where, limit, count, selectWhat, join){
 		pool.getConnection(function(err, connection) {
-			var sql = '';
-			if(count) sql = 'SELECT count(id) as count FROM '+obj['tablename'];
-			else sql = 'SELECT * FROM '+obj['tablename'];
+			var sql = 'SELECT ';
+			if(count) sql += ' count(A.id)';
+			else if(selectWhat) sql += selectWhat;
+			else sql += ' A.*';
+			sql += ' FROM '+obj['tablename']+' AS A';
 
+			if(join) sql += join;
 			if(where) sql += where;
 			if(limit) sql += limit;
 

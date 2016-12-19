@@ -49,18 +49,9 @@ append scripts
     script(type='text/javascript',src='/plugins/kindeditor-4.1.11/kindeditor-min.js')
     script(type='text/javascript',src='/plugins/kindeditor-4.1.11/lang/zh_CN.js')
     script(type='text/javascript',src='/plugins/kindeditor-4.1.11/plugins/code/prettify.js')
+    script(type='text/javascript',src='/js/cms/KindEditorPageJS.js')
     script(type='text/javascript',src='/plugins/jquery-file-upload/js/jquery.fileupload-ajax.js')
     script(type='text/javascript').
-        var editor;
-        KindEditor.ready(function (K) {
-            editor = K.create('textarea[name="content"]', {
-                cssPath: '../../../plugins/kindeditor-4.1.11/plugins/code/prettify.css',
-                uploadJson: '../../../plugins/kindeditor-4.1.11/php/upload_json.php',
-                fileManagerJson: '../../../plugins/kindeditor-4.1.11/php/file_manager_json.php',
-                width: '100%',
-                allowFileManager: true
-            });
-        });
         $("#btn_submit").on('click', function () {
             $("#content").val(editor.html());
             //$("form").submit();
