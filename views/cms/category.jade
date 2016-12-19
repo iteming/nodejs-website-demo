@@ -5,4 +5,131 @@ block loadtitle
 block cms_content
     .content_main
         mixin toastr(status, msg)
-        .container-fluid
+        .container-fluid(ng-app="list",ng-controller="listCtrl")
+            section.todo-content
+                div.panel-title.pll 新闻中心
+                    small 新闻列表
+            .col-md-12: .box.box-info
+                .box-header.with-border: h3.box-title 新闻列表
+                .box-body
+                    .col-sm-12: .row: .input-group.form-group
+                        input#wd.form-control(type='text',placeholder='Search Word ..',value='')
+                        span.input-group-btn
+                            button.btn(type="button",ng-click='Pager.GetData(1)'): span.fui-search
+                            button.btn(type="button",ng-click='Pager.ShowLine()'): span.fui-plus
+                    .col-sm-12: .row: .form-group
+                        ul: li(ng-repeat="item in lists")
+                            .col-sm-3
+                                button.btn.btn-xs.btn-danger.mrl(type="button",ng-click='Pager.Delete(item.id)'): span.fui-cross
+                                label {{item.name}}
+                .box-footer
+                    #ins_div.col-sm-3(style='display: none'): .input-group
+                        input#ins.form-control(type='text',placeholder="Input Content ..",value='')
+                        span.input-group-btn
+                            button.btn(type="button",ng-click='Pager.Insert()'): span.fui-check
+                    .clearfix.pagination-jzk-right: .pagination-jzk.pull-right.mtn#pagination
+
+
+
+append scripts
+    script(type='text/javascript',src='/plugins/angular/angular.min.js')
+    script(type='text/javascript').
+        var app = angular.module('list', []);
+        app.controller('listCtrl', function ($scope) {
+            $scope.lists = [];
+            var Pager = {
+                pageSize: 20,
+                LoadPage: function (recordCount, currentPage, CB) {
+                    currentPage = currentPage - 1;
+                    $("#pagination").pagination(recordCount, {
+                        num_display_entries: 5,
+                        num_edge_entries: 0,
+                        items_per_page: Pager.pageSize,
+                        current_page: currentPage,
+                        callback: function (page_index, jq) {
+                            if (Number(page_index) != currentPage) {
+                                Pager.GetData(page_index + 1);
+                            }
+                            return false;
+                        }
+                    });
+                },
+                GetData: function (index) {
+                    $.ajax({
+                        url: "/cms/category/list",
+                        type: "post",
+                        dataType: "json",
+                        data: {
+                            wd: $("#wd").val(),
+                            page_index: index,
+                            page_size: Pager.pageSize
+                        },
+                        success: function (data) {
+                            if (data.status > 0) {
+                                toastrShow(data.status, data.msg);
+                                Pager.LoadPage(data.recordCount, index);
+                                $scope.lists = data.data;
+                                $scope.$apply();
+                            }
+                        }
+                    });
+                },
+                ShowLine: function () {
+                    var ins_div = $("#ins_div");
+                    var ins = $("#ins");
+                    var button = ins_div.find("button");
+                    if(ins_div.css("display")=="none"){
+                        ins.val('');
+                        ins_div.show();
+                        ins.focus();
+                    }else{
+                        ins_div.hide();
+                    }
+                },
+                Insert: function () {
+                    $.ajax({
+                        url: "/cms/category/insert",
+                        type: "post",
+                        dataType: "json",
+                        data: { name: $("#ins").val() },
+                        success: function (data) {
+                            if (data.status > 0) {
+                                toastrShow(data.status, data.msg);
+                                Pager.GetData(1);
+                                $('#ins_div').hide();
+                            } else {
+                                toastrShow(data.status, data.msg);
+                            }
+                        }
+                    });
+                },
+                Delete: function (id) {
+                    if (!confirm('提示:您确定要删除吗?'))
+                        return false;
+
+                    $.ajax({
+                        url: "/cms/category/delete",
+                        type: "post",
+                        dataType: "json",
+                        data: { id: id },
+                        success: function (data) {
+                            if (data.status > 0) {
+                                toastrShow(data.status, data.msg);
+                                Pager.GetData(1);
+                            }else {
+                                toastrShow(data.status, data.msg);
+                            }
+                        }
+                    });
+                }
+            };
+            Pager.GetData(1);
+            $scope.Pager = Pager;
+
+            $('#wd').bind('keypress', function (event) {
+                if (event.keyCode == '13') Pager.GetData(1);
+            });
+            $('#ins').bind('keypress', function (event) {
+                if (event.keyCode == '13') Pager.Insert();
+            });
+        });

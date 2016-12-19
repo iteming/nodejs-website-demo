@@ -11,6 +11,10 @@ var checkbox = function () {
     $(':radio').radiocheck();
 };
 
+var tags = function () {
+    $(".tagsinput").tagsinput();
+};
+
 var toastr = function () {
     toastr.options = {
         "closeButton": false,
@@ -68,6 +72,7 @@ var Plugins = function () {
         init: function () {
             tooltip();
             checkbox();
+            tags();
             toastr();
             toastrAutoClose();
             mCustomScrollbar();

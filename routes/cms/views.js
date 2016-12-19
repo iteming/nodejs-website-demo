@@ -434,6 +434,56 @@ router.get('/category', function (req, res, next) {
     }
     res.render('cms/category', {user: user, website: website});
 });
+// 获取分类列表
+router.post('/category/list', function (req, res, next) {
+    var whereSql = req.body.wd ? util.format(" where name like '%%%s%' ", req.body.wd) : "";
+    var limitSql = util.format(" order by id desc Limit %s,%s ", (req.body.page_index - 1) * req.body.page_size, req.body.page_size);
+
+    var sqlClient = new SqlClient();
+    var category = new Category();
+    sqlClient.query(category, function (result) {
+        var recordCount = result[0]["count"];
+        if (recordCount == 0) {
+            res.json({status: 3, msg: '暂无记录!', data: null, recordCount: 0});
+            return;
+        }
+        sqlClient.query(category, function (result) {
+            if (result != null && result.length > 0) {
+                // result.forEach(function (item) {
+                //     item.createtime = moment(item.createtime).format("YYYY-MM-DD HH:mm:ss");
+                // });
+                res.json({status: 1, msg: '查询成功!', data: result, recordCount: recordCount});
+            }
+        }, whereSql, limitSql);
+    }, whereSql, null, true);
+});
+// 新增分类
+router.post('/category/insert', function (req, res, next) {
+    var sqlClient = new SqlClient();
+    var category = new Category();
+    category.name = req.body.name;
+    sqlClient.create(category, function (result) {
+        if(result != null && result > 0){
+            res.json({status: 1, msg: '新增成功!'});
+            return;
+        }
+        res.json({status: 2, msg: '新增失败!'});
+    });
+});
+// 删除分类
+router.post('/category/delete', function (req, res, next) {
+    var sqlClient = new SqlClient();
+    var category = new Category();
+    category.id = req.body.id;
+    sqlClient.deleteById(category, function (result) {
+        if(result != null && result > 0){
+            res.json({status: 1, msg: '删除成功!'});
+            return;
+        }
+        res.json({status: 2, msg: '删除失败!'});
+    });
+});
+
 // 荣誉证书
 router.get('/honor', function (req, res, next) {
     var user = req.cookies.user;
