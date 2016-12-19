@@ -1227,7 +1227,7 @@ K.queryAll = _queryAll;
 
 
 function _get(val) {
-	return (val)[0];
+	return K(val)[0];
 }
 function _getDoc(node) {
 	if (!node) {
@@ -1252,8 +1252,8 @@ function _setHtml(el, html) {
 		var temp = doc.getElementById('__kindeditor_temp_tag__');
 		temp.parentNode.removeChild(temp);
 	} catch(e) {
-		(el).empty();
-		('@' + html, doc).each(function() {
+		K(el).empty();
+		K('@' + html, doc).each(function() {
 			el.appendChild(this);
 		});
 	}
@@ -1605,7 +1605,7 @@ _extend(KNode, {
 			node.parentNode.replaceChild(newNode, node);
 			nodes.push(newNode);
 		});
-		return (nodes);
+		return K(nodes);
 	},
 	empty : function() {
 		var self = this;
@@ -5031,7 +5031,7 @@ KEditor.prototype = {
 			editDiv = K('.edit', container),
 			statusbar = self.statusbar = K('.statusbar', container);
 		container.removeClass('container')
-			.addClass('ke-container ke-container-' + self.themeType);
+			.addClass('ke-container ke-container-' + self.themeType).css('width', width);
 		if (fullscreenMode) {
 			container.css({
 				position : 'absolute',
