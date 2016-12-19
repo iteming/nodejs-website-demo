@@ -82,7 +82,7 @@ router.post('/login', function (req, res, next) {
 router.get('/user/center', function (req, res, next) {
     var user = req.cookies.user;
     var website = req.cookies.website;
-    if (!user) {
+    if (!user || !website) {
         res.redirect('/cms/login');
         return;
     }
@@ -92,7 +92,7 @@ router.get('/user/center', function (req, res, next) {
 router.post('/user/center', function (req, res, next) {
     var user = req.cookies.user;
     var website = req.cookies.website;
-    if (!user) {
+    if (!user || !website) {
         res.redirect('/cms/login');
         return;
     }
@@ -122,7 +122,7 @@ router.post('/user/center', function (req, res, next) {
 // 设置密码
 router.get('/user/forget', function (req, res, next) {
     // var user = req.cookies.user;
-    // if(!user) { res.redirect('/cms/login'); return; }
+    // if(!user || !website) { res.redirect('/cms/login'); return; }
     res.render('cms/user/forget');
 });
 
@@ -131,7 +131,7 @@ router.get('/user/forget', function (req, res, next) {
 router.get('/company', function (req, res, next) {
     var user = req.cookies.user;
     var website = req.cookies.website;
-    if (!user) {
+    if (!user || !website) {
         res.redirect('/cms/login');
         return;
     }
@@ -152,7 +152,7 @@ router.get('/company', function (req, res, next) {
 router.post('/company', function (req, res, next) {
     var user = req.cookies.user;
     var website = req.cookies.website;
-    if (!user) {
+    if (!user || !website) {
         res.redirect('/cms/login');
         return;
     }
@@ -195,7 +195,7 @@ router.post('/company', function (req, res, next) {
 router.get('/contact', function (req, res, next) {
     var user = req.cookies.user;
     var website = req.cookies.website;
-    if (!user) {
+    if (!user || !website) {
         res.redirect('/cms/login');
         return;
     }
@@ -215,7 +215,7 @@ router.get('/contact', function (req, res, next) {
 router.post('/contact', function (req, res, next) {
     var user = req.cookies.user;
     var website = req.cookies.website;
-    if (!user) {
+    if (!user || !website) {
         res.redirect('/cms/login');
         return;
     }
@@ -256,18 +256,88 @@ router.post('/contact', function (req, res, next) {
 router.get('/notice', function (req, res, next) {
     var user = req.cookies.user;
     var website = req.cookies.website;
-    if (!user) {
+    if (!user || !website) {
         res.redirect('/cms/login');
         return;
     }
     res.render('cms/notice', {user: user, website: website});
+});
+// 获取公告列表
+router.post('/notice/list', function (req, res, next) {
+    var whereSql = req.body.wd ? util.format(" where title like '%%%s%' or content like '%%%s%' ", req.body.wd, req.body.wd) : "";
+    var limitSql = util.format(" order by settop desc,createtime desc Limit %s,%s ", (req.body.page_index - 1) * req.body.page_size, req.body.page_size);
+
+    var sqlClient = new SqlClient();
+    var notice = new Notice();
+    sqlClient.query(notice, function (result) {
+        var recordCount = result[0]["count"];
+        if (recordCount == 0) {
+            res.json({status: 3, msg: '暂无记录!', data: null, recordCount: 0});
+            return;
+        }
+        sqlClient.query(notice, function (result) {
+            if (result != null && result.length > 0) {
+                result.forEach(function (item) {
+                    item.createtime = moment(item.createtime).format("YYYY-MM-DD HH:mm:ss");
+                });
+                res.json({status: 1, msg: '查询成功!', data: result, recordCount: recordCount});
+            }
+        }, whereSql, limitSql);
+    }, whereSql, null, true);
+});
+
+// 公告详情页
+router.get('/notice/details/:id', function (req, res, next) {
+    var user = req.cookies.user;
+    var website = req.cookies.website;
+    if (!user || !website) {
+        res.redirect('/cms/login');
+        return;
+    }
+    var sqlClient = new SqlClient();
+    var notice = new Notice();
+    notice.id = req.params.id;
+    sqlClient.getById(notice, function (result) {
+        if (result != null) {
+            if (result.createtime) result.createtime = moment(result.createtime).format("YYYY-MM-DD");
+            res.render('cms/notice_details', {user: user, website: website, notice: result});
+            return;
+        }
+        res.render('cms/notice_details', {user: user, website: website, notice: notice});
+    });
+});
+// 更新公告内容
+router.post('/notice/update', function (req, res, next) {
+    var sqlClient = new SqlClient();
+    var notice = new Notice();
+    notice.title = req.body.title;
+    notice.content = req.body.content;
+    notice.createtime = req.body.createtime;
+    notice.status = req.body.status && req.body.status == 'on' ? true : false;
+    notice.settop = req.body.settop && req.body.settop == 'on' ? true : false;
+    notice.views = req.body.views ? req.body.views : 0;
+    notice.id = req.body.id;
+
+    var callback = function (result) {
+        if (result != null && result > 0) {
+            res.json({status: 1, msg: '更新成功!'});
+            return;
+        }
+        res.render({status: 2, msg: '更新失败!'});
+    };
+
+    if (notice.id === null || notice.id === "null" || notice.id === 0 || notice.id === "0") {
+        sqlClient.create(notice, callback);
+    } else {
+        sqlClient.update(notice, callback);
+    }
 });
 
 // 新闻中心
 router.get('/news', function (req, res, next) {
     var user = req.cookies.user;
     var website = req.cookies.website;
-    if (!user) {
+    if (!user || !website) {
         res.redirect('/cms/login');
         return;
     }
@@ -301,7 +371,7 @@ router.post('/news/list', function (req, res, next) {
 router.get('/news/details/:id', function (req, res, next) {
     var user = req.cookies.user;
     var website = req.cookies.website;
-    if (!user) {
+    if (!user || !website) {
         res.redirect('/cms/login');
         return;
     }
@@ -310,30 +380,45 @@ router.get('/news/details/:id', function (req, res, next) {
     news.id = req.params.id;
     sqlClient.getById(news, function (result) {
         if (result != null) {
-            if (result.createtime) result.createtime = moment(result.createtime).format("YYYY-MM-DD HH:mm:ss");
+            if (result.createtime) result.createtime = moment(result.createtime).format("YYYY-MM-DD");
             res.render('cms/news_details', {user: user, website: website, news: result});
             return;
         }
         res.render('cms/news_details', {user: user, website: website, news: news});
     });
 });
-
 // 更新新闻内容
 router.post('/news/update', function (req, res, next) {
-    var user = req.cookies.user;
-    var website = req.cookies.website;
-    if (!user) {
-        res.redirect('/cms/login');
-        return;
+    var sqlClient = new SqlClient();
+    var news = new News();
+    news.title = req.body.title;
+    news.content = req.body.content;
+    news.createtime = req.body.createtime;
+    news.status = req.body.status && req.body.status == 'on' ? true : false;
+    news.settop = req.body.settop && req.body.settop == 'on' ? true : false;
+    news.views = req.body.views ? req.body.views : 0;
+    news.id = req.body.id;
+
+    var callback = function (result) {
+        if (result != null && result > 0) {
+            res.json({status: 1, msg: '更新成功!'});
+            return;
+        }
+        res.render({status: 2, msg: '更新失败!'});
+    };
+
+    if (news.id === null || news.id === "null" || news.id === 0 || news.id === "0") {
+        sqlClient.create(news, callback);
+    } else {
+        sqlClient.update(news, callback);
     }
-    res.render('cms/news', {status: 1, msg: '更新成功!', user: user, website: website});
 });
 
 // 产品管理
 router.get('/product', function (req, res, next) {
     var user = req.cookies.user;
     var website = req.cookies.website;
-    if (!user) {
+    if (!user || !website) {
         res.redirect('/cms/login');
         return;
     }
@@ -343,7 +428,7 @@ router.get('/product', function (req, res, next) {
 router.get('/category', function (req, res, next) {
     var user = req.cookies.user;
     var website = req.cookies.website;
-    if (!user) {
+    if (!user || !website) {
         res.redirect('/cms/login');
         return;
     }
@@ -353,7 +438,7 @@ router.get('/category', function (req, res, next) {
 router.get('/honor', function (req, res, next) {
     var user = req.cookies.user;
     var website = req.cookies.website;
-    if (!user) {
+    if (!user || !website) {
         res.redirect('/cms/login');
         return;
     }
@@ -363,7 +448,7 @@ router.get('/honor', function (req, res, next) {
 router.get('/photo', function (req, res, next) {
     var user = req.cookies.user;
     var website = req.cookies.website;
-    if (!user) {
+    if (!user || !website) {
         res.redirect('/cms/login');
         return;
     }
@@ -373,7 +458,7 @@ router.get('/photo', function (req, res, next) {
 router.get('/comment', function (req, res, next) {
     var user = req.cookies.user;
     var website = req.cookies.website;
-    if (!user) {
+    if (!user || !website) {
         res.redirect('/cms/login');
         return;
     }
@@ -385,7 +470,7 @@ router.get('/comment', function (req, res, next) {
 router.get('/website', function (req, res, next) {
     var user = req.cookies.user;
     var website = req.cookies.website;
-    if (!user) {
+    if (!user || !website) {
         res.redirect('/cms/login');
         return;
     }
@@ -395,7 +480,7 @@ router.get('/website', function (req, res, next) {
 router.post('/website', function (req, res, next) {
     var user = req.cookies.user;
     var website = req.cookies.website;
-    if (!user) {
+    if (!user || !website) {
         res.redirect('/cms/login');
         return;
     }

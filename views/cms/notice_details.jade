@@ -1,6 +1,6 @@
 extends layouts/layout
 block loadtitle
-    -var title='CMS 新闻详情'
+    -var title='CMS 公告详情'
 
 append styles
     link(rel='stylesheet', href='/plugins/kindeditor-4.1.11/themes/default/default.css')
@@ -12,37 +12,37 @@ block cms_content
         mixin toastr(status, msg)
         .container-fluid
             section.todo-content
-                div.panel-title.pll 新闻详情
-                    small 新闻详情维护
+                div.panel-title.pll 公告详情
+                    small 公告详情维护
             .col-md-12: .box.box-info
-                .box-header.with-border: h3.box-title 新闻详情维护
-                form.form-horizontal(data-validate="parsley", method='post', action='/cms/news/update')
+                .box-header.with-border: h3.box-title 公告详情维护
+                form.form-horizontal(data-validate="parsley", method='post', action='/cms/notice/update')
                     .box-body
                         .form-group
-                            input#id(name='id',type='hidden',value="#{news.id}")
-                            label.col-sm-1.control-label(for='title') 新闻标题
-                            .col-sm-7: input#title.form-control.parsley-validated(name='title',type='text',placeholder='新闻标题',
-                            value="#{news.title}",autocomplete="off",data-required="true")
+                            input#id(name='id',type='hidden',value="#{notice.id}")
+                            label.col-sm-1.control-label(for='title') 公告标题
+                            .col-sm-7: input#title.form-control.parsley-validated(name='title',type='text',placeholder='公告标题',
+                            value="#{notice.title}",autocomplete="off",data-required="true")
                         .form-group
-                            label.col-sm-1.control-label 新闻内容
+                            label.col-sm-1.control-label 公告内容
                             .col-sm-7: textarea#content.textarea.form-control.parsley-validated(name="content",placeholder="Enter text ...",
-                            rows="15") #{news.content}
+                            rows="15") #{notice.content}
                         .form-group
-                            label.col-sm-1.control-label(for='status') 新闻状态
-                            .col-sm-3: input#status(name='status',type='checkbox',data-toggle="switch",checked=news.status == 1,
+                            label.col-sm-1.control-label(for='status') 公告状态
+                            .col-sm-3: input#status(name='status',type='checkbox',data-toggle="switch",checked=notice.status == 1,
                             data-on-text="启用",data-off-text="禁用")
                             label.col-sm-1.control-label(for='createtime') 发布日期
                             .col-sm-3: input#createtime.form-control.parsley-validated(name='createtime',type='text',placeholder='发布日期',
-                            value="#{news.createtime}",data-type="dateIso",data-required="true")
+                            value="#{notice.createtime}",data-type="dateIso",data-required="true")
                         .form-group
                             label.col-sm-1.control-label(for='settop') 是否置顶
-                            .col-sm-3: input#settop(name='settop',type='checkbox',data-toggle="switch",checked=news.settop == 1,
+                            .col-sm-3: input#settop(name='settop',type='checkbox',data-toggle="switch",checked=notice.settop == 1,
                             data-on-text="置顶",data-off-text="不置顶")
                             label.col-sm-1.control-label(for='views') 浏览次数
                             .col-sm-3: input#views.form-control.parsley-validated(name='views',type='text',placeholder='浏览次数',
-                            value="#{news.views}",disabled='disabled')
+                            value="#{notice.views}",disabled='disabled')
                         .form-group: .col-sm-offset-1.col-sm-11
-                            a.btn.btn-default(type='button',href='/cms/news') 取消更改
+                            a.btn.btn-default(type='button',href='/cms/notice') 取消更改
                             input#btn_submit.btn.btn-info.mll(name='btn_submit',type='button',value='确认更改')
 
 append scripts
@@ -72,7 +72,7 @@ append scripts
 
             //表单验证通过：则提交
             $.ajax({
-                url: "/cms/news/update",
+                url: "/cms/notice/update",
                 type: "post",
                 dataType: "json",
                 data: $("form").serialize(),
@@ -80,7 +80,7 @@ append scripts
                     if (data.status > 0) {
                         toastrShow(data.status, data.msg);
                         setTimeout(function () {
-                            window.location = "/cms/news";
+                            window.location = "/cms/notice";
                         }, '1500')
                     }else{
                         toastrShow(data.status, data.msg);

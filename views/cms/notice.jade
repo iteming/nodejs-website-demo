@@ -6,3 +6,84 @@ block cms_content
     .content_main
         mixin toastr(status, msg)
         .container-fluid
+            section.todo-content
+                div.panel-title.pll 通知公告
+                    small 公告列表
+            .col-md-12: .box.box-info
+                .box-header.with-border: h3.box-title 公告列表
+                .box-body(ng-app="list",ng-controller="listCtrl")
+                    .col-sm-12: .row: .input-group.form-group
+                        input#wd.form-control(type='text',placeholder='Search Word ..',value='')
+                        span.input-group-btn
+                            button.btn(type="button",ng-click='Pager.GetData(1)'): span.fui-search
+                            a.btn.btn-danger(href='/cms/notice/details/0'): span.fui-plus
+                    .col-sm-12: .row
+                        table.table.table-striped.table-bordered(role="grid")
+                            thead: tr(role='row')
+                                th 标题
+                                th.text-center(width='170') 创建时间
+                                th.text-center(width='70') 状态
+                                th.text-center(width='80') 是否置顶
+                                th.text-center(width='80') 操作
+                            tbody
+                                tr(role='row',ng-repeat="item in lists")
+                                    td {{item.title}}
+                                    td.text-center {{item.createtime}}
+                                    td.text-center {{item.status==0?'不显示':'显示'}}
+                                    td.text-center {{item.settop==0?'':'置顶'}}
+                                    td.text-center: a(href='/cms/notice/details/{{item.id}}'): span.fui-new
+                .box-footer
+                    .clearfix.pagination-jzk-right: .pagination-jzk.pull-right.mtn#pagination
+
+append scripts
+    script(type='text/javascript',src='/plugins/angular/angular.min.js')
+    script(type='text/javascript').
+        var app = angular.module('list', []);
+        app.controller('listCtrl', function ($scope) {
+            $scope.lists = [];
+            var Pager = {
+                pageSize: 10,
+                LoadPage: function (recordCount, currentPage, CB) {
+                    currentPage = currentPage - 1;
+                    $("#pagination").pagination(recordCount, {
+                        num_display_entries: 5,
+                        num_edge_entries: 0,
+                        items_per_page: Pager.pageSize,
+                        current_page: currentPage,
+                        callback: function (page_index, jq) {
+                            if (Number(page_index) != currentPage) {
+                                Pager.GetData(page_index + 1);
+                            }
+                            return false;
+                        }
+                    });
+                },
+                GetData: function (index) {
+                    $.ajax({
+                        url: "/cms/notice/list",
+                        type: "post",
+                        dataType: "json",
+                        data: {
+                            wd: $("#wd").val(),
+                            page_index: index,
+                            page_size: Pager.pageSize
+                        },
+                        success: function (data) {
+                            if (data.status > 0) {
+                                toastrShow(data.status, data.msg);
+                                Pager.LoadPage(data.recordCount, index);
+                                $scope.lists = data.data;
+                                $scope.$apply();
+                                //console.log(JSON.stringify(data.data));
+                            }
+                        }
+                    });
+                }
+            };
+            Pager.GetData(1);
+            $scope.Pager = Pager;
+
+            $('#wd').bind('keypress', function (event) {
+                if (event.keyCode == '13') Pager.GetData(1);
+            });
+        });
