@@ -59,7 +59,7 @@ block cms_content
                                 a.btn.btn-default(type='button',href='/cms/honor') 取消更改
                                 input#btn_submit.btn.btn-info.mll(name='btn_submit',type='button',value='确认更改')
                         .col-sm-4
-                            .form-group: .col-sm-12: img(src='#{honor.pic_url_loc}',width='80%',style='margin:auto;')
+                            .form-group: .col-sm-12: img(src='#{honor.pic_url_loc?honor.pic_url_loc:""}',width='80%',style='margin:auto;')
 
 append cms_content
     #loading.spinner-div: .spinner

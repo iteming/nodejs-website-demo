@@ -465,7 +465,7 @@ router.post('/category/insert', function (req, res, next) {
     var category = new Category();
     category.name = req.body.name;
     sqlClient.create(category, function (result) {
-        if(result != null && result > 0){
+        if (result != null && result > 0) {
             res.json({status: 1, msg: '新增成功!'});
             return;
         }
@@ -478,7 +478,7 @@ router.post('/category/delete', function (req, res, next) {
     var category = new Category();
     category.id = req.body.id;
     sqlClient.deleteById(category, function (result) {
-        if(result != null && result > 0){
+        if (result != null && result > 0) {
             res.json({status: 1, msg: '删除成功!'});
             return;
         }
@@ -549,7 +549,7 @@ router.get('/honor/details/:id', function (req, res, next) {
             return;
         }
         res.render('cms/honor_details', {user: user, website: website, honor: honor});
-    },selectWhat,join);
+    }, selectWhat, join);
 });
 // 更新荣誉内容
 router.post('/honor/update', function (req, res, next) {
@@ -652,6 +652,12 @@ router.post('/website', function (req, res, next) {
         isInsert = false;
         sqlClient.update(website, callback);
     }
+});
+
+// 上传图片
+router.post('/picture/fileupload', function (req, res, next) {
+    console.log(req.files);
+    res.end("File uploaded.");
 });
 
 
