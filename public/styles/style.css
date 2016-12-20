@@ -4,12 +4,28 @@ body {
     background: #e3e3e3 !important;
 }
 
-h1, h2, h3 { font-size: 22px; color: #464646; }
-h2 { font-size: 18px; }
-h3 { font-size: 14px; }
+h1, h2, h3 {
+    font-size: 22px;
+    color: #464646;
+}
 
-a { color: #C2575B; text-decoration: none; cursor: pointer; }
-a:hover { color: #F76F76; }
+h2 {
+    font-size: 18px;
+}
+
+h3 {
+    font-size: 14px;
+}
+
+a {
+    color: #C2575B;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover {
+    color: #F76F76;
+}
 
 .panel-title {
     margin-top: 30px !important;
@@ -17,6 +33,7 @@ a:hover { color: #F76F76; }
     font-size: 24px !important;
     font-weight: 700;
 }
+
 .panel-title small {
     font-weight: 500;
     font-size: 60% !important;
@@ -24,7 +41,7 @@ a:hover { color: #F76F76; }
     margin-left: 10px;
 }
 
-.table{
+.table {
     margin-bottom: 0px !important;
 }
 
@@ -36,9 +53,38 @@ a:hover { color: #F76F76; }
     cursor: pointer !important;
 }
 
-table a,.input-group .btn{
+table a, .input-group .btn {
     color: #bdc3c7;
 }
-table a:hover,.input-group .btn:hover{
+table a:hover, .input-group .btn:hover {
     color: #91979b;
+}
+
+.note {
+    font-size: 14px;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-left: 3px solid;
+}
+.note.note-info {
+    border-color: #587c89;
+    background: #bee2ef;
+    color: #31708f;
+}
+.note h4 {
+    font-size: 18px;
+}
+.note ul {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+.note li {
+    list-style-type: disc;
+    display: list-item;
+    text-align: -webkit-match-parent;
 }
