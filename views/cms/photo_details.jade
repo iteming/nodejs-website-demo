@@ -1,6 +1,6 @@
 extends layouts/layout
 block loadtitle
-    -var title='CMS 荣誉详情'
+    -var title='CMS 相册详情'
 
 append styles
     link(rel='stylesheet', href='/plugins/jquery-file-upload/css/jquery.fileupload.css')
@@ -10,33 +10,23 @@ block cms_content
         mixin toastr(status, msg)
         .container-fluid
             section.todo-content
-                div.panel-title.pll 荣誉详情
-                    small 荣誉详情维护
+                div.panel-title.pll 相册详情
+                    small 相册详情维护
             .col-md-12: .box.box-info
-                .box-header.with-border: h3.box-title 荣誉详情维护
-                form.form-horizontal(data-validate="parsley", method='post', action='/cms/honor/update')
+                .box-header.with-border: h3.box-title 相册详情维护
+                form.form-horizontal(data-validate="parsley", method='post', action='/cms/photo/update')
                     .box-body
-                        .col-sm-8
+                        .col-sm-6
                             .form-group
-                                input#id(name='id',type='hidden',value="#{honor.id}")
-                                input#views(name='views',type='hidden',value="#{honor.views}")
-                                label.col-sm-2.control-label(for='honor_name') 证书名称
-                                .col-sm-10: input#honor_name.form-control.parsley-validated(name='honor_name',type='text',placeholder='证书名称',
-                                value="#{honor.honor_name}",autocomplete="off",data-required="true")
+                                input#id(name='id',type='hidden',value="#{photo.id}")
+                                input#views(name='views',type='hidden',value="#{photo.views}")
+                                label.col-sm-2.control-label(for='photo_name') 相册名称
+                                .col-sm-10: input#photo_name.form-control.parsley-validated(name='photo_name',type='text',placeholder='相册名称',
+                                value="#{photo.photo_name}",autocomplete="off",data-required="true")
                             .form-group
-                                label.col-sm-2.control-label(for='certification') 发证机构
-                                .col-sm-4: input#certification.form-control.parsley-validated(name='certification',type='text',placeholder='发证机构',
-                                value="#{honor.certification}",autocomplete="off")
-                                label.col-sm-2.control-label(for='publish_date') 发证日期
-                                .col-sm-4: input#publish_date.form-control.parsley-validated(name='publish_date',type='text',placeholder='发证日期',
-                                value="#{honor.publish_date}",data-type="dateIso")
-                            .form-group
-                                label.col-sm-2.control-label(for='expiry_date') 有效期
-                                .col-sm-4: input#expiry_date.form-control.parsley-validated(name='expiry_date',type='text',placeholder='不填则长期有效',
-                                value="#{honor.expiry_date}",data-type="dateIso")
                                 label.col-sm-2.control-label(for='createtime') 创建日期
-                                .col-sm-4: input#createtime.form-control.parsley-validated(name='createtime',type='text',placeholder='创建日期',
-                                value="#{honor.createtime}",data-type="dateIso")
+                                .col-sm-10: input#createtime.form-control.parsley-validated(name='createtime',type='text',placeholder='创建日期',
+                                value="#{photo.createtime}",data-type="dateIso")
                             .form-group
                                 label.col-sm-2.control-label 上传图片
                                 .col-sm-10: span.btn.btn-default.fileinput-button
@@ -56,11 +46,11 @@ block cms_content
                                             strong JPG, GIF, PNG
                                             | ）.
                             .form-group: .col-sm-offset-2.col-sm-10
-                                a.btn.btn-default(type='button',href='/cms/honor') 取消更改
+                                a.btn.btn-default(type='button',href='/cms/photo') 取消更改
                                 input#btn_submit.btn.btn-info.mll(name='btn_submit',type='button',value='确认更改')
                         .col-sm-4
-                            .form-group: .col-sm-12.details-picture: img#honor_pic(src='#{honor.pic_url_loc ? honor.pic_url_loc : ""}')
-                            input#honor_main_id(name='honor_main_id',type='hidden',value='#{honor.honor_main_id}')
+                            .form-group: .col-sm-12.details-picture: img#photo_pic(src='#{photo.pic_url_loc ? photo.pic_url_loc : ""}')
+                            input#photo_main_id(name='photo_main_id',type='hidden',value='#{photo.photo_main_id}')
 
 append scripts
     script(type='text/javascript',src='/plugins/jquery-file-upload/js/jquery.fileupload-ajax.js')
@@ -69,7 +59,7 @@ append scripts
         //当选中文件,则立即执行上传
         $(document).on("change", "#file1", function () {
             if ($("#file1").val() != "") {
-                FileAction.FileUpload("file1", 2, null ,$("#honor_pic"), null ,$("#honor_main_id"));
+                FileAction.FileUpload("file1", 3, null ,$("#photo_pic"), null ,$("#photo_main_id"));
             }
         });
     script(type='text/javascript').
@@ -81,7 +71,7 @@ append scripts
 
             //表单验证通过：则提交
             $.ajax({
-                url: "/cms/honor/update",
+                url: "/cms/photo/update",
                 type: "post",
                 dataType: "json",
                 data: $("form").serialize(),
@@ -89,7 +79,7 @@ append scripts
                     if (data.status > 0) {
                         toastrShow(data.status, data.msg);
                         setTimeout(function () {
-                            window.location = "/cms/honor";
+                            window.location = "/cms/photo";
                         }, '1500')
                     } else {
                         toastrShow(data.status, data.msg);
@@ -99,8 +89,6 @@ append scripts
         });
 
         $(document).ready(function () {
-            $("#publish_date").datepicker({todayHighlight: true, format: 'yyyy-mm-dd', autoclose: true});
-            $("#expiry_date").datepicker({todayHighlight: true, format: 'yyyy-mm-dd', autoclose: true});
             $("#createtime").datepicker({todayHighlight: true, format: 'yyyy-mm-dd', autoclose: true});
         });
 

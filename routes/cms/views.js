@@ -557,7 +557,6 @@ router.get('/honor/details/:id', function (req, res, next) {
 router.post('/honor/update', function (req, res, next) {
     var sqlClient = new SqlClient();
     var honor = new Honor();
-    console.log(req.body);
 
     honor.honor_name = req.body.honor_name;
     honor.certification = req.body.certification;
@@ -594,6 +593,83 @@ router.get('/photo', function (req, res, next) {
     }
     res.render('cms/photo', {user: user, website: website});
 });
+// 获取相册列表
+router.post('/photo/list', function (req, res, next) {
+    var selectWhat = " A.*,B.pic_url_loc ";
+    var join = " LEFT JOIN picture AS B ON A.photo_main_id = B.id AND B.pic_type = 3 ";
+    var whereSql = req.body.wd ? util.format(" where photo_name like '%%%s%' ", req.body.wd) : "";
+    var limitSql = util.format(" order by createtime desc Limit %s,%s ", (req.body.page_index - 1) * req.body.page_size, req.body.page_size);
+
+    var sqlClient = new SqlClient();
+    var photo = new Photo();
+    sqlClient.query(photo, function (result) {
+        var recordCount = result[0]["count"];
+        if (recordCount == 0) {
+            res.json({status: 3, msg: '暂无记录!', data: null, recordCount: 0});
+            return;
+        }
+        sqlClient.query(photo, function (result) {
+            if (result != null && result.length > 0) {
+                result.forEach(function (item) {
+                    item.createtime = moment(item.createtime).format("YYYY-MM-DD");
+                });
+                res.json({status: 1, msg: '查询成功!', data: result, recordCount: recordCount});
+            }
+        }, whereSql, limitSql, false, selectWhat, join);
+    }, whereSql, null, true, selectWhat, join);
+});
+// 相册详情页
+router.get('/photo/details/:id', function (req, res, next) {
+    var user = req.session.user;
+    var website = req.session.website;
+    if (!user || !website) {
+        res.redirect('/cms/login');
+        return;
+    }
+
+    var selectWhat = " A.*,B.pic_url_loc ";
+    var join = " LEFT JOIN picture AS B ON A.photo_main_id = B.id AND B.pic_type = 3 ";
+    var sqlClient = new SqlClient();
+    var photo = new Photo();
+    photo.id = req.params.id;
+    sqlClient.getById(photo, function (result) {
+        if (result != null) {
+            if (result.createtime) {
+                result.createtime = moment(result.createtime).format("YYYY-MM-DD");
+            }
+            res.render('cms/photo_details', {user: user, website: website, photo: result});
+            return;
+        }
+        res.render('cms/photo_details', {user: user, website: website, photo: photo});
+    }, selectWhat, join);
+});
+// 更新相册内容
+router.post('/photo/update', function (req, res, next) {
+    var sqlClient = new SqlClient();
+    var photo = new Photo();
+
+    photo.photo_name = req.body.photo_name;
+    photo.createtime = req.body.createtime;
+    photo.photo_main_id = req.body.photo_main_id;
+    photo.views = req.body.views;
+    photo.id = req.body.id;
+
+    var callback = function (result) {
+        if (result != null && result > 0) {
+            res.json({status: 1, msg: '更新成功!'});
+            return;
+        }
+        res.render({status: 2, msg: '更新失败!'});
+    };
+
+    if (photo.id === null || photo.id === "null" || photo.id === 0 || photo.id === "0") {
+        sqlClient.create(photo, callback);
+    } else {
+        sqlClient.update(photo, callback);
+    }
+});
+
+
 // 评论留言
 router.get('/comment', function (req, res, next) {
     var user = req.session.user;

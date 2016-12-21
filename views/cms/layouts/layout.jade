@@ -6,6 +6,7 @@ append styles
     link(rel='stylesheet', href='/styles/cms/adpat.css')
     link(rel='stylesheet', href='/styles/cms/jquery.mCustomScrollbar.css')
     link(rel='stylesheet', href='/styles/cms/box.css')
+    link(rel='stylesheet', href='/styles/loading.css')
     link(rel='shortcut icon',href='/img/cms/favicon.ico')
 
 block content
@@ -13,6 +14,23 @@ block content
     include ../includes/menu
     block cms_content
     include ../includes/footer
+
+    #loading.spinner-div: .spinner
+        .spinner-container.container1
+            .circle1
+            .circle2
+            .circle3
+            .circle4
+        .spinner-container.container2
+            .circle1
+            .circle2
+            .circle3
+            .circle4
+        .spinner-container.container3
+            .circle1
+            .circle2
+            .circle3
+            .circle4
 
 append scripts
     script(type='text/javascript',src='/js/cms/frame.js')

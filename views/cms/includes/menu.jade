@@ -17,18 +17,12 @@
                 .menu_single: a(href='/cms/news',target='_self'): .menu_parent
                     .menu_icon: i.fa.fa-newspaper-o
                     p 新闻中心
-                .menu_single
-                    .menu_parent
-                        .menu_icon: i.fa.fa-cubes
-                        p 公司产品管理
-                        .arrow_down(style="background-position: 0px 0px;")
-                    ul.sub_menu(style='display: none')
-                        li.sub: a(href='/cms/product',target='_self')
-                            .menu_icon: i.fa.fa-circle
-                            p 产品管理
-                        li.sub: a(href='/cms/category',target='_self')
-                            .menu_icon: i.fa.fa-dot-circle-o
-                            p 分类管理
+                .menu_single: a(href='/cms/product',target='_self'): .menu_parent
+                    .menu_icon: i.fa.fa-cubes
+                    p 公司产品管理
+                .menu_single: a(href='/cms/category',target='_self'): .menu_parent
+                    .menu_icon: i.fa.fa-pie-chart
+                    p 分类管理
                 .menu_single: a(href='/cms/honor',target='_self'): .menu_parent
                     .menu_icon: i.fa.fa-trophy
                     p 荣誉证书
