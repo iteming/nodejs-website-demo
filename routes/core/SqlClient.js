@@ -40,7 +40,7 @@ SqlClient.prototype={
 	query : function(obj, callback, where, limit, count, selectWhat, join){
 		pool.getConnection(function(err, connection) {
 			var sql = 'SELECT ';
-			if(count) sql += ' count(A.id)';
+			if(count) sql += ' count(A.id) as count ';
 			else if(selectWhat) sql += selectWhat;
 			else sql += ' A.*';
 			sql += ' FROM '+obj['tablename']+' AS A';

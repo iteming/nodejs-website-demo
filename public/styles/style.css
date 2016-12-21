@@ -98,3 +98,7 @@ table a:hover, .input-group .btn:hover {
 .table-striped > tbody > tr > td {
     vertical-align: middle !important;
 }
+.details-picture img{
+    width: 90%;
+    margin: auto;
+}

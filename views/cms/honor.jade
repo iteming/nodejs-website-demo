@@ -20,16 +20,16 @@ block cms_content
                     .col-sm-12: .row
                         table.table.table-striped.table-bordered(role="grid")
                             thead: tr(role='row')
-                                th.text-center(width='110') 荣誉图片
+                                th.text-center(width='200') 荣誉图片
                                 th 荣誉名称
                                 th.text-center(width='100') 颁发机构
-                                th.text-center(width='170') 颁发时间
-                                th.text-center(width='170') 过期时间
-                                th.text-center(width='170') 创建时间
+                                th.text-center(width='100') 颁发时间
+                                th.text-center(width='100') 过期时间
+                                th.text-center(width='100') 创建时间
                                 th.text-center(width='80') 操作
                             tbody
                                 tr(role='row',ng-repeat="item in lists")
-                                    td.text-center: img(ng-src='{{item.pic_url_loc}}',width=100,height=100)
+                                    td.text-center: center: img(ng-src='{{item.pic_url_loc}}',height=100)
                                     td {{item.honor_name}}
                                     td.text-center {{item.certification}}
                                     td.text-center {{item.publish_date}}
