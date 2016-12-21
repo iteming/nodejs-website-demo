@@ -1,6 +1,8 @@
 var express = require('express');
 var util = require('util');
 var moment = require('moment');
+var fs = require('fs');
+var formidable = require('formidable');
 var router = express.Router();
 require('../core/CommonUtil');
 require('../core/HttpWrapper');
@@ -17,8 +19,8 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/index', function (req, res, next) {
-    var user = req.cookies.user;
-    var website = req.cookies.website;
+    var user = req.session.user;
+    var website = req.session.website;
 
     if (website) {
         if (user) {
@@ -32,7 +34,7 @@ router.get('/index', function (req, res, next) {
         sqlClient.query(website, function (result) {
             if (result != null && result.length > 0) {
                 website = result[0];
-                res.cookie('website', website, {maxAge: 60 * 60 * 1000}); //24 * 60 * 60 * 1000
+                req.session.website = website;
                 if (user) {
                     res.render('cms/index', {user: user, website: website});
                 } else {
@@ -51,8 +53,8 @@ router.get('/login', function (req, res, next) {
 
 router.get('/logout', function (req, res, next) {
     //清空user信息
-    res.cookie('user', null, {maxAge: 0});
-    res.cookie('website', null, {maxAge: 0});
+    req.session.user = null;
+    req.session.website = null;
     res.redirect('/cms/login');
 });
 
@@ -69,7 +71,7 @@ router.post('/login', function (req, res, next) {
             }
             if (user.createtime) user.createtime = moment(user.createtime).format("YYYY-MM-DD");
             if (user.lastlogintime) user.lastlogintime = moment(user.lastlogintime).format("YYYY-MM-DD");
-            res.cookie('user', user, {maxAge: 60 * 60 * 1000}); //24 * 60 * 60 * 1000
+            req.session.user = user;
             res.redirect('/cms/index');
             return;
         }
@@ -80,8 +82,8 @@ router.post('/login', function (req, res, next) {
 
 // 用户中心
 router.get('/user/center', function (req, res, next) {
-    var user = req.cookies.user;
-    var website = req.cookies.website;
+    var user = req.session.user;
+    var website = req.session.website;
     if (!user || !website) {
         res.redirect('/cms/login');
         return;
@@ -90,8 +92,8 @@ router.get('/user/center', function (req, res, next) {
 });
 // 修改用户信息
 router.post('/user/center', function (req, res, next) {
-    var user = req.cookies.user;
-    var website = req.cookies.website;
+    var user = req.session.user;
+    var website = req.session.website;
     if (!user || !website) {
         res.redirect('/cms/login');
         return;
@@ -110,7 +112,7 @@ router.post('/user/center', function (req, res, next) {
         if (result != null && result > 0) {
             if (entity.createtime) entity.createtime = moment(entity.createtime).format("YYYY-MM-DD");
             if (entity.lastlogintime) entity.lastlogintime = moment(entity.lastlogintime).format("YYYY-MM-DD");
-            res.cookie('user', entity, {maxAge: 60 * 60 * 1000}); //24 * 60 * 60 * 1000
+            req.session.user = entity;
             res.render('cms/user/center', {status: 1, msg: '修改成功!', user: entity, website: website});
             return;
         }
@@ -121,7 +123,7 @@ router.post('/user/center', function (req, res, next) {
 
 // 设置密码
 router.get('/user/forget', function (req, res, next) {
-    // var user = req.cookies.user;
+    // var user = req.session.user;
     // if(!user || !website) { res.redirect('/cms/login'); return; }
     res.render('cms/user/forget');
 });
@@ -129,8 +131,8 @@ router.get('/user/forget', function (req, res, next) {
 
 // 公司基本信息
 router.get('/company', function (req, res, next) {
-    var user = req.cookies.user;
-    var website = req.cookies.website;
+    var user = req.session.user;
+    var website = req.session.website;
     if (!user || !website) {
         res.redirect('/cms/login');
         return;
@@ -150,8 +152,8 @@ router.get('/company', function (req, res, next) {
 });
 // 更新公司信息
 router.post('/company', function (req, res, next) {
-    var user = req.cookies.user;
-    var website = req.cookies.website;
+    var user = req.session.user;
+    var website = req.session.website;
     if (!user || !website) {
         res.redirect('/cms/login');
         return;
@@ -193,8 +195,8 @@ router.post('/company', function (req, res, next) {
 
 // 公司联系方式
 router.get('/contact', function (req, res, next) {
-    var user = req.cookies.user;
-    var website = req.cookies.website;
+    var user = req.session.user;
+    var website = req.session.website;
     if (!user || !website) {
         res.redirect('/cms/login');
         return;
@@ -213,8 +215,8 @@ router.get('/contact', function (req, res, next) {
 });
 // 更新联系方式
 router.post('/contact', function (req, res, next) {
-    var user = req.cookies.user;
-    var website = req.cookies.website;
+    var user = req.session.user;
+    var website = req.session.website;
     if (!user || !website) {
         res.redirect('/cms/login');
         return;
@@ -254,8 +256,8 @@ router.post('/contact', function (req, res, next) {
 
 // 通知公告
 router.get('/notice', function (req, res, next) {
-    var user = req.cookies.user;
-    var website = req.cookies.website;
+    var user = req.session.user;
+    var website = req.session.website;
     if (!user || !website) {
         res.redirect('/cms/login');
         return;
@@ -287,8 +289,8 @@ router.post('/notice/list', function (req, res, next) {
 });
 // 公告详情页
 router.get('/notice/details/:id', function (req, res, next) {
-    var user = req.cookies.user;
-    var website = req.cookies.website;
+    var user = req.session.user;
+    var website = req.session.website;
     if (!user || !website) {
         res.redirect('/cms/login');
         return;
@@ -335,8 +337,8 @@ router.post('/notice/update', function (req, res, next) {
 
 // 新闻中心
 router.get('/news', function (req, res, next) {
-    var user = req.cookies.user;
-    var website = req.cookies.website;
+    var user = req.session.user;
+    var website = req.session.website;
     if (!user || !website) {
         res.redirect('/cms/login');
         return;
@@ -368,8 +370,8 @@ router.post('/news/list', function (req, res, next) {
 });
 // 新闻详情页
 router.get('/news/details/:id', function (req, res, next) {
-    var user = req.cookies.user;
-    var website = req.cookies.website;
+    var user = req.session.user;
+    var website = req.session.website;
     if (!user || !website) {
         res.redirect('/cms/login');
         return;
@@ -416,8 +418,8 @@ router.post('/news/update', function (req, res, next) {
 
 // 产品管理
 router.get('/product', function (req, res, next) {
-    var user = req.cookies.user;
-    var website = req.cookies.website;
+    var user = req.session.user;
+    var website = req.session.website;
     if (!user || !website) {
         res.redirect('/cms/login');
         return;
@@ -428,8 +430,8 @@ router.get('/product', function (req, res, next) {
 
 // 分类管理
 router.get('/category', function (req, res, next) {
-    var user = req.cookies.user;
-    var website = req.cookies.website;
+    var user = req.session.user;
+    var website = req.session.website;
     if (!user || !website) {
         res.redirect('/cms/login');
         return;
@@ -489,8 +491,8 @@ router.post('/category/delete', function (req, res, next) {
 
 // 荣誉证书
 router.get('/honor', function (req, res, next) {
-    var user = req.cookies.user;
-    var website = req.cookies.website;
+    var user = req.session.user;
+    var website = req.session.website;
     if (!user || !website) {
         res.redirect('/cms/login');
         return;
@@ -526,8 +528,8 @@ router.post('/honor/list', function (req, res, next) {
 });
 // 荣誉详情页
 router.get('/honor/details/:id', function (req, res, next) {
-    var user = req.cookies.user;
-    var website = req.cookies.website;
+    var user = req.session.user;
+    var website = req.session.website;
     if (!user || !website) {
         res.redirect('/cms/login');
         return;
@@ -555,12 +557,15 @@ router.get('/honor/details/:id', function (req, res, next) {
 router.post('/honor/update', function (req, res, next) {
     var sqlClient = new SqlClient();
     var honor = new Honor();
-    honor.title = req.body.title;
-    honor.content = req.body.content;
+    console.log(req.body);
+
+    honor.honor_name = req.body.honor_name;
+    honor.certification = req.body.certification;
+    honor.publish_date = req.body.publish_date;
+    honor.expiry_date = req.body.expiry_date;
     honor.createtime = req.body.createtime;
-    honor.status = req.body.status && req.body.status == 'on' ? true : false;
-    honor.settop = req.body.settop && req.body.settop == 'on' ? true : false;
-    honor.views = req.body.views ? req.body.views : 0;
+    honor.honor_main_id = req.body.honor_main_id;
+    honor.views = req.body.views;
     honor.id = req.body.id;
 
     var callback = function (result) {
@@ -581,8 +586,8 @@ router.post('/honor/update', function (req, res, next) {
 
 // 公司相册
 router.get('/photo', function (req, res, next) {
-    var user = req.cookies.user;
-    var website = req.cookies.website;
+    var user = req.session.user;
+    var website = req.session.website;
     if (!user || !website) {
         res.redirect('/cms/login');
         return;
@@ -591,8 +596,8 @@ router.get('/photo', function (req, res, next) {
 });
 // 评论留言
 router.get('/comment', function (req, res, next) {
-    var user = req.cookies.user;
-    var website = req.cookies.website;
+    var user = req.session.user;
+    var website = req.session.website;
     if (!user || !website) {
         res.redirect('/cms/login');
         return;
@@ -603,8 +608,8 @@ router.get('/comment', function (req, res, next) {
 
 // 网站信息
 router.get('/website', function (req, res, next) {
-    var user = req.cookies.user;
-    var website = req.cookies.website;
+    var user = req.session.user;
+    var website = req.session.website;
     if (!user || !website) {
         res.redirect('/cms/login');
         return;
@@ -613,8 +618,8 @@ router.get('/website', function (req, res, next) {
 });
 // 更新网站信息
 router.post('/website', function (req, res, next) {
-    var user = req.cookies.user;
-    var website = req.cookies.website;
+    var user = req.session.user;
+    var website = req.session.website;
     if (!user || !website) {
         res.redirect('/cms/login');
         return;
@@ -632,13 +637,13 @@ router.post('/website', function (req, res, next) {
     website.icp_num = req.body.icp_num;
     website.support_name = req.body.support_name;
     website.support_url = req.body.support_url;
-    website.views = req.body.views;
+    website.views = req.body.views ? req.body.views : 0;
 
     var isInsert = false;
     var callback = function (result) {
         if (result != null && result > 0) {
             if (isInsert) website.id = result;
-            res.cookie('website', website, {maxAge: 60 * 60 * 1000}); //24 * 60 * 60 * 1000
+            req.session.website = website;
             res.render('cms/website', {status: 1, msg: '更新成功!', user: user, website: website});
             return;
         }
@@ -656,9 +661,79 @@ router.post('/website', function (req, res, next) {
 
 // 上传图片
 router.post('/picture/fileupload', function (req, res, next) {
-    console.log(req.files);
-    res.end("File uploaded.");
-});
+    var cacheFolder = '/img/uploads/';
+    var userDirPath = 'public' + cacheFolder;
+    if (!fs.existsSync(userDirPath)) fs.mkdirSync(userDirPath);
+    var form = new formidable.IncomingForm(); //创建上传表单
+    form.encoding = 'utf-8'; //设置编辑
+    form.uploadDir = userDirPath; //设置上传目录
+    form.keepExtensions = true; //保留后缀
+    form.maxFieldsSize = 2 * 1024 * 1024; //文件大小
+    form.type = true;
+    var displayUrl;
+    form.parse(req, function (err, fields, files) {
+        if (err) {
+            res.send(err);
+            return;
+        }
+        var extName = extractExtName(files);
+        if (extName.length === 0) {
+            res.send({status: 2, msg: "不支持此文件类型"});
+            return;
+        }
+        var avatarName = Date.now() + '.' + extName;
+        var newPath = form.uploadDir + avatarName;
+        displayUrl = cacheFolder + avatarName;
+        fs.renameSync(files.filesdata.path, newPath); //重命名
 
+        if(!(fields.pic_type) || fields.pic_type == 0){
+            res.send({status: 1, msg: "上传成功", data: displayUrl, picid: 0 });
+            return;
+        }
+        var sqlClient = new SqlClient();
+        var picture = new Picture();
+        picture.pic_type = fields.pic_type;
+        picture.key_id = fields.key_id?fields.key_id:null;
+        picture.pic_name = avatarName;
+        picture.pic_url_loc = displayUrl;
+        picture.pic_url_cdn = null;
+        var callback = function (result) {
+            if (result != null && result > 0) {
+                res.send({status: 1, msg: "上传成功", data: displayUrl, picid: result });
+                return;
+            }
+            res.render({status: 2, msg: '上传失败!', data: displayUrl});
+        };
+        sqlClient.create(picture, callback);
+    });
+});
+// 提取扩展名
+function extractExtName(files) {
+    var extName = ''; //后缀名
+    switch (files.filesdata.type) {
+        case 'image/pjpeg':
+            extName = 'jpg';
+            break;
+        case 'image/jpeg':
+            extName = 'jpg';
+            break;
+        case 'image/jpg':
+            extName = 'jpg';
+            break;
+        case 'image/png':
+            extName = 'png';
+            break;
+        case 'image/x-png':
+            extName = 'png';
+            break;
+        case 'image/gif':
+            extName = 'gif';
+            break;
+        case 'image/svg':
+            extName = 'svg';
+            break;
+    }
+    return extName;
+}
 
 module.exports = router;

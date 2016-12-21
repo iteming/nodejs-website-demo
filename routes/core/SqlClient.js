@@ -73,6 +73,7 @@ SqlClient.prototype={
 					// console.log(obj.hasOwnProperty(name));
 					cols.push(name);
 					params.push('?');
+					if(obj[name] == 'null' || obj[name] == 'undefined') obj[name] = null;
 					paramValues.push(obj[name]);
 				}
 			}

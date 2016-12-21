@@ -5,9 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var ejs = require('ejs');
-
-// var multer = require('multer');
-// var done = false;
+var session = require('express-session');
 
 //引入模块
 var routes = require('./routes/index');
@@ -32,6 +30,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+    secret: 'iteming node', //secret的值建议使用随机字符串
+    cookie: {maxAge: 60 * 1000 * 30} // 过期时间（毫秒）
+}));
 
 app.use('/', routes);
 app.use('/api', apiViews);
@@ -54,19 +56,5 @@ app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error');
 });
-
-// app.use(multer({
-//     dest: './public/img/uploads/',
-//     rename: function (fieldname, filename) {
-//         return filename + Date.now();
-//     },
-//     onFileUploadStart: function (file) {
-//         console.log(file.originalname + ' is starting ...')
-//     },
-//     onFileUploadComplete: function (file) {
-//         console.log(file.fieldname + ' uploaded to  ' + file.path)
-//         done = true;
-//     }
-// }));
 
 module.exports = app;
