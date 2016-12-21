@@ -1,0 +1,127 @@
+extends layouts/layout
+block loadtitle
+    -var title='CMS 产品详情'
+
+append styles
+    link(rel='stylesheet', href='/plugins/kindeditor-4.1.11/themes/default/default.css')
+    link(rel='stylesheet', href='/plugins/kindeditor-4.1.11/plugins/code/prettify.css')
+    link(rel='stylesheet', href='/plugins/jquery-file-upload/css/jquery.fileupload.css')
+
+block cms_content
+    .content_main
+        mixin toastr(status, msg)
+        .container-fluid
+            section.todo-content
+                div.panel-title.pll 产品详情
+                    small 产品详情维护
+            .col-md-12: .box.box-info
+                .box-header.with-border: h3.box-title 产品详情维护
+                form.form-horizontal(data-validate="parsley", method='post', action='/cms/product/update')
+                    .box-body
+                        .col-sm-8
+                            .form-group
+                                input#id(name='id',type='hidden',value="#{product.id}")
+                                input#views(name='views',type='hidden',value="#{product.views}")
+                                label.col-sm-2.control-label(for='name') 产品名称
+                                .col-sm-10: input#name.form-control.parsley-validated(name='name',type='text',placeholder='产品名称',
+                                value="#{product.name}",autocomplete="off",data-required="true")
+                            .form-group
+                                label.col-sm-2.control-label(for='category_id') 产品类别
+                                .col-sm-10: input#category_id.form-control.parsley-validated(name='category_id',type='text',placeholder='产品类别',
+                                value="#{product.category_id}",autocomplete="off")
+                            .form-group
+                                label.col-sm-2.control-label(for='model') 型号
+                                .col-sm-4: input#model.form-control.parsley-validated(name='model',type='text',placeholder='型号',
+                                value="#{product.model}",autocomplete="off")
+                                label.col-sm-2.control-label(for='specification') 规格
+                                .col-sm-4: input#specification.form-control.parsley-validated(name='specification',type='text',placeholder='规格',
+                                value="#{product.specification}",autocomplete="off")
+                            .form-group
+                                label.col-sm-2.control-label(for='brand') 品牌
+                                .col-sm-4: input#brand.form-control.parsley-validated(name='brand',type='text',placeholder='品牌',
+                                value="#{product.brand}",autocomplete="off")
+                                label.col-sm-2.control-label(for='price') 单价
+                                .col-sm-4: input#price.form-control.parsley-validated(name='price',type='text',placeholder='单价',
+                                value="#{product.price}",autocomplete="off")
+                            .form-group
+                                label.col-sm-2.control-label(for='publish_date') 发布日期
+                                .col-sm-4: input#publish_date.form-control.parsley-validated(name='publish_date',type='text',placeholder='发布日期',
+                                value="#{product.publish_date}",data-type="dateIso")
+                                label.col-sm-2.control-label(for='expiry_date') 有效期
+                                .col-sm-4: input#expiry_date.form-control.parsley-validated(name='expiry_date',type='text',placeholder='不填则长期有效',
+                                value="#{product.expiry_date}",data-type="dateIso")
+                            .form-group
+                                label.col-sm-2.control-label(for='detail_info') 产品详情
+                                .col-sm-10: textarea#detail_info.textarea.form-control.parsley-validated(name="content",placeholder="Enter text ...",
+                                rows="15") #{product.detail_info}
+                            .form-group
+                                label.col-sm-2.control-label 上传图片
+                                .col-sm-10: span.btn.btn-default.fileinput-button
+                                    i.fa.fa-picture-o
+                                    span 选择图片
+                                    input#file1(type='file',name='filesdata')
+                                    // ,multiple='multiple'
+                            .form-group: .col-sm-offset-2.col-sm-10
+                                blockquote.note.note-info
+                                    h4 注意事项
+                                    ul
+                                        //li 支持多选
+                                        li 最大文件大小上传
+                                            strong 200MB
+                                            | .
+                                        li 支持的图片类型有（
+                                            strong JPG, GIF, PNG
+                                            | ）.
+                            .form-group: .col-sm-offset-2.col-sm-10
+                                a.btn.btn-default(type='button',href='/cms/product') 取消更改
+                                input#btn_submit.btn.btn-info.mll(name='btn_submit',type='button',value='确认更改')
+                        .col-sm-4
+                            //.form-group: .col-sm-12.details-picture: img#product_pic(src='#{product.pic_url_loc ? product.pic_url_loc : ""}')
+                            //input#product_main_id(name='product_main_id',type='hidden',value='#{product.product_main_id}')
+
+append scripts
+    script(type='text/javascript',src='/plugins/kindeditor-4.1.11/kindeditor-min.js')
+    script(type='text/javascript',src='/plugins/kindeditor-4.1.11/lang/zh_CN.js')
+    script(type='text/javascript',src='/plugins/kindeditor-4.1.11/plugins/code/prettify.js')
+    script(type='text/javascript',src='/js/cms/KindEditorPageJS.js')
+    script(type='text/javascript',src='/plugins/jquery-file-upload/js/jquery.fileupload-ajax.js')
+    script(type='text/javascript',src='/js/cms/UploadPageJS.js')
+    script(type='text/javascript')
+        //当选中文件,则立即执行上传
+        //$(document).on("change", "#file1", function () {
+        //    if ($("#file1").val() != "") {
+        //        FileAction.FileUpload("file1", 2, null ,$("#product_pic"), null ,$("#product_main_id"));
+        //    }
+        //});
+    script(type='text/javascript').
+        $("#btn_submit").on('click', function () {
+            $("#detail_info").val(editor.html());
+            //表单验证
+            var valid = $("form").parsley().validate();
+            if (!valid)
+                return;
+
+            //表单验证通过：则提交
+            $.ajax({
+                url: "/cms/product/update",
+                type: "post",
+                dataType: "json",
+                data: $("form").serialize(),
+                success: function (data) {
+                    if (data.status > 0) {
+                        toastrShow(data.status, data.msg);
+                        setTimeout(function () {
+                            window.location = "/cms/product";
+                        }, '1500')
+                    } else {
+                        toastrShow(data.status, data.msg);
+                    }
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $("#publish_date").datepicker({todayHighlight: true, format: 'yyyy-mm-dd', autoclose: true});
+            $("#expiry_date").datepicker({todayHighlight: true, format: 'yyyy-mm-dd', autoclose: true});
+        });
+

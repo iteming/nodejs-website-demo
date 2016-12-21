@@ -24,7 +24,7 @@ block cms_content
                             .col-sm-7: input#title.form-control.parsley-validated(name='title',type='text',placeholder='新闻标题',
                             value="#{news.title}",autocomplete="off",data-required="true")
                         .form-group
-                            label.col-sm-1.control-label 新闻内容
+                            label.col-sm-1.control-label(for='content') 新闻内容
                             .col-sm-7: textarea#content.textarea.form-control.parsley-validated(name="content",placeholder="Enter text ...",
                             rows="15") #{news.content}
                         .form-group

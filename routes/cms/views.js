@@ -426,7 +426,85 @@ router.get('/product', function (req, res, next) {
     }
     res.render('cms/product', {user: user, website: website});
 });
+// 获取产品列表
+router.post('/product/list', function (req, res, next) {
+    var selectWhat = " A.*,B.name as category_name ";
+    var join = " LEFT JOIN category AS B ON A.category_id = B.id ";
+    var whereSql = req.body.wd ? util.format(" where A.name like '%%%s%' or A.detail_info like '%%%s%' or B.name like '%%%s%' ", req.body.wd, req.body.wd, req.body.wd) : "";
+    var limitSql = util.format(" order by publish_date desc,A.name Limit %s,%s ", (req.body.page_index - 1) * req.body.page_size, req.body.page_size);
 
+    var sqlClient = new SqlClient();
+    var product = new Product();
+    sqlClient.query(product, function (result) {
+        var recordCount = result[0]["count"];
+        if (recordCount == 0) {
+            res.json({status: 3, msg: '暂无记录!', data: null, recordCount: 0});
+            return;
+        }
+        sqlClient.query(product, function (result) {
+            if (result != null && result.length > 0) {
+                result.forEach(function (item) {
+                    if (item.publish_date) item.publish_date = moment(item.publish_date).format("YYYY-MM-DD");
+                    if (item.expiry_date) item.expiry_date = moment(item.expiry_date).format("YYYY-MM-DD");
+                });
+                res.json({status: 1, msg: '查询成功!', data: result, recordCount: recordCount});
+            }
+        }, whereSql, limitSql, false, selectWhat, join);
+    }, whereSql, null, true, selectWhat, join);
+});
+// 产品详情页
+router.get('/product/details/:id', function (req, res, next) {
+    var user = req.session.user;
+    var website = req.session.website;
+    if (!user || !website) {
+        res.redirect('/cms/login');
+        return;
+    }
+
+    var sqlClient = new SqlClient();
+    var product = new Product();
+    product.id = req.params.id;
+    sqlClient.getById(product, function (result) {
+        if (result != null) {
+            if (result.publish_date) result.publish_date = moment(result.publish_date).format("YYYY-MM-DD");
+            if (result.expiry_date) result.expiry_date = moment(result.expiry_date).format("YYYY-MM-DD");
+            res.render('cms/product_details', {user: user, website: website, product: result});
+            return;
+        }
+        res.render('cms/product_details', {user: user, website: website, product: product});
+    }, null, null);
+});
+// 更新产品内容
+router.post('/product/update', function (req, res, next) {
+    var sqlClient = new SqlClient();
+    var product = new Product();
+
+    product.name = req.body.name;
+    product.category_id = req.body.category_id;
+    product.model = req.body.model;
+    product.specification = req.body.specification;
+    product.brand = req.body.brand;
+    product.price = req.body.price;
+    product.publish_date = req.body.publish_date;
+    product.expiry_date = req.body.expiry_date?req.body.expiry_date:null;
+    product.detail_info = req.body.content;
+    product.views = req.body.views;
+    product.id = req.body.id;
+
+    var callback = function (result) {
+        if (result != null && result > 0) {
+            res.json({status: 1, msg: '更新成功!'});
+            return;
+        }
+        res.render({status: 2, msg: '更新失败!'});
+    };
+
+    if (product.id === null || product.id === "null" || product.id === 0 || product.id === "0") {
+        sqlClient.create(product, callback);
+    } else {
+        sqlClient.update(product, callback);
+    }
+});
 
 // 分类管理
 router.get('/category', function (req, res, next) {
@@ -453,9 +531,6 @@ router.post('/category/list', function (req, res, next) {
         }
         sqlClient.query(category, function (result) {
             if (result != null && result.length > 0) {
-                // result.forEach(function (item) {
-                //     item.createtime = moment(item.createtime).format("YYYY-MM-DD");
-                // });
                 res.json({status: 1, msg: '查询成功!', data: result, recordCount: recordCount});
             }
         }, whereSql, limitSql);
@@ -542,11 +617,9 @@ router.get('/honor/details/:id', function (req, res, next) {
     honor.id = req.params.id;
     sqlClient.getById(honor, function (result) {
         if (result != null) {
-            if (result.createtime) {
-                result.publish_date = moment(result.publish_date).format("YYYY-MM-DD");
-                result.expiry_date = moment(result.expiry_date).format("YYYY-MM-DD");
-                result.createtime = moment(result.createtime).format("YYYY-MM-DD");
-            }
+            if (result.createtime) result.createtime = moment(result.createtime).format("YYYY-MM-DD");
+            if (result.publish_date) result.publish_date = moment(result.publish_date).format("YYYY-MM-DD");
+            if (result.expiry_date) result.expiry_date = moment(result.expiry_date).format("YYYY-MM-DD");
             res.render('cms/honor_details', {user: user, website: website, honor: result});
             return;
         }
@@ -561,7 +634,7 @@ router.post('/honor/update', function (req, res, next) {
     honor.honor_name = req.body.honor_name;
     honor.certification = req.body.certification;
     honor.publish_date = req.body.publish_date;
-    honor.expiry_date = req.body.expiry_date;
+    honor.expiry_date = req.body.expiry_date?req.body.expiry_date:null;
     honor.createtime = req.body.createtime;
     honor.honor_main_id = req.body.honor_main_id;
     honor.views = req.body.views;
@@ -634,9 +707,7 @@ router.get('/photo/details/:id', function (req, res, next) {
     photo.id = req.params.id;
     sqlClient.getById(photo, function (result) {
         if (result != null) {
-            if (result.createtime) {
-                result.createtime = moment(result.createtime).format("YYYY-MM-DD");
-            }
+            if (result.createtime) result.createtime = moment(result.createtime).format("YYYY-MM-DD");
             res.render('cms/photo_details', {user: user, website: website, photo: result});
             return;
         }
