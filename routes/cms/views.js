@@ -486,7 +486,7 @@ router.post('/product/update', function (req, res, next) {
     product.brand = req.body.brand;
     product.price = req.body.price;
     product.publish_date = req.body.publish_date;
-    product.expiry_date = req.body.expiry_date?req.body.expiry_date:null;
+    product.expiry_date = req.body.expiry_date ? req.body.expiry_date : null;
     product.detail_info = req.body.content;
     product.views = req.body.views;
     product.id = req.body.id;
@@ -535,6 +535,16 @@ router.post('/category/list', function (req, res, next) {
             }
         }, whereSql, limitSql);
     }, whereSql, null, true);
+});
+// 获取分类列表
+router.post('/category/dropdownlist', function (req, res, next) {
+    var sqlClient = new SqlClient();
+    var category = new Category();
+    sqlClient.query(category, function (result) {
+        if (result != null && result.length > 0) {
+            res.json({status: 1, msg: '查询成功!', data: result});
+        }
+    }, null, null);
 });
 // 新增分类
 router.post('/category/insert', function (req, res, next) {
@@ -592,9 +602,9 @@ router.post('/honor/list', function (req, res, next) {
         sqlClient.query(honor, function (result) {
             if (result != null && result.length > 0) {
                 result.forEach(function (item) {
-                    item.publish_date = moment(item.publish_date).format("YYYY-MM-DD");
-                    item.expiry_date = moment(item.expiry_date).format("YYYY-MM-DD");
-                    item.createtime = moment(item.createtime).format("YYYY-MM-DD");
+                    if (item.publish_date) item.publish_date = moment(item.publish_date).format("YYYY-MM-DD");
+                    if (item.expiry_date) item.expiry_date = moment(item.expiry_date).format("YYYY-MM-DD");
+                    if (item.createtime) item.createtime = moment(item.createtime).format("YYYY-MM-DD");
                 });
                 res.json({status: 1, msg: '查询成功!', data: result, recordCount: recordCount});
             }
@@ -634,7 +644,7 @@ router.post('/honor/update', function (req, res, next) {
     honor.honor_name = req.body.honor_name;
     honor.certification = req.body.certification;
     honor.publish_date = req.body.publish_date;
-    honor.expiry_date = req.body.expiry_date?req.body.expiry_date:null;
+    honor.expiry_date = req.body.expiry_date ? req.body.expiry_date : null;
     honor.createtime = req.body.createtime;
     honor.honor_main_id = req.body.honor_main_id;
     honor.views = req.body.views;
@@ -806,6 +816,20 @@ router.post('/website', function (req, res, next) {
     }
 });
 
+// 获取图片信息
+router.post('/picture/list', function (req, res, next) {
+    var whereSql = util.format(" where pic_type=%s and key_id=%s  ", req.body.pic_type, req.body.key_id);
+    var sqlClient = new SqlClient();
+    var picture = new Picture();
+    sqlClient.query(picture, function (result) {
+        if (result != null && result.length > 0) {
+            res.json({status: 1, msg: '查询成功!', data: result});
+            return;
+        }
+        res.json({status: 2, msg: '暂无记录!', data: result});
+    }, whereSql);
+});
+
 // 上传图片
 router.post('/picture/fileupload', function (req, res, next) {
     var cacheFolder = '/img/uploads/';
@@ -833,20 +857,20 @@ router.post('/picture/fileupload', function (req, res, next) {
         displayUrl = cacheFolder + avatarName;
         fs.renameSync(files.filesdata.path, newPath); //重命名
 
-        if(!(fields.pic_type) || fields.pic_type == 0){
-            res.send({status: 1, msg: "上传成功", data: displayUrl, picid: 0 });
+        if (!(fields.pic_type) || fields.pic_type == 0) {
+            res.send({status: 1, msg: "上传成功", data: displayUrl, picid: 0});
             return;
         }
         var sqlClient = new SqlClient();
         var picture = new Picture();
         picture.pic_type = fields.pic_type;
-        picture.key_id = fields.key_id?fields.key_id:null;
+        picture.key_id = fields.key_id ? fields.key_id : null;
         picture.pic_name = avatarName;
         picture.pic_url_loc = displayUrl;
         picture.pic_url_cdn = null;
         var callback = function (result) {
             if (result != null && result > 0) {
-                res.send({status: 1, msg: "上传成功", data: displayUrl, picid: result });
+                res.send({status: 1, msg: "上传成功", data: displayUrl, picid: result});
                 return;
             }
             res.render({status: 2, msg: '上传失败!', data: displayUrl});

@@ -25,10 +25,11 @@ block cms_content
                                 label.col-sm-2.control-label(for='name') 产品名称
                                 .col-sm-10: input#name.form-control.parsley-validated(name='name',type='text',placeholder='产品名称',
                                 value="#{product.name}",autocomplete="off",data-required="true")
-                            .form-group
+                            .form-group(ng-app="categorylist",ng-controller="categorylistCtrl")
                                 label.col-sm-2.control-label(for='category_id') 产品类别
-                                .col-sm-10: input#category_id.form-control.parsley-validated(name='category_id',type='text',placeholder='产品类别',
-                                value="#{product.category_id}",autocomplete="off")
+                                .col-sm-10
+                                    select#category_id.form-control.parsley-validated.select.select-primary.select-block(name='category_id')
+                                        option(ng-repeat="item in lists",value="{{item.id}}",ng-selected="{{item.id}} == #{product.category_id}") {{item.name}}
                             .form-group
                                 label.col-sm-2.control-label(for='model') 型号
                                 .col-sm-4: input#model.form-control.parsley-validated(name='model',type='text',placeholder='型号',
@@ -46,7 +47,7 @@ block cms_content
                             .form-group
                                 label.col-sm-2.control-label(for='publish_date') 发布日期
                                 .col-sm-4: input#publish_date.form-control.parsley-validated(name='publish_date',type='text',placeholder='发布日期',
-                                value="#{product.publish_date}",data-type="dateIso")
+                                value="#{product.publish_date}",data-type="dateIso",data-required="true")
                                 label.col-sm-2.control-label(for='expiry_date') 有效期
                                 .col-sm-4: input#expiry_date.form-control.parsley-validated(name='expiry_date',type='text',placeholder='不填则长期有效',
                                 value="#{product.expiry_date}",data-type="dateIso")
@@ -54,30 +55,32 @@ block cms_content
                                 label.col-sm-2.control-label(for='detail_info') 产品详情
                                 .col-sm-10: textarea#detail_info.textarea.form-control.parsley-validated(name="content",placeholder="Enter text ...",
                                 rows="15") #{product.detail_info}
-                            .form-group
+                            .form-group(style='display: #{product.id == 0?"none":"block"}')
                                 label.col-sm-2.control-label 上传图片
                                 .col-sm-10: span.btn.btn-default.fileinput-button
                                     i.fa.fa-picture-o
                                     span 选择图片
                                     input#file1(type='file',name='filesdata')
                                     // ,multiple='multiple'
-                            .form-group: .col-sm-offset-2.col-sm-10
-                                blockquote.note.note-info
-                                    h4 注意事项
-                                    ul
-                                        //li 支持多选
-                                        li 最大文件大小上传
-                                            strong 200MB
-                                            | .
-                                        li 支持的图片类型有（
-                                            strong JPG, GIF, PNG
-                                            | ）.
+                            .form-group(style='display: #{product.id == 0?"none":"block"}')
+                                .col-sm-offset-2.col-sm-10
+                                    blockquote.note.note-info
+                                        h4 注意事项
+                                        ul
+                                            //li 支持多选
+                                            li 最大文件大小上传
+                                                strong 200MB
+                                                | .
+                                            li 支持的图片类型有（
+                                                strong JPG, GIF, PNG
+                                                | ）.
                             .form-group: .col-sm-offset-2.col-sm-10
                                 a.btn.btn-default(type='button',href='/cms/product') 取消更改
                                 input#btn_submit.btn.btn-info.mll(name='btn_submit',type='button',value='确认更改')
-                        .col-sm-4
-                            //.form-group: .col-sm-12.details-picture: img#product_pic(src='#{product.pic_url_loc ? product.pic_url_loc : ""}')
-                            //input#product_main_id(name='product_main_id',type='hidden',value='#{product.product_main_id}')
+                        .col-sm-4#app1(ng-app="picturelist",ng-controller="picturelistCtrl")
+                            .form-group(ng-repeat="picture in picturelists")
+                                .col-sm-12.details-picture
+                                    img(ng-src='{{picture.pic_url_loc?picture.pic_url_loc:""}}',id='pic_pic_{{$index+1}}')
 
 append scripts
     script(type='text/javascript',src='/plugins/kindeditor-4.1.11/kindeditor-min.js')
@@ -86,13 +89,6 @@ append scripts
     script(type='text/javascript',src='/js/cms/KindEditorPageJS.js')
     script(type='text/javascript',src='/plugins/jquery-file-upload/js/jquery.fileupload-ajax.js')
     script(type='text/javascript',src='/js/cms/UploadPageJS.js')
-    script(type='text/javascript')
-        //当选中文件,则立即执行上传
-        //$(document).on("change", "#file1", function () {
-        //    if ($("#file1").val() != "") {
-        //        FileAction.FileUpload("file1", 2, null ,$("#product_pic"), null ,$("#product_main_id"));
-        //    }
-        //});
     script(type='text/javascript').
         $("#btn_submit").on('click', function () {
             $("#detail_info").val(editor.html());
@@ -124,4 +120,52 @@ append scripts
             $("#publish_date").datepicker({todayHighlight: true, format: 'yyyy-mm-dd', autoclose: true});
             $("#expiry_date").datepicker({todayHighlight: true, format: 'yyyy-mm-dd', autoclose: true});
         });
-
+    script(type='text/javascript',src='/plugins/angular/angular.min.js')
+    script(type='text/javascript').
+        var app = angular.module('categorylist', []);
+        app.controller('categorylistCtrl', function ($scope) {
+            $scope.lists = [];
+            $.ajax({
+                url: "/cms/category/dropdownlist",
+                type: "post",
+                dataType: "json",
+                success: function (data) {
+                    if (data.status > 0) {
+                        $scope.lists = data.data;
+                        $scope.$apply();
+                        selectbox();
+                    }
+                }
+            });
+        });
+    script(type='text/javascript').
+        var app1 = angular.module('picturelist', []);
+        app1.controller('picturelistCtrl', function ($scope) {
+            $scope.picturelists = [];
+            $.ajax({
+                url: "/cms/picture/list",
+                type: "post",
+                dataType: "json",
+                data: {pic_type:1,key_id:#{product.id}},
+                success: function (data) {
+                    if (data.status > 0) {
+                        $scope.picturelists = data.data;
+                        $scope.$apply();
+                    }
+                }
+            });
+            //当选中文件,则立即执行上传
+            $(document).on("change", "#file1", function () {
+                if ($("#file1").val() != "") {
+                    var id = $scope.picturelists.length + 1;
+                    var showid = $("#pic_pic_"+id+"");
+                    console.log(showid);
+                    $scope.picturelists.push({pic_url_loc: ''});
+                    $scope.$apply();
+                    FileAction.FileUpload("file1", 1, #{product.id}, showid, null, null);
+                }
+            });
+        });
+        angular.element(document).ready(function () {
+            angular.bootstrap(document.getElementById('app1'), ['picturelist']);
+        });

@@ -27,6 +27,12 @@ SqlClient.prototype={
 		        }
 				if(result != null && result.length > 0){
 					obj = result[0];
+					// 将结果里的null 转换为 ''
+					for(var name in obj){
+						if(obj.hasOwnProperty(name) && name != 'id'){
+							if(obj[name] == 'null' || obj[name] == 'undefined' || obj[name] == null) obj[name] = '';
+						}
+					}
 					callback(obj);
 				}else{
 					callback(null);
@@ -98,8 +104,9 @@ SqlClient.prototype={
 		var cols = [];
 		var paramValues = [];
 		for(var name in obj){
-			if(obj.hasOwnProperty(name) && name != 'tablename' && name != 'id' && obj[name] != null){
+			if(obj.hasOwnProperty(name) && name != 'tablename' && name != 'id'){
 				cols.push(name+"=?");
+				if(obj[name] == 'null' || obj[name] == 'undefined') obj[name] = null;
 				paramValues.push(obj[name]);
 			}
 	    }
