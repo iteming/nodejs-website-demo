@@ -55,14 +55,16 @@ block cms_content
                                 label.col-sm-2.control-label(for='detail_info') 产品详情
                                 .col-sm-10: textarea#detail_info.textarea.form-control.parsley-validated(name="content",placeholder="Enter text ...",
                                 rows="15") #{product.detail_info}
-                            .form-group(style='display: #{product.id == 0?"none":"block"}')
+                            .form-group
+                                //(style='display: #{product.id == 0?"none":"block"}')
                                 label.col-sm-2.control-label 上传图片
                                 .col-sm-10: span.btn.btn-default.fileinput-button
                                     i.fa.fa-picture-o
                                     span 选择图片
                                     input#file1(type='file',name='filesdata')
                                     // ,multiple='multiple'
-                            .form-group(style='display: #{product.id == 0?"none":"block"}')
+                            .form-group
+                                //(style='display: #{product.id == 0?"none":"block"}')
                                 .col-sm-offset-2.col-sm-10
                                     blockquote.note.note-info
                                         h4 注意事项
@@ -80,7 +82,7 @@ block cms_content
                         .col-sm-4#app1(ng-app="picturelist",ng-controller="picturelistCtrl")
                             .form-group(ng-repeat="picture in picturelists")
                                 .col-sm-12.details-picture
-                                    img(ng-src='{{picture.pic_url_loc?picture.pic_url_loc:""}}',id='pic_pic_{{$index+1}}')
+                                    img(ng-src='{{picture.pic_url_loc?picture.pic_url_loc:""}}')
 
 append scripts
     script(type='text/javascript',src='/plugins/kindeditor-4.1.11/kindeditor-min.js')
@@ -142,27 +144,30 @@ append scripts
         var app1 = angular.module('picturelist', []);
         app1.controller('picturelistCtrl', function ($scope) {
             $scope.picturelists = [];
-            $.ajax({
-                url: "/cms/picture/list",
-                type: "post",
-                dataType: "json",
-                data: {pic_type:1,key_id:#{product.id}},
-                success: function (data) {
-                    if (data.status > 0) {
-                        $scope.picturelists = data.data;
-                        $scope.$apply();
+            $scope.LoadPicture = function () {
+                $.ajax({
+                    url: "/cms/picture/list",
+                    type: "post",
+                    dataType: "json",
+                    data: {pic_type: 1, key_id: #{product.id}},
+                    success: function (data) {
+                        if (data.status > 0) {
+                            $scope.picturelists = data.data;
+                            $scope.$apply();
+                        }
                     }
-                }
-            });
+                });
+            };
+            $scope.LoadPicture();
+
             //当选中文件,则立即执行上传
             $(document).on("change", "#file1", function () {
                 if ($("#file1").val() != "") {
-                    var id = $scope.picturelists.length + 1;
-                    var showid = $("#pic_pic_"+id+"");
-                    console.log(showid);
-                    $scope.picturelists.push({pic_url_loc: ''});
-                    $scope.$apply();
-                    FileAction.FileUpload("file1", 1, #{product.id}, showid, null, null);
+                    if ($scope.picturelists.length >= 5) {
+                        toastrShow(3, '每个产品最多上传5张图片');
+                        return;
+                    }
+                    FileAction.FileUpload("file1", 1, #{product.id}, null, null, null, $scope.LoadPicture);
                 }
             });
         });

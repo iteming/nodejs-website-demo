@@ -818,18 +818,29 @@ router.post('/website', function (req, res, next) {
 
 // 获取图片信息
 router.post('/picture/list', function (req, res, next) {
-    var whereSql = util.format(" where pic_type=%s and key_id=%s  ", req.body.pic_type, req.body.key_id);
     var sqlClient = new SqlClient();
-    var picture = new Picture();
-    sqlClient.query(picture, function (result) {
+    if(req.body.key_id == 0){
+        sqlClient.queryBySql(' select max(id) as id from product ', null, function (result){
+            if (result != null && result.length > 0){
+                var id = result[0]["id"] + 1;
+                search_picture(id);
+            }
+        });
+    }else {
+        search_picture(req.body.key_id);
+    }
+    function search_picture(key_id) {
+        var whereSql = util.format(" where pic_type=%s and key_id=%s  ", req.body.pic_type, key_id);
+        var picture = new Picture();
+        sqlClient.query(picture, function (result) {
         if (result != null && result.length > 0) {
             res.json({status: 1, msg: '查询成功!', data: result});
             return;
         }
         res.json({status: 2, msg: '暂无记录!', data: result});
     }, whereSql);
+    }
 });
-
 // 上传图片
 router.post('/picture/fileupload', function (req, res, next) {
     var cacheFolder = '/img/uploads/';
@@ -857,25 +868,39 @@ router.post('/picture/fileupload', function (req, res, next) {
         displayUrl = cacheFolder + avatarName;
         fs.renameSync(files.filesdata.path, newPath); //重命名
 
-        if (!(fields.pic_type) || fields.pic_type == 0) {
+        if (!(fields.pic_type)) {
             res.send({status: 1, msg: "上传成功", data: displayUrl, picid: 0});
             return;
         }
         var sqlClient = new SqlClient();
-        var picture = new Picture();
-        picture.pic_type = fields.pic_type;
-        picture.key_id = fields.key_id ? fields.key_id : null;
-        picture.pic_name = avatarName;
-        picture.pic_url_loc = displayUrl;
-        picture.pic_url_cdn = null;
-        var callback = function (result) {
-            if (result != null && result > 0) {
-                res.send({status: 1, msg: "上传成功", data: displayUrl, picid: result});
-                return;
-            }
-            res.render({status: 2, msg: '上传失败!', data: displayUrl});
-        };
-        sqlClient.create(picture, callback);
+
+        if(fields.key_id == 0){
+            sqlClient.queryBySql(' select max(id) as id from product ', null, function (result){
+                if (result != null && result.length > 0){
+                    var id = result[0]["id"] + 1;
+                    create_picture(id);
+                }
+            });
+        }else {
+            create_picture(fields.key_id);
+        }
+
+        function create_picture(key_id) {
+            var picture = new Picture();
+            picture.pic_type = fields.pic_type;
+            picture.key_id = key_id ? key_id : null;
+            picture.pic_name = avatarName;
+            picture.pic_url_loc = displayUrl;
+            picture.pic_url_cdn = null;
+            var callback = function (result) {
+                if (result != null && result > 0) {
+                    res.send({status: 1, msg: "上传成功", data: displayUrl, picid: result});
+                    return;
+                }
+                res.render({status: 2, msg: '上传失败!', data: displayUrl});
+            };
+            sqlClient.create(picture, callback);
+        }
     });
 });
 // 提取扩展名
