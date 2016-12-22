@@ -11,6 +11,10 @@ var checkbox = function () {
     $(':radio').radiocheck();
 };
 
+var selectbox = function () {
+    $('select').select2({dropdownCssClass: 'dropdown-inverse'});
+};
+
 var tags = function () {
     $(".tagsinput").tagsinput();
 };
@@ -72,6 +76,7 @@ var Plugins = function () {
         init: function () {
             tooltip();
             checkbox();
+            selectbox();
             tags();
             toastr();
             toastrAutoClose();
