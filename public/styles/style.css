@@ -113,6 +113,12 @@ table a:hover, .input-group .btn:hover {
 .mllg{
     margin-left: 60px;
 }
+.mllgr{
+    margin-left: 120px;
+}
 .mrlg{
     margin-right: 60px;
+}
+.mrlgr{
+    margin-right: 120px;
 }

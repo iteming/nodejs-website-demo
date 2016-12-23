@@ -3,7 +3,7 @@ var height = $(document).height();
 var isIE = /msie/i.test(navigator.userAgent) && !window.opera;
 ///异步ajax上传
 var FileAction = {
-    FileUpload: function (fileid, pic_type, key_id, showid, hidden, picid, callback) {
+    FileUpload: function (fileid, pic_type, key_id, showid, hidden, picid, callback, resultarray, $scope) {
         if (!fileChange(fileid)) {
             return;
         }
@@ -29,6 +29,10 @@ var FileAction = {
                     if (hidden) hidden.val(data.data);
                     if (picid) picid.val(data.picid);
                     if (callback) callback();
+                    if (resultarray) {
+                        resultarray.push(data.data);
+                        $scope.$apply();
+                    }
                 } else {
                     toastrShow(2, data.msg)
                 }

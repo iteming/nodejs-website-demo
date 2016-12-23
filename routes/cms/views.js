@@ -214,7 +214,7 @@ router.get('/contact', function (req, res, next) {
     });
 });
 // 更新联系方式
-router.post('/contact', function (req, res, next) {
+router.post('/contact/update', function (req, res, next) {
     var user = req.session.user;
     var website = req.session.website;
     if (!user || !website) {
@@ -337,7 +337,7 @@ router.post('/notice/update', function (req, res, next) {
             res.json({status: 1, msg: '更新成功!'});
             return;
         }
-        res.render({status: 2, msg: '更新失败!'});
+        res.json({status: 2, msg: '更新失败!'});
     };
 
     if (notice.id === null || notice.id === "null" || notice.id === 0 || notice.id === "0") {
@@ -431,7 +431,7 @@ router.post('/news/update', function (req, res, next) {
             res.json({status: 1, msg: '更新成功!'});
             return;
         }
-        res.render({status: 2, msg: '更新失败!'});
+        res.json({status: 2, msg: '更新失败!'});
     };
 
     if (news.id === null || news.id === "null" || news.id === 0 || news.id === "0") {
@@ -535,7 +535,7 @@ router.post('/product/update', function (req, res, next) {
             res.json({status: 1, msg: '更新成功!'});
             return;
         }
-        res.render({status: 2, msg: '更新失败!'});
+        res.json({status: 2, msg: '更新失败!'});
     };
 
     if (product.id === null || product.id === "null" || product.id === 0 || product.id === "0") {
@@ -707,7 +707,7 @@ router.post('/honor/update', function (req, res, next) {
             res.json({status: 1, msg: '更新成功!'});
             return;
         }
-        res.render({status: 2, msg: '更新失败!'});
+        res.json({status: 2, msg: '更新失败!'});
     };
 
     if (honor.id === null || honor.id === "null" || honor.id === 0 || honor.id === "0") {
@@ -805,7 +805,7 @@ router.post('/photo/update', function (req, res, next) {
             res.json({status: 1, msg: '更新成功!'});
             return;
         }
-        res.render({status: 2, msg: '更新失败!'});
+        res.json({status: 2, msg: '更新失败!'});
     };
 
     if (photo.id === null || photo.id === "null" || photo.id === 0 || photo.id === "0") {
@@ -839,14 +839,7 @@ router.get('/website', function (req, res, next) {
     res.render('cms/website', {user: user, website: website});
 });
 // 更新网站信息
-router.post('/website', function (req, res, next) {
-    var user = req.session.user;
-    var website = req.session.website;
-    if (!user || !website) {
-        res.redirect('/cms/login');
-        return;
-    }
-
+router.post('/website/update', function (req, res, next) {
     var sqlClient = new SqlClient();
     var website = new Website();
     website.id = req.body.id ? req.body.id : null;
@@ -866,13 +859,13 @@ router.post('/website', function (req, res, next) {
         if (result != null && result > 0) {
             if (isInsert) website.id = result;
             req.session.website = website;
-            res.render('cms/website', {status: 1, msg: '更新成功!', user: user, website: website});
+            res.json({status: 1, msg: '更新成功!'});
             return;
         }
-        res.render('cms/website', {status: 2, msg: '更新失败!', user: user, website: website});
+        res.json({status: 2, msg: '更新失败!'});
     };
 
-    if (website.id == null || website.id == "null") {
+    if (website.id == null || website.id == "null"|| website.id === 0 || website.id === "0") {
         isInsert = true;
         sqlClient.create(website, callback);
     } else {
@@ -975,7 +968,7 @@ router.post('/picture/fileupload', function (req, res, next) {
                     res.send({status: 1, msg: "上传成功", data: displayUrl, picid: result});
                     return;
                 }
-                res.render({status: 2, msg: '上传失败!', data: displayUrl});
+                res.send({status: 2, msg: '上传失败!', data: displayUrl});
             };
             sqlClient.create(picture, callback);
         }

@@ -25,7 +25,7 @@ block cms_content
                     small 公司联系方式维护
             .col-md-12: .box.box-info
                 .box-header.with-border: h3.box-title 公司联系方式
-                form.form-horizontal(data-validate="parsley", method='post', action='/cms/contact')
+                form.form-horizontal(data-validate="parsley", method='post', action='/cms/contact/update')
                     .box-body
                         .form-group
                             input#id(name='id',type='hidden',value="#{contact.id}")
