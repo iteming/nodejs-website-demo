@@ -28,7 +28,7 @@ block cms_content
                                 th.text-center(width='100') 单价
                                 th.text-center(width='100') 发布日期
                                 th.text-center(width='100') 有效期
-                                th.text-center(width='80') 操作
+                                th.text-center(width='120') 操作
                             tbody
                                 tr(role='row',ng-repeat="item in lists")
                                     td {{item.name}}
@@ -39,7 +39,9 @@ block cms_content
                                     td.text-center {{item.price}}
                                     td.text-center {{item.publish_date}}
                                     td.text-center {{item.expiry_date}}
-                                    td.text-center: a(ng-href='/cms/product/details/{{item.id}}'): span.fui-new
+                                    td.text-center
+                                        a.btn.btn-primary.btn-xs(ng-href='/cms/product/details/{{item.id}}'): span.fa.fa-pencil-square-o
+                                        a.btn.btn-danger.btn-xs.mll(ng-click='Pager.DeleteData(item.id)'): span.fa.fa-times
                 .box-footer
                     .clearfix.pagination-jzk-right: .pagination-jzk.pull-right.mtn#pagination
 
@@ -82,6 +84,24 @@ block cms_content
                                         Pager.LoadPage(data.recordCount, index);
                                         $scope.lists = data.data;
                                         $scope.$apply();
+                                    }
+                                }
+                            });
+                        },
+                        DeleteData: function (id) {
+                            if (!confirm('提示:您确定要删除吗?'))
+                                return false;
+
+                            $.ajax({
+                                url: "/cms/product/delete/" + id,
+                                type: "post",
+                                dataType: "json",
+                                success: function (data) {
+                                    if (data.status > 0) {
+                                        toastrShow(data.status, data.msg);
+                                        Pager.GetData(1);
+                                    } else {
+                                        toastrShow(data.status, data.msg);
                                     }
                                 }
                             });

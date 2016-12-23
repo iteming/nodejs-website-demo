@@ -103,3 +103,16 @@ table a:hover, .input-group .btn:hover {
     margin: auto;
     max-height: 200px;
 }
+.details-picture-lable{
+    max-width: 90%;
+    margin: auto;
+}
+.inline{
+    display: inline !important;
+}
+.mllg{
+    margin-left: 60px;
+}
+.mrlg{
+    margin-right: 60px;
+}

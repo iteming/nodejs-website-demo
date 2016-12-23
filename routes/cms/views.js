@@ -287,6 +287,19 @@ router.post('/notice/list', function (req, res, next) {
         }, whereSql, limitSql);
     }, whereSql, null, true);
 });
+// 删除公告
+router.post('/notice/delete/:id', function (req, res, next) {
+    var sqlClient = new SqlClient();
+    var notice = new Notice();
+    notice.id = req.params.id;
+    sqlClient.deleteById(notice, function (result) {
+        if (result != null && result > 0) {
+            res.json({status: 1, msg: '删除成功!'});
+            return;
+        }
+        res.json({status: 2, msg: '删除失败!'});
+    });
+});
 // 公告详情页
 router.get('/notice/details/:id', function (req, res, next) {
     var user = req.session.user;
@@ -367,6 +380,19 @@ router.post('/news/list', function (req, res, next) {
             }
         }, whereSql, limitSql);
     }, whereSql, null, true);
+});
+// 删除新闻
+router.post('/news/delete/:id', function (req, res, next) {
+    var sqlClient = new SqlClient();
+    var news = new News();
+    news.id = req.params.id;
+    sqlClient.deleteById(news, function (result) {
+        if (result != null && result > 0) {
+            res.json({status: 1, msg: '删除成功!'});
+            return;
+        }
+        res.json({status: 2, msg: '删除失败!'});
+    });
 });
 // 新闻详情页
 router.get('/news/details/:id', function (req, res, next) {
@@ -451,6 +477,19 @@ router.post('/product/list', function (req, res, next) {
             }
         }, whereSql, limitSql, false, selectWhat, join);
     }, whereSql, null, true, selectWhat, join);
+});
+// 删除产品
+router.post('/product/delete/:id', function (req, res, next) {
+    var sqlClient = new SqlClient();
+    var product = new Product();
+    product.id = req.params.id;
+    sqlClient.deleteById(product, function (result) {
+        if (result != null && result > 0) {
+            res.json({status: 1, msg: '删除成功!'});
+            return;
+        }
+        res.json({status: 2, msg: '删除失败!'});
+    });
 });
 // 产品详情页
 router.get('/product/details/:id', function (req, res, next) {
@@ -611,6 +650,19 @@ router.post('/honor/list', function (req, res, next) {
         }, whereSql, limitSql, false, selectWhat, join);
     }, whereSql, null, true, selectWhat, join);
 });
+// 删除荣誉
+router.post('/honor/delete/:id', function (req, res, next) {
+    var sqlClient = new SqlClient();
+    var honor = new Honor();
+    honor.id = req.params.id;
+    sqlClient.deleteById(honor, function (result) {
+        if (result != null && result > 0) {
+            res.json({status: 1, msg: '删除成功!'});
+            return;
+        }
+        res.json({status: 2, msg: '删除失败!'});
+    });
+});
 // 荣誉详情页
 router.get('/honor/details/:id', function (req, res, next) {
     var user = req.session.user;
@@ -700,6 +752,19 @@ router.post('/photo/list', function (req, res, next) {
             }
         }, whereSql, limitSql, false, selectWhat, join);
     }, whereSql, null, true, selectWhat, join);
+});
+// 删除相册
+router.post('/photo/delete/:id', function (req, res, next) {
+    var sqlClient = new SqlClient();
+    var photo = new Photo();
+    photo.id = req.params.id;
+    sqlClient.deleteById(photo, function (result) {
+        if (result != null && result > 0) {
+            res.json({status: 1, msg: '删除成功!'});
+            return;
+        }
+        res.json({status: 2, msg: '删除失败!'});
+    });
 });
 // 相册详情页
 router.get('/photo/details/:id', function (req, res, next) {
@@ -840,6 +905,19 @@ router.post('/picture/list', function (req, res, next) {
         res.json({status: 2, msg: '暂无记录!', data: result});
     }, whereSql);
     }
+});
+// 删除图片
+router.post('/picture/delete/:id', function (req, res, next) {
+    var sqlClient = new SqlClient();
+    var picture = new Picture();
+    picture.id = req.params.id;
+    sqlClient.deleteById(picture, function (result) {
+        if (result != null && result > 0) {
+            res.json({status: 1, msg: '删除成功!'});
+            return;
+        }
+        res.json({status: 2, msg: '删除失败!'});
+    });
 });
 // 上传图片
 router.post('/picture/fileupload', function (req, res, next) {

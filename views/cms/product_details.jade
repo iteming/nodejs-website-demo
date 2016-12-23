@@ -81,6 +81,11 @@ block cms_content
                                 input#btn_submit.btn.btn-info.mll(name='btn_submit',type='button',value='确认更改')
                         .col-sm-4#app1(ng-app="picturelist",ng-controller="picturelistCtrl")
                             .form-group(ng-repeat="picture in picturelists")
+                                .col-sm-12.text-center
+                                    label.mrlg {{$index+1}}.{{picture.pic_name}}
+                                    a.btn.btn-danger.btn-xs.mllg(ng-click='DeletePicture(picture.id)')
+                                        i.fa.fa-times
+                                        span 删除此图片
                                 .col-sm-12.details-picture
                                     img(ng-src='{{picture.pic_url_loc?picture.pic_url_loc:""}}')
 
@@ -154,6 +159,21 @@ append scripts
                         if (data.status > 0) {
                             $scope.picturelists = data.data;
                             $scope.$apply();
+                        }
+                    }
+                });
+            };
+            $scope.DeletePicture = function (id) {
+                $.ajax({
+                    url: "/cms/picture/delete/" + id,
+                    type: "post",
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.status > 0) {
+                            toastrShow(data.status, data.msg);
+                            $scope.LoadPicture();
+                        } else {
+                            toastrShow(data.status, data.msg);
                         }
                     }
                 });

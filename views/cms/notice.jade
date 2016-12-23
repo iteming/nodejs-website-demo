@@ -24,14 +24,16 @@ block cms_content
                                 th.text-center(width='170') 创建时间
                                 th.text-center(width='70') 状态
                                 th.text-center(width='80') 是否置顶
-                                th.text-center(width='80') 操作
+                                th.text-center(width='120') 操作
                             tbody
                                 tr(role='row',ng-repeat="item in lists")
                                     td {{item.title}}
                                     td.text-center {{item.createtime}}
                                     td.text-center {{item.status==0?'不显示':'显示'}}
                                     td.text-center {{item.settop==0?'':'置顶'}}
-                                    td.text-center: a(href='/cms/notice/details/{{item.id}}'): span.fui-new
+                                    td.text-center
+                                        a.btn.btn-primary.btn-xs(ng-href='/cms/notice/details/{{item.id}}'): span.fa.fa-pencil-square-o
+                                        a.btn.btn-danger.btn-xs.mll(ng-click='Pager.DeleteData(item.id)'): span.fa.fa-times
                 .box-footer
                     .clearfix.pagination-jzk-right: .pagination-jzk.pull-right.mtn#pagination
 
@@ -75,6 +77,24 @@ append scripts
                                 $scope.lists = data.data;
                                 $scope.$apply();
                                 //console.log(JSON.stringify(data.data));
+                            }
+                        }
+                    });
+                },
+                DeleteData: function (id) {
+                    if (!confirm('提示:您确定要删除吗?'))
+                        return false;
+
+                    $.ajax({
+                        url: "/cms/notice/delete/" + id,
+                        type: "post",
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.status > 0) {
+                                toastrShow(data.status, data.msg);
+                                Pager.GetData(1);
+                            } else {
+                                toastrShow(data.status, data.msg);
                             }
                         }
                     });
