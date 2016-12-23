@@ -929,7 +929,7 @@ router.post('/picture/fileupload', function (req, res, next) {
             res.send(err);
             return;
         }
-        var extName = extractExtName(files);
+        var extName = extractExtName(files.filesdata);
         if (extName.length === 0) {
             res.send({status: 2, msg: "不支持此文件类型"});
             return;
@@ -974,10 +974,55 @@ router.post('/picture/fileupload', function (req, res, next) {
         }
     });
 });
+
+// kindeditor上传图片
+router.post('/kindeditor/fileupload', function (req, res, next) {
+    var cacheFolder = '/img/uploads/';
+    var userDirPath = 'public' + cacheFolder;
+    if (!fs.existsSync(userDirPath)) fs.mkdirSync(userDirPath);
+    var form = new formidable.IncomingForm(); //创建上传表单
+    form.encoding = 'utf-8'; //设置编辑
+    form.uploadDir = userDirPath; //设置上传目录
+    form.keepExtensions = true; //保留后缀
+    form.maxFieldsSize = 2 * 1024 * 1024; //文件大小
+    form.type = true;
+    var displayUrl;
+    form.parse(req, function (err, fields, files) {
+        if (err) {
+            res.send(err);
+            return;
+        }
+        var extName = extractExtName(files.imgFile);
+        if (extName.length === 0) {
+            res.send({status: 2, msg: "不支持此文件类型"});
+            return;
+        }
+        var avatarName = Date.now() + '.' + extName;
+        var newPath = form.uploadDir + avatarName;
+        displayUrl = cacheFolder + avatarName;
+        fs.renameSync(files.imgFile.path, newPath); //重命名
+
+        var sqlClient = new SqlClient();
+        var picture = new Picture();
+        picture.pic_type = 0;
+        picture.key_id = null;
+        picture.pic_name = avatarName;
+        picture.pic_url_loc = displayUrl;
+        picture.pic_url_cdn = null;
+        var callback = function (result) {
+            if (result != null && result > 0) {
+                res.send({error: 0, url: displayUrl});
+                return;
+            }
+            res.send({error: 2, url: displayUrl});
+        };
+        sqlClient.create(picture, callback);
+    });
+});
 // 提取扩展名
 function extractExtName(files) {
     var extName = ''; //后缀名
-    switch (files.filesdata.type) {
+    switch (files.type) {
         case 'image/pjpeg':
             extName = 'jpg';
             break;
@@ -998,6 +1043,9 @@ function extractExtName(files) {
             break;
         case 'image/svg':
             extName = 'svg';
+            break;
+        case 'application/octet-stream':
+            extName = 'jpg';
             break;
     }
     return extName;
