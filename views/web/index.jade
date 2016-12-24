@@ -1,0 +1,12 @@
+extends layouts/layout
+block loadtitle
+    -var title='Web Index'
+
+block web_content
+    mixin toastr(status, msg)
+    .container-fluid
+        h1= title
+        p Welcome to #{title}
+
+append scripts
+    link(rel='javascript',href='/js/index.js')

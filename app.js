@@ -8,7 +8,7 @@ var ejs = require('ejs');
 var session = require('express-session');
 
 //引入模块
-var routes = require('./routes/index');
+var routes = require('./routes/web/index');
 var apiViews = require('./routes/api/views');
 var cmsViews = require('./routes/cms/views');
 
