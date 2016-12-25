@@ -1,5 +1,5 @@
 body {
-    padding: 50px;
+    /*padding: 50px;*/
     font: 14px "Lucida Grande", Verdana, Helvetica, Arial, sans-serif;
     background: #e3e3e3 !important;
 }
@@ -122,3 +122,6 @@ table a:hover, .input-group .btn:hover {
 .mrlgr{
     margin-right: 120px;
 }
+
+/********** 以下打算写web样式 **********/
+/**********  by jiazhaokai  **********/
