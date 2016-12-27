@@ -1,11 +1,13 @@
 extends ../../layout
 
 append styles
+    link(rel='stylesheet', href='/styles/webcss.css')
     link(rel='shortcut icon',href='/img/cms/favicon.ico')
 
 block content
-    include ../includes/header
-    block web_content
-    include ../includes/footer
+    #page.container
+        include ../includes/header
+        block web_content
+        include ../includes/footer
 
 append scripts
