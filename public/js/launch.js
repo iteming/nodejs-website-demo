@@ -70,6 +70,17 @@ var mCustomScrollbar = function () {
     }
 };
 
+var SmoothScroll = function () {
+    // Enable Smooth Scroll only on Chrome and only on Win and Linux Systems
+    var platform = navigator.platform.toLowerCase();
+    if ((platform.indexOf('win') == 0 || platform.indexOf('linux') == 0) && !Modernizr.touch) {
+        if ($.browser.webkit) {
+            $.webkitSmoothScroll();
+            console.log("hello webkit");
+        }
+    }
+};
+
 var Plugins = function () {
     "use strict";
     return {
@@ -80,7 +91,8 @@ var Plugins = function () {
             tags();
             toastr();
             toastrAutoClose();
-            mCustomScrollbar();
+            // mCustomScrollbar();
+            SmoothScroll();
         }
     }
 }();
