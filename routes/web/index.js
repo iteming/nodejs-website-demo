@@ -1,5 +1,10 @@
 var express = require('express');
+var util = require('util');
 var router = express.Router();
+require('../core/CommonUtil');
+require('../core/HttpWrapper');
+require('../core/SqlClient');
+require('../model/model');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -7,6 +12,28 @@ router.get('/', function (req, res, next) {
     res.render('web/index', {title: 'Express', user: {id: 12, name: 'tj'}, email: 'tj@vision-media.ca'});
     // 直接向页面发送信息d with a
     // res.send('responresource');
+});
+
+
+// 获取网站信息
+router.get('/website', function (req, res, next) {
+    var website = req.session.website;
+    if (website) {
+        res.json({status: 1, msg: '', data: website});
+        return;
+    }
+
+    var sqlClient = new SqlClient();
+    website = new Website();
+    sqlClient.query(website, function (result) {
+        if (result != null && result.length > 0) {
+            website = result[0];
+            req.session.website = website;
+            res.json({status: 1, msg: 'welcome!', data: website});
+            return;
+        }
+        res.json({status: 2, msg: 'not found web information!'});
+    });
 });
 
 module.exports = router;

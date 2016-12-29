@@ -1,12 +1,11 @@
 extends layouts/layout
 block loadtitle
-    -var title='Web Index'
+    -var title='石家庄千甫金属制品有限公司'
 
 block web_content
     mixin toastr(status, msg)
-    .container
-        h1= title
-        p Welcome to #{title}
+    .container-fluid
+        .main-content
+
 
 append scripts
-    link(rel='javascript',href='/js/index.js')

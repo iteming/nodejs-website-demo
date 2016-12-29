@@ -1,3 +1,4 @@
+var moment = require('moment');
 
 /**
  * 工具类 包装
@@ -37,6 +38,24 @@ CommonUtil.uuid = function(){
     var uuid = s.join("");
     return uuid;
 };
+
+CommonUtil.toDateTimeString = function (timeStamp) {
+    return toMoment(timeStamp).format('YYYY-MM-DD HH:mm:ss');
+};
+
+CommonUtil.toDateString = function (timeStamp) {
+    return toMoment(timeStamp).format('YYYY-MM-DD');
+};
+
+CommonUtil.toTimeString = function (timeStamp) {
+    return toMoment(timeStamp).format('HH:mm:ss');
+};
+
+function toMoment(timeStamp) {
+    return moment(timeStamp);
+    // return moment(timeStamp * 1000);
+}
+
 
 
 

@@ -1,0 +1,50 @@
+.topheader {
+    background: #FFFFFF;
+    font-size: 14px;
+}
+.topnav {
+    background: #FFFFFF;
+    font-size: 14px;
+}
+.main-content {
+    padding: 9px 14px;
+}
+
+footer{
+    box-shadow: none;
+    margin-right: 14px !important;
+    margin-left: 14px !important;
+    background-color: #34495e;
+    font-size: 14px;
+    color: #fff;
+}
+footer span{
+    color: #9aa4af;
+}
+footer span:hover,span:focus{
+    color: #1abc9c;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 768px){
+    .navbar-brand{
+        display: none;
+    }
+}
+@media (max-width: 767px){
+    .navbar-brand{
+        display: block;
+    }
+}

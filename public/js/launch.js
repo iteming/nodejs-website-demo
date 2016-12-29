@@ -46,7 +46,7 @@ var toastrAutoClose = function () {
     }
 };
 var toastrShow = function (status, msg) {
-    if ($("#toast-container").length > 0) {
+    if ($("#toast-container").length > 0 && msg != '') {
         if ($('#toast-container').css('display') == 'none') {
             $('#toast-container').css('display', 'block');
             var msgclass = status==1?'toast-success':(status==2?'toast-error':(status==3?'toast-warning':'toast-info'));

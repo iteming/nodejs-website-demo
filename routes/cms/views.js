@@ -1,6 +1,5 @@
 var express = require('express');
 var util = require('util');
-var moment = require('moment');
 var fs = require('fs');
 var formidable = require('formidable');
 var router = express.Router();
@@ -69,8 +68,8 @@ router.post('/login', function (req, res, next) {
                 res.render('cms/login', {status: 2, msg: '密码错误!', username: req.body.username});
                 return;
             }
-            if (user.createtime) user.createtime = moment(user.createtime).format("YYYY-MM-DD");
-            if (user.lastlogintime) user.lastlogintime = moment(user.lastlogintime).format("YYYY-MM-DD");
+            if (user.createtime) user.createtime = CommonUtil.toDateString(user.createtime);
+            if (user.lastlogintime) user.lastlogintime = CommonUtil.toDateString(user.lastlogintime);
             req.session.user = user;
             res.redirect('/cms/index');
             return;
@@ -110,8 +109,8 @@ router.post('/user/center', function (req, res, next) {
     var sqlClient = new SqlClient();
     sqlClient.update(entity, function (result) {
         if (result != null && result > 0) {
-            if (entity.createtime) entity.createtime = moment(entity.createtime).format("YYYY-MM-DD");
-            if (entity.lastlogintime) entity.lastlogintime = moment(entity.lastlogintime).format("YYYY-MM-DD");
+            if (entity.createtime) entity.createtime = CommonUtil.toDateString(entity.createtime);
+            if (entity.lastlogintime) entity.lastlogintime = CommonUtil.toDateString(entity.lastlogintime);
             req.session.user = entity;
             res.render('cms/user/center', {status: 1, msg: '修改成功!', user: entity, website: website});
             return;
@@ -143,7 +142,7 @@ router.get('/company', function (req, res, next) {
     sqlClient.query(company, function (result) {
         if (result != null && result.length > 0) {
             company = result[0];
-            if (company.regist_date) company.regist_date = moment(company.regist_date).format("YYYY-MM-DD");
+            if (company.regist_date) company.regist_date = CommonUtil.toDateString(company.regist_date);
             res.render('cms/company', {status: 1, msg: '已获取公司信息!', user: user, website: website, company: company});
             return;
         }
@@ -176,7 +175,7 @@ router.post('/company', function (req, res, next) {
     var callback = function (result) {
         if (result != null && result > 0) {
             if (isInsert) company.id = result;
-            if (company.regist_date) company.regist_date = moment(company.regist_date).format("YYYY-MM-DD");
+            if (company.regist_date) company.regist_date = CommonUtil.toDateString(company.regist_date);
             res.render('cms/company', {status: 1, msg: '更新成功!', user: user, website: website, company: company});
             return;
         }
@@ -280,7 +279,7 @@ router.post('/notice/list', function (req, res, next) {
         sqlClient.query(notice, function (result) {
             if (result != null && result.length > 0) {
                 result.forEach(function (item) {
-                    item.createtime = moment(item.createtime).format("YYYY-MM-DD");
+                    item.createtime = CommonUtil.toDateString(item.createtime);
                 });
                 res.json({status: 1, msg: '查询成功!', data: result, recordCount: recordCount});
             }
@@ -313,7 +312,7 @@ router.get('/notice/details/:id', function (req, res, next) {
     notice.id = req.params.id;
     sqlClient.getById(notice, function (result) {
         if (result != null) {
-            if (result.createtime) result.createtime = moment(result.createtime).format("YYYY-MM-DD");
+            if (result.createtime) result.createtime = CommonUtil.toDateString(result.createtime);
             res.render('cms/notice_details', {user: user, website: website, notice: result});
             return;
         }
@@ -374,7 +373,7 @@ router.post('/news/list', function (req, res, next) {
         sqlClient.query(news, function (result) {
             if (result != null && result.length > 0) {
                 result.forEach(function (item) {
-                    item.createtime = moment(item.createtime).format("YYYY-MM-DD");
+                    item.createtime = CommonUtil.toDateString(item.createtime);
                 });
                 res.json({status: 1, msg: '查询成功!', data: result, recordCount: recordCount});
             }
@@ -407,7 +406,7 @@ router.get('/news/details/:id', function (req, res, next) {
     news.id = req.params.id;
     sqlClient.getById(news, function (result) {
         if (result != null) {
-            if (result.createtime) result.createtime = moment(result.createtime).format("YYYY-MM-DD");
+            if (result.createtime) result.createtime = CommonUtil.toDateString(result.createtime);
             res.render('cms/news_details', {user: user, website: website, news: result});
             return;
         }
@@ -470,8 +469,8 @@ router.post('/product/list', function (req, res, next) {
         sqlClient.query(product, function (result) {
             if (result != null && result.length > 0) {
                 result.forEach(function (item) {
-                    if (item.publish_date) item.publish_date = moment(item.publish_date).format("YYYY-MM-DD");
-                    if (item.expiry_date) item.expiry_date = moment(item.expiry_date).format("YYYY-MM-DD");
+                    if (item.publish_date) item.publish_date = CommonUtil.toDateString(item.publish_date);
+                    if (item.expiry_date) item.expiry_date = CommonUtil.toDateString(item.expiry_date);
                 });
                 res.json({status: 1, msg: '查询成功!', data: result, recordCount: recordCount});
             }
@@ -505,8 +504,8 @@ router.get('/product/details/:id', function (req, res, next) {
     product.id = req.params.id;
     sqlClient.getById(product, function (result) {
         if (result != null) {
-            if (result.publish_date) result.publish_date = moment(result.publish_date).format("YYYY-MM-DD");
-            if (result.expiry_date) result.expiry_date = moment(result.expiry_date).format("YYYY-MM-DD");
+            if (result.publish_date) result.publish_date = CommonUtil.toDateString(result.publish_date);
+            if (result.expiry_date) result.expiry_date = CommonUtil.toDateString(result.expiry_date);
             res.render('cms/product_details', {user: user, website: website, product: result});
             return;
         }
@@ -641,9 +640,9 @@ router.post('/honor/list', function (req, res, next) {
         sqlClient.query(honor, function (result) {
             if (result != null && result.length > 0) {
                 result.forEach(function (item) {
-                    if (item.publish_date) item.publish_date = moment(item.publish_date).format("YYYY-MM-DD");
-                    if (item.expiry_date) item.expiry_date = moment(item.expiry_date).format("YYYY-MM-DD");
-                    if (item.createtime) item.createtime = moment(item.createtime).format("YYYY-MM-DD");
+                    if (item.publish_date) item.publish_date = CommonUtil.toDateString(item.publish_date);
+                    if (item.expiry_date) item.expiry_date = CommonUtil.toDateString(item.expiry_date);
+                    if (item.createtime) item.createtime = CommonUtil.toDateString(item.createtime);
                 });
                 res.json({status: 1, msg: '查询成功!', data: result, recordCount: recordCount});
             }
@@ -679,9 +678,9 @@ router.get('/honor/details/:id', function (req, res, next) {
     honor.id = req.params.id;
     sqlClient.getById(honor, function (result) {
         if (result != null) {
-            if (result.createtime) result.createtime = moment(result.createtime).format("YYYY-MM-DD");
-            if (result.publish_date) result.publish_date = moment(result.publish_date).format("YYYY-MM-DD");
-            if (result.expiry_date) result.expiry_date = moment(result.expiry_date).format("YYYY-MM-DD");
+            if (result.createtime) result.createtime = CommonUtil.toDateString(result.createtime);
+            if (result.publish_date) result.publish_date = CommonUtil.toDateString(result.publish_date);
+            if (result.expiry_date) result.expiry_date = CommonUtil.toDateString(result.expiry_date);
             res.render('cms/honor_details', {user: user, website: website, honor: result});
             return;
         }
@@ -746,7 +745,7 @@ router.post('/photo/list', function (req, res, next) {
         sqlClient.query(photo, function (result) {
             if (result != null && result.length > 0) {
                 result.forEach(function (item) {
-                    item.createtime = moment(item.createtime).format("YYYY-MM-DD");
+                    item.createtime = CommonUtil.toDateString(item.createtime);
                 });
                 res.json({status: 1, msg: '查询成功!', data: result, recordCount: recordCount});
             }
@@ -782,7 +781,7 @@ router.get('/photo/details/:id', function (req, res, next) {
     photo.id = req.params.id;
     sqlClient.getById(photo, function (result) {
         if (result != null) {
-            if (result.createtime) result.createtime = moment(result.createtime).format("YYYY-MM-DD");
+            if (result.createtime) result.createtime = CommonUtil.toDateString(result.createtime);
             res.render('cms/photo_details', {user: user, website: website, photo: result});
             return;
         }
