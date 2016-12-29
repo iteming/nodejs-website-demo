@@ -7,7 +7,12 @@ append styles
 block content
     #page.container(ng-app="all",ng-controller="allCtrl")
         include ../includes/header
-        block web_content
+        section.container-fluid(style="margin-top: 5px;")
+            .col-md-3
+                block web_side
+                    include ../includes/side_index
+            .col-md-9
+                block web_content
         include ../includes/footer
 
 append scripts

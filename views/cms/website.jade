@@ -76,6 +76,9 @@ block cms_content
                                             li 支持的图片类型有（
                                                 strong JPG, GIF, PNG
                                                 | ）.
+                                            li 轮播图片建议比例（
+                                                strong 1110 X 300、900 X 243、370 X 100
+                                                | 像素）.
                             .form-group: .col-sm-offset-2.col-sm-10
                                 a.btn.btn-default(type='button',href='/cms/') 取消更改
                                 input#btn_submit.btn.btn-info.mll(name='btn_submit',type='button',value='确认更改')
@@ -88,24 +91,6 @@ block cms_content
                                             i.fa.fa-times
                                             span 删除此图片
                                     img(ng-src='{{picture?picture:""}}')
-
-append cms_content
-    #loading.spinner-div: .spinner
-        .spinner-container.container1
-            .circle1
-            .circle2
-            .circle3
-            .circle4
-        .spinner-container.container2
-            .circle1
-            .circle2
-            .circle3
-            .circle4
-        .spinner-container.container3
-            .circle1
-            .circle2
-            .circle3
-            .circle4
 
 append scripts
     script(type='text/javascript',src='/plugins/jquery-file-upload/js/jquery.fileupload-ajax.js')

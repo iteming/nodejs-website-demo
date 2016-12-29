@@ -1,6 +1,6 @@
 header.container-fluid
     .topheader
-        #header-logo.collapse.navbar-collapse
+        .collapse.navbar-collapse
             p: h3 石家庄千甫金属制品有限公司
             p: span 各种型号锌锭 各种规格锌粉
     .topnav
@@ -20,3 +20,29 @@ header.container-fluid
                 li: a(href='#') 荣誉资质
                 li: a(href='#') 公司相册
                 li: a(href='#') 联系我们
+
+section.container-fluid
+    #carousel-generic-1.carousel.slide(data-ride="carousel")
+        // 下方小圆点
+        ol.carousel-indicators
+            li.active(data-target="#carousel-generic-1",data-slide-to="0")
+            li(data-target="#carousel-generic-1",data-slide-to="1")
+            li(data-target="#carousel-generic-1",data-slide-to="2")
+        // 包装的幻灯片
+        .carousel-inner(role="listbox")
+            .item.active
+                img(src='../img/web/data-image-1.png')
+                .carousel-caption 第一张轮播
+            .item
+                img(src='../img/web/data-image-2.png')
+                .carousel-caption 第二张轮播
+            .item
+                img(src='../img/web/data-image-3.png')
+                .carousel-caption 第三张轮播
+        // 控制器
+        a.left.carousel-control(href="#carousel-generic-1",role="button",data-slide="prev")
+            span.glyphicon.glyphicon-chevron-left
+            span.sr-only Previous
+        a.right.carousel-control(href="#carousel-generic-1",role="button",data-slide="next")
+            span.glyphicon.glyphicon-chevron-right
+            span.sr-only Next

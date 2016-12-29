@@ -1,50 +1,123 @@
+/* 页头和导航背景 */
 .topheader {
     background: #FFFFFF;
     font-size: 14px;
 }
+
 .topnav {
     background: #FFFFFF;
     font-size: 14px;
 }
+
+/* 主画面 */
 .main-content {
     padding: 9px 14px;
 }
 
-footer{
+/* 轮播 */
+.carousel {
+    max-height: 300px;
+}
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    display: block;
+    width: 100%;
+    max-height: 300px;
+}
+
+.carousel-indicators li {
+    margin-bottom: -20px !important;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #fff;
+    border-radius: 15px;
+}
+
+.carousel-indicators li.active {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+}
+
+.carousel-caption {
+    font-size: 16px;
+    padding-bottom: 40px;
+}
+
+section.container-fluid {
+    /*margin-top: 5px;*/
+}
+
+/* side 左侧显示内容 */
+.side-header {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: #34495e;
+    color: #fff;
+    margin-top: 5px;
+}
+.side-header .pull-right{
+    font-size: 10px;
+    margin: auto;
+    line-height: 2;
+}
+
+.side-body {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #FFFFFF;
+    margin-bottom: 5px;
+}
+
+.side-body ul {
+    list-style: disc;
+    padding-left: 15px;
+}
+
+/* 页脚 */
+footer {
     box-shadow: none;
+    margin-top: 5px;
     margin-right: 14px !important;
     margin-left: 14px !important;
     background-color: #34495e;
     font-size: 14px;
     color: #fff;
 }
-footer span{
+
+footer span {
     color: #9aa4af;
 }
-footer span:hover,span:focus{
+
+footer span:hover, span:focus {
     color: #1abc9c;
     cursor: pointer;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-@media (min-width: 768px){
-    .navbar-brand{
+/* 导航菜单前的LOGO根据分辨率自动显示隐藏 */
+@media (min-width: 768px) {
+    .navbar-brand {
         display: none;
     }
 }
-@media (max-width: 767px){
-    .navbar-brand{
+
+@media (max-width: 767px) {
+    .navbar-brand {
         display: block;
     }
+}
+
+/* blockquto */
+.bs-callout-info {
+    border-left-color: #5bc0de;
+}
+
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
 }
