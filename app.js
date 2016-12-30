@@ -57,4 +57,9 @@ app.use(function (err, req, res, next) {
     res.render('error');
 });
 
+// enable pretty
+if (app.get('env') === 'development') {
+    app.locals.pretty = true;
+}
+
 module.exports = app;

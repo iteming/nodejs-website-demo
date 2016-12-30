@@ -57,8 +57,10 @@ section.container-fluid {
     background: #34495e;
     color: #fff;
     margin-top: 5px;
+    border-radius: 0 3px 0 0;
 }
-.side-header .pull-right{
+
+.side-header .pull-right {
     font-size: 10px;
     margin: auto;
     line-height: 2;
@@ -69,6 +71,7 @@ section.container-fluid {
     padding-bottom: 10px;
     background: #FFFFFF;
     margin-bottom: 5px;
+    border-radius: 0 0 3px;
 }
 
 .side-body ul {
@@ -101,11 +104,19 @@ footer span:hover, span:focus {
     .navbar-brand {
         display: none;
     }
+
+    section.container-body {
+        margin-left: 10px;
+    }
 }
 
 @media (max-width: 767px) {
     .navbar-brand {
         display: block;
+    }
+
+    section.container-body {
+        margin-left: 0 !important;
     }
 }
 
@@ -120,4 +131,45 @@ footer span:hover, span:focus {
     border: 1px solid #eee;
     border-left-width: 5px;
     border-radius: 3px;
+}
+
+/* 推荐产品 */
+.demo-browser {
+    background-color: #34495e;
+    border-top: 1px solid white;
+    border-radius: 0 0 6px 6px;
+    color: white;
+    padding: 0;
+}
+
+.demo-browser-content {
+    background-color: #34495e;
+    border-radius: 0 0 6px;
+    overflow: hidden;
+    padding: 21px 0 0 20px;
+}
+
+.demo-browser-content > .pro {
+    width: 144px;
+    font-size: 14px;
+    text-align: center;
+    float: left;
+    margin: 0 15px 5px 0;
+}
+.demo-browser-content > .col-sm-4{
+    font-size: 14px;
+    text-align: center;
+}
+
+.demo-browser-content p {
+    font-size: 14px;
+}
+
+.demo-browser-content > .pro > img {
+    border: 6px solid white;
+    width: 100%;
+}
+.demo-browser-content > .col-sm-4 > img {
+    border: 6px solid white;
+    width: auto;
 }
