@@ -16,29 +16,30 @@ block cms_content
                 .box-header.with-border: h3.box-title 用户中心
                 form.form-horizontal(data-validate="parsley", method='post', action='/cms/user/center')
                     .box-body
-                        .form-group
-                            label.col-sm-1.control-label(style='margin-top:40px') 用户头像
-                            .col-sm-11: img(style='width:100px;height:100px;',src='#{user.avatar ? website.siteurl + user.avatar : website.siteurl + "img/cms/default_usr_photo.png"}')
-                        .form-group
-                            label.col-sm-1.control-label(for='username') 用户名
-                            .col-sm-3: input#username.form-control.parsley-validated(name='username',type='text',placeholder='username',
-                                            value="#{user.username}",autocomplete="off",data-required="true")
-                            label.col-sm-1.control-label(for='displayname') 真实姓名
-                            .col-sm-3: input#displayname.form-control.parsley-validated(name='displayname',type='text',placeholder='displayname',
-                                            value="#{user.displayname}",autocomplete="off",data-required="true")
-                        .form-group
-                            label.col-sm-1.control-label(for='createtime') 创建时间
-                            .col-sm-3: input#createtime.form-control.parsley-validated(name='createtime',type='text',placeholder='createtime',
-                                            value="#{user.createtime}",data-type="dateIso")
-                            label.col-sm-1.control-label(for='lastlogintime') 最后登录
-                            .col-sm-3: input#lastlogintime.form-control.parsley-validated(name='lastlogintime',type='text',placeholder='lastlogintime',
-                                            value="#{user.lastlogintime}",data-type="dateIso",disabled='disabled')
-                        .form-group
-                            label.col-sm-1.control-label(for='status') 用户状态
-                            .col-sm-3: input#status(name='status',type='checkbox',data-toggle="switch",checked=user.status==1,data-on-text="启用",data-off-text="禁用")
-                        .form-group: .col-sm-offset-1.col-sm-11
-                            a.btn.btn-default(type='button',href='/cms/') 取消更改
-                            button.btn.btn-info.mll(type='submit') 确认更改
+                        .col-sm-8
+                            .form-group
+                                label.col-sm-2.control-label(style='margin-top:40px') 用户头像
+                                .col-sm-10: img(style='width:100px;height:100px;',src='#{user.avatar ? website.siteurl + user.avatar : website.siteurl + "img/cms/default_usr_photo.png"}')
+                            .form-group
+                                label.col-sm-2.control-label(for='username') 用户名
+                                .col-sm-4: input#username.form-control.parsley-validated(name='username',type='text',placeholder='username',
+                                                value="#{user.username}",autocomplete="off",data-required="true")
+                                label.col-sm-2.control-label(for='displayname') 真实姓名
+                                .col-sm-4: input#displayname.form-control.parsley-validated(name='displayname',type='text',placeholder='displayname',
+                                                value="#{user.displayname}",autocomplete="off",data-required="true")
+                            .form-group
+                                label.col-sm-2.control-label(for='createtime') 创建时间
+                                .col-sm-4: input#createtime.form-control.parsley-validated(name='createtime',type='text',placeholder='createtime',
+                                                value="#{user.createtime}",data-type="dateIso")
+                                label.col-sm-2.control-label(for='lastlogintime') 最后登录
+                                .col-sm-4: input#lastlogintime.form-control.parsley-validated(name='lastlogintime',type='text',placeholder='lastlogintime',
+                                                value="#{user.lastlogintime}",data-type="dateIso",disabled='disabled')
+                            .form-group
+                                label.col-sm-2.control-label(for='status') 用户状态
+                                .col-sm-4: input#status(name='status',type='checkbox',data-toggle="switch",checked=user.status==1,data-on-text="启用",data-off-text="禁用")
+                            .form-group: .col-sm-offset-2.col-sm-10
+                                a.btn.btn-default(type='button',href='/cms/') 取消更改
+                                button.btn.btn-info.mll(type='submit') 确认更改
 
 append scripts
     //script(type='text/javascript',src='/plugins/jquery-file-upload/js/jquery.fileupload-ajax.js')

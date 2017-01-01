@@ -1,6 +1,7 @@
 body {
     /*padding: 50px;*/
-    font: 14px "Lucida Grande", Verdana, Helvetica, Arial, sans-serif;
+    font: 14px  "Lucida Grande", Verdana, Helvetica, Arial, sans-serif ;
+    font-family: Microsoft YaHei, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     background: #e3e3e3 !important;
 }
 

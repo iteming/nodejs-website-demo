@@ -1,0 +1,66 @@
+extends layouts/layout
+block loadtitle
+    -var title='石家庄千甫金属制品有限公司'
+
+append styles
+    style(type="text/css").
+        #allmap2 {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            font-family: "微软雅黑";
+            border: 2px dashed #bbbbbb;
+        }
+
+block web_content
+    mixin toastr(status, msg)
+    section.container-body
+        .row
+            .col-sm-12.side-header 联系方式
+            .col-sm-12.side-body
+                form.form-horizontal
+                    .form-group.mbn
+                        label.col-sm-2.control-label.prn: strong 公司名称：
+                        .col-sm-10.pln: span.form-control.noborder 石家庄博鑫丰锌业有限公司
+                    .form-group.mbn
+                        label.col-sm-2.control-label.prn: strong 公司地址：
+                        .col-sm-10.pln: span.form-control.noborder 河北省石家庄藁城区循环工业园区
+                    .form-group.mbn
+                        label.col-sm-2.control-label.prn: strong 邮政编码：
+                        .col-sm-10.pln: span.form-control.noborder 052160
+                    .form-group.mbn
+                        label.col-sm-2.control-label.prn: strong 公司电话：
+                        .col-sm-10.pln: span.form-control.noborder 0311-88318838
+                    .form-group.mbn
+                        label.col-sm-2.control-label.prn: strong 公司传真：
+                        .col-sm-10.pln: span.form-control.noborder 0311-88318838
+                    .form-group.mbn
+                        label.col-sm-2.control-label.prn: strong 电子邮件：
+                        .col-sm-10.pln: span.form-control.noborder coolon@126.com
+                    .form-group.mbn
+                        label.col-sm-2.control-label.prn: strong 联系人：
+                        .col-sm-10.pln: span.form-control.noborder 贾昭凯（先生）
+                    .form-group.mbn
+                        label.col-sm-2.control-label.prn: strong 手机号码：
+                        .col-sm-10.pln: span.form-control.noborder 13609245992
+        .row
+            .col-sm-12.side-header 公司地图
+            .col-sm-12.side-body
+                div(style='width: 100%;height: 350px;')
+                    #allmap2
+
+append scripts
+    script(type = 'text/javascript').
+        $(document).ready(function () {
+            // 百度地图API功能
+            var map = new BMap.Map("allmap2");                          // 创建Map实例
+            var point = new BMap.Point('115.028155', '37.992195');      // 创建Point点
+            map.centerAndZoom(point, 11);                               // 初始化地图,设置中心点坐标、地图缩放级别
+            map.addControl(new BMap.MapTypeControl());                  // 添加地图类型控件
+            map.enableScrollWheelZoom(true);                            // 启用滚轮放大缩小，默认禁用
+            map.enableContinuousZoom(true);                             // 启用地图惯性拖拽，默认禁用
+            var marker = new BMap.Marker(point);                        // 创建标注
+            map.addOverlay(marker);                                     // 将标注添加到地图中
+            marker.setAnimation(BMAP_ANIMATION_BOUNCE);                 // 跳动的动画
+        });

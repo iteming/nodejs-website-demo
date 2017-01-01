@@ -79,6 +79,11 @@ section.container-fluid {
     padding-left: 15px;
 }
 
+.noborder{
+    border: none !important;
+}
+
+
 /* 页脚 */
 footer {
     box-shadow: none;

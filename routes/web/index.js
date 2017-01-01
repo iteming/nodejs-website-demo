@@ -36,4 +36,28 @@ router.get('/website', function (req, res, next) {
     });
 });
 
+router.get('/company', function (req, res, next) {
+    res.render('web/company', {});
+});
+
+router.get('/contact', function (req, res, next) {
+    res.render('web/contact', {});
+});
+
+router.get('/product/list', function (req, res, next) {
+    res.render('web/product', {});
+});
+
+router.get('/honor/list', function (req, res, next) {
+    res.render('web/honor', {});
+});
+
+router.get('/photo/list', function (req, res, next) {
+    res.render('web/photo', {});
+});
+
+router.get('/news/list', function (req, res, next) {
+    res.render('web/news', {});
+});
+
 module.exports = router;

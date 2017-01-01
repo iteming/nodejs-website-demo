@@ -16,7 +16,7 @@ block cms_content
                 .box-header.with-border: h3.box-title 相册详情维护
                 form.form-horizontal(data-validate="parsley", method='post', action='/cms/photo/update')
                     .box-body
-                        .col-sm-6
+                        .col-sm-8
                             .form-group
                                 input#id(name='id',type='hidden',value="#{photo.id}")
                                 input#views(name='views',type='hidden',value="#{photo.views}")
