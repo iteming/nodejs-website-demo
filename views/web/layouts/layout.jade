@@ -1,5 +1,8 @@
 extends ../../layout
 
+block loadtitle
+    -var title='石家庄千甫金属制品有限公司'
+
 append styles
     link(rel='stylesheet', href='/styles/webcss.css')
     link(rel='shortcut icon',href='/img/cms/favicon.ico')
@@ -26,7 +29,8 @@ block content
 
 append scripts
     script(type='text/javascript',src='/plugins/angular/angular.min.js')
-    link(rel='javascript',href='/js/index.js')
+    script(type='text/javascript',src='/js/index.js')
+    script(type='text/javascript',src='/plugins/Custom/scrollTop.js')
     script(type='text/javascript').
         var app = angular.module('all', []);
         app.controller('allCtrl', function ($scope) {

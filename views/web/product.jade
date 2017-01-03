@@ -1,0 +1,98 @@
+extends layouts/layout
+append loadtitle
+    -title += ' | 新闻详情'
+
+block web_content
+    mixin toastr(status, msg)
+    section.container-body
+        .row
+            .col-sm-12.side-header 产品分类
+            .col-sm-12.side-body
+                div.col-sm-12.mlm.mbm
+                    span 选择产品分类 或者&nbsp;
+                    a(href='#') 显示全部
+                ul.ul-web-vg
+                    li.col-sm-3.mbm: a(href='#') 锌粉
+                    li.col-sm-3.mbm: a(href='#') 锌锭
+                    li.col-sm-3.mbm: a(href='#') 锌锭
+                    li.col-sm-3.mbm: a(href='#') 锌锭
+                    li.col-sm-3.mbm: a(href='#') 锌锭
+                    li.col-sm-3.mbm: a(href='#') 锌锭
+        .row
+            .col-sm-12.side-header(role="tablist") 产品列表
+                .pull-right: .mrm: a.a-inherit(href="#list-view",role="tab",data-toggle="tab")
+                    i.fa.fa-list(aria-hidden="true")
+                    span 列表浏览
+                .pull-right: .mrm: a.a-inherit(href="#th-view",role="tab",data-toggle="tab")
+                    i.fa.fa-th(aria-hidden="true")
+                    span 橱窗浏览
+            .tab-content
+                #list-view.col-sm-12.side-body.tab-pane.fade(role="tabpanel"): ul.ul-web-form
+                    li.col-sm-12
+                        .col-sm-2.text-center 产品图片
+                        .col-sm-8.text-center 产品名称
+                        .col-sm-2.text-center 发布日期
+                    li.col-sm-12
+                        .col-sm-2.text-center: a(href='/product/1'): img(src='../img/avatar/template/b10.jpg',height=100)
+                        .col-sm-8
+                            p: a(href='/product/1') 十大杰出企业
+                            span 石家庄博鑫丰锌业有限公司 粗锌锭产品介绍：粗锌锭：本公司长期供应锌锭、锌粉。有意者速度来电。粗锌是锌制品回收到工厂然后通过
+                        .col-sm-2.text-center.pull-middle 2017-01-02
+                    li.col-sm-12
+                        .col-sm-2.text-center: a(href='/product/2'): img(src='../img/avatar/template/b10.jpg',height=100)
+                        .col-sm-8
+                            p: a(href='/product/2') 十大杰出企业
+                            span 石家庄博鑫丰锌业有限公司 粗锌锭产品介绍：粗锌锭：本公司长期供应锌锭、锌粉。有意者速度来电。粗锌是锌制品回收到工厂然后通过
+                        .col-sm-2.text-center.pull-middle 2017-01-02
+
+                #th-view.col-sm-12.side-body.tab-pane.fade(role="tabpanel").demo-browser.active.in
+                    .demo-browser-content
+                        .pro: a.a-inherit(href='/product/1')
+                            img(src='../img/web/browser-pic-1.jpg')
+                            .pro-body
+                                p.mbn: span 产品1
+                                p: span 2016-12-30
+                        .pro: a.a-inherit(href='/product/2')
+                            img(src='../img/web/browser-pic-2.jpg')
+                            .pro-body
+                                p.mbn: span 产品1
+                                p: span 2016-12-30
+                        .pro: a.a-inherit(href='/product/3')
+                            img(src='../img/web/browser-pic-3.jpg')
+                            .pro-body
+                                p.mbn: span 产品1
+                                p: span 2016-12-30
+                        .pro: a.a-inherit(href='/product/4')
+                            img(src='../img/web/browser-pic-4.jpg')
+                            .pro-body
+                                p.mbn: span 产品1
+                                p: span 2016-12-30
+                        .pro: a.a-inherit(href='/product/5')
+                            img(src='../img/web/browser-pic-5.jpg')
+                            .pro-body
+                                p.mbn: span 产品1
+                                p: span 2016-12-30
+                        .pro: a.a-inherit(href='/product/6')
+                            img(src='../img/web/browser-pic-6.jpg')
+                            .pro-body
+                                p.mbn: span 产品1
+                                p: span 2016-12-30
+
+            .clearfix.pagination-jzk-right: .pagination-jzk.pull-right.mtn.mrn#pagination
+
+append scripts
+    script(type='text/javascript').
+        $(document).ready(function () {
+            $("#pagination").pagination(25, {
+                num_display_entries: 5,
+                num_edge_entries: 0,
+                items_per_page: 10,
+                current_page: 1,
+                callback: function (page_index, jq) {
+                    if (Number(page_index) != currentPage) {
+                        //Pager.GetData(page_index + 1);
+                    }
+                    return false;
+                }
+            });
+        });

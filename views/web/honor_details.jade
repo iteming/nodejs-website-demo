@@ -1,0 +1,33 @@
+extends layouts/layout
+append loadtitle
+    -title += ' | 荣誉详情'
+
+block web_content
+    mixin toastr(status, msg)
+    section.container-body
+        .row
+            .col-sm-12.side-header 荣誉详情
+            .col-sm-12.side-body
+                p.col-sm-12.text-center
+                    | 十大杰出企业
+                .col-sm-12.text-center.news-sub-title
+                    span.mrl 上传时间：2017-01-01
+                    span.mrl 浏览次数：142
+                    a.mrl(href='/honor/list') 返回列表
+                .col-sm-12
+                    table.table.table-bordered: tbody
+                        tr
+                            th 发证机构：
+                            td 中国有色协会再生金属分会
+                            th 发证时间：
+                            td 2015-03-26
+                        tr
+                            th 上传时间：
+                            td 2015-04-13
+                            th 有效期至：
+                            td 永久
+        .row
+            .col-sm-12.side-header 证书图片
+            .col-sm-12.side-body
+                .col-sm-offset-1.col-sm-10
+                    img(src='../img/avatar/template/b10.jpg',width='100%')

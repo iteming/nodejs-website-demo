@@ -46,8 +46,31 @@
     padding-bottom: 40px;
 }
 
+/* 通用 */
 section.container-fluid {
     /*margin-top: 5px;*/
+}
+
+.pull-middle {
+    display: inline-block;
+    vertical-align: middle !important;
+    word-spacing: normal;
+    height: 100%;
+}
+
+i {
+    margin-right: 5px !important;
+}
+
+.a-inherit {
+    color: inherit;
+}
+
+.news-sub-title {
+    border-top: 1px dashed #c1c1c1;
+    border-bottom: 1px dashed #c1c1c1;
+    padding: 5px 0;
+    margin-bottom: 10px;
 }
 
 /* side 左侧显示内容 */
@@ -79,10 +102,35 @@ section.container-fluid {
     padding-left: 15px;
 }
 
-.noborder{
+.noborder {
     border: none !important;
+    height: auto !important;
 }
 
+/* web 页面列表样式 */
+.ul-web-vg li {
+    list-style: none;
+    text-decoration: underline;
+}
+
+.ul-web li {
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #c1c1c1;
+}
+
+.ul-web-form li {
+    list-style: none;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #c1c1c1;
+}
+
+.ul-web-form li img {
+    margin-bottom: 10px;
+}
+
+.ul-web-form li .pull-middle {
+    margin-top: 30px;
+}
 
 /* 页脚 */
 footer {
@@ -161,7 +209,16 @@ footer span:hover, span:focus {
     float: left;
     margin: 0 15px 5px 0;
 }
-.demo-browser-content > .col-sm-4{
+
+.demo-browser-content > .pro .pro-body {
+    margin: 8px 0 10px 0;
+}
+
+.demo-browser-content > .pro .pro-body p{
+    margin: 0;
+}
+
+.demo-browser-content > .col-sm-4 {
     font-size: 14px;
     text-align: center;
 }
@@ -170,11 +227,34 @@ footer span:hover, span:focus {
     font-size: 14px;
 }
 
-.demo-browser-content > .pro > img {
+.demo-browser-content > .pro img {
     border: 6px solid white;
     width: 100%;
 }
+
 .demo-browser-content > .col-sm-4 > img {
     border: 6px solid white;
     width: auto;
+}
+
+/* 产品详情页 图片展示 */
+.pro-pictures .col-sm-12 {
+    border: 1px dotted #c1c1c1;
+    background-color: #e4e8ed;
+}
+.pro-pictures .col-sm-12+.col-sm-12 {
+    border-top: none;
+}
+.pro-pictures .col-sm-12 img{
+    max-width:80%;
+    border: 6px solid white;
+    margin: 5px;
+}
+.pro-pictures .col-sm-3{
+    padding: 5px 3px;
+}
+.pro-pictures .col-sm-3 img{
+    max-width:99%;
+    border: 1px solid white;
+    margin: 0;
 }

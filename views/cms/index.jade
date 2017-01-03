@@ -1,6 +1,6 @@
 extends layouts/layout
-block loadtitle
-    -var title='CMS 系统管理主页'
+append loadtitle
+    -title += ' | 主页'
 
 block cms_content
     .content_main

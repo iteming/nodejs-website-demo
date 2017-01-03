@@ -1,0 +1,63 @@
+extends layouts/layout
+append loadtitle
+    -title += ' | 相册详情图片'
+
+append styles
+    link(rel='stylesheet', href='/plugins/lightbox2/css/lightbox.min.css')
+
+block web_content
+    mixin toastr(status, msg)
+    section.container-body
+        .row
+            .col-sm-12.side-header 相册详情
+            .col-sm-12.side-body
+                p.col-sm-12.text-center
+                    | 千甫金属企业相册
+                .col-sm-12.text-center.news-sub-title
+                    span.mrl 创建时间：2017-01-01
+                    span.mrl 浏览次数：142
+                    a.mrl(href='/photo/list') 返回列表
+                .col-sm-12
+        .row
+            .col-sm-12.side-header 相册图片
+            .col-sm-12.side-body.side-body.demo-browser
+                .demo-browser-content
+                    .pro
+                        a(href='../img/web/browser-pic-1.jpg',data-lightbox="group")
+                            img(src='../img/web/browser-pic-1.jpg')
+                        .pro-body
+                            a: span 照片1
+                            p: span 2016-12-30
+                    .pro
+                        a(href='../img/web/browser-pic-2.jpg',data-lightbox="group")
+                            img(src='../img/web/browser-pic-2.jpg')
+                        .pro-body
+                            a: span 照片1
+                            p: span 2016-12-30
+                    .pro
+                        a(href='../img/web/browser-pic-3.jpg',data-lightbox="group")
+                            img(src='../img/web/browser-pic-3.jpg')
+                        .pro-body
+                            a: span 照片1
+                            p: span 2016-12-30
+                    .pro
+                        a(href='../img/web/browser-pic-4.jpg',data-lightbox="group")
+                            img(src='../img/web/browser-pic-4.jpg')
+                        .pro-body
+                            a: span 照片1
+                            p: span 2016-12-30
+                    .pro
+                        a(href='../img/web/browser-pic-5.jpg',data-lightbox="group")
+                            img(src='../img/web/browser-pic-5.jpg')
+                        .pro-body
+                            a: span 照片1
+                            p: span 2016-12-30
+                    .pro
+                        a(href='../img/web/browser-pic-6.jpg',data-lightbox="group")
+                            img(src='../img/web/browser-pic-6.jpg')
+                        .pro-body
+                            a: span 照片1
+                            p: span 2016-12-30
+
+append scripts
+    script(type='text/javascript',src='/plugins/lightbox2/js/lightbox.min.js')

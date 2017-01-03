@@ -1,34 +1,24 @@
 extends layouts/layout
-block loadtitle
-    -var title='石家庄千甫金属制品有限公司'
-
-append styles
-    style(type="text/css").
-        .ul-news a{
-            /*text-decoration: underline;*/
-        }
-        .ul-news li{
-            margin-bottom: 10px;
-            border-bottom: 1px dashed #c1c1c1;
-        }
+append loadtitle
+    -title += ' | 新闻详情'
 
 block web_content
     mixin toastr(status, msg)
     section.container-body
         .row
             .col-sm-12.side-header 新闻列表
-            .col-sm-12.side-body: ul.ul-news
+            .col-sm-12.side-body: ul.ul-web
                 li
-                    a(href='#') 博鑫丰关注：美元走强 金价
+                    a(href='/news/1') 博鑫丰关注：美元走强 金价
                     .pull-right 2017-01-02
                 li
-                    a(href='#') 博鑫丰关注：美元走强 金价
+                    a(href='/news/2') 博鑫丰关注：美元走强 金价
                     .pull-right 2017-01-02
                 li
-                    a(href='#') 博鑫丰关注：美元走强 金价
+                    a(href='/news/3') 博鑫丰关注：美元走强 金价
                     .pull-right 2017-01-02
                 li
-                    a(href='#') 博鑫丰关注：美元走强 金价
+                    a(href='/news/4') 博鑫丰关注：美元走强 金价
                     .pull-right 2017-01-02
             .clearfix.pagination-jzk-right: .pagination-jzk.pull-right.mtn.mrn#pagination
 

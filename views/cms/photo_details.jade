@@ -1,6 +1,6 @@
 extends layouts/layout
-block loadtitle
-    -var title='CMS 相册详情'
+append loadtitle
+    -title += ' | 相册详情'
 
 append styles
     link(rel='stylesheet', href='/plugins/jquery-file-upload/css/jquery.fileupload.css')

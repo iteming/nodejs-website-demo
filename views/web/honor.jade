@@ -1,0 +1,53 @@
+extends layouts/layout
+append loadtitle
+    -title += ' | 新闻详情'
+
+block web_content
+    mixin toastr(status, msg)
+    section.container-body
+        .row
+            .col-sm-12.side-header 荣誉列表
+            .col-sm-12.side-body: ul.ul-web-form
+                li.col-sm-12
+                    .col-sm-2.text-center 证书
+                    .col-sm-4.text-center 证书名称
+                    .col-sm-4.text-center 颁发机构
+                    .col-sm-2.text-center 发证日期
+                li.col-sm-12
+                    .col-sm-2.text-center: a(href='/honor/1'): img(src='../img/avatar/template/b10.jpg',height=100)
+                    .col-sm-4.text-center.pull-middle: a(href='/honor/1') 十大杰出企业
+                    .col-sm-4.text-center.pull-middle 河北省金属制品协会
+                    .col-sm-2.text-center.pull-middle 2017-01-02
+                li.col-sm-12
+                    .col-sm-2.text-center: a(href='/honor/2'): img(src='../img/avatar/template/b10.jpg',height=100)
+                    .col-sm-4.text-center.pull-middle: a(href='/honor/2') 十大杰出企业
+                    .col-sm-4.text-center.pull-middle 河北省金属制品协会
+                    .col-sm-2.text-center.pull-middle 2017-01-02
+                li.col-sm-12
+                    .col-sm-2.text-center: a(href='/honor/3'): img(src='../img/avatar/template/b10.jpg',height=100)
+                    .col-sm-4.text-center.pull-middle: a(href='/honor/3') 十大杰出企业
+                    .col-sm-4.text-center.pull-middle 河北省金属制品协会
+                    .col-sm-2.text-center.pull-middle 2017-01-02
+                li.col-sm-12
+                    .col-sm-2.text-center: a(href='/honor/4'): img(src='../img/avatar/template/b10.jpg',height=100)
+                    .col-sm-4.text-center.pull-middle: a(href='/honor/4') 十大杰出企业
+                    .col-sm-4.text-center.pull-middle 河北省金属制品协会
+                    .col-sm-2.text-center.pull-middle 2017-01-02
+            .clearfix.pagination-jzk-right: .pagination-jzk.pull-right.mtn.mrn#pagination
+
+append scripts
+    script(type='text/javascript').
+        $(document).ready(function () {
+            $("#pagination").pagination(25, {
+                num_display_entries: 5,
+                num_edge_entries: 0,
+                items_per_page: 10,
+                current_page: 1,
+                callback: function (page_index, jq) {
+                    if (Number(page_index) != currentPage) {
+                        //Pager.GetData(page_index + 1);
+                    }
+                    return false;
+                }
+            });
+        });

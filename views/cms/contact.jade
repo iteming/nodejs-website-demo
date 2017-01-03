@@ -1,6 +1,6 @@
 extends layouts/layout
-block loadtitle
-    -var title='CMS 企业联系方式'
+append loadtitle
+    -title += ' | 企业联系方式'
 
 append styles
     style(type="text/css").

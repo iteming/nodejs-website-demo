@@ -1,6 +1,6 @@
 extends layouts/layout
-block loadtitle
-    -var title='CMS 企业相册'
+append loadtitle
+    -title += ' | 企业相册'
 
 block cms_content
     .content_main

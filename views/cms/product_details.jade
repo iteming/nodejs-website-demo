@@ -1,6 +1,6 @@
 extends layouts/layout
-block loadtitle
-    -var title='CMS 产品详情'
+append loadtitle
+    -title += ' | 产品详情'
 
 append styles
     link(rel='stylesheet', href='/plugins/kindeditor-4.1.11/themes/default/default.css')

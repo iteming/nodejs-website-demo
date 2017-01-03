@@ -44,20 +44,40 @@ router.get('/contact', function (req, res, next) {
     res.render('web/contact', {});
 });
 
+
 router.get('/product/list', function (req, res, next) {
     res.render('web/product', {});
 });
+router.get('/product/:id', function (req, res, next) {
+    // console.log(req.params.id);
+    res.render('web/product_details', {});
+});
+
 
 router.get('/honor/list', function (req, res, next) {
     res.render('web/honor', {});
 });
+router.get('/honor/:id', function (req, res, next) {
+    // console.log(req.params.id);
+    res.render('web/honor_details', {});
+});
+
 
 router.get('/photo/list', function (req, res, next) {
     res.render('web/photo', {});
 });
+router.get('/photo/:id', function (req, res, next) {
+    // console.log(req.params.id);
+    res.render('web/photo_details', {});
+});
+
 
 router.get('/news/list', function (req, res, next) {
     res.render('web/news', {});
+});
+router.get('/news/:id', function (req, res, next) {
+    // console.log(req.params.id);
+    res.render('web/news_details', {});
 });
 
 module.exports = router;

@@ -1,6 +1,6 @@
 extends layouts/layout
-block loadtitle
-    -var title='CMS 评论留言'
+append loadtitle
+    -title += ' | 评论留言'
 
 block cms_content
     .content_main

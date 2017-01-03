@@ -1,0 +1,73 @@
+extends layouts/layout
+append loadtitle
+    -title += ' | 产品详情'
+
+append styles
+    link(rel='stylesheet', href='/plugins/lightbox2/css/lightbox.min.css')
+
+block web_content
+    mixin toastr(status, msg)
+    section.container-body
+        .row
+            .col-sm-12.side-header 产品详情
+            .col-sm-12.side-body
+                p.col-sm-12.text-center
+                    | 粗锌锭生产厂家长期供应粗锌锭优质产品
+                .col-sm-12.text-center.news-sub-title
+                    span.mrl 发布时间：2017-01-01
+                    span.mrl 浏览次数：142
+                    a.mrl(href='/product/list') 返回列表
+                .col-sm-6.pro-pictures
+                    .col-sm-12.text-center
+                        a(href='../img/web/browser-pic-1.jpg',data-lightbox="group"): img(src='../img/web/browser-pic-1.jpg')
+                    .col-sm-12
+                        .col-sm-3: a(href='../img/web/browser-pic-2.jpg',data-lightbox="group"): img(src='../img/web/browser-pic-2.jpg')
+                        .col-sm-3: a(href='../img/web/browser-pic-3.jpg',data-lightbox="group"): img(src='../img/web/browser-pic-3.jpg')
+                        .col-sm-3: a(href='../img/web/browser-pic-4.jpg',data-lightbox="group"): img(src='../img/web/browser-pic-4.jpg')
+                        .col-sm-3: a(href='../img/web/browser-pic-5.jpg',data-lightbox="group"): img(src='../img/web/browser-pic-5.jpg')
+                .col-sm-6
+                    form.form-horizontal
+                        .form-group.mbn
+                            label.col-sm-4.control-label.prn: strong 分类类别：
+                            .col-sm-8.pln: span.form-control.noborder 锌粉
+                        .form-group.mbn
+                            label.col-sm-4.control-label.prn: strong 型号：
+                            .col-sm-8.pln: span.form-control.noborder #0、#1
+                        .form-group.mbn
+                            label.col-sm-4.control-label.prn: strong 规格：
+                            .col-sm-8.pln: span.form-control.noborder 齐全
+                        .form-group.mbn
+                            label.col-sm-4.control-label.prn: strong 品牌：
+                            .col-sm-8.pln: span.form-control.noborder 千甫金属
+                        .form-group.mbn
+                            label.col-sm-4.control-label.prn: strong 单价：
+                            .col-sm-8.pln: span.form-control.noborder 面议
+                        .form-group.mbn
+                            label.col-sm-4.control-label.prn: strong 发布日期：
+                            .col-sm-8.pln: span.form-control.noborder 2017-01-01
+                        .form-group.mbn
+                            label.col-sm-4.control-label.prn: strong 有效期至：
+                            .col-sm-8.pln: span.form-control.noborder 2017-12-31
+        .row
+            .col-sm-12.side-header 详细信息
+            .col-sm-12.side-body.
+                石家庄博鑫丰锌业有限公司 粗锌锭产品介绍：
+
+                粗锌锭：
+
+                本公司长期供应锌锭、锌粉。有意者速度来电。
+
+                粗锌是锌制品回收到工厂然后通过一定的工艺进行再次提炼重熔的锌锭。锌含量要看原来的锌制品是什么，提炼的技术和提取能力而定。
+
+                粗锌锭生产厂家 公司介绍：
+
+                    石家庄博鑫丰锌业公司创建于2012年，现占地面积30000平方米，位于石家庄东30公里，北邻石德铁路，307国道，石黄高速，南邻青银高速，西接京深高速，交通十分便利。
+
+                    公司凭借雄厚的技术力量和多年的生产经验，以及完备的质量体系，精密的检验设备和现发、生产一体化的锌产品生产基地。
+
+                    博鑫丰锌业全体员工以饱满的工作热情，以“用户满意”为服务宗旨，本着“信誉至上”的原则，真诚的期待与国内外客商携手共进，共同迈向成功！
+
+                    竭诚的欢迎各界友人光临指导，真诚合作，共创美好明天！
+
+append scripts
+    script(type='text/javascript',src='/plugins/lightbox2/js/lightbox.min.js')
