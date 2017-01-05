@@ -5,6 +5,10 @@ append loadtitle
 append styles
     link(rel='stylesheet', href='/plugins/lightbox2/css/lightbox.min.css')
 
+block show_sider
+    -var show_contact = true;
+    -var show_category = false;
+
 block web_content
     mixin toastr(status, msg)
     section.container-body
@@ -16,7 +20,7 @@ block web_content
                 .col-sm-12.text-center.news-sub-title
                     span.mrl 发布时间：2017-01-01
                     span.mrl 浏览次数：142
-                    a.mrl(href='/product/list') 返回列表
+                    a.mrl(href='/product/list/0') 返回列表
                 .col-sm-6.pro-pictures
                     .col-sm-12.text-center
                         a(href='../img/web/browser-pic-1.jpg',data-lightbox="group"): img(src='../img/web/browser-pic-1.jpg')

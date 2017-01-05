@@ -162,7 +162,7 @@ router.post('/company', function (req, res, next) {
     var company = new Company();
     company.id = req.body.id ? req.body.id : null;
     company.company_name = req.body.company_name;
-    company.description = req.body.description;
+    company.description = req.body.content;
     company.address = req.body.address;
     company.company_type = req.body.company_type;
     company.company_size = req.body.company_size;

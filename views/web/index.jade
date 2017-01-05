@@ -1,27 +1,19 @@
 extends layouts/layout
 append loadtitle
-    -title += ' | 新闻详情'
+    -title += ' | 首页'
 
 block web_content
     mixin toastr(status, msg)
-    section.container-body
+    section.container-body#indexpage(ng-app="index",ng-controller="indexCtrl")
         .row
             .col-sm-12.side-header 公司介绍
-                .pull-right MORE
+                .pull-right: a(href='/company') MORE
             .col-sm-12.side-body
-                .col-sm-8.
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    石家庄博鑫丰锌业公司创建于2012年，现占地面积30000平方米，位于石家庄东30公里，北邻石德铁路，307国道，石黄高速，南邻青银高速，
-                    西接京深高速，交通十分便利。<br/><br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    公司凭借雄厚的技术力量和多年的生产经验，以及完备的质量体系，精密的检验设备和现发、生产一体化的锌产品生产基地。<br/><br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    博鑫丰锌业全体员工以饱满的工作热情，以“用户满意”为服务宗旨，本着“信誉至上”的原则，真诚的期待与国内外客商携手共进，共同迈向成功！<br/><br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    竭诚的欢迎各界友人光临指导，真诚合作，共创美好明天！<br/><br/>
-                    石家庄博鑫丰锌业有限公司：http://ebdapeng16688.smm.cn/.
-                .col-sm-4
-                    img(src='../img/avatar/template/c9.jpg',width='100%')
+                span.ng-binding(ng-bind-html="company.description")
+                //.col-sm-8
+                //    span.ng-binding(ng-bind-html="company.description")
+                //.col-sm-4
+                //    img(src='../img/avatar/template/c9.jpg',width='100%')
         .row
             .col-sm-12.side-header 推荐产品
                 .pull-right MORE
@@ -80,3 +72,5 @@ block web_content
 
 
 append scripts
+    script(type = 'text/javascript', src = "/js/web/addviews.js")
+    script(type = 'text/javascript', src = "/js/web/index.js")

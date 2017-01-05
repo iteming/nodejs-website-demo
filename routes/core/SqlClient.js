@@ -104,7 +104,7 @@ SqlClient.prototype={
 		var cols = [];
 		var paramValues = [];
 		for(var name in obj){
-			if(obj.hasOwnProperty(name) && name != 'tablename' && name != 'id'){
+			if(obj.hasOwnProperty(name) && name != 'tablename' && name != 'id' && obj[name] != null && obj[name] != ''){
 				cols.push(name+"=?");
 				if(obj[name] == 'null' || obj[name] == 'undefined') obj[name] = null;
 				paramValues.push(obj[name]);
@@ -112,8 +112,8 @@ SqlClient.prototype={
 	    }
 		pool.getConnection(function(err, connection) {
 			var sql = 'UPDATE '+obj['tablename']+' SET '+cols.join(',') + ' WHERE ID = ' + obj['id'];
-			console.log('##    sql: '+sql);
-			console.log('## values: '+paramValues);
+			// console.log('##    sql: '+sql);
+			// console.log('## values: '+paramValues);
 			connection.query(sql,paramValues,function (err, result) {
 		        if(err){
 		        	console.log('[update error] - ',err.message);

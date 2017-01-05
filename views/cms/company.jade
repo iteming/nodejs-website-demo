@@ -2,6 +2,11 @@ extends layouts/layout
 append loadtitle
     -title += ' | 公司基本信息'
 
+append styles
+    link(rel='stylesheet', href='/plugins/kindeditor-4.1.11/themes/default/default.css')
+    link(rel='stylesheet', href='/plugins/kindeditor-4.1.11/plugins/code/prettify.css')
+    link(rel='stylesheet', href='/plugins/jquery-file-upload/css/jquery.fileupload.css')
+
 block cms_content
     .content_main
         mixin toastr(status, msg)
@@ -21,7 +26,7 @@ block cms_content
                                             value="#{company.company_name}",autocomplete="off",data-required="true")
                             .form-group
                                 label.col-sm-2.control-label(for='description') 公司介绍
-                                .col-sm-10: textarea#description.textarea.form-control.parsley-validated(name="description",rows="5",placeholder="公司介绍",
+                                .col-sm-10: textarea#description.textarea.form-control.parsley-validated(name="content",rows="15",placeholder="公司介绍",
                                             autocomplete="off",data-required="true") #{company.description}
                             .form-group
                                 label.col-sm-2.control-label(for='address') 公司地址
@@ -53,6 +58,10 @@ block cms_content
                                 button.btn.btn-info.mll(type='submit') 确认更改
 
 append scripts
+    script(type='text/javascript',src='/plugins/kindeditor-4.1.11/kindeditor-min.js')
+    script(type='text/javascript',src='/plugins/kindeditor-4.1.11/lang/zh_CN.js')
+    script(type='text/javascript',src='/plugins/kindeditor-4.1.11/plugins/code/prettify.js')
+    script(type='text/javascript',src='/js/cms/KindEditorPageJS.js')
     script(type='text/javascript').
         $(document).ready(function () {
             $("#regist_date").datepicker({todayHighlight: true, format: 'yyyy-mm-dd', autoclose: true});

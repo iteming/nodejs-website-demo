@@ -21,8 +21,9 @@
 
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
     display: block;
-    width: 100%;
+    width: auto;
     max-height: 300px;
+    margin: 0 auto;
 }
 
 .carousel-indicators li {
@@ -49,6 +50,15 @@
 /* 通用 */
 section.container-fluid {
     /*margin-top: 5px;*/
+}
+
+#indexmap {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    font-family: "微软雅黑";
+    border: 2px dashed #bbbbbb;
 }
 
 .pull-middle {

@@ -1,6 +1,10 @@
 extends layouts/layout
 append loadtitle
-    -title += ' | 新闻详情'
+    -title += ' | 产品列表'
+
+block show_sider
+    -var show_contact = true;
+    -var show_category = false;
 
 block web_content
     mixin toastr(status, msg)
@@ -33,13 +37,13 @@ block web_content
                         .col-sm-8.text-center 产品名称
                         .col-sm-2.text-center 发布日期
                     li.col-sm-12
-                        .col-sm-2.text-center: a(href='/product/1'): img(src='../img/avatar/template/b10.jpg',height=100)
+                        .col-sm-2.text-center: a(href='/product/1'): img(src='#{website.siteurl}/img/avatar/template/b10.jpg',height=100)
                         .col-sm-8
                             p: a(href='/product/1') 十大杰出企业
                             span 石家庄博鑫丰锌业有限公司 粗锌锭产品介绍：粗锌锭：本公司长期供应锌锭、锌粉。有意者速度来电。粗锌是锌制品回收到工厂然后通过
                         .col-sm-2.text-center.pull-middle 2017-01-02
                     li.col-sm-12
-                        .col-sm-2.text-center: a(href='/product/2'): img(src='../img/avatar/template/b10.jpg',height=100)
+                        .col-sm-2.text-center: a(href='/product/2'): img(src='#{website.siteurl}/img/avatar/template/b10.jpg',height=100)
                         .col-sm-8
                             p: a(href='/product/2') 十大杰出企业
                             span 石家庄博鑫丰锌业有限公司 粗锌锭产品介绍：粗锌锭：本公司长期供应锌锭、锌粉。有意者速度来电。粗锌是锌制品回收到工厂然后通过
@@ -48,32 +52,32 @@ block web_content
                 #th-view.col-sm-12.side-body.tab-pane.fade(role="tabpanel").demo-browser.active.in
                     .demo-browser-content
                         .pro: a.a-inherit(href='/product/1')
-                            img(src='../img/web/browser-pic-1.jpg')
+                            img(src='#{website.siteurl}/img/web/browser-pic-1.jpg')
                             .pro-body
                                 p.mbn: span 产品1
                                 p: span 2016-12-30
                         .pro: a.a-inherit(href='/product/2')
-                            img(src='../img/web/browser-pic-2.jpg')
+                            img(src='#{website.siteurl}/img/web/browser-pic-2.jpg')
                             .pro-body
                                 p.mbn: span 产品1
                                 p: span 2016-12-30
                         .pro: a.a-inherit(href='/product/3')
-                            img(src='../img/web/browser-pic-3.jpg')
+                            img(src='#{website.siteurl}/img/web/browser-pic-3.jpg')
                             .pro-body
                                 p.mbn: span 产品1
                                 p: span 2016-12-30
                         .pro: a.a-inherit(href='/product/4')
-                            img(src='../img/web/browser-pic-4.jpg')
+                            img(src='#{website.siteurl}/img/web/browser-pic-4.jpg')
                             .pro-body
                                 p.mbn: span 产品1
                                 p: span 2016-12-30
                         .pro: a.a-inherit(href='/product/5')
-                            img(src='../img/web/browser-pic-5.jpg')
+                            img(src='#{website.siteurl}/img/web/browser-pic-5.jpg')
                             .pro-body
                                 p.mbn: span 产品1
                                 p: span 2016-12-30
                         .pro: a.a-inherit(href='/product/6')
-                            img(src='../img/web/browser-pic-6.jpg')
+                            img(src='#{website.siteurl}/img/web/browser-pic-6.jpg')
                             .pro-body
                                 p.mbn: span 产品1
                                 p: span 2016-12-30

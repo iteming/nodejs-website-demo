@@ -1,12 +1,11 @@
 -var datetime = new Date().getFullYear();
--var count = 51527
 footer.container-fluid
     .main-content
         .text-center
             | ©#{datetime} &nbsp;&nbsp;
-            span 石家庄千甫金属制品有限公司
+            span #{website.title}
             | &nbsp;&nbsp;&nbsp;版权所有
             | &nbsp;&nbsp;&nbsp;&nbsp;技术支持：
-            a(href='#')  iteming
-            | &nbsp;&nbsp;&nbsp;&nbsp;访问量：#{count} &nbsp;&nbsp;
+            a(href='#{website.support_url}',target='_blank') #{website.support_name}
+            | &nbsp;&nbsp;&nbsp;&nbsp;访问量：#{website.views} &nbsp;&nbsp;
             a(href='/cms/',target='_blank') 系统管理

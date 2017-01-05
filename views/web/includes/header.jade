@@ -1,8 +1,8 @@
 header.container-fluid
     .topheader
         .collapse.navbar-collapse
-            p: h3 石家庄千甫金属制品有限公司
-            p: span 各种型号锌锭 各种规格锌粉
+            p: h3 #{website.title}
+            p: span #{website.description}
     .topnav
         .navbar-header.navbar-inverse
             button.navbar-toggle.navbar-inverse(type='button',data-toggle='collapse',
@@ -11,34 +11,29 @@ header.container-fluid
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-            a.navbar-brand.navbar-inverse(href='#',aria-expanded="false") 石家庄千甫金属
+            a.navbar-brand.navbar-inverse(href='#',aria-expanded="false") #{website.title.substring(0,7)}
         #navbar-collapse-1.collapse.navbar-collapse.navbar-inverse
             ul.nav.navbar-nav.navbar-inverse
                 li: a(href='/') 网站首页
                 li: a(href='/company') 公司介绍
-                li: a(href='/product/list') 供应产品
+                li: a(href='/product/list/0') 供应产品
                 li: a(href='/honor/list') 荣誉资质
                 li: a(href='/photo/list') 公司相册
                 li: a(href='/contact') 联系我们
 
 section.container-fluid
     #carousel-generic-1.carousel.slide(data-ride="carousel")
+        -var carousellist = website.carousel.split('|')
         // 下方小圆点
         ol.carousel-indicators
-            li.active(data-target="#carousel-generic-1",data-slide-to="0")
-            li(data-target="#carousel-generic-1",data-slide-to="1")
-            li(data-target="#carousel-generic-1",data-slide-to="2")
+            -for (var i in carousellist)
+                li(data-target="#carousel-generic-1",data-slide-to= i,class= i==0?'active':'')
+
         // 包装的幻灯片
         .carousel-inner(role="listbox")
-            .item.active
-                img(src='../img/web/data-image-1.png')
-                .carousel-caption 第一张轮播
-            .item
-                img(src='../img/web/data-image-2.png')
-                .carousel-caption 第二张轮播
-            .item
-                img(src='../img/web/data-image-3.png')
-                .carousel-caption 第三张轮播
+            -for (var i in carousellist)
+                .item(class= i==0?'active':''): img(src= carousellist[i])
+                //.carousel-caption 第一张轮播
         // 控制器
         a.left.carousel-control(href="#carousel-generic-1",role="button",data-slide="prev")
             span.glyphicon.glyphicon-chevron-left

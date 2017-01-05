@@ -80,7 +80,7 @@ var SmoothScroll = function () {
     if ((platform.indexOf('win') == 0 || platform.indexOf('linux') == 0) && !Modernizr.touch) {
         if ($.browser.webkit) {
             $.webkitSmoothScroll();
-            console.log("hello webkit");
+            // console.log("hello webkit");
         }
     }
 };

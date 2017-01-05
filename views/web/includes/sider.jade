@@ -1,0 +1,47 @@
+.row
+    .col-sm-12.side-header 网站公告
+    .col-sm-12.side-body
+        | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        span.ng-binding(ng-bind-html="notice.content")
+.row
+    .col-sm-12.side-header 新闻中心
+        .pull-right: a(href='/news/list') MORE
+    .col-sm-12.side-body: ul
+        li(ng-repeat="item in newslist")
+            a(ng-href='/news/{{item.id}}',data-toggle="tooltip",data-placement="top",title="{{item.title +' - '+ item.createtime}}")
+                span.ng-binding(ng-bind="item.title.substring(0,15)")
+
+.row(class= show_category?'show':'hide')
+    .col-sm-12.side-header 产品分类
+        .pull-right: a(href='/product/list/0') MORE
+    .col-sm-12.side-body: ul
+        li(ng-repeat="item in categorylist")
+            a(ng-href='/product/list/{{item.id}}')
+                span.ng-binding(ng-bind="item.name")
+
+.row(class= show_contact?'show':'hide')
+    .col-sm-12.side-header 联系方式
+        .pull-right: a(href='/contact') MORE
+    .col-sm-12.side-body
+        ul
+            li 联系人：
+                span.ng-binding(ng-bind="contact.contact_name")
+            li 电话：
+                span.ng-binding(ng-bind="contact.contact_phone")
+            li 邮件：
+                span.ng-binding(ng-bind="contact.contact_email")
+            li 手机：
+                span.ng-binding(ng-bind="contact.contact_mobile")
+            li 传真：
+                span.ng-binding(ng-bind="contact.contact_fax")
+        .col-sm-12
+            input#location_lng(type='hidden',ng-model="contact.location_lng")
+            input#location_lat(type='hidden',ng-model="contact.location_lat")
+            div(style='width: 100%;height: 250px;')
+                #indexmap
+
+.row
+    .col-sm-12.side-header 友情链接
+    .col-sm-12.side-body: ul
+        li: a(href='iteming.wang',target='_blank') ITEMING网站开发
+        li: a(href='aliyun.com',target='_blank') AliyunECS服务器

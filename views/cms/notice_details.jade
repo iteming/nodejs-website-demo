@@ -3,9 +3,9 @@ append loadtitle
     -title += ' | 公告详情'
 
 append styles
-    link(rel='stylesheet', href='/plugins/kindeditor-4.1.11/themes/default/default.css')
-    link(rel='stylesheet', href='/plugins/kindeditor-4.1.11/plugins/code/prettify.css')
-    link(rel='stylesheet', href='/plugins/jquery-file-upload/css/jquery.fileupload.css')
+    //link(rel='stylesheet', href='/plugins/kindeditor-4.1.11/themes/default/default.css')
+    //link(rel='stylesheet', href='/plugins/kindeditor-4.1.11/plugins/code/prettify.css')
+    //link(rel='stylesheet', href='/plugins/jquery-file-upload/css/jquery.fileupload.css')
 
 block cms_content
     .content_main
@@ -47,14 +47,14 @@ block cms_content
                                 input#btn_submit.btn.btn-info.mll(name='btn_submit',type='button',value='确认更改')
 
 append scripts
-    script(type='text/javascript',src='/plugins/kindeditor-4.1.11/kindeditor-min.js')
-    script(type='text/javascript',src='/plugins/kindeditor-4.1.11/lang/zh_CN.js')
-    script(type='text/javascript',src='/plugins/kindeditor-4.1.11/plugins/code/prettify.js')
-    script(type='text/javascript',src='/js/cms/KindEditorPageJS.js')
-    script(type='text/javascript',src='/plugins/jquery-file-upload/js/jquery.fileupload-ajax.js')
+    //script(type='text/javascript',src='/plugins/kindeditor-4.1.11/kindeditor-min.js')
+    //script(type='text/javascript',src='/plugins/kindeditor-4.1.11/lang/zh_CN.js')
+    //script(type='text/javascript',src='/plugins/kindeditor-4.1.11/plugins/code/prettify.js')
+    //script(type='text/javascript',src='/js/cms/KindEditorPageJS.js')
+    //script(type='text/javascript',src='/plugins/jquery-file-upload/js/jquery.fileupload-ajax.js')
     script(type='text/javascript').
         $("#btn_submit").on('click', function () {
-            $("#content").val(editor.html());
+            //$("#content").val(editor.html());
             //$("form").submit();
 
             //表单验证
