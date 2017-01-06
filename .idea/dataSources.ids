@@ -1,6 +1,410 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source name="MySQL - node_cms@localhost" uuid="ecd7c70d-4cd2-424d-802e-c7a2ad45041f">
-    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+    <database-info product="MySQL" version="5.7.11" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+      <schema id="1" name="node_cms">
+        <visible>1</visible>
+      </schema>
+      <schema id="2" name="baiyigame"/>
+      <schema id="3" name="byg"/>
+      <schema id="4" name="fixedassets"/>
+      <schema id="5" name="g_cms_db"/>
+      <schema id="6" name="information_schema"/>
+      <schema id="7" name="kbe"/>
+      <schema id="8" name="mysql"/>
+      <schema id="9" name="nodeweixin"/>
+      <schema id="10" name="performance_schema"/>
+      <schema id="11" name="sys"/>
+      <schema id="12" name="wordpress"/>
+      <table id="13" parent="1" name="category"/>
+      <table id="14" parent="1" name="comment"/>
+      <table id="15" parent="1" name="company"/>
+      <table id="16" parent="1" name="contact"/>
+      <table id="17" parent="1" name="honor"/>
+      <table id="18" parent="1" name="news"/>
+      <table id="19" parent="1" name="notice"/>
+      <table id="20" parent="1" name="photo"/>
+      <table id="21" parent="1" name="picture"/>
+      <table id="22" parent="1" name="product"/>
+      <table id="23" parent="1" name="user"/>
+      <table id="24" parent="1" name="website"/>
+      <column id="25" parent="13" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="26" parent="13" name="name">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <key id="27" parent="13" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="28" parent="14" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="29" parent="14" name="type">
+        <data-type>int(1)|0</data-type>
+      </column>
+      <column id="30" parent="14" name="level">
+        <data-type>int(1)|0</data-type>
+      </column>
+      <column id="31" parent="14" name="comment">
+        <data-type>varchar(500)|0</data-type>
+      </column>
+      <column id="32" parent="14" name="email">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="33" parent="14" name="name">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="34" parent="14" name="contact">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="35" parent="14" name="createtime">
+        <data-type>datetime|0</data-type>
+      </column>
+      <column id="36" parent="14" name="parentid">
+        <data-type>int(11)|0</data-type>
+      </column>
+      <column id="37" parent="14" name="userid">
+        <data-type>int(11)|0</data-type>
+      </column>
+      <column id="38" parent="14" name="status">
+        <data-type>int(1)|0</data-type>
+        <default-expression>&apos;1&apos;</default-expression>
+      </column>
+      <key id="39" parent="14" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="40" parent="15" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="41" parent="15" name="company_name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="42" parent="15" name="description">
+        <data-type>text|0</data-type>
+      </column>
+      <column id="43" parent="15" name="address">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="44" parent="15" name="company_type">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="45" parent="15" name="company_size">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="46" parent="15" name="regist_capital">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="47" parent="15" name="regist_date">
+        <data-type>datetime|0</data-type>
+      </column>
+      <column id="48" parent="15" name="business_model">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="49" parent="15" name="business_scope">
+        <data-type>varchar(500)|0</data-type>
+      </column>
+      <key id="50" parent="15" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="51" parent="16" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="52" parent="16" name="contact_name">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="53" parent="16" name="contact_phone">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="54" parent="16" name="contact_email">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="55" parent="16" name="contact_mobile">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="56" parent="16" name="contact_fax">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="57" parent="16" name="contact_qq">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="58" parent="16" name="location_lng">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="59" parent="16" name="location_lat">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <key id="60" parent="16" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="61" parent="17" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="62" parent="17" name="honor_name">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="63" parent="17" name="honor_main_id">
+        <data-type>int(11)|0</data-type>
+      </column>
+      <column id="64" parent="17" name="certification">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="65" parent="17" name="publish_date">
+        <data-type>datetime|0</data-type>
+      </column>
+      <column id="66" parent="17" name="expiry_date">
+        <data-type>datetime|0</data-type>
+      </column>
+      <column id="67" parent="17" name="createtime">
+        <data-type>datetime|0</data-type>
+      </column>
+      <column id="68" parent="17" name="views">
+        <data-type>int(11)|0</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <key id="69" parent="17" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="70" parent="18" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="71" parent="18" name="title">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="72" parent="18" name="content">
+        <data-type>text|0</data-type>
+      </column>
+      <column id="73" parent="18" name="createtime">
+        <data-type>datetime|0</data-type>
+      </column>
+      <column id="74" parent="18" name="status">
+        <data-type>int(1)|0</data-type>
+        <default-expression>&apos;1&apos;</default-expression>
+      </column>
+      <column id="75" parent="18" name="settop">
+        <data-type>int(1)|0</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="76" parent="18" name="views">
+        <data-type>int(11)|0</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <key id="77" parent="18" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="78" parent="19" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="79" parent="19" name="title">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="80" parent="19" name="content">
+        <data-type>text|0</data-type>
+      </column>
+      <column id="81" parent="19" name="createtime">
+        <data-type>datetime|0</data-type>
+      </column>
+      <column id="82" parent="19" name="status">
+        <data-type>int(1)|0</data-type>
+        <default-expression>&apos;1&apos;</default-expression>
+      </column>
+      <column id="83" parent="19" name="settop">
+        <data-type>int(1)|0</data-type>
+        <default-expression>&apos;1&apos;</default-expression>
+      </column>
+      <column id="84" parent="19" name="views">
+        <data-type>int(11)|0</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <key id="85" parent="19" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="86" parent="20" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="87" parent="20" name="photo_name">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="88" parent="20" name="photo_main_id">
+        <data-type>int(11)|0</data-type>
+      </column>
+      <column id="89" parent="20" name="createtime">
+        <data-type>datetime|0</data-type>
+      </column>
+      <column id="90" parent="20" name="views">
+        <data-type>int(11)|0</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <key id="91" parent="20" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="92" parent="21" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="93" parent="21" name="pic_type">
+        <data-type>int(1)|0</data-type>
+      </column>
+      <column id="94" parent="21" name="key_id">
+        <data-type>int(11)|0</data-type>
+      </column>
+      <column id="95" parent="21" name="pic_name">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="96" parent="21" name="pic_url_cdn">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="97" parent="21" name="pic_url_loc">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <key id="98" parent="21" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="99" parent="22" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="100" parent="22" name="name">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="101" parent="22" name="category_id">
+        <data-type>int(11)|0</data-type>
+      </column>
+      <column id="102" parent="22" name="model">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="103" parent="22" name="specification">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="104" parent="22" name="brand">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="105" parent="22" name="price">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="106" parent="22" name="detail_info">
+        <data-type>text|0</data-type>
+      </column>
+      <column id="107" parent="22" name="publish_date">
+        <data-type>datetime|0</data-type>
+      </column>
+      <column id="108" parent="22" name="expiry_date">
+        <data-type>datetime|0</data-type>
+      </column>
+      <column id="109" parent="22" name="views">
+        <data-type>int(11)|0</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <key id="110" parent="22" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="111" parent="23" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="112" parent="23" name="username">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="113" parent="23" name="password">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="114" parent="23" name="displayname">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="115" parent="23" name="status">
+        <data-type>int(1)|0</data-type>
+        <default-expression>&apos;1&apos;</default-expression>
+      </column>
+      <column id="116" parent="23" name="createtime">
+        <data-type>datetime|0</data-type>
+      </column>
+      <column id="117" parent="23" name="lastlogintime">
+        <data-type>datetime|0</data-type>
+      </column>
+      <column id="118" parent="23" name="avatar">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <key id="119" parent="23" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="120" parent="24" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="121" parent="24" name="siteurl">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="122" parent="24" name="title">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="123" parent="24" name="description">
+        <data-type>varchar(200)|0</data-type>
+      </column>
+      <column id="124" parent="24" name="keywords">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="125" parent="24" name="logo">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="126" parent="24" name="carousel">
+        <data-type>varchar(500)|0</data-type>
+      </column>
+      <column id="127" parent="24" name="icp_num">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="128" parent="24" name="support_name">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="129" parent="24" name="support_url">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="130" parent="24" name="views">
+        <data-type>int(11)|0</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <key id="131" parent="24" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
   </data-source>
 </component>
