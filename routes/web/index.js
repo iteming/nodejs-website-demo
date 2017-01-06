@@ -20,7 +20,7 @@ router.get('/', function (req, res, next) {
         if (result != null && result.length > 0) {
             website = result[0];
             req.session.website = website;
-            console.log(website);
+            // console.log(website);
             res.render('web/index', {status: 1, msg: 'welcome!', website: website});
             return;
         }
