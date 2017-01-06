@@ -1,9 +1,0 @@
-@CHARSET "UTF-8";
-
-#enterpriseinfo_copy .table_div table td {
-	width: 165px;
-}
-
-#enterpriseinfo_copy .table_div table td.label_td {
-	width: 146px;
-}
