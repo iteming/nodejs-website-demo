@@ -16,60 +16,24 @@ block web_content
                 //    img(src='../img/avatar/template/c9.jpg',width='100%')
         .row
             .col-sm-12.side-header 推荐产品
-                .pull-right MORE
+                .pull-right: a(href='/product/list/0') MORE
             .col-sm-12.side-body.demo-browser
                 .demo-browser-content
-                    .pro
-                        img(src='../img/web/browser-pic-1.jpg')
+                    .pro(ng-repeat="item in productlist")
+                        img(ng-src='{{item.pic_url_loc}}')
                         .pro-body
-                            a: span 产品1
-                            p: span 2016-12-30
-                    .pro
-                        img(src='../img/web/browser-pic-2.jpg')
-                        .pro-body
-                            a: span 产品1
-                            p: span 2016-12-30
-                    .pro
-                        img(src='../img/web/browser-pic-3.jpg')
-                        .pro-body
-                            a: span 产品1
-                            p: span 2016-12-30
-                    .pro
-                        img(src='../img/web/browser-pic-4.jpg')
-                        .pro-body
-                            a: span 产品1
-                            p: span 2016-12-30
-                    .pro
-                        img(src='../img/web/browser-pic-5.jpg')
-                        .pro-body
-                            a: span 产品1
-                            p: span 2016-12-30
-                    .pro
-                        img(src='../img/web/browser-pic-6.jpg')
-                        .pro-body
-                            a: span 产品1
-                            p: span 2016-12-30
+                            a(ng-href='/product/{{item.id}}'): span(ng-bind="item.name")
+                            p: span(ng-bind="item.publish_date")
         .row
             .col-sm-12.side-header 公司相册
                 .pull-right MORE
             .col-sm-12.side-body.demo-browser
                 .demo-browser-content
-                    .col-sm-4
-                        img(src='../img/web/browser-pic-4.jpg')
+                    .col-sm-4(ng-repeat="item in photolist")
+                        img(ng-src='{{item.pic_url_loc}}')
                         .pro-body
-                            a: span 产品1
-                            p: span 2016-12-30
-                    .col-sm-4
-                        img(src='../img/web/browser-pic-5.jpg')
-                        .pro-body
-                            a: span 产品1
-                            p: span 2016-12-30
-                    .col-sm-4
-                        img(src='../img/web/browser-pic-6.jpg')
-                        .pro-body
-                            a: span 产品1
-                            p: span 2016-12-30
-
+                            a(ng-href='/photo/{{item.id}}'): span(ng-bind="item.photo_name")
+                            p: span(ng-bind="item.createtime")
 
 append scripts
     script(type = 'text/javascript', src = "/js/web/addviews.js")

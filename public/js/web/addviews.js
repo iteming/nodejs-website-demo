@@ -1,7 +1,8 @@
 $(document).ready(function () {
     $.ajax({
-        url: "/website/views",
-        type: "get",
+        url: "/views",
+        type: "post",
+        data: { type: "website" },
         dataType: "json",
         success: function (data) {
             if (data.status != 1) {

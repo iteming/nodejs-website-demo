@@ -864,7 +864,7 @@ router.post('/website/update', function (req, res, next) {
         res.json({status: 2, msg: '更新失败!'});
     };
 
-    if (website.id == null || website.id == "null"|| website.id === 0 || website.id === "0") {
+    if (website.id == null || website.id == "null" || website.id === 0 || website.id === "0") {
         isInsert = true;
         sqlClient.create(website, callback);
     } else {
@@ -876,26 +876,26 @@ router.post('/website/update', function (req, res, next) {
 // 获取图片信息
 router.post('/picture/list', function (req, res, next) {
     var sqlClient = new SqlClient();
-    if(req.body.key_id == 0){
-        sqlClient.queryBySql(' select max(id) as id from product ', null, function (result){
-            if (result != null && result.length > 0){
+    if (req.body.key_id == 0) {
+        sqlClient.queryBySql(' select max(id) as id from product ', null, function (result) {
+            if (result != null && result.length > 0) {
                 var id = result[0]["id"] + 1;
                 search_picture(id);
             }
         });
-    }else {
+    } else {
         search_picture(req.body.key_id);
     }
     function search_picture(key_id) {
         var whereSql = util.format(" where pic_type=%s and key_id=%s  ", req.body.pic_type, key_id);
         var picture = new Picture();
         sqlClient.query(picture, function (result) {
-        if (result != null && result.length > 0) {
-            res.json({status: 1, msg: '查询成功!', data: result});
-            return;
-        }
-        res.json({status: 2, msg: '暂无记录!', data: result});
-    }, whereSql);
+            if (result != null && result.length > 0) {
+                res.json({status: 1, msg: '查询成功!', data: result});
+                return;
+            }
+            res.json({status: 2, msg: '暂无记录!', data: result});
+        }, whereSql);
     }
 });
 // 删除图片
@@ -944,14 +944,14 @@ router.post('/picture/fileupload', function (req, res, next) {
         }
         var sqlClient = new SqlClient();
 
-        if(fields.key_id == 0){
-            sqlClient.queryBySql(' select max(id) as id from product ', null, function (result){
-                if (result != null && result.length > 0){
+        if (fields.key_id == 0) {
+            sqlClient.queryBySql(' select max(id) as id from product ', null, function (result) {
+                if (result != null && result.length > 0) {
                     var id = result[0]["id"] + 1;
                     create_picture(id);
                 }
             });
-        }else {
+        } else {
             create_picture(fields.key_id);
         }
 

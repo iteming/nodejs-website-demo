@@ -11,53 +11,36 @@ block web_content
         .row
             .col-sm-12.side-header 相册详情
             .col-sm-12.side-body
-                p.col-sm-12.text-center
-                    | 千甫金属企业相册
+                p.col-sm-12.text-center #{photo.photo_name}
                 .col-sm-12.text-center.news-sub-title
-                    span.mrl 创建时间：2017-01-01
-                    span.mrl 浏览次数：142
+                    span.mrl 创建时间：#{photo.createtime}
+                    span.mrl 浏览次数：#{photo.views}
                     a.mrl(href='/photo/list') 返回列表
                 .col-sm-12
         .row
             .col-sm-12.side-header 相册图片
             .col-sm-12.side-body.side-body.demo-browser
                 .demo-browser-content
-                    .pro
-                        a(href='../img/web/browser-pic-1.jpg',data-lightbox="group")
-                            img(src='../img/web/browser-pic-1.jpg')
-                        .pro-body
-                            a: span 照片1
-                            p: span 2016-12-30
-                    .pro
-                        a(href='../img/web/browser-pic-2.jpg',data-lightbox="group")
-                            img(src='../img/web/browser-pic-2.jpg')
-                        .pro-body
-                            a: span 照片1
-                            p: span 2016-12-30
-                    .pro
-                        a(href='../img/web/browser-pic-3.jpg',data-lightbox="group")
-                            img(src='../img/web/browser-pic-3.jpg')
-                        .pro-body
-                            a: span 照片1
-                            p: span 2016-12-30
-                    .pro
-                        a(href='../img/web/browser-pic-4.jpg',data-lightbox="group")
-                            img(src='../img/web/browser-pic-4.jpg')
-                        .pro-body
-                            a: span 照片1
-                            p: span 2016-12-30
-                    .pro
-                        a(href='../img/web/browser-pic-5.jpg',data-lightbox="group")
-                            img(src='../img/web/browser-pic-5.jpg')
-                        .pro-body
-                            a: span 照片1
-                            p: span 2016-12-30
-                    .pro
-                        a(href='../img/web/browser-pic-6.jpg',data-lightbox="group")
-                            img(src='../img/web/browser-pic-6.jpg')
-                        .pro-body
-                            a: span 照片1
-                            p: span 2016-12-30
+                    -for(var item in photolist)
+                        .pro
+                            a(href= photolist[item].pic_url_loc,data-lightbox="group")
+                                img(src!= photolist[item].pic_url_loc)
+                            .pro-body
+                                span #{photolist[item].pic_name}
 
 append scripts
     script(type='text/javascript',src='/plugins/lightbox2/js/lightbox.min.js')
+    script(type = 'text/javascript').
+        $(document).ready(function () {
+            $.ajax({
+                url: "/views",
+                type: "post",
+                data: {type: "photo", id: '#{photo.id}', views: '#{photo.views}'},
+                dataType: "json",
+                success: function (data) {
+                    if (data.status != 1) {
+                        toastrShow(data.status, data.msg);
+                    }
+                }
+            });
+        });

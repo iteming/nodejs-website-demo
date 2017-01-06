@@ -244,7 +244,7 @@ footer span:hover, span:focus {
 
 .demo-browser-content > .col-sm-4 > img {
     border: 6px solid white;
-    width: auto;
+    max-width: 100%;
 }
 
 /* 产品详情页 图片展示 */

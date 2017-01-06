@@ -4,7 +4,7 @@ append loadtitle
 
 block web_content
     mixin toastr(status, msg)
-    section.container-body
+    section.container-body#listpage(ng-app="list",ng-controller="listCtrl")
         .row
             .col-sm-12.side-header 荣誉列表
             .col-sm-12.side-body: ul.ul-web-form
@@ -13,41 +13,59 @@ block web_content
                     .col-sm-4.text-center 证书名称
                     .col-sm-4.text-center 颁发机构
                     .col-sm-2.text-center 发证日期
-                li.col-sm-12
-                    .col-sm-2.text-center: a(href='/honor/1'): img(src='../img/avatar/template/b10.jpg',height=100)
-                    .col-sm-4.text-center.pull-middle: a(href='/honor/1') 十大杰出企业
-                    .col-sm-4.text-center.pull-middle 河北省金属制品协会
-                    .col-sm-2.text-center.pull-middle 2017-01-02
-                li.col-sm-12
-                    .col-sm-2.text-center: a(href='/honor/2'): img(src='../img/avatar/template/b10.jpg',height=100)
-                    .col-sm-4.text-center.pull-middle: a(href='/honor/2') 十大杰出企业
-                    .col-sm-4.text-center.pull-middle 河北省金属制品协会
-                    .col-sm-2.text-center.pull-middle 2017-01-02
-                li.col-sm-12
-                    .col-sm-2.text-center: a(href='/honor/3'): img(src='../img/avatar/template/b10.jpg',height=100)
-                    .col-sm-4.text-center.pull-middle: a(href='/honor/3') 十大杰出企业
-                    .col-sm-4.text-center.pull-middle 河北省金属制品协会
-                    .col-sm-2.text-center.pull-middle 2017-01-02
-                li.col-sm-12
-                    .col-sm-2.text-center: a(href='/honor/4'): img(src='../img/avatar/template/b10.jpg',height=100)
-                    .col-sm-4.text-center.pull-middle: a(href='/honor/4') 十大杰出企业
-                    .col-sm-4.text-center.pull-middle 河北省金属制品协会
-                    .col-sm-2.text-center.pull-middle 2017-01-02
+                li.col-sm-12(ng-repeat="item in lists")
+                    .col-sm-2.text-center: a(ng-href='/honor/{{item.id}}')
+                        img(ng-src='{{item.pic_url_loc}}',height=100)
+                    .col-sm-4.text-center.pull-middle: a(ng-href='/honor/{{item.id}}'): span(ng-bind='item.honor_name')
+                    .col-sm-4.text-center.pull-middle: span(ng-bind='item.certification')
+                    .col-sm-2.text-center.pull-middle: span(ng-bind='item.publish_date')
             .clearfix.pagination-jzk-right: .pagination-jzk.pull-right.mtn.mrn#pagination
 
 append scripts
     script(type='text/javascript').
-        $(document).ready(function () {
-            $("#pagination").pagination(25, {
-                num_display_entries: 5,
-                num_edge_entries: 0,
-                items_per_page: 10,
-                current_page: 1,
-                callback: function (page_index, jq) {
-                    if (Number(page_index) != currentPage) {
-                        //Pager.GetData(page_index + 1);
-                    }
-                    return false;
+        var app2 = angular.module('list', []);
+        app2.controller('listCtrl', function ($scope) {
+            $scope.lists = [];
+            var Pager = {
+                pageSize: 10,
+                LoadPage: function (recordCount, currentPage, CB) {
+                    currentPage = currentPage - 1;
+                    $("#pagination").pagination(recordCount, {
+                        num_display_entries: 5,
+                        num_edge_entries: 0,
+                        items_per_page: Pager.pageSize,
+                        current_page: currentPage,
+                        callback: function (page_index, jq) {
+                            if (Number(page_index) != currentPage) {
+                                Pager.GetData(page_index + 1);
+                            }
+                            return false;
+                        }
+                    });
+                },
+                GetData: function (index) {
+                    $.ajax({
+                        url: "/honor/list/query",
+                        type: "post",
+                        dataType: "json",
+                        data: {
+                            page_index: index,
+                            page_size: Pager.pageSize
+                        },
+                        success: function (data) {
+                            if (data.status == 1) {
+                                Pager.LoadPage(data.recordCount, index);
+                                $scope.lists = data.data;
+                                $scope.$apply();
+                            }
+                        }
+                    });
                 }
-            });
+            };
+            Pager.GetData(1);
+            $scope.Pager = Pager;
+        });
+
+        angular.element(document).ready(function () {
+            angular.bootstrap(document.getElementById('listpage'), ['list']);
         });

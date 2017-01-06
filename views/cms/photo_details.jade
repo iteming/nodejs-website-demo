@@ -59,7 +59,7 @@ append scripts
         //当选中文件,则立即执行上传
         $(document).on("change", "#file1", function () {
             if ($("#file1").val() != "") {
-                FileAction.FileUpload("file1", 3, null ,$("#photo_pic"), null ,$("#photo_main_id"));
+                FileAction.FileUpload("file1", 3, '#{photo.id}',$("#photo_pic"), null ,$("#photo_main_id"));
             }
         });
     script(type='text/javascript').

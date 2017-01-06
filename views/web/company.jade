@@ -8,47 +8,35 @@ block web_content
         .row
             .col-sm-12.side-header 公司介绍
             .col-sm-12.side-body
-                .col-sm-8.
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    石家庄博鑫丰锌业公司创建于2012年，现占地面积30000平方米，位于石家庄东30公里，北邻石德铁路，307国道，石黄高速，南邻青银高速，
-                    西接京深高速，交通十分便利。<br/><br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    公司凭借雄厚的技术力量和多年的生产经验，以及完备的质量体系，精密的检验设备和现发、生产一体化的锌产品生产基地。<br/><br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    博鑫丰锌业全体员工以饱满的工作热情，以“用户满意”为服务宗旨，本着“信誉至上”的原则，真诚的期待与国内外客商携手共进，共同迈向成功！<br/><br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    竭诚的欢迎各界友人光临指导，真诚合作，共创美好明天！<br/><br/>
-                    石家庄博鑫丰锌业有限公司：http://ebdapeng16688.smm.cn/.
-                .col-sm-4
-                    img(src='../img/avatar/template/c9.jpg',width='100%')
+                span!= company.description
         .row
             .col-sm-12.side-header 公司档案
             .col-sm-12.side-body
                 form.form-horizontal
                     .form-group.mbn
                         label.col-sm-2.control-label.prn: strong 公司名称：
-                        .col-sm-4.pln: span.form-control.noborder 石家庄博鑫丰锌业有限公司
+                        .col-sm-4.pln: span.form-control.noborder #{company.company_name}
                         label.col-sm-2.control-label.prn: strong 公司类型：
-                        .col-sm-4.pln: span.form-control.noborder 国内生产商 (生产商)
+                        .col-sm-4.pln: span.form-control.noborder #{company.company_type}
                     .form-group.mbn
                         label.col-sm-2.control-label.prn: strong 所在地：
-                        .col-sm-4.pln: span.form-control.noborder 河北/石家庄市
+                        .col-sm-4.pln: span.form-control.noborder #{company.address}
                         label.col-sm-2.control-label.prn: strong 公司规模：
-                        .col-sm-4.pln: span.form-control.noborder 1-49人
+                        .col-sm-4.pln: span.form-control.noborder #{company.company_size}
                     .form-group.mbn
                         label.col-sm-2.control-label.prn: strong 注册资本：
-                        .col-sm-4.pln: span.form-control.noborder 100万人民币
+                        .col-sm-4.pln: span.form-control.noborder #{company.regist_capital}
                         label.col-sm-2.control-label.prn: strong 注册年份：
-                        .col-sm-4.pln: span.form-control.noborder 2010
+                        .col-sm-4.pln: span.form-control.noborder #{company.regist_date}
                     .form-group.mbn
                         label.col-sm-2.control-label.prn: strong 经营模式：
-                        .col-sm-10.pln: span.form-control.noborder 生产商
+                        .col-sm-10.pln: span.form-control.noborder #{company.business_model}
                     .form-group.mbn
                         label.col-sm-2.control-label.prn: strong 经营范围：
-                        .col-sm-10.pln: span.form-control.noborder 各种型号锌锭 各种规格锌粉
-                    .form-group.mbn
-                        label.col-sm-2.control-label.prn: strong 销售产品：
-                        .col-sm-10.pln: span.form-control.noborder 锌锭 锌粉 氧化锌
-                    .form-group.mbn
-                        label.col-sm-2.control-label.prn: strong 行业：
-                        .col-sm-10.pln: span.form-control.noborder 基本金属 / 锌 / 粗锌
+                        .col-sm-10.pln: span.form-control.noborder #{company.business_scope}
+                    //.form-group.mbn
+                    //    label.col-sm-2.control-label.prn: strong 销售产品：
+                    //    .col-sm-10.pln: span.form-control.noborder 锌锭 锌粉 氧化锌
+                    //.form-group.mbn
+                    //    label.col-sm-2.control-label.prn: strong 行业：
+                    //    .col-sm-10.pln: span.form-control.noborder 基本金属 / 锌 / 粗锌
