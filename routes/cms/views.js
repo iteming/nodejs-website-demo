@@ -877,12 +877,21 @@ router.post('/website/update', function (req, res, next) {
 router.post('/picture/list', function (req, res, next) {
     var sqlClient = new SqlClient();
     if (req.body.key_id == 0) {
-        sqlClient.queryBySql(' select max(id) as id from product ', null, function (result) {
-            if (result != null && result.length > 0) {
-                var id = result[0]["id"] + 1;
-                search_picture(id);
-            }
-        });
+        if(req.body.pic_type == 1){
+            sqlClient.queryBySql(' select max(id) as id from product ', null, function (result) {
+                if (result != null && result.length > 0) {
+                    var id = result[0]["id"] + 1;
+                    search_picture(id);
+                }
+            });
+        }else if(req.body.pic_type == 3){
+            sqlClient.queryBySql(' select max(id) as id from photo ', null, function (result) {
+                if (result != null && result.length > 0) {
+                    var id = result[0]["id"] + 1;
+                    search_picture(id);
+                }
+            });
+        }
     } else {
         search_picture(req.body.key_id);
     }

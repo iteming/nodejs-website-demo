@@ -48,20 +48,20 @@ block cms_content
                             .form-group: .col-sm-offset-2.col-sm-10
                                 a.btn.btn-default(type='button',href='/cms/photo') 取消更改
                                 input#btn_submit.btn.btn-info.mll(name='btn_submit',type='button',value='确认更改')
-                        .col-sm-4
-                            .form-group: .col-sm-12.details-picture: img#photo_pic(src='#{photo.pic_url_loc ? photo.pic_url_loc : ""}')
-                            input#photo_main_id(name='photo_main_id',type='hidden',value='#{photo.photo_main_id}')
+                                input#photo_main_id(name='photo_main_id',type='hidden',value='#{photo.photo_main_id}')
+                        .col-sm-4#app1(ng-app="picturelist",ng-controller="picturelistCtrl")
+                            .form-group(ng-repeat="picture in picturelists")
+                                .col-sm-12.text-center
+                                    label.mrlg {{$index+1}}.{{picture.pic_name}}
+                                    a.btn.btn-danger.btn-xs.mllg(ng-click='DeletePicture(picture.id)')
+                                        i.fa.fa-times
+                                        span 删除此图片
+                                .col-sm-12.details-picture
+                                    img(ng-src='{{picture.pic_url_loc?picture.pic_url_loc:""}}')
 
 append scripts
     script(type='text/javascript',src='/plugins/jquery-file-upload/js/jquery.fileupload-ajax.js')
     script(type='text/javascript',src='/js/cms/UploadPageJS.js')
-    script(type='text/javascript').
-        //当选中文件,则立即执行上传
-        $(document).on("change", "#file1", function () {
-            if ($("#file1").val() != "") {
-                FileAction.FileUpload("file1", 3, '#{photo.id}',$("#photo_pic"), null ,$("#photo_main_id"));
-            }
-        });
     script(type='text/javascript').
         $("#btn_submit").on('click', function () {
             //表单验证
@@ -91,4 +91,50 @@ append scripts
         $(document).ready(function () {
             $("#createtime").datepicker({todayHighlight: true, format: 'yyyy-mm-dd', autoclose: true});
         });
+    script(type = 'text/javascript', src = '/plugins/angular/angular.min.js')
+    script(type = 'text/javascript').
+        var app1 = angular.module('picturelist', []);
+        app1.controller('picturelistCtrl', function ($scope) {
+            $scope.picturelists = [];
+            $scope.LoadPicture = function () {
+                $.ajax({
+                    url: "/cms/picture/list",
+                    type: "post",
+                    dataType: "json",
+                    data: {pic_type: 3, key_id: #{photo.id}},
+                    success: function (data) {
+                        if (data.status > 0) {
+                            $scope.picturelists = data.data;
+                            $scope.$apply();
+                        }
+                    }
+                });
+            };
+            $scope.DeletePicture = function (id) {
+                $.ajax({
+                    url: "/cms/picture/delete/" + id,
+                    type: "post",
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.status > 0) {
+                            toastrShow(data.status, data.msg);
+                            $scope.LoadPicture();
+                        } else {
+                            toastrShow(data.status, data.msg);
+                        }
+                    }
+                });
+            };
+            $scope.LoadPicture();
 
+            //当选中文件,则立即执行上传
+            $(document).on("change", "#file1", function () {
+                if ($("#file1").val() != "") {
+                    if ($scope.picturelists.length >= 10) {
+                        toastrShow(3, '每个相册最多上传10张图片');
+                        return;
+                    }
+                    FileAction.FileUpload("file1", 3, #{photo.id}, null, null, $("#photo_main_id"), $scope.LoadPicture);
+                }
+            });
+        });

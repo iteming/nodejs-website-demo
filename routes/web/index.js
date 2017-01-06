@@ -56,6 +56,11 @@ router.post('/views', function (req, res, next) {
             entity.id = req.body.id;
             entity.views = parseInt(req.body.views)+1;
             break;
+        case "product":
+            var entity = new Product();
+            entity.id = req.body.id;
+            entity.views = parseInt(req.body.views)+1;
+            break;
     }
     var sqlClient = new SqlClient();
     sqlClient.update(entity, function (result) {
@@ -107,14 +112,53 @@ router.get('/contact', function (req, res, next) {
 });
 
 
-router.get('/product/list/:categroyid', function (req, res, next) {
+router.get('/product/list/:categoryid', function (req, res, next) {
     var website = req.session.website;
     if (!website) {
         res.redirect('/');
         return;
     }
-    console.log(req.params.categroyid);
-    res.render('web/product', {website: website});
+    res.render('web/product', {website: website, categoryid: req.params.categoryid});
+});
+// 获取产品列表
+router.post('/product/list/query', function (req, res, next) {
+    var selectWhat = " A.*,MAX(B.pic_url_loc) pic_url_loc  ";
+    var join = " LEFT JOIN picture AS B ON B.key_id = A.id AND B.pic_type = 1 ";
+    var whereSql = req.body.categoryid!= undefined && req.body.categoryid!= null && req.body.categoryid!= 0 ?
+        util.format(" where A.category_id=%s ", req.body.categoryid) : "";
+    var limitSql = util.format(" order by publish_date desc,A.name Limit %s,%s ", (req.body.page_index - 1) * req.body.page_size, req.body.page_size);
+
+    var sqlClient = new SqlClient();
+    var product = new Product();
+    sqlClient.query(product, function (result) {
+        var recordCount = result[0]["count"];
+        if (recordCount == 0) {
+            res.json({status: 3, msg: '暂无记录!', data: null, recordCount: 0});
+            return;
+        }
+        sqlClient.query(product, function (result) {
+            if (result != null && result.length > 0) {
+                result.forEach(function (item) {
+                    if (item.publish_date) item.publish_date = CommonUtil.toDateString(item.publish_date);
+                    if (item.expiry_date) item.expiry_date = CommonUtil.toDateString(item.expiry_date);
+                });
+                res.json({status: 1, msg: '查询成功!', data: result, recordCount: recordCount});
+            }
+        }, whereSql, limitSql, false, selectWhat, join);
+    }, whereSql, null, true, selectWhat, join);
+});
+// 获取产品分类列表
+router.post('/category/list/query', function (req, res, next) {
+    var limitSql = util.format(" order by id ");
+    var sqlClient = new SqlClient();
+    var category = new Category();
+    sqlClient.query(category, function (result) {
+        if (result != null && result.length > 0) {
+            res.json({status: 1, msg: 'success!', data: result});
+            return;
+        }
+        res.json({status: 2, msg: 'query category failed!'});
+    }, null, limitSql);
 });
 router.get('/product/:id', function (req, res, next) {
     var website = req.session.website;
@@ -122,8 +166,33 @@ router.get('/product/:id', function (req, res, next) {
         res.redirect('/');
         return;
     }
-    // console.log(req.params.id);
-    res.render('web/product_details', {website: website});
+
+    var selectWhat = " A.*,B.name as category_name ";
+    var join = " LEFT JOIN category AS B ON A.category_id = B.id ";
+    var sqlClient = new SqlClient();
+    var product = new Product();
+    product.id = req.params.id;
+    sqlClient.getById(product, function (result) {
+        if (result != null) {
+            if (result.publish_date) result.publish_date = CommonUtil.toDateString(result.publish_date);
+            if (result.expiry_date) result.expiry_date = CommonUtil.toDateString(result.expiry_date);
+
+            // 查询相册下的所有图片
+            var whereSql = util.format(" where pic_type=%s and key_id=%s  ", 1, result.id);
+            var picture = new Picture();
+            sqlClient.query(picture, function (picret) {
+                if (picret != null && picret.length > 0) {
+                    console.log(picret);
+                    res.render('web/product_details', {website: website, product: result, photolist: picret});
+                    return;
+                }
+                res.render('web/product_details', {website: website, product: result, photolist: picret});
+            }, whereSql);
+
+            return;
+        }
+        res.render('web/product_details', {website: website, product: product});
+    }, selectWhat, join);
 });
 
 
