@@ -2,6 +2,7 @@ var express = require('express');
 var util = require('util');
 var fs = require('fs');
 var formidable = require('formidable');
+var crypto = require('crypto');
 var router = express.Router();
 require('../core/CommonUtil');
 require('../core/HttpWrapper');
@@ -64,7 +65,14 @@ router.post('/login', function (req, res, next) {
     sqlClient.query(user, function (result) {
         if (result != null && result.length > 0) {
             user = result[0];
-            if (user.password != req.body.password) {
+            // 密码加密
+            var md5 = crypto.createHash('md5');
+            md5.update(req.body.password);
+            var md5pwd = md5.digest('hex');
+
+            console.log("# pwd          : " + req.body.password);
+            console.log("# pwd_encoding : " + md5pwd);
+            if (user.password != md5pwd) {
                 res.render('cms/login', {status: 2, msg: '密码错误!', username: req.body.username});
                 return;
             }
