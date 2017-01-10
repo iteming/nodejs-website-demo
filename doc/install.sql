@@ -1,62 +1,36 @@
--- 在Mysql中取消外键约束
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : localhost_3306
+Source Server Version : 50711
+Source Host           : localhost:3306
+Source Database       : node_cms
+
+Target Server Type    : MYSQL
+Target Server Version : 50711
+File Encoding         : 65001
+
+Date: 2017-01-10 10:11:12
+*/
+
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `user`
+-- Table structure for category
 -- ----------------------------
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user` (
+DROP TABLE IF EXISTS `category`;
+CREATE TABLE `category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `displayname` varchar(100) DEFAULT NULL,
-  `status` int(1) DEFAULT 1,
-  `createtime` datetime DEFAULT NULL,
-  `lastlogintime` datetime DEFAULT NULL,
-  `avatar` varchar(100) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
-
--- ----------------------------
--- Table structure for `company`
--- ----------------------------
-DROP TABLE IF EXISTS `company`;
-CREATE TABLE `company` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `company_name` varchar(100) NOT NULL,
-  `description` text DEFAULT NULL,
-  `address` varchar(100) DEFAULT NULL,
-  `company_type` varchar(100) DEFAULT NULL,
-  `company_size` varchar(100) DEFAULT NULL,
-  `regist_capital` varchar(100) DEFAULT NULL,
-  `regist_date` datetime DEFAULT NULL,
-  `business_model` varchar(100) DEFAULT NULL,
-  `business_scope` varchar(500) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for `contact`
+-- Records of category
 -- ----------------------------
-DROP TABLE IF EXISTS `contact`;
-CREATE TABLE `contact` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `contact_name` varchar(100) DEFAULT NULL,
-  `contact_phone` varchar(100) DEFAULT NULL,
-  `contact_email` varchar(100) DEFAULT NULL,
-  `contact_mobile` varchar(100) DEFAULT NULL,
-  `contact_fax` varchar(100) DEFAULT NULL,
-  `contact_qq` varchar(100) DEFAULT NULL,
-  `location_lng` varchar(100) DEFAULT NULL,
-  `location_lat` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
 
 -- ----------------------------
--- Table structure for `comment`
+-- Table structure for comment
 -- ----------------------------
 DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
@@ -70,91 +44,61 @@ CREATE TABLE `comment` (
   `createtime` datetime DEFAULT NULL,
   `parentid` int(11) DEFAULT NULL,
   `userid` int(11) DEFAULT NULL,
-  `status` int(1) DEFAULT 1,
+  `status` int(1) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for `notice`
+-- Records of comment
 -- ----------------------------
-DROP TABLE IF EXISTS `notice`;
-CREATE TABLE `notice` (
+
+-- ----------------------------
+-- Table structure for company
+-- ----------------------------
+DROP TABLE IF EXISTS `company`;
+CREATE TABLE `company` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) DEFAULT NULL,
-  `content` text DEFAULT NULL,
-  `createtime` datetime DEFAULT NULL,
-  `status` int(1) DEFAULT 1,
-  `settop` int(1) DEFAULT 0,
-  `views` int(11) DEFAULT 0,
+  `company_name` varchar(100) NOT NULL,
+  `description` text,
+  `address` varchar(100) DEFAULT NULL,
+  `company_type` varchar(100) DEFAULT NULL,
+  `company_size` varchar(100) DEFAULT NULL,
+  `regist_capital` varchar(100) DEFAULT NULL,
+  `regist_date` datetime DEFAULT NULL,
+  `business_model` varchar(100) DEFAULT NULL,
+  `business_scope` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for `news`
+-- Records of company
 -- ----------------------------
-DROP TABLE IF EXISTS `news`;
-CREATE TABLE `news` (
+INSERT INTO `company` VALUES ('1', '石家庄千甫金属制品有限公司', '<p>\r\n	<img src=\"/img/uploads/1483609398717.jpg\" alt=\"\" width=\"250\" height=\"167\" title=\"\" align=\"right\" /> \r\n</p>\r\n<span style=\"color:#34495E;font-family:&quot;font-size:14px;background-color:#FFFFFF;\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;石家庄博鑫丰锌业公司创建于2012年，现占地面积30000平方米，位于石家庄东30公里，北邻石德铁路，307国道，石黄高速，南邻青银高速， 西接京深高速，交通十分便利。</span><br />\r\n<br />\r\n<span style=\"color:#34495E;font-family:&quot;font-size:14px;background-color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 公司凭借雄厚的技术力量和多年的生产经验，以及完备的质量体系，精密的检验设备和现发、生产一体化的锌产品生产基地。</span><br />\r\n<br />\r\n<span style=\"color:#34495E;font-family:&quot;font-size:14px;background-color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 博鑫丰锌业全体员工以饱满的工作热情，以“用户满意”为服务宗旨，本着“信誉至上”的原则，真诚的期待与国内外客商携手共进，共同迈向成功！</span><br />\r\n<br />\r\n<span style=\"color:#34495E;font-family:&quot;font-size:14px;background-color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 竭诚的欢迎各界友人光临指导，真诚合作，共创美好明天！</span>\r\n<div>\r\n	<br />\r\n</div>', '河北省石家庄市晋州市邵庄村', '生产商/经销商', '50-100人', '100万人民币', '2016-08-06 00:00:00', '有限责任公司(自然人独资)', '锌锭、铝锭加工销售；氧化锌、铜锭、铅锭、锌矿粉、锌渣销售(依法须经批准的项目，经相关部门批准后方可开展经营活动).');
+
+-- ----------------------------
+-- Table structure for contact
+-- ----------------------------
+DROP TABLE IF EXISTS `contact`;
+CREATE TABLE `contact` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) DEFAULT NULL,
-  `content` text DEFAULT NULL,
-  `createtime` datetime DEFAULT NULL,
-  `status` int(1) DEFAULT 1,
-  `settop` int(1) DEFAULT 0,
-  `views` int(11) DEFAULT 0,
+  `contact_name` varchar(100) DEFAULT NULL,
+  `contact_phone` varchar(100) DEFAULT NULL,
+  `contact_email` varchar(100) DEFAULT NULL,
+  `contact_mobile` varchar(100) DEFAULT NULL,
+  `contact_fax` varchar(100) DEFAULT NULL,
+  `contact_qq` varchar(100) DEFAULT NULL,
+  `location_lng` varchar(100) DEFAULT NULL,
+  `location_lat` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
-
--- ----------------------------
--- Table structure for `category`
--- ----------------------------
-DROP TABLE IF EXISTS `category`;
-CREATE TABLE `category` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for `product`
+-- Records of contact
 -- ----------------------------
-DROP TABLE IF EXISTS `product`;
-CREATE TABLE `product` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) DEFAULT NULL,
-  `category_id` int(11) DEFAULT NULL,
-  `model` varchar(100) DEFAULT NULL,
-  `specification` varchar(100) DEFAULT NULL,
-  `brand` varchar(100) DEFAULT NULL,
-  `price` varchar(100) DEFAULT NULL,
-  `detail_info` text DEFAULT NULL,
-  `publish_date` datetime DEFAULT NULL,
-  `expiry_date` datetime DEFAULT NULL,
-  `views` int(11) DEFAULT 0,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
+INSERT INTO `contact` VALUES ('1', '张英民', '0310-5555555', 'sjzqfjs@163.com', '13014334123', '0310-5555555', '1203706884', '115.028155', '37.992195');
 
 -- ----------------------------
--- Table structure for `picture`
--- ----------------------------
-DROP TABLE IF EXISTS `picture`;
-CREATE TABLE `picture` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `pic_type` int(1) DEFAULT NULL,
-  `key_id` int(11) DEFAULT NULL,
-  `pic_name` varchar(100) DEFAULT NULL,
-  `pic_url_cdn` varchar(100) DEFAULT NULL,
-  `pic_url_loc` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
-
--- ----------------------------
--- Table structure for `honor`
+-- Table structure for honor
 -- ----------------------------
 DROP TABLE IF EXISTS `honor`;
 CREATE TABLE `honor` (
@@ -165,81 +109,30 @@ CREATE TABLE `honor` (
   `publish_date` datetime DEFAULT NULL,
   `expiry_date` datetime DEFAULT NULL,
   `createtime` datetime DEFAULT NULL,
-  `views` int(11) DEFAULT 0,
+  `views` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
-
--- ----------------------------
--- Table structure for `photo`
--- ----------------------------
-DROP TABLE IF EXISTS `photo`;
-CREATE TABLE `photo` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `photo_name` varchar(100) DEFAULT NULL,
-  `photo_main_id` int(11) DEFAULT NULL,
-  `createtime` datetime DEFAULT NULL,
-  `views` int(11) DEFAULT 0,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
-
--- ----------------------------
--- Table structure for `website`
--- ----------------------------
-DROP TABLE IF EXISTS `website`;
-CREATE TABLE `website` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `siteurl` varchar(100) DEFAULT NULL,
-  `title` varchar(100) DEFAULT NULL,
-  `description` varchar(100) DEFAULT NULL,
-  `keywords` varchar(100) DEFAULT NULL,
-  `logo` varchar(100) DEFAULT NULL,
-  `carousel` varchar(500) DEFAULT NULL,
-  `icp_num` varchar(100) DEFAULT NULL,
-  `support_name` varchar(100) DEFAULT NULL,
-  `support_url` varchar(100) DEFAULT NULL,
-  `views` int(11) DEFAULT 0,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
-
--- ----------------------------
--- Records of user
--- ----------------------------
-INSERT INTO `user` VALUES ('1', 'iteming', '123456', '系统管理员', '1', '2016-12-12 11:13:23', '2016-12-12 11:13:23', 'img/avatar/avatar-iteming.png');
-
--- ----------------------------
--- Records of website
--- ----------------------------
-INSERT INTO `website` VALUES ('1', 'http://127.0.0.1:3000/', '石家庄千甫金属制品有限公司', '公司主营：锌锭、铝锭加工销售；氧化锌、铜锭、铅锭、锌矿粉、锌渣销售', '锌锭、铝锭加工销售；氧化锌、铜锭、铅锭、锌矿粉、锌渣销售', '', '/img/uploads/1482471206062.jpg|/img/uploads/1482471215385.jpg|/img/uploads/1482473941854.jpg', '冀ICP备15016569号', 'iteming', 'http://www.iteming.wang/', '0');
-
--- ----------------------------
--- Records of company
--- ----------------------------
-INSERT INTO `company` VALUES ('1', '石家庄千甫金属制品有限公司', '<p>\r\n	<img src=\"/img/uploads/1483609398717.jpg\" alt=\"\" width=\"250\" height=\"167\" title=\"\" align=\"right\" /> \r\n</p>\r\n<span style=\"color:#34495E;font-family:&quot;font-size:14px;background-color:#FFFFFF;\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;石家庄博鑫丰锌业公司创建于2012年，现占地面积30000平方米，位于石家庄东30公里，北邻石德铁路，307国道，石黄高速，南邻青银高速， 西接京深高速，交通十分便利。</span><br />\r\n<br />\r\n<span style=\"color:#34495E;font-family:&quot;font-size:14px;background-color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 公司凭借雄厚的技术力量和多年的生产经验，以及完备的质量体系，精密的检验设备和现发、生产一体化的锌产品生产基地。</span><br />\r\n<br />\r\n<span style=\"color:#34495E;font-family:&quot;font-size:14px;background-color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 博鑫丰锌业全体员工以饱满的工作热情，以“用户满意”为服务宗旨，本着“信誉至上”的原则，真诚的期待与国内外客商携手共进，共同迈向成功！</span><br />\r\n<br />\r\n<span style=\"color:#34495E;font-family:&quot;font-size:14px;background-color:#FFFFFF;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 竭诚的欢迎各界友人光临指导，真诚合作，共创美好明天！</span>\r\n<div>\r\n	<br />\r\n</div>', '河北省石家庄市晋州市邵庄村', '生产商/经销商', '50-100人', '100万人民币', '2016-08-06 00:00:00', '有限责任公司(自然人独资)', '锌锭、铝锭加工销售；氧化锌、铜锭、铅锭、锌矿粉、锌渣销售(依法须经批准的项目，经相关部门批准后方可开展经营活动).');
-
--- ----------------------------
--- Records of contact
--- ----------------------------
-INSERT INTO `contact` VALUES ('1', '张英民', '0310-5555555', 'sjzqfjs@163.com', '13014334123', '0310-5555555', '1203706884', '115.028155', '37.992195');
-
--- ----------------------------
--- Records of category
--- ----------------------------
-INSERT INTO `category` VALUES ('1', 'CP分类_1');
-INSERT INTO `category` VALUES ('2', 'CP分类_2');
-INSERT INTO `category` VALUES ('3', '测试分类');
-INSERT INTO `category` VALUES ('4', '测定分类2');
-INSERT INTO `category` VALUES ('5', '再来一个分类');
-INSERT INTO `category` VALUES ('6', '你说怎么success');
-INSERT INTO `category` VALUES ('7', '挺帅气的功能');
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of honor
 -- ----------------------------
 INSERT INTO `honor` VALUES ('1', '荣誉1', '6', '颁发机构1', '2016-12-19 00:00:00', '2017-12-19 00:00:00', '2016-12-19 00:00:00', '2');
 INSERT INTO `honor` VALUES ('2', '证书荣誉', '3', '发证机构1', '2016-12-21 00:00:00', null, '2016-12-21 00:00:00', '2');
+
+-- ----------------------------
+-- Table structure for news
+-- ----------------------------
+DROP TABLE IF EXISTS `news`;
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) DEFAULT NULL,
+  `content` text,
+  `createtime` datetime DEFAULT NULL,
+  `status` int(1) DEFAULT '1',
+  `settop` int(1) DEFAULT '0',
+  `views` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of news
@@ -253,9 +146,37 @@ INSERT INTO `news` VALUES ('6', '博鑫丰关注：印媒:中国将向印尼基�
 INSERT INTO `news` VALUES ('7', '博鑫丰关注：宏观面牵制有色金属“绿肥红瘦”【粗锌锭生产厂家】', '<span style=\"font-family:Verdana, Arial;font-size:13px;background-color:#FFFFFF;\">昨日，有色金属板块“绿肥红瘦”，除沪铅结束两日跌势微涨0.75%外，其余品种均收绿盘。沪铜、沪铝、沪锌主力1506合约及沪镍、沪锡主力1507合约分别下跌0.62%、1.01%、0.37%、0.16%、1.19%。</span><br />\r\n<br />\r\n<span style=\"font-family:Verdana, Arial;font-size:13px;background-color:#FFFFFF;\">有色金属以铜为代表，具有较强的金融属性。昨日的表现从宏观面来看并不难解释。分析人士认为，受隔夜原油大跌和美元指数反弹影响，有色金属尤其是铜、铝、锌跟随回落；同时美元升值和能源价格大幅下滑令美联储陷入两难的境地，北京时间周四凌晨公布的3月会议纪要显示美联储官员对6月加息存分歧。</span><br />\r\n<br />\r\n<span style=\"font-family:Verdana, Arial;font-size:13px;background-color:#FFFFFF;\">“由于短期方向不明朗，铜市交投低迷萎缩，全天沪期铜累计总成交量仅42万手，总持仓则维持在82万手左右，多空双方继续对峙胶着。”国信期货研发部有色金属负责人顾冯达表示。</span><br />\r\n<br />\r\n<span style=\"font-family:Verdana, Arial;font-size:13px;background-color:#FFFFFF;\">顾冯达认为，目前市场对加息时点的预期也存在分歧，虽然6月加息的可能性仍存在，但由于经济数据疲软及美元指数升值的压力，加息的门槛可能提高。从近阶段市场表现来看，市场逐渐倾向“美联储将于9月加息”的预期，同时预期国内将有更多利好措施出台。“铜市在传统消费旺季下基差走强，国内精铜货源有所收紧，虽然多空仍僵持对峙，但预计短期铜市震荡抗跌，43000元/吨一线支撑确认后将迎来反击机会。”</span><span style=\"font-family:Verdana, Arial;font-size:13px;background-color:#FFFFFF;\">——</span><a href=\"http://ebdapeng16688.smm.cn/sell/itemid-3092508.shtml\">粗锌锭生产厂家</a><br />\r\n<br />\r\n<span style=\"font-family:Verdana, Arial;font-size:13px;background-color:#FFFFFF;\">现货方面，4月9日上午，上海电解铜现货对当月合约报升水50元/吨—90元/吨，平水铜成交价格43390元/吨—43460元/吨，升水铜成交价格43410元/吨-43490元/吨。</span><br />\r\n<br />\r\n<span style=\"font-family:Verdana, Arial;font-size:13px;background-color:#FFFFFF;\">在目前宏观方向不明朗、基本面处于传统消费旺季的情况下，有色金属整体仍存有效反弹支撑。</span><span style=\"font-family:Verdana, Arial;font-size:13px;background-color:#FFFFFF;\">——</span><a href=\"http://ebdapeng16688.smm.cn/sell/itemid-3092508.shtml\">粗锌锭生产厂家</a><br />\r\n<br />\r\n<span style=\"font-family:Verdana, Arial;font-size:13px;background-color:#FFFFFF;\">就铜市而言，市场人士称，目前铜整体供应充裕，下游在铜价下跌之际逢低接货量增加，成交活跃度略有改善，部分投机商入市吸收低价货源，现铜低价货源减少，升水被逐步继续推升。</span><span style=\"font-family:Verdana, Arial;font-size:13px;background-color:#FFFFFF;\">——</span><a href=\"http://ebdapeng16688.smm.cn/sell/itemid-3092508.shtml\">粗锌锭生产厂家</a><br />\r\n<br />\r\n<span style=\"font-family:Verdana, Arial;font-size:13px;background-color:#FFFFFF;\">美尔雅期货有色金属分析师王艳红表示，目前铅在此轮行情中一枝独秀主要在于铅库存很低，且与锌、铜、镍等相比，隐形库存也要低很多，同时市场需求缓慢回升也将提振铅价。</span><span style=\"font-family:Verdana, Arial;font-size:13px;background-color:#FFFFFF;\">——</span><a href=\"http://ebdapeng16688.smm.cn/sell/itemid-3092508.shtml\">粗锌锭生产厂家</a><br />\r\n<br />\r\n<span style=\"font-family:Verdana, Arial;font-size:13px;background-color:#FFFFFF;\">王艳红进一步分析称，镍、锌价格短期仍不看好，其背后逻辑主要是下游企业开工率低、现货市场成交寡淡，市场悲观情绪会进一步拖累价格。而对铜价则不宜过分悲观，当前沪铜多空僵持对峙，在投资者摆脱油价暴跌的影响之后，短期内可能将出现反弹，关注43000元/吨一线支撑。“整体来看有色系列各品种呈现外强内弱的局面，建议投资者除关注美联储举动、原油走势外，需密切跟踪各金属企业开工率和现货成交情况。”</span>', '2016-10-10 00:00:00', '1', '1', '0');
 
 -- ----------------------------
+-- Table structure for notice
+-- ----------------------------
+DROP TABLE IF EXISTS `notice`;
+CREATE TABLE `notice` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) DEFAULT NULL,
+  `content` text,
+  `createtime` datetime DEFAULT NULL,
+  `status` int(1) DEFAULT '1',
+  `settop` int(1) DEFAULT '1',
+  `views` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
 -- Records of notice
 -- ----------------------------
 INSERT INTO `notice` VALUES ('1', '公司公告', '      本公司主要经营有色金属以及相关制品，本着以人为本，以质取胜，竞争求生存，合作求发展的宗旨，为广大用户提供优质产品，欢迎来电洽谈！！！', '2016-12-19 00:00:00', '1', '1', '0');
+
+-- ----------------------------
+-- Table structure for photo
+-- ----------------------------
+DROP TABLE IF EXISTS `photo`;
+CREATE TABLE `photo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `photo_name` varchar(100) DEFAULT NULL,
+  `photo_main_id` int(11) DEFAULT NULL,
+  `createtime` datetime DEFAULT NULL,
+  `views` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of photo
@@ -263,40 +184,89 @@ INSERT INTO `notice` VALUES ('1', '公司公告', '      本公司主要经营�
 INSERT INTO `photo` VALUES ('1', '新增相册', '31', '2016-12-21 00:00:00', '13');
 INSERT INTO `photo` VALUES ('2', '告别2016', '34', '2017-01-06 00:00:00', '3');
 
+-- ----------------------------
+-- Table structure for picture
+-- ----------------------------
+DROP TABLE IF EXISTS `picture`;
+CREATE TABLE `picture` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pic_type` int(1) DEFAULT NULL,
+  `key_id` int(11) DEFAULT NULL,
+  `pic_name` varchar(100) DEFAULT NULL,
+  `pic_url_cdn` varchar(100) DEFAULT NULL,
+  `pic_url_loc` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of picture
 -- ----------------------------
-INSERT INTO `picture` VALUES ('1', '2', null, '荣誉资质1', null, '/img/avatar/template/b14.jpg');
-INSERT INTO `picture` VALUES ('2', '2', null, '1482302475835.jpg', null, '/img/uploads/1482302475835.jpg');
-INSERT INTO `picture` VALUES ('3', '2', null, '1482302657777.jpg', null, '/img/uploads/1482302657777.jpg');
-INSERT INTO `picture` VALUES ('4', '3', null, '1482306008038.jpg', null, '/img/uploads/1482306008038.jpg');
-INSERT INTO `picture` VALUES ('5', '2', null, '1482306774298.jpg', null, '/img/uploads/1482306774298.jpg');
-INSERT INTO `picture` VALUES ('6', '2', null, '1482306869250.jpg', null, '/img/uploads/1482306869250.jpg');
-INSERT INTO `picture` VALUES ('7', '1', '2', '1482306774298.jpg', null, '/img/uploads/1482306774298.jpg');
-INSERT INTO `picture` VALUES ('8', '1', '2', '1482306869250.jpg', null, '/img/uploads/1482306869250.jpg');
-INSERT INTO `picture` VALUES ('9', '1', '1', '1482402962244.jpg', null, '/img/uploads/1482402962244.jpg');
-INSERT INTO `picture` VALUES ('15', '1', '1', '1482403983586.jpg', null, '/img/uploads/1482403983586.jpg');
-INSERT INTO `picture` VALUES ('18', '0', null, '1482466238278.jpg', null, '/img/uploads/1482466238278.jpg');
-INSERT INTO `picture` VALUES ('19', '0', null, '1482471070830.jpg', null, '/img/uploads/1482471070830.jpg');
-INSERT INTO `picture` VALUES ('20', '0', null, '1482471206062.jpg', null, '/img/uploads/1482471206062.jpg');
-INSERT INTO `picture` VALUES ('21', '0', null, '1482471215385.jpg', null, '/img/uploads/1482471215385.jpg');
-INSERT INTO `picture` VALUES ('22', '0', null, '1482473041471.jpg', null, '/img/uploads/1482473041471.jpg');
-INSERT INTO `picture` VALUES ('23', '0', null, '1482473111267.jpg', null, '/img/uploads/1482473111267.jpg');
-INSERT INTO `picture` VALUES ('24', '0', null, '1482473941854.jpg', null, '/img/uploads/1482473941854.jpg');
-INSERT INTO `picture` VALUES ('25', '0', null, '1482476367423.jpg', null, '/img/uploads/1482476367423.jpg');
-INSERT INTO `picture` VALUES ('26', '0', null, '1482477437183.jpg', null, '/img/uploads/1482477437183.jpg');
-INSERT INTO `picture` VALUES ('27', '0', null, '1482477483449.jpg', null, '/img/uploads/1482477483449.jpg');
-INSERT INTO `picture` VALUES ('28', '0', null, '1483609398717.jpg', null, '/img/uploads/1483609398717.jpg');
-INSERT INTO `picture` VALUES ('29', '3', '1', '1483686490728.jpg', null, '/img/uploads/1483686490728.jpg');
-INSERT INTO `picture` VALUES ('30', '3', '1', '1483686494297.jpg', null, '/img/uploads/1483686494297.jpg');
-INSERT INTO `picture` VALUES ('31', '3', '1', '1483686499910.jpg', null, '/img/uploads/1483686499910.jpg');
-INSERT INTO `picture` VALUES ('32', '3', '2', '1483691309753.jpg', null, '/img/uploads/1483691309753.jpg');
-INSERT INTO `picture` VALUES ('33', '3', '2', '1483691314052.jpg', null, '/img/uploads/1483691314052.jpg');
-INSERT INTO `picture` VALUES ('34', '3', '2', '1483691316995.jpg', null, '/img/uploads/1483691316995.jpg');
 
+-- ----------------------------
+-- Table structure for product
+-- ----------------------------
+DROP TABLE IF EXISTS `product`;
+CREATE TABLE `product` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  `model` varchar(100) DEFAULT NULL,
+  `specification` varchar(100) DEFAULT NULL,
+  `brand` varchar(100) DEFAULT NULL,
+  `price` varchar(100) DEFAULT NULL,
+  `detail_info` text,
+  `publish_date` datetime DEFAULT NULL,
+  `expiry_date` datetime DEFAULT NULL,
+  `views` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of product
 -- ----------------------------
 INSERT INTO `product` VALUES ('1', '千甫金属 - 锌锭', '4', '#1', '齐全', '千甫金属', '100', '<p>\r\n	&nbsp; &nbsp; 产品详情：\r\n</p>\r\n<p>\r\n	&nbsp; &nbsp; 1.质量保证\r\n</p>\r\n<p>\r\n	&nbsp; &nbsp; 2.信誉保证\r\n</p>', '2016-12-21 00:00:00', null, '6');
+
+-- ----------------------------
+-- Table structure for user
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `displayname` varchar(100) DEFAULT NULL,
+  `status` int(1) DEFAULT '1',
+  `createtime` datetime DEFAULT NULL,
+  `lastlogintime` datetime DEFAULT NULL,
+  `avatar` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of user
+-- ----------------------------
+INSERT INTO `user` VALUES ('1', 'zhangyingmin', 'f1f35b4043a7eb7ec3581f15735e0cad', '系统管理员', '1', '2016-12-12 00:00:00', '2016-12-15 00:00:00', 'img/avatar/avatar-iteming.png');
+
+-- ----------------------------
+-- Table structure for website
+-- ----------------------------
+DROP TABLE IF EXISTS `website`;
+CREATE TABLE `website` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `siteurl` varchar(100) DEFAULT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `description` varchar(200) DEFAULT NULL,
+  `keywords` varchar(100) DEFAULT NULL,
+  `logo` varchar(100) DEFAULT NULL,
+  `carousel` varchar(500) DEFAULT NULL,
+  `icp_num` varchar(100) DEFAULT NULL,
+  `support_name` varchar(100) DEFAULT NULL,
+  `support_url` varchar(100) DEFAULT NULL,
+  `views` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of website
+-- ----------------------------
+INSERT INTO `website` VALUES ('1', 'http://127.0.0.1:3000/', '石家庄千甫金属制品有限公司', '公司主营：锌锭、铝锭加工销售；氧化锌、铜锭、铅锭、锌矿粉、锌渣销售', '锌锭、铝锭加工销售；氧化锌、铜锭、铅锭、锌矿粉、锌渣销售', '', '/img/uploads/1482471206062.jpg|/img/uploads/1482471215385.jpg|/img/uploads/1482473941854.jpg', '冀ICP备15016569号', 'iteming', 'http://www.iteming.wang/', '200');

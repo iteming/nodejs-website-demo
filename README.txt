@@ -14,3 +14,11 @@ cd /home
 服务器需要安装的配置： nodejs, npm, mysql。
 
 修改  NodeTest/routes/jdbc.js 文件夹内的 mysql 连接帐号密码。
+
+
+
+
+
+
+update 2017.01.10 v0.1
+update connect: 添加密码加密，默认密码为 zym123456
