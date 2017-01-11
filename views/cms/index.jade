@@ -6,43 +6,97 @@ block cms_content
     .content_main
         mixin toastr(status, msg)
         .container-fluid
-            h1 我是cms管理系统主页
-            .row
-                .col-md-3
-                    h3.panel-title Checkboxes
-                    div.checkbox: label
-                        span.icons
-                        span.icon-to-fade
-                        -var someValue=false
-                        input(type='checkbox', checked=someValue)
-                        lable checkbox's UnChecked
-                    div.checkbox: label
-                        span.icons
-                        span.icon-to-fade
-                        input(type='checkbox', checked)
-                        lable Checkbox's Checked
-                .col-md-3
-                    h3.panel-title Radio Buttons
-                    div.radio: label
-                        span.icons
-                        span.icon-to-fade
-                        input(type='radio',name='radio1',checked)
-                        lable Radio's Checked
-                    div.radio: label
-                        span.icons
-                        span.icon-to-fade
-                        input(type='radio',name='radio1')
-                        lable Radio's UnChecked
-            .row
-                .col-md-3
-                    h3.panel-title DropDownList
-                    .btn-group.select.select-block
-                        button.btn.btn-inverse.dropdown-toggle.clearfix(data-toggle='dropdown')
-                            span.filter-option.pull-left Large button &nbsp;
-                            span.caret
-                        ul.dropdown-menu.dropdown-menu-inverse(role='menu')
-                            li: a(href='#') Action
-                            li: a(href='#') Another action
-                            li: a(href='#') Something else here
-                            li.divider
-                            li: a(href='#') Separated link
+            section.todo-content
+                div.panel-title.pll 主页
+                    small 起始仪表盘
+            .col-md-12: .row
+                .col-md-3.col-sm-6: .widget.widget-stats.bg-green
+                    .stats-icon.stats-icon-lg
+                        i.fa.fa-globe.fa-fw
+                    .stats-title TODAY'S VISITS
+                    .stats-number 7,842,900
+                    .stats-progress.progress
+                        .progress-bar(style="width:70%")
+                    .stats-desc Better than last week (70%)
+
+                .col-md-3.col-sm-6: .widget.widget-stats.bg-blue
+                    .stats-icon.stats-icon-lg
+                        i.fa.fa-tags.fa-fw
+                    .stats-title TODAY'S VISITS
+                    .stats-number 7,842,900
+                    .stats-progress.progress
+                        .progress-bar(style="width:70%")
+                    .stats-desc Better than last week (70%)
+
+                .col-md-3.col-sm-6: .widget.widget-stats.bg-purple
+                    .stats-icon.stats-icon-lg
+                        i.fa.fa-shopping-cart.fa-fw
+                    .stats-title TODAY'S VISITS
+                    .stats-number 7,842,900
+                    .stats-progress.progress
+                        .progress-bar(style="width:70%")
+                    .stats-desc Better than last week (70%)
+
+                .col-md-3.col-sm-6: .widget.widget-stats.bg-black
+                    .stats-icon.stats-icon-lg
+                        i.fa.fa-comments.fa-fw
+                    .stats-title TODAY'S VISITS
+                    .stats-number 7,842,900
+                    .stats-progress.progress
+                        .progress-bar(style="width:70%")
+                    .stats-desc Better than last week (70%)
+            .col-md-12: .row
+                .col-md-8
+                    .widget-chart.with-sidebar.bg-black
+                        .widget-chart-content
+                            h4.chart-title Visitors Analytics
+                                small Where do our visitors come from
+                            #visitors-line-chart.morris-inverse(style="height: 260px; position: relative; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);")
+                                //svg(height="260",version="1.1",width="547",xmlns="http://www.w3.org/2000/svg",style="overflow: hidden; position: relative;")
+                                    desc(style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);")
+                                        | Created with RaphaÃ«l 2.1.2
+                                    defs(style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);")
+                                    text(x="33.21875",y="218",text-anchor="end",font="10px &quot;Arial&quot;",stroke="none",fill="#ffffff",style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 11px; line-height: normal; font-family: &quot;Open Sans&quot;;",font-size="11px",font-family="Open Sans",font-weight="normal",fill-opacity="0.4")
+                                        tspan(dy="4",style="-webkit-tap-highlight-color:,rgba(0, 0, 0, 0);") 0
+                                    path(fill="none",stroke="#000000",d="M45.71875,218H522",stroke-opacity="0.5",stroke-width="0.5",style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);")
+                                    circle(cx="45.71875",cy="160.1",r="4",fill="#348fe2",stroke="#000000",stroke-width="1",stroke-opacity="0.6",style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);")
+                        .widget-chart-sidebar.bg-black-darker
+                            .chart-number 1,225,729
+                                small visitors
+                            #visitors-donut-chart(style="height: 160px")
+                            ul.chart-legend
+                                li
+                                    i.fa.fa-circle-o.fa-fw.text-success.m-r-5
+                                    | 34.0%
+                                    span New Visitors
+                                li
+                                    i.fa.fa-circle-o.fa-fw.text-primary.m-r-5
+                                    | 56.0%
+                                    span Return Visitors
+                .col-md-4
+                    .panel.panel-inverse
+                        .panel-heading: div.panel-title-2
+                            | Chat History
+                            span.label.label-success.pull-right 4 message
+                        .panel-body.bg-silver
+                            .slimScrollDiv(style="position: relative; overflow: hidden; width: auto; height: 225px;")
+                                div(data-scrollbar="true",data-height="225px",style="overflow: hidden; width: auto; height: 225px;")
+                                    ul.chats
+                                        li.left
+                                            span.date-time yesterday 11:23pm
+                                            a.name(href="#") Sowse Bawdy
+                                            a.image(href="#"): img(src="../img/avatar/template/user-10.jpg")
+                                            div.message.
+                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit volutpat. Praesent mattis interdum arcu eu feugiat.
+                                        li.right
+                                            span.date-time yesterday 11:23pm
+                                            a.name(href="#") Sowse Bawdy
+                                            a.image(href="#"): img(src="../img/avatar/template/user-12.jpg")
+                                            div.message.
+                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit volutpat. Praesent mattis interdum arcu eu feugiat.
+                        .panel-footer
+                            form(name="send_message_form")
+                                .input-group
+                                    input.form-control.input-sm(type="text",name="message",placeholder="Enter your message here.")
+                                    span.input-group-btn
+                                        button.btn.btn-primary.btn-sm(type="button") Send

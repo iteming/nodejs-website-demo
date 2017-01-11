@@ -39,7 +39,7 @@ router.post('/views', function (req, res, next) {
         case "website":
             var entity = new Website();
             entity.id = website.id;
-            entity.views = website.views+1;
+            entity.views = parseInt(website.views)+1;
             break;
         case "news":
             var entity = new News();
@@ -122,11 +122,11 @@ router.get('/product/list/:categoryid', function (req, res, next) {
 });
 // 获取产品列表
 router.post('/product/list/query', function (req, res, next) {
-    var selectWhat = " A.*,MAX(B.pic_url_loc) pic_url_loc  ";
+    var selectWhat = " A.*,MIN(B.pic_url_loc) pic_url_loc  ";
     var join = " LEFT JOIN picture AS B ON B.key_id = A.id AND B.pic_type = 1 ";
     var whereSql = req.body.categoryid!= undefined && req.body.categoryid!= null && req.body.categoryid!= 0 ?
         util.format(" where A.category_id=%s ", req.body.categoryid) : "";
-    var limitSql = util.format(" order by publish_date desc,A.name Limit %s,%s ", (req.body.page_index - 1) * req.body.page_size, req.body.page_size);
+    var limitSql = util.format(" group by A.id order by publish_date desc,A.name Limit %s,%s ", (req.body.page_index - 1) * req.body.page_size, req.body.page_size);
 
     var sqlClient = new SqlClient();
     var product = new Product();
@@ -495,9 +495,9 @@ router.get('/index_product', function (req, res, next) {
         res.json({status: 1, msg: '', data: product});
         return;
     }
-    var selectWhat = " A.*,MAX(B.pic_url_loc) pic_url_loc ";
+    var selectWhat = " A.*,MIN(B.pic_url_loc) pic_url_loc ";
     var join = " LEFT JOIN picture AS B ON B.key_id = A.id AND B.pic_type = 1 ";
-    var limitSql = util.format(" order by publish_date desc Limit 0,10 ");
+    var limitSql = util.format(" group by A.id order by publish_date desc Limit 0,10 ");
 
     var sqlClient = new SqlClient();
     var product = new Product();

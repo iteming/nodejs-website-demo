@@ -26,7 +26,7 @@ block web_content
                             p: span(ng-bind="item.publish_date")
         .row
             .col-sm-12.side-header 公司相册
-                .pull-right MORE
+                .pull-right: a(href='/photo/list') MORE
             .col-sm-12.side-body.demo-browser
                 .demo-browser-content
                     .col-sm-4(ng-repeat="item in photolist")

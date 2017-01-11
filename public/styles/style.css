@@ -124,5 +124,701 @@ table a:hover, .input-group .btn:hover {
     margin-right: 120px;
 }
 
-/********** 以下打算写web样式 **********/
 /**********  by jiazhaokai  **********/
+
+/********** widget *******************************/
+
+.widget {
+    border-radius: 3px;
+    margin-bottom: 20px;
+    color: #fff;
+    padding: 15px;
+    overflow: hidden
+}
+
+.widget.widget-stats {
+    position: relative
+}
+
+.widget-stats .stats-info h4 {
+    font-size: 12px;
+    margin: 5px 0;
+    color: #fff
+}
+
+.widget-stats .stats-icon {
+    font-size: 42px;
+    height: 56px;
+    width: 56px;
+    text-align: center;
+    line-height: 56px;
+    margin-left: 15px;
+    color: #fff;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    opacity: .2;
+    filter: alpha(opacity=20)
+}
+
+.widget-stats .stats-info p {
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 0
+}
+
+.widget-stats .stats-link a {
+    display: block;
+    margin: 15px -15px -15px;
+    padding: 7px 15px;
+    background: url(../img/transparent/black-0.4.png);
+    background: rgba(0,0,0,.4);
+    text-align: right;
+    color: #ddd;
+    font-weight: 300;
+    text-decoration: none
+}
+
+.widget-stats .stats-link a:focus,.widget-stats .stats-link a:hover {
+    background: url(../img/transparent/black-0.6.png);
+    background: rgba(0,0,0,.6);
+    color: #fff
+}
+
+.widget-stats .stats-icon.stats-icon-lg {
+    font-size: 52px;
+    top: 12px;
+    right: 21px
+}
+
+.widget-stats .stats-title {
+    position: relative;
+    line-height: 1.1;
+    font-size: 12px;
+    margin: 2px 0 7px
+}
+
+.widget-stats .stats-desc,.widget-stats .stats-title {
+    color: #fff;
+    color: rgba(255,255,255,.6)
+}
+
+.widget-stats .stats-desc {
+    font-weight: 300;
+    margin-bottom: 0
+}
+
+.widget-stats .stats-number {
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 10px
+}
+
+.widget-stats .stats-progress {
+    background: url(../img/transparent/black-0.2.png);
+    background: rgba(0,0,0,.2);
+    height: 2px;
+    margin: 0 -15px 12px
+}
+
+.widget-stats .stats-progress .progress-bar {
+    background: #fff
+}
+
+
+
+
+.widget-chart {
+    position: relative;
+    overflow: hidden;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin-bottom: 20px
+}
+
+.widget-chart .chart-title {
+    font-size: 18px!important;
+    color: #fff;
+    font-weight: 300!important;
+    margin: 2px 5px 7px
+}
+
+.widget-chart .chart-title small {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #616D72;
+    color: rgba(255,255,255,.3)
+}
+
+.widget-chart .widget-chart-content {
+    padding: 15px;
+    margin-right: 230px
+}
+
+.widget-chart .widget-chart-sidebar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 230px;
+    padding: 15px
+}
+
+.widget-chart-sidebar .chart-number {
+    font-size: 24px;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 10px
+}
+
+.widget-chart-sidebar .chart-number small {
+    font-size: 12px;
+    color: #616D72;
+    color: rgba(255,255,255,.3);
+    display: block
+}
+
+.widget-chart-sidebar .chart-legend {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-weight: 300;
+    position: absolute;
+    bottom: 10px
+}
+
+.widget-chart-sidebar .chart-legend>li {
+    margin-bottom: 5px;
+    color: #fff
+}
+
+.widget-chart-sidebar .chart-legend>li span {
+    color: #616D72;
+    color: rgba(255,255,255,.3)
+}
+
+
+
+/********** bg *******************************/
+
+.bg-white {
+    background: #fff!important
+}
+
+.bg-silver-lighter {
+    background: #f4f6f7!important
+}
+
+.bg-silver {
+    background: #f0f3f4!important
+}
+
+.bg-silver-darker {
+    background: #b4b6b7!important
+}
+
+.bg-black {
+    background: #2d353c!important
+}
+
+.bg-black-darker {
+    background: #242a30!important
+}
+
+.bg-black-lighter {
+    background: #575d63!important
+}
+
+.bg-grey {
+    background: #b6c2c9!important
+}
+
+.bg-grey-darker {
+    background: #929ba1!important
+}
+
+.bg-grey-lighter {
+    background: #c5ced4!important
+}
+
+.bg-red {
+    background: #ff5b57!important
+}
+
+.bg-red-darker {
+    background: #cc4946!important
+}
+
+.bg-red-lighter {
+    background: #ff7c79!important
+}
+
+.bg-orange {
+    background: #f59c1a!important
+}
+
+.bg-orange-darker {
+    background: #c47d15!important
+}
+
+.bg-orange-lighter {
+    background: #f7b048!important
+}
+
+.bg-yellow {
+    background: #e3fa3e!important
+}
+
+.bg-yellow-darker {
+    background: #b6c832!important
+}
+
+.bg-yellow-lighter {
+    background: #e9fb65!important
+}
+
+.bg-green {
+    background: #00acac!important
+}
+
+.bg-green-darker {
+    background: #008a8a!important
+}
+
+.bg-green-lighter {
+    background: #33bdbd!important
+}
+
+.bg-blue {
+    background: #348fe2!important
+}
+
+.bg-blue-darker {
+    background: #2a72b5!important
+}
+
+.bg-blue-lighter {
+    background: #5da5e8!important
+}
+
+.bg-aqua {
+    background: #49b6d6!important
+}
+
+.bg-aqua-darker {
+    background: #3a92ab!important
+}
+
+.bg-aqua-lighter {
+    background: #6dc5de!important
+}
+
+.bg-purple {
+    background: #727cb6!important
+}
+
+.bg-purple-darker {
+    background: #5b6392!important
+}
+
+.bg-purple-lighter {
+    background: #8e96c5!important
+}
+
+.no-bg {
+    background: none!important
+}
+
+
+
+
+/********** panel *******************************/
+
+.panel {
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px
+}
+
+.panel.panel-no-rounded-corner .panel-body,.panel.panel-no-rounded-corner .panel-footer,.panel.panel-no-rounded-corner .panel-heading {
+    -webkit-border-radius: 0!important;
+    -moz-border-radius: 0!important;
+    border-radius: 0!important
+}
+
+.panel-heading {
+    padding: 10px 15px;
+    border: none
+}
+
+.panel-heading+.slimScrollDiv,.panel-heading+.table {
+    border-top: 1px solid #eee
+}
+
+.panel-heading-btn {
+    float: right
+}
+
+.panel-heading-btn>a {
+    margin-left: 8px
+}
+
+.panel-heading .btn-group .btn {
+    margin-top: -7px
+}
+
+.panel-heading .btn-group .btn.btn-sm {
+    margin-top: -5px
+}
+
+.panel-heading .btn-group .btn.btn-xs {
+    margin-top: -1px
+}
+
+.panel-heading .label.pull-left,.panel-heading .label.pull-right {
+    line-height: 15px
+}
+
+.panel-heading .progress.pull-left,.panel-heading .progress.pull-right {
+    width: 40%;
+    min-width: 120px
+}
+
+.panel-heading+.alert {
+    margin-bottom: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0
+}
+
+.panel-with-tabs.panel-default .panel-heading {
+    background: #c1ccd1;
+    color: #333
+}
+
+.panel-heading .nav-tabs {
+    margin-top: -10px;
+    margin-right: -15px
+}
+
+.panel-heading .nav-tabs>li>a {
+    padding: 10px 15px;
+    line-height: 20px
+}
+
+.panel-title-2 {
+    line-height: 20px;
+    font-size: 12px
+}
+
+.panel-title-2 .accordion-toggle {
+    margin: -10px -15px;
+    padding: 10px 15px
+}
+
+.panel-title-2 .accordion-toggle.accordion-toggle-styled .fa:before {
+    content: '\f056'
+}
+
+.panel-title-2 .accordion-toggle.accordion-toggle-styled.collapsed .fa:before {
+    content: '\f055'
+}
+
+.panel-title-2 .pull-right {
+    line-height: 20px
+}
+
+.panel-toolbar {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 10px 15px;
+    background: #fff
+}
+
+.panel-toolbar+.form-control {
+    margin: -1px 0 0;
+    border-right: none;
+    border-left: none
+}
+
+.panel-group .panel {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px
+}
+
+.form-control+.panel-footer {
+    border-top: none
+}
+
+.panel-body {
+    padding: 15px
+}
+
+.panel-body.no-border {
+    border: none!important
+}
+
+.panel-body.no-padding,.panel-body.panel-form,.panel-body.panel-full-width,.panel-body.panel-table {
+    padding: 0!important
+}
+
+.panel-body.with-table>.table {
+    border: 0;
+    margin: 0
+}
+
+.panel-body.with-table>.table tr:last-child td,.panel-body.with-table>.table tr:last-child th {
+    border-bottom: 0
+}
+
+.panel-default>.panel-heading+.panel-collapse .panel-body {
+    border-top: 1px solid #eee
+}
+
+.panel-footer {
+    background: #fff;
+    border-top: 1px solid #eee
+}
+.panel-footer .btn{
+    height: 35px !important;
+    padding: 1px 5px;
+}
+.panel-footer .btn.btn-primary{
+    color: #fff;
+    background: #348fe2;
+    border-color: #348fe2;
+}
+
+.panel .tab-content {
+    -webkit-border-radius: 0 0 3px 3px;
+    -moz-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px
+}
+
+.panel-default>.panel-heading {
+    background: #fafafa
+}
+
+.panel-danger>.panel-heading,.panel-info>.panel-heading,.panel-inverse>.panel-heading,.panel-primary>.panel-heading,.panel-success>.panel-heading,.panel-warning>.panel-heading {
+    color: #fff
+}
+
+.panel-inverse>.panel-heading {
+    background: #242a30
+}
+
+.panel-success>.panel-heading {
+    background: #008a8a
+}
+
+.panel-warning>.panel-heading {
+    background: #c47d15
+}
+
+.panel-danger>.panel-heading {
+    background: #cc4946
+}
+
+.panel-primary>.panel-heading {
+    background: #2a72b5
+}
+
+.panel-info>.panel-heading {
+    background: #3a92ab
+}
+
+.panel.panel-expand {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    overflow: hidden;
+    z-index: 1080
+}
+
+.panel-expand .height-full,.panel-expand .height-lg,.panel-expand .height-md,.panel-expand .height-sm,.panel-expand .height-xs {
+    height: 100%!important
+}
+
+.panel.panel-expand>.panel-heading .fa.fa-expand:before {
+    content: '\f066'
+}
+
+.panel.panel-expand,.panel.panel-expand>.panel-body,.panel.panel-expand>.panel-heading {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0
+}
+
+.panel.panel-expand>.panel-body {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 40px;
+    overflow-y: scroll;
+    z-index: 1020
+}
+
+.panel.panel-expand>.panel-footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0
+}
+
+.panel.panel-loading .panel-body {
+    position: relative;
+    z-index: 0
+}
+
+.panel.panel-loading.panel-expand .panel-body {
+    position: absolute
+}
+
+.panel.panel-loading .panel-body .panel-loader {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #fff;
+    opacity: .9;
+    filter: alpha(opacity=90);
+    animation: fadeIn .2s;
+    -webkit-animation: fadeIn .2s;
+    z-index: 1020;
+    -webkit-border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px
+}
+
+
+.panel-body .chats {
+    padding: 0
+}
+
+.slimScrollDiv .chats {
+    padding-right: 15px
+}
+
+.chats {
+    list-style-type: none;
+    margin: 0;
+    padding: 12px 15px 15px
+}
+
+.chats>li+li {
+    margin-top: 15px
+}
+
+.chats>li:after,.chats>li:before {
+    content: '';
+    display: table;
+    clear: both
+}
+
+.chats .name {
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    text-decoration: none
+}
+
+.chats .name .label {
+    font-size: 8px;
+    padding: 1px 4px 2px;
+    margin-left: 3px;
+    position: relative;
+    top: -1px
+}
+
+.chats .date-time {
+    font-size: 10px;
+    display: block;
+    float: right;
+    color: #999;
+    margin-top: 3px
+}
+
+.chats .image {
+    float: left;
+    width: 60px;
+    height: 60px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    overflow: hidden
+}
+
+.chats .image img {
+    max-width: 100%
+}
+
+.chats .image+.message {
+    margin-left: 75px
+}
+
+.chats .message {
+    border: 1px solid #ccd0d4;
+    padding: 7px 12px;
+    font-size: 12px;
+    position: relative;
+    background: #fff;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px
+}
+
+.chats .message:after,.chats .message:before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: -14px;
+    border: 7px solid transparent;
+    border-right-color: #ccd0d4
+}
+
+.chats .message:after {
+    left: -13px;
+    border-right-color: #fff
+}
+
+.chats .right .name {
+    text-align: right
+}
+
+.chats .right .date-time {
+    float: left
+}
+
+.chats .right .image {
+    float: right
+}
+
+.chats .right .image+.message {
+    margin-right: 75px;
+    margin-left: 0
+}
+
+.chats .right .message:after,.chats .right .message:before {
+    left: auto;
+    right: -14px;
+    border-right-color: transparent;
+    border-left-color: #ccd0d4
+}
+
+.chats .right .message:after {
+    right: -13px;
+    border-left-color: #fff
+}

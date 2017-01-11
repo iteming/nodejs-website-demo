@@ -23,28 +23,31 @@ block web_content
         .row
             .col-sm-12.side-header 联系方式
             .col-sm-12.side-body
-                form.form-horizontal
-                    //.form-group.mbn
-                    //    label.col-sm-2.control-label.prn: strong 公司名称：
-                    //    .col-sm-10.pln: span.form-control.noborder #{company.company_name}
-                    //.form-group.mbn
-                    //    label.col-sm-2.control-label.prn: strong 公司地址：
-                    //    .col-sm-10.pln: span.form-control.noborder #{company.address}
-                    .form-group.mbn
-                        label.col-sm-2.control-label.prn: strong 联系人：
-                        .col-sm-10.pln: span.form-control.noborder #{contact.contact_name}
-                    .form-group.mbn
-                        label.col-sm-2.control-label.prn: strong 公司电话：
-                        .col-sm-10.pln: span.form-control.noborder #{contact.contact_phone}
-                    .form-group.mbn
-                        label.col-sm-2.control-label.prn: strong 公司传真：
-                        .col-sm-10.pln: span.form-control.noborder #{contact.contact_fax}
-                    .form-group.mbn
-                        label.col-sm-2.control-label.prn: strong 电子邮件：
-                        .col-sm-10.pln: span.form-control.noborder #{contact.contact_email}
-                    .form-group.mbn
-                        label.col-sm-2.control-label.prn: strong 手机号码：
-                        .col-sm-10.pln: span.form-control.noborder #{contact.contact_mobile}
+                .col-sm-8
+                    form.form-horizontal
+                        //.form-group.mbn
+                        //    label.col-sm-3.control-label.prn: strong 公司名称：
+                        //    .col-sm-7.pln: span.form-control.noborder #{company.company_name}
+                        //.form-group.mbn
+                        //    label.col-sm-3.control-label.prn: strong 公司地址：
+                        //    .col-sm-7.pln: span.form-control.noborder #{company.address}
+                        .form-group.mbn
+                            label.col-sm-3.control-label.prn: strong 联系人：
+                            .col-sm-7.pln: span.form-control.noborder #{contact.contact_name}
+                        .form-group.mbn
+                            label.col-sm-3.control-label.prn: strong 公司电话：
+                            .col-sm-7.pln: span.form-control.noborder #{contact.contact_phone}
+                        .form-group.mbn
+                            label.col-sm-3.control-label.prn: strong 公司传真：
+                            .col-sm-7.pln: span.form-control.noborder #{contact.contact_fax}
+                        .form-group.mbn
+                            label.col-sm-3.control-label.prn: strong 电子邮件：
+                            .col-sm-7.pln: span.form-control.noborder #{contact.contact_email}
+                        .form-group.mbn
+                            label.col-sm-3.control-label.prn: strong 手机号码：
+                            .col-sm-7.pln: span.form-control.noborder #{contact.contact_mobile}
+                .col-sm-4
+                    img(src='/img/web/qrcode.jpg',style="width:100%")
         .row
             .col-sm-12.side-header 公司地图
             .col-sm-12.side-body

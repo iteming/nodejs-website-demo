@@ -56,7 +56,7 @@ block cms_content
                                 value="#{website.icp_num}",autocomplete="off")
                                 label.col-sm-2.control-label(for='views') 浏览次数
                                 .col-sm-4: input#views.form-control.parsley-validated(name='views',type='text',placeholder='浏览次数',
-                                value="#{website.views}",autocomplete="off",disabled="disabled")
+                                value="#{website.views}",autocomplete="off",readonly="readonly")
                             .form-group
                                 input#carousel(name='carousel',type='hidden',value="#{website.carousel}")
                                 label.col-sm-2.control-label 轮播图片

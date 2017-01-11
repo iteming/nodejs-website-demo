@@ -144,7 +144,9 @@ append scripts
                     }
                 }
             });
-        });script(type = 'text/javascript').var app1 = angular.module('picturelist', []);
+        });
+    script(type='text/javascript').
+        var app1 = angular.module('picturelist', []);
         app1.controller('picturelistCtrl', function ($scope) {
             $scope.picturelists = [];
             $scope.LoadPicture = function () {
