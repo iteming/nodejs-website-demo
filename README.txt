@@ -1,19 +1,24 @@
-°ÑÎÄ¼şÄÚµÄ install.sh ºÍ NodeTest.zip ÉÏ´«ÖÁ Linux·şÎñÆ÷µÄ  /home Ä¿Â¼ÏÂ¡£
+Nodejså¼€å‘çš„ä¸€æ¬¾å®Œæ•´çš„ï¼Œå¸¦å‰å°å’Œåå°çš„ä¼ä¸šç½‘ç«™demo
+é¢„è§ˆåœ°å€ï¼šhttp://sjzqfjs.com/
 
-Ö´ĞĞÃüÁî¸ø install.sh È¨ÏŞ£¬ÃüÁîÈçÏÂ£º
+
+å®‰è£…æ–¹å¼ï¼š
+æŠŠæ–‡ä»¶å†…çš„ install.sh å’Œ NodeTest.zip ä¸Šä¼ è‡³ LinuxæœåŠ¡å™¨çš„  /home ç›®å½•ä¸‹ã€‚
+
+æ‰§è¡Œå‘½ä»¤ç»™ install.sh æƒé™ï¼Œå‘½ä»¤å¦‚ä¸‹ï¼š
 chmod 777 install.sh
 
-ĞŞ¸Ä install.sh ÀïµÄ mysqlÁ¬½ÓÕÊºÅÃÜÂë¡£
+ä¿®æ”¹ install.sh é‡Œçš„ mysqlè¿æ¥å¸å·å¯†ç ã€‚
 
-Ö´ĞĞ
+æ‰§è¡Œ
 cd /home
 ./install.sh
 
-¿ªÊ¼°²×°£¡
+å¼€å§‹å®‰è£…ï¼
 
-·şÎñÆ÷ĞèÒª°²×°µÄÅäÖÃ£º nodejs, npm, mysql¡£
+æœåŠ¡å™¨éœ€è¦å®‰è£…çš„é…ç½®ï¼š nodejs, npm, mysqlã€‚
 
-ĞŞ¸Ä  NodeTest/routes/jdbc.js ÎÄ¼ş¼ĞÄÚµÄ mysql Á¬½ÓÕÊºÅÃÜÂë¡£
+ä¿®æ”¹  NodeTest/routes/jdbc.js æ–‡ä»¶å¤¹å†…çš„ mysql è¿æ¥å¸å·å¯†ç ã€‚
 
 
 
@@ -21,4 +26,4 @@ cd /home
 
 
 update 2017.01.10 v0.1
-update connect: Ìí¼ÓÃÜÂë¼ÓÃÜ£¬Ä¬ÈÏÃÜÂëÎª zym123456
+update connect: æ·»åŠ å¯†ç åŠ å¯†ï¼Œé»˜è®¤å¯†ç ä¸º zym123456
