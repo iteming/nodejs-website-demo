@@ -264,7 +264,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'zhangyingmin', 'f1f35b4043a7eb7ec3581f15735e0cad', '系统管理员', '1', '2016-12-12 00:00:00', '2016-12-15 00:00:00', 'img/avatar/avatar-iteming.png');
+INSERT INTO `user` VALUES ('1', '', '', '系统管理员', '1', '2016-12-12 00:00:00', '2016-12-15 00:00:00', 'img/avatar/avatar-iteming.png');
 
 -- ----------------------------
 -- Table structure for website
