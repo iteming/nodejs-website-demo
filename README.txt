@@ -25,5 +25,5 @@ cd /home
 
 
 
-update 2017.01.10 v0.1
-update connect: 添加密码加密，默认密码为 zym123456
+last updated 2017.01.10 v0.1
+last update connected by: 添加密码加密，默认密码为 zym123456
