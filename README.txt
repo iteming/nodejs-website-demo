@@ -1,6 +1,10 @@
+
+
+
 Nodejs开发的一款完整的，带前台和后台的企业网站demo
 预览地址：http://sjzqfjs.com/
 
+https://cnodejs.org/topic/58d4be37b3e60b982d089b3a#58d4ce8003d476b42d34c6d4
 
 安装方式：
 把文件内的 install.sh 和 NodeTest.zip 上传至 Linux服务器的  /home 目录下。
@@ -27,3 +31,6 @@ cd /home
 
 update 2017.01.10 v0.1
 update connect: 添加密码加密，默认密码为 zym123456
+
+
+如有好的意见建议，或者需要完善此demo，可私信给我！
