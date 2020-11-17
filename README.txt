@@ -24,7 +24,7 @@ cd /home
 
 修改  NodeTest/routes/jdbc.js 文件夹内的 mysql 连接帐号密码。
 
-
+add the documentation in english
 
 
 
