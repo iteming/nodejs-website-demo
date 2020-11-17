@@ -2,6 +2,7 @@
 
 
 Nodejs开发的一款完整的，带前台和后台的企业网站demo
+A complete enterprise website with front and back office developed.
 预览地址：http://sjzqfjs.com/
 
 https://cnodejs.org/topic/58d4be37b3e60b982d089b3a#58d4ce8003d476b42d34c6d4
